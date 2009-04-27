@@ -1,4 +1,4 @@
-package gkae.zapataparegabeak.gui.erdikoPanelak.erosi;
+package gkae.zapataparegabeak.gui.erdikoPanelak.hornitzaileakKudeatu;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -8,7 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.ListModel;
 import javax.swing.SpringLayout;
-import gkae.zapataparegabeak.gui.erdikoPanelak.erosi.HornitzaileDatuakPanela;
+
+import gkae.zapataparegabeak.gui.erdikoPanelak.hornitzaileakKudeatu.HornitzaileDatuakPanela;
 
 public class HornitzaileakKudeatuPanela extends JPanel {
 

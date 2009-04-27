@@ -1,4 +1,4 @@
-package gkae.zapataparegabeak.gui.erdikoPanelak.erosi;
+package gkae.zapataparegabeak.gui.erdikoPanelak.hornitzaileakKudeatu;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
