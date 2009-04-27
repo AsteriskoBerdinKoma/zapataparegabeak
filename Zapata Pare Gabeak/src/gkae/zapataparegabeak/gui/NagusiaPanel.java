@@ -6,13 +6,16 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
+import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 import gkae.zapataparegabeak.gui.menuPanelak.MenuPanela;
 
 public class NagusiaPanel extends JPanel {
+	private JTextField textField;
 	/**
 	 * 
 	 */
@@ -55,8 +58,6 @@ public class NagusiaPanel extends JPanel {
 			springLayout.putConstraint(SpringLayout.WEST, panel_6, 10, SpringLayout.WEST, this);
 			springLayout_1 = new SpringLayout();
 			panel_6.setLayout(springLayout_1);
-			springLayout.putConstraint(SpringLayout.NORTH, panel_6, 6, SpringLayout.SOUTH, panel_4);
-			springLayout.putConstraint(SpringLayout.SOUTH, panel_6, -6, SpringLayout.NORTH, panel_3);
 			add(panel_6);
 
 			{
@@ -70,18 +71,17 @@ public class NagusiaPanel extends JPanel {
 		}
 		{
 			panel_7 = new JPanel();
-			springLayout.putConstraint(SpringLayout.NORTH, panel_7, 6, SpringLayout.SOUTH, panel_4);
 			springLayout.putConstraint(SpringLayout.WEST, panel_7, -132, SpringLayout.EAST, this);
-			springLayout.putConstraint(SpringLayout.SOUTH, panel_7, -6, SpringLayout.NORTH, panel_3);
 			springLayout.putConstraint(SpringLayout.EAST, panel_7, -10, SpringLayout.EAST, this);
 			add(panel_7);
+			springLayout.putConstraint(SpringLayout.SOUTH, panel_7, -6, SpringLayout.NORTH, panel_3);
+			springLayout.putConstraint(SpringLayout.NORTH, panel_7, 120, SpringLayout.NORTH, this);
 		}
+		JPanel panel_5;
 		{
-			JPanel panel_5 = new JPanel();
+			panel_5 = new JPanel();
 			springLayout.putConstraint(SpringLayout.EAST, panel_6, -6, SpringLayout.WEST, panel_5);
-			springLayout.putConstraint(SpringLayout.NORTH, panel_5, 6, SpringLayout.SOUTH, panel_4);
 			springLayout.putConstraint(SpringLayout.WEST, panel_5, 198, SpringLayout.WEST, this);
-			springLayout.putConstraint(SpringLayout.SOUTH, panel_5, -6, SpringLayout.NORTH, panel_3);
 
 			panel_5.setLayout(new CardLayout(0, 0));
 			{
@@ -104,6 +104,37 @@ public class NagusiaPanel extends JPanel {
 			}
 			springLayout.putConstraint(SpringLayout.EAST, panel_5, -6, SpringLayout.WEST, panel_7);
 			add(panel_5);
+		}
+
+		{
+			final JPanel panel = new JPanel();
+			panel.setLayout(new BorderLayout());
+			add(panel);
+			springLayout.putConstraint(SpringLayout.SOUTH, panel_6, -6, SpringLayout.NORTH, panel_3);
+			springLayout.putConstraint(SpringLayout.NORTH, panel_6, 5, SpringLayout.SOUTH, panel);
+			springLayout.putConstraint(SpringLayout.SOUTH, panel_5, -6, SpringLayout.NORTH, panel_3);
+			springLayout.putConstraint(SpringLayout.NORTH, panel_5, 5, SpringLayout.SOUTH, panel);
+			springLayout.putConstraint(SpringLayout.SOUTH, panel, 115, SpringLayout.NORTH, this);
+			springLayout.putConstraint(SpringLayout.NORTH, panel, 89, SpringLayout.NORTH, this);
+			springLayout.putConstraint(SpringLayout.EAST, panel, -10, SpringLayout.EAST, this);
+			springLayout.putConstraint(SpringLayout.WEST, panel, 10, SpringLayout.WEST, this);
+
+			{
+				final JLabel bilatuLabel = new JLabel();
+				bilatuLabel.setText("Bilaketa:");
+				panel.add(bilatuLabel, BorderLayout.WEST);
+			}
+
+			{
+				textField = new JTextField();
+				panel.add(textField, BorderLayout.CENTER);
+			}
+
+			{
+				final JButton bilatuButton = new JButton();
+				bilatuButton.setText("Bilatu");
+				panel.add(bilatuButton, BorderLayout.EAST);
+			}
 		}
 	}
 }
