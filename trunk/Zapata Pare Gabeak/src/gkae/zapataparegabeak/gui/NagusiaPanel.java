@@ -1,10 +1,12 @@
 package gkae.zapataparegabeak.gui;
 
+import gkae.zapataparegabeak.gui.menuPanelak.LoginPanela;
+import gkae.zapataparegabeak.gui.menuPanelak.MenuPanela;
+
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
-import javax.swing.BoxLayout;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -14,8 +16,6 @@ import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 import javax.swing.SwingConstants;
-import gkae.zapataparegabeak.gui.menuPanelak.MenuPanela;
-import gkae.zapataparegabeak.gui.menuPanelak.LoginPanela;
 
 public class NagusiaPanel extends JPanel {
 	private SpringLayout springLayout_1;
@@ -79,7 +79,7 @@ public class NagusiaPanel extends JPanel {
 				panel_6.add(panel_1);
 				springLayout_1.putConstraint(SpringLayout.EAST, panel_1, -5, SpringLayout.EAST, panel_6);
 				springLayout_1.putConstraint(SpringLayout.WEST, panel_1, 5, SpringLayout.WEST, panel_6);
-				springLayout_1.putConstraint(SpringLayout.SOUTH, panel_1, 160, SpringLayout.NORTH, panel_6);
+				springLayout_1.putConstraint(SpringLayout.SOUTH, panel_1, 145, SpringLayout.NORTH, panel_6);
 				springLayout_1.putConstraint(SpringLayout.NORTH, panel_1, 5, SpringLayout.NORTH, panel_6);
 
 				{
@@ -93,10 +93,10 @@ public class NagusiaPanel extends JPanel {
 				final JPanel panel = new JPanel();
 				panel.setLayout(new CardLayout());
 				panel_6.add(panel);
+				springLayout_1.putConstraint(SpringLayout.SOUTH, panel, -5, SpringLayout.SOUTH, panel_6);
+				springLayout_1.putConstraint(SpringLayout.NORTH, panel, 5, SpringLayout.SOUTH, panel_1);
 				springLayout_1.putConstraint(SpringLayout.EAST, panel, -5, SpringLayout.EAST, panel_6);
 				springLayout_1.putConstraint(SpringLayout.WEST, panel, 5, SpringLayout.WEST, panel_6);
-				springLayout_1.putConstraint(SpringLayout.SOUTH, panel, -5, SpringLayout.SOUTH, panel_6);
-				springLayout_1.putConstraint(SpringLayout.NORTH, panel, 165, SpringLayout.NORTH, panel_6);
 
 				{
 					final MenuPanela menuPanela = new MenuPanela();
@@ -164,10 +164,10 @@ public class NagusiaPanel extends JPanel {
 			final JPanel panel = new JPanel();
 			panel.setLayout(new BorderLayout());
 			add(panel);
+			springLayout.putConstraint(SpringLayout.SOUTH, panel, -5, SpringLayout.NORTH, panel_7);
+			springLayout.putConstraint(SpringLayout.NORTH, panel, 89, SpringLayout.NORTH, this);
 			springLayout.putConstraint(SpringLayout.SOUTH, panel_5, -6, SpringLayout.NORTH, panel_3);
 			springLayout.putConstraint(SpringLayout.NORTH, panel_5, 5, SpringLayout.SOUTH, panel);
-			springLayout.putConstraint(SpringLayout.SOUTH, panel, 115, SpringLayout.NORTH, this);
-			springLayout.putConstraint(SpringLayout.NORTH, panel, 89, SpringLayout.NORTH, this);
 			springLayout.putConstraint(SpringLayout.EAST, panel, -10, SpringLayout.EAST, this);
 			springLayout.putConstraint(SpringLayout.WEST, panel, 10, SpringLayout.WEST, this);
 

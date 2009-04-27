@@ -15,12 +15,12 @@ import org.jdesktop.swingx.JXHyperlink;
 
 public class LoginPanela extends JPanel {
 
+	private JPasswordField passwordField;
+	private JTextField textField;
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JPasswordField passwordField;
-	private JTextField textField;
 	private SpringLayout springLayout;
 	/**
 	 * Create the panel
@@ -31,28 +31,13 @@ public class LoginPanela extends JPanel {
 		setLayout(springLayout);
 		setBorder(new TitledBorder(null, "Kautotu", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
 
-		final JLabel pasahitzaLabel = new JLabel();
-		pasahitzaLabel.setText("Pasahitza:");
-		add(pasahitzaLabel);
-		springLayout.putConstraint(SpringLayout.EAST, pasahitzaLabel, 75, SpringLayout.WEST, this);
-		springLayout.putConstraint(SpringLayout.WEST, pasahitzaLabel, 6, SpringLayout.WEST, this);
-
-		textField = new JTextField();
-		add(textField);
-		springLayout.putConstraint(SpringLayout.SOUTH, pasahitzaLabel, 24, SpringLayout.SOUTH, textField);
-		springLayout.putConstraint(SpringLayout.NORTH, pasahitzaLabel, 5, SpringLayout.SOUTH, textField);
-		springLayout.putConstraint(SpringLayout.EAST, textField, -5, SpringLayout.EAST, this);
-		springLayout.putConstraint(SpringLayout.WEST, textField, 0, SpringLayout.EAST, pasahitzaLabel);
-		springLayout.putConstraint(SpringLayout.SOUTH, textField, 31, SpringLayout.NORTH, this);
-		springLayout.putConstraint(SpringLayout.NORTH, textField, 5, SpringLayout.NORTH, this);
-
 		final JPanel panel = new JPanel();
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		add(panel);
 		springLayout.putConstraint(SpringLayout.EAST, panel, -5, SpringLayout.EAST, this);
 		springLayout.putConstraint(SpringLayout.WEST, panel, 1, SpringLayout.WEST, this);
 		springLayout.putConstraint(SpringLayout.SOUTH, panel, -5, SpringLayout.SOUTH, this);
-		springLayout.putConstraint(SpringLayout.NORTH, panel, 70, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.NORTH, panel, 55, SpringLayout.NORTH, this);
 
 		final JButton kautotuButton = new JButton();
 		kautotuButton.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -64,17 +49,35 @@ public class LoginPanela extends JPanel {
 		izenaEmanHyperlink.setText("Izena eman");
 		panel.add(izenaEmanHyperlink);
 
+		final JLabel erabiltzaileIzenaLabel = new JLabel();
+		erabiltzaileIzenaLabel.setText("Erabiltzaile izena:");
+		add(erabiltzaileIzenaLabel);
+		springLayout.putConstraint(SpringLayout.SOUTH, erabiltzaileIzenaLabel, 20, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.NORTH, erabiltzaileIzenaLabel, 4, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.EAST, erabiltzaileIzenaLabel, 95, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.WEST, erabiltzaileIzenaLabel, 7, SpringLayout.WEST, this);
+
+		final JLabel pasahitzaLabel = new JLabel();
+		pasahitzaLabel.setText("Pasahitza:");
+		add(pasahitzaLabel);
+		springLayout.putConstraint(SpringLayout.EAST, pasahitzaLabel, 94, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.WEST, pasahitzaLabel, 40, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.SOUTH, pasahitzaLabel, 45, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.NORTH, pasahitzaLabel, 29, SpringLayout.NORTH, this);
+
+		textField = new JTextField();
+		add(textField);
+		springLayout.putConstraint(SpringLayout.EAST, textField, -5, SpringLayout.EAST, this);
+		springLayout.putConstraint(SpringLayout.WEST, textField, 0, SpringLayout.EAST, erabiltzaileIzenaLabel);
+		springLayout.putConstraint(SpringLayout.SOUTH, textField, 24, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.NORTH, textField, 4, SpringLayout.NORTH, this);
+
 		passwordField = new JPasswordField();
 		add(passwordField);
-		springLayout.putConstraint(SpringLayout.EAST, passwordField, 0, SpringLayout.EAST, textField);
-		springLayout.putConstraint(SpringLayout.WEST, passwordField, 0, SpringLayout.EAST, pasahitzaLabel);
-		springLayout.putConstraint(SpringLayout.NORTH, passwordField, 0, SpringLayout.NORTH, pasahitzaLabel);
-
-		final JLabel izenaLabel = new JLabel();
-		izenaLabel.setText("Izena:");
-		add(izenaLabel);
-		springLayout.putConstraint(SpringLayout.SOUTH, izenaLabel, 25, SpringLayout.NORTH, this);
-		springLayout.putConstraint(SpringLayout.EAST, izenaLabel, -5, SpringLayout.WEST, textField);
+		springLayout.putConstraint(SpringLayout.EAST, passwordField, -5, SpringLayout.EAST, this);
+		springLayout.putConstraint(SpringLayout.WEST, passwordField, 0, SpringLayout.EAST, erabiltzaileIzenaLabel);
+		springLayout.putConstraint(SpringLayout.SOUTH, passwordField, 47, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.NORTH, passwordField, 27, SpringLayout.NORTH, this);
 		//
 	}
 

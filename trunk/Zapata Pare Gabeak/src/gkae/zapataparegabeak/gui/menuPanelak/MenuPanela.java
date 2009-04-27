@@ -1,7 +1,6 @@
 package gkae.zapataparegabeak.gui.menuPanelak;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
