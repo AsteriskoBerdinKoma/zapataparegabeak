@@ -12,9 +12,12 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
+import javax.swing.SwingConstants;
 import gkae.zapataparegabeak.gui.menuPanelak.MenuPanela;
+import gkae.zapataparegabeak.gui.menuPanelak.LoginPanela;
 
 public class NagusiaPanel extends JPanel {
+	private SpringLayout springLayout_2;
 	private JTextField textField;
 	/**
 	 * 
@@ -26,7 +29,6 @@ public class NagusiaPanel extends JPanel {
 	private JPanel panel_6;
 	private JPanel panel_7;
 	private JLabel label_2;
-	private SpringLayout springLayout_1;
 	
 	/**
 	 * Create the panel.
@@ -42,6 +44,11 @@ public class NagusiaPanel extends JPanel {
 			springLayout.putConstraint(SpringLayout.WEST, panel_4, 10, SpringLayout.WEST, this);
 			springLayout.putConstraint(SpringLayout.SOUTH, panel_4, 84, SpringLayout.NORTH, this);
 			add(panel_4);
+
+			{
+				final JSeparator separator = new JSeparator();
+				panel_4.add(separator, BorderLayout.SOUTH);
+			}
 		}
 		{
 			panel_3 = new JPanel();
@@ -55,35 +62,39 @@ public class NagusiaPanel extends JPanel {
 		}
 		{
 			panel_6 = new JPanel();
-			springLayout.putConstraint(SpringLayout.WEST, panel_6, 10, SpringLayout.WEST, this);
-			springLayout_1 = new SpringLayout();
-			panel_6.setLayout(springLayout_1);
+			panel_6.setLayout(new BorderLayout());
 			add(panel_6);
+			springLayout.putConstraint(SpringLayout.EAST, panel_6, 185, SpringLayout.WEST, this);
+			springLayout.putConstraint(SpringLayout.WEST, panel_6, 10, SpringLayout.WEST, this);
 
 			{
 				final MenuPanela menuPanela = new MenuPanela();
 				panel_6.add(menuPanela);
-				springLayout_1.putConstraint(SpringLayout.EAST, menuPanela, -5, SpringLayout.EAST, panel_6);
-				springLayout_1.putConstraint(SpringLayout.WEST, menuPanela, 5, SpringLayout.WEST, panel_6);
-				springLayout_1.putConstraint(SpringLayout.SOUTH, menuPanela, -5, SpringLayout.SOUTH, panel_6);
-				springLayout_1.putConstraint(SpringLayout.NORTH, menuPanela, 5, SpringLayout.NORTH, panel_6);
 			}
 		}
 		{
 			panel_7 = new JPanel();
-			springLayout.putConstraint(SpringLayout.WEST, panel_7, -132, SpringLayout.EAST, this);
-			springLayout.putConstraint(SpringLayout.EAST, panel_7, -10, SpringLayout.EAST, this);
+			springLayout_2 = new SpringLayout();
+			panel_7.setLayout(springLayout_2);
 			add(panel_7);
-			springLayout.putConstraint(SpringLayout.SOUTH, panel_7, -6, SpringLayout.NORTH, panel_3);
+			springLayout.putConstraint(SpringLayout.SOUTH, panel_7, -43, SpringLayout.SOUTH, this);
 			springLayout.putConstraint(SpringLayout.NORTH, panel_7, 120, SpringLayout.NORTH, this);
+			springLayout.putConstraint(SpringLayout.EAST, panel_7, -10, SpringLayout.EAST, this);
+			springLayout.putConstraint(SpringLayout.WEST, panel_7, -184, SpringLayout.EAST, this);
+
+			{
+				final LoginPanela loginPanela = new LoginPanela();
+				panel_7.add(loginPanela);
+				springLayout_2.putConstraint(SpringLayout.EAST, loginPanela, -5, SpringLayout.EAST, panel_7);
+				springLayout_2.putConstraint(SpringLayout.WEST, loginPanela, 5, SpringLayout.WEST, panel_7);
+				springLayout_2.putConstraint(SpringLayout.SOUTH, loginPanela, 160, SpringLayout.NORTH, panel_7);
+				springLayout_2.putConstraint(SpringLayout.NORTH, loginPanela, 5, SpringLayout.NORTH, panel_7);
+			}
 		}
 		JPanel panel_5;
 		{
 			panel_5 = new JPanel();
-			springLayout.putConstraint(SpringLayout.EAST, panel_6, -6, SpringLayout.WEST, panel_5);
-			springLayout.putConstraint(SpringLayout.WEST, panel_5, 198, SpringLayout.WEST, this);
-
-			panel_5.setLayout(new CardLayout(0, 0));
+			panel_5.setLayout(new BorderLayout());
 			{
 				label_2 = new JLabel("");
 				label_2.setIcon(new ImageIcon(NagusiaPanel.class.getResource("/gkae/zapataparegabeak/resources/banner.jpg")));
@@ -102,8 +113,27 @@ public class NagusiaPanel extends JPanel {
 					panel_8.add(label);
 				}
 			}
-			springLayout.putConstraint(SpringLayout.EAST, panel_5, -6, SpringLayout.WEST, panel_7);
 			add(panel_5);
+			springLayout.putConstraint(SpringLayout.EAST, panel_5, -189, SpringLayout.EAST, this);
+			springLayout.putConstraint(SpringLayout.WEST, panel_5, 5, SpringLayout.EAST, panel_6);
+
+			{
+				final JSeparator separator = new JSeparator();
+				separator.setOrientation(SwingConstants.VERTICAL);
+				panel_5.add(separator, BorderLayout.WEST);
+			}
+
+			{
+				final JSeparator separator = new JSeparator();
+				separator.setOrientation(SwingConstants.VERTICAL);
+				panel_5.add(separator, BorderLayout.EAST);
+			}
+
+			{
+				final JPanel panel = new JPanel();
+				panel.setLayout(new CardLayout());
+				panel_5.add(panel, BorderLayout.CENTER);
+			}
 		}
 
 		{

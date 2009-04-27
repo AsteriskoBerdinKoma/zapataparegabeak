@@ -1,7 +1,8 @@
 package gkae.zapataparegabeak.gui;
 
-import javax.swing.JApplet;
 import java.awt.BorderLayout;
+
+import javax.swing.JApplet;
 
 public class NagusiaApplet extends JApplet {
 	
