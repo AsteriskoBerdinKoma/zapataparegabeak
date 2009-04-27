@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import javax.swing.BoxLayout;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -17,6 +18,7 @@ import gkae.zapataparegabeak.gui.menuPanelak.MenuPanela;
 import gkae.zapataparegabeak.gui.menuPanelak.LoginPanela;
 
 public class NagusiaPanel extends JPanel {
+	private SpringLayout springLayout_1;
 	private SpringLayout springLayout_2;
 	private JTextField textField;
 	/**
@@ -62,14 +64,45 @@ public class NagusiaPanel extends JPanel {
 		}
 		{
 			panel_6 = new JPanel();
-			panel_6.setLayout(new BorderLayout());
+			springLayout_1 = new SpringLayout();
+			panel_6.setLayout(springLayout_1);
 			add(panel_6);
-			springLayout.putConstraint(SpringLayout.EAST, panel_6, 185, SpringLayout.WEST, this);
+			springLayout.putConstraint(SpringLayout.SOUTH, panel_6, -43, SpringLayout.SOUTH, this);
+			springLayout.putConstraint(SpringLayout.NORTH, panel_6, 120, SpringLayout.NORTH, this);
+			springLayout.putConstraint(SpringLayout.EAST, panel_6, 205, SpringLayout.WEST, this);
 			springLayout.putConstraint(SpringLayout.WEST, panel_6, 10, SpringLayout.WEST, this);
 
+			JPanel panel_1;
 			{
-				final MenuPanela menuPanela = new MenuPanela();
-				panel_6.add(menuPanela);
+				panel_1 = new JPanel();
+				panel_1.setLayout(new CardLayout());
+				panel_6.add(panel_1);
+				springLayout_1.putConstraint(SpringLayout.EAST, panel_1, -5, SpringLayout.EAST, panel_6);
+				springLayout_1.putConstraint(SpringLayout.WEST, panel_1, 5, SpringLayout.WEST, panel_6);
+				springLayout_1.putConstraint(SpringLayout.SOUTH, panel_1, 160, SpringLayout.NORTH, panel_6);
+				springLayout_1.putConstraint(SpringLayout.NORTH, panel_1, 5, SpringLayout.NORTH, panel_6);
+
+				{
+					final LoginPanela loginPanela = new LoginPanela();
+					loginPanela.setName("loginPanela");
+					panel_1.add(loginPanela, loginPanela.getName());
+				}
+			}
+
+			{
+				final JPanel panel = new JPanel();
+				panel.setLayout(new CardLayout());
+				panel_6.add(panel);
+				springLayout_1.putConstraint(SpringLayout.EAST, panel, -5, SpringLayout.EAST, panel_6);
+				springLayout_1.putConstraint(SpringLayout.WEST, panel, 5, SpringLayout.WEST, panel_6);
+				springLayout_1.putConstraint(SpringLayout.SOUTH, panel, -5, SpringLayout.SOUTH, panel_6);
+				springLayout_1.putConstraint(SpringLayout.NORTH, panel, 165, SpringLayout.NORTH, panel_6);
+
+				{
+					final MenuPanela menuPanela = new MenuPanela();
+					menuPanela.setName("menuPanela");
+					panel.add(menuPanela, menuPanela.getName());
+				}
 			}
 		}
 		{
@@ -81,15 +114,6 @@ public class NagusiaPanel extends JPanel {
 			springLayout.putConstraint(SpringLayout.NORTH, panel_7, 120, SpringLayout.NORTH, this);
 			springLayout.putConstraint(SpringLayout.EAST, panel_7, -10, SpringLayout.EAST, this);
 			springLayout.putConstraint(SpringLayout.WEST, panel_7, -184, SpringLayout.EAST, this);
-
-			{
-				final LoginPanela loginPanela = new LoginPanela();
-				panel_7.add(loginPanela);
-				springLayout_2.putConstraint(SpringLayout.EAST, loginPanela, -5, SpringLayout.EAST, panel_7);
-				springLayout_2.putConstraint(SpringLayout.WEST, loginPanela, 5, SpringLayout.WEST, panel_7);
-				springLayout_2.putConstraint(SpringLayout.SOUTH, loginPanela, 160, SpringLayout.NORTH, panel_7);
-				springLayout_2.putConstraint(SpringLayout.NORTH, loginPanela, 5, SpringLayout.NORTH, panel_7);
-			}
 		}
 		JPanel panel_5;
 		{
@@ -115,7 +139,7 @@ public class NagusiaPanel extends JPanel {
 			}
 			add(panel_5);
 			springLayout.putConstraint(SpringLayout.EAST, panel_5, -189, SpringLayout.EAST, this);
-			springLayout.putConstraint(SpringLayout.WEST, panel_5, 5, SpringLayout.EAST, panel_6);
+			springLayout.putConstraint(SpringLayout.WEST, panel_5, 210, SpringLayout.WEST, this);
 
 			{
 				final JSeparator separator = new JSeparator();
@@ -140,8 +164,6 @@ public class NagusiaPanel extends JPanel {
 			final JPanel panel = new JPanel();
 			panel.setLayout(new BorderLayout());
 			add(panel);
-			springLayout.putConstraint(SpringLayout.SOUTH, panel_6, -6, SpringLayout.NORTH, panel_3);
-			springLayout.putConstraint(SpringLayout.NORTH, panel_6, 5, SpringLayout.SOUTH, panel);
 			springLayout.putConstraint(SpringLayout.SOUTH, panel_5, -6, SpringLayout.NORTH, panel_3);
 			springLayout.putConstraint(SpringLayout.NORTH, panel_5, 5, SpringLayout.SOUTH, panel);
 			springLayout.putConstraint(SpringLayout.SOUTH, panel, 115, SpringLayout.NORTH, this);
