@@ -79,7 +79,7 @@ public class NagusiaPanel extends JPanel {
 				panel_6.add(panel_1);
 				springLayout_1.putConstraint(SpringLayout.EAST, panel_1, -5, SpringLayout.EAST, panel_6);
 				springLayout_1.putConstraint(SpringLayout.WEST, panel_1, 5, SpringLayout.WEST, panel_6);
-				springLayout_1.putConstraint(SpringLayout.SOUTH, panel_1, 145, SpringLayout.NORTH, panel_6);
+				springLayout_1.putConstraint(SpringLayout.SOUTH, panel_1, 130, SpringLayout.NORTH, panel_6);
 				springLayout_1.putConstraint(SpringLayout.NORTH, panel_1, 5, SpringLayout.NORTH, panel_6);
 
 				{
