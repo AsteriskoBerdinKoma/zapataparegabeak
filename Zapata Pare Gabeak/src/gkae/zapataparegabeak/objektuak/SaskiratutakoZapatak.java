@@ -4,10 +4,15 @@ import java.util.Vector;
 
 public class SaskiratutakoZapatak {
 	
-	public Vector<Zapata> saskikoZapatak;
+	//Singleton pattern instance
+	private static SaskiratutakoZapatak instance;
+	
+	private Vector<Zapata> saskikoZapatak;
 	
 
-	public SaskiratutakoZapatak(){}
+	private SaskiratutakoZapatak(){
+		saskikoZapatak = new Vector<Zapata>();
+	}
 	
 	public void saskiraGehitu(Zapata z){
 		saskikoZapatak.add(z);
@@ -15,5 +20,16 @@ public class SaskiratutakoZapatak {
 	
 	public void saskitikKendu(Zapata z){
 		saskikoZapatak.remove(z);
+	}
+
+	public static SaskiratutakoZapatak getInstance() {
+		if (null == instance)
+			instance = new SaskiratutakoZapatak();
+		return instance;
+	}
+
+	public Vector<Zapata> getSaskikoZapatak() {
+		return this.saskikoZapatak;
+		
 	}
 }
