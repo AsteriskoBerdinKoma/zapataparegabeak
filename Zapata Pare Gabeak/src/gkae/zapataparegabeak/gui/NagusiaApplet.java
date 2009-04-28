@@ -3,6 +3,8 @@ package gkae.zapataparegabeak.gui;
 import java.awt.BorderLayout;
 
 import javax.swing.JApplet;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 public class NagusiaApplet extends JApplet {
 	
@@ -20,6 +22,21 @@ public class NagusiaApplet extends JApplet {
 	 * Create the applet.
 	 */
 	public NagusiaApplet() {
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UnsupportedLookAndFeelException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		{
 			NagusiaPanel nagusiaPanel = new NagusiaPanel();
 			getContentPane().add(nagusiaPanel, BorderLayout.CENTER);
