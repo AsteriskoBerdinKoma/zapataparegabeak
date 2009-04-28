@@ -1,5 +1,6 @@
 package gkae.zapataparegabeak.gui;
 
+import gkae.zapataparegabeak.gui.menuPanelak.ErosketaSaskiaMenuPanel;
 import gkae.zapataparegabeak.gui.menuPanelak.LoginPanela;
 import gkae.zapataparegabeak.gui.menuPanelak.MenuPanela;
 
@@ -8,18 +9,18 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 
+import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
-import javax.swing.SpringLayout;
+import javax.swing.LayoutStyle;
 import javax.swing.SwingConstants;
 
 public class NagusiaPanel extends JPanel {
-	private SpringLayout springLayout_1;
-	private SpringLayout springLayout_2;
 	private JTextField textField;
 	/**
 	 * 
@@ -36,16 +37,10 @@ public class NagusiaPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public NagusiaPanel() {
-		SpringLayout springLayout = new SpringLayout();
-		setLayout(springLayout);
 		{
 			panel_4 = new JPanel();
 			panel_4.setBackground(Color.BLACK);
 			panel_4.setLayout(new BorderLayout(0, 0));
-			springLayout.putConstraint(SpringLayout.NORTH, panel_4, 10, SpringLayout.NORTH, this);
-			springLayout.putConstraint(SpringLayout.WEST, panel_4, 10, SpringLayout.WEST, this);
-			springLayout.putConstraint(SpringLayout.SOUTH, panel_4, 84, SpringLayout.NORTH, this);
-			add(panel_4);
 
 			{
 				final JSeparator separator = new JSeparator();
@@ -54,33 +49,15 @@ public class NagusiaPanel extends JPanel {
 		}
 		{
 			panel_3 = new JPanel();
-			springLayout.putConstraint(SpringLayout.EAST, panel_4, 0, SpringLayout.EAST, panel_3);
-			springLayout.putConstraint(SpringLayout.WEST, panel_3, 10, SpringLayout.WEST, this);
-			springLayout.putConstraint(SpringLayout.EAST, panel_3, -10, SpringLayout.EAST, this);
 			panel_3.setLayout(new BorderLayout(0, 0));
-			springLayout.putConstraint(SpringLayout.NORTH, panel_3, -37, SpringLayout.SOUTH, this);
-			springLayout.putConstraint(SpringLayout.SOUTH, panel_3, -10, SpringLayout.SOUTH, this);
-			add(panel_3);
 		}
 		{
 			panel_6 = new JPanel();
-			springLayout_1 = new SpringLayout();
-			panel_6.setLayout(springLayout_1);
-			add(panel_6);
-			springLayout.putConstraint(SpringLayout.SOUTH, panel_6, -43, SpringLayout.SOUTH, this);
-			springLayout.putConstraint(SpringLayout.NORTH, panel_6, 120, SpringLayout.NORTH, this);
-			springLayout.putConstraint(SpringLayout.EAST, panel_6, 205, SpringLayout.WEST, this);
-			springLayout.putConstraint(SpringLayout.WEST, panel_6, 10, SpringLayout.WEST, this);
 
 			JPanel panel_1;
 			{
 				panel_1 = new JPanel();
 				panel_1.setLayout(new CardLayout());
-				panel_6.add(panel_1);
-				springLayout_1.putConstraint(SpringLayout.EAST, panel_1, -5, SpringLayout.EAST, panel_6);
-				springLayout_1.putConstraint(SpringLayout.WEST, panel_1, 5, SpringLayout.WEST, panel_6);
-				springLayout_1.putConstraint(SpringLayout.SOUTH, panel_1, 130, SpringLayout.NORTH, panel_6);
-				springLayout_1.putConstraint(SpringLayout.NORTH, panel_1, 5, SpringLayout.NORTH, panel_6);
 
 				{
 					final LoginPanela loginPanela = new LoginPanela();
@@ -89,14 +66,10 @@ public class NagusiaPanel extends JPanel {
 				}
 			}
 
+			JPanel panel;
 			{
-				final JPanel panel = new JPanel();
+				panel = new JPanel();
 				panel.setLayout(new CardLayout());
-				panel_6.add(panel);
-				springLayout_1.putConstraint(SpringLayout.SOUTH, panel, -5, SpringLayout.SOUTH, panel_6);
-				springLayout_1.putConstraint(SpringLayout.NORTH, panel, 5, SpringLayout.SOUTH, panel_1);
-				springLayout_1.putConstraint(SpringLayout.EAST, panel, -5, SpringLayout.EAST, panel_6);
-				springLayout_1.putConstraint(SpringLayout.WEST, panel, 5, SpringLayout.WEST, panel_6);
 
 				{
 					final MenuPanela menuPanela = new MenuPanela();
@@ -104,16 +77,40 @@ public class NagusiaPanel extends JPanel {
 					panel.add(menuPanela, menuPanela.getName());
 				}
 			}
+			final GroupLayout groupLayout = new GroupLayout((JComponent) panel_6);
+			groupLayout.setHorizontalGroup(
+				groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+					.addComponent(panel, GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+			);
+			groupLayout.setVerticalGroup(
+				groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addGroup(groupLayout.createSequentialGroup()
+						.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
+						.addGap(5, 5, 5)
+						.addComponent(panel, GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE))
+			);
+			panel_6.setLayout(groupLayout);
 		}
 		{
 			panel_7 = new JPanel();
-			springLayout_2 = new SpringLayout();
-			panel_7.setLayout(springLayout_2);
-			add(panel_7);
-			springLayout.putConstraint(SpringLayout.SOUTH, panel_7, -43, SpringLayout.SOUTH, this);
-			springLayout.putConstraint(SpringLayout.NORTH, panel_7, 120, SpringLayout.NORTH, this);
-			springLayout.putConstraint(SpringLayout.EAST, panel_7, -10, SpringLayout.EAST, this);
-			springLayout.putConstraint(SpringLayout.WEST, panel_7, -184, SpringLayout.EAST, this);
+
+			ErosketaSaskiaMenuPanel erosketaSaskiaMenuPanel;
+			{
+				erosketaSaskiaMenuPanel = new ErosketaSaskiaMenuPanel();
+			}
+			final GroupLayout groupLayout = new GroupLayout((JComponent) panel_7);
+			groupLayout.setHorizontalGroup(
+				groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addComponent(erosketaSaskiaMenuPanel, GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+			);
+			groupLayout.setVerticalGroup(
+				groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addGroup(groupLayout.createSequentialGroup()
+						.addComponent(erosketaSaskiaMenuPanel, GroupLayout.PREFERRED_SIZE, 261, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(358, Short.MAX_VALUE))
+			);
+			panel_7.setLayout(groupLayout);
 		}
 		JPanel panel_5;
 		{
@@ -137,9 +134,6 @@ public class NagusiaPanel extends JPanel {
 					panel_8.add(label);
 				}
 			}
-			add(panel_5);
-			springLayout.putConstraint(SpringLayout.EAST, panel_5, -189, SpringLayout.EAST, this);
-			springLayout.putConstraint(SpringLayout.WEST, panel_5, 210, SpringLayout.WEST, this);
 
 			{
 				final JSeparator separator = new JSeparator();
@@ -160,33 +154,61 @@ public class NagusiaPanel extends JPanel {
 			}
 		}
 
+		JPanel panel_2;
 		{
-			final JPanel panel = new JPanel();
-			panel.setLayout(new BorderLayout());
-			add(panel);
-			springLayout.putConstraint(SpringLayout.SOUTH, panel, -5, SpringLayout.NORTH, panel_7);
-			springLayout.putConstraint(SpringLayout.NORTH, panel, 89, SpringLayout.NORTH, this);
-			springLayout.putConstraint(SpringLayout.SOUTH, panel_5, -6, SpringLayout.NORTH, panel_3);
-			springLayout.putConstraint(SpringLayout.NORTH, panel_5, 5, SpringLayout.SOUTH, panel);
-			springLayout.putConstraint(SpringLayout.EAST, panel, -10, SpringLayout.EAST, this);
-			springLayout.putConstraint(SpringLayout.WEST, panel, 10, SpringLayout.WEST, this);
+			panel_2 = new JPanel();
+			panel_2.setLayout(new BorderLayout());
 
 			{
 				final JLabel bilatuLabel = new JLabel();
 				bilatuLabel.setText("Bilaketa:");
-				panel.add(bilatuLabel, BorderLayout.WEST);
+				panel_2.add(bilatuLabel, BorderLayout.WEST);
 			}
 
 			{
 				textField = new JTextField();
-				panel.add(textField, BorderLayout.CENTER);
+				panel_2.add(textField, BorderLayout.CENTER);
 			}
 
 			{
 				final JButton bilatuButton = new JButton();
 				bilatuButton.setText("Bilatu");
-				panel.add(bilatuButton, BorderLayout.EAST);
+				panel_2.add(bilatuButton, BorderLayout.EAST);
 			}
 		}
+		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(10, 10, 10)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(panel_4, GroupLayout.DEFAULT_SIZE, 1034, Short.MAX_VALUE)
+						.addComponent(panel_2, GroupLayout.DEFAULT_SIZE, 1034, Short.MAX_VALUE)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(panel_6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addGap(5, 5, 5)
+							.addComponent(panel_5, GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addComponent(panel_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(panel_3, GroupLayout.DEFAULT_SIZE, 1034, Short.MAX_VALUE))
+					.addGap(10, 10, 10))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(10, 10, 10)
+					.addComponent(panel_4, GroupLayout.PREFERRED_SIZE, 74, GroupLayout.PREFERRED_SIZE)
+					.addGap(5, 5, 5)
+					.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(5, 5, 5)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(panel_5, GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
+						.addComponent(panel_7, GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
+						.addComponent(panel_6, GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(panel_3, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
+					.addGap(10, 10, 10))
+		);
+		setLayout(groupLayout);
 	}
 }
