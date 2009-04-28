@@ -19,9 +19,9 @@ public class ArtikuluenHobespenak extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JTextField textField;
-	private ButtonGroup buttonGroup_1 = new ButtonGroup();
-	private ButtonGroup buttonGroup = new ButtonGroup();
+	private JTextField oinNeurriaTextField;
+	private ButtonGroup buttonGroupGenero = new ButtonGroup();
+	private ButtonGroup buttonGroupOina = new ButtonGroup();
 	/**
 	 * Create the panel
 	 */
@@ -33,8 +33,8 @@ public class ArtikuluenHobespenak extends JPanel {
 		izenaEmanArtikulueiLabel.setFont(new Font("Sans", Font.PLAIN, 18));
 		izenaEmanArtikulueiLabel.setText("Izena Eman: Artikuluei Buruzko Hobespenak");
 
-		JSeparator separator;
-		separator = new JSeparator();
+		JSeparator separator_3;
+		separator_3 = new JSeparator();
 
 		JLabel zureGustuakEzagututaLabel;
 		zureGustuakEzagututaLabel = new JLabel();
@@ -61,74 +61,74 @@ public class ArtikuluenHobespenak extends JPanel {
 
 		JRadioButton emakumeaRadioButton;
 		emakumeaRadioButton = new JRadioButton();
-		buttonGroup_1.add(emakumeaRadioButton);
+		buttonGroupGenero.add(emakumeaRadioButton);
 		emakumeaRadioButton.setText("Emakumezkoa");
 
 		JRadioButton gizonezkoaRadioButton;
 		gizonezkoaRadioButton = new JRadioButton();
-		buttonGroup_1.add(gizonezkoaRadioButton);
+		buttonGroupGenero.add(gizonezkoaRadioButton);
 		gizonezkoaRadioButton.setText("Gizonezkoa");
 
 		JRadioButton eskuinOinaRadioButton;
 		eskuinOinaRadioButton = new JRadioButton();
-		buttonGroup.add(eskuinOinaRadioButton);
+		buttonGroupOina.add(eskuinOinaRadioButton);
 		eskuinOinaRadioButton.setText("Eskuin Oina");
 
 		JRadioButton ezkerOinaRadioButton;
 		ezkerOinaRadioButton = new JRadioButton();
-		buttonGroup.add(ezkerOinaRadioButton);
+		buttonGroupOina.add(ezkerOinaRadioButton);
 		ezkerOinaRadioButton.setText("Ezker Oina");
 
 		JLabel lehenetsitakoNeurriaLabel;
 		lehenetsitakoNeurriaLabel = new JLabel();
 		lehenetsitakoNeurriaLabel.setText("Lehenetsitako Neurria:");
 
-		textField = new JTextField();
+		oinNeurriaTextField = new JTextField();
 
-		JButton bukatuButton;
-		bukatuButton = new JButton();
-		bukatuButton.setText("Bukatu");
-		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
+		JButton bukatuDenaButton;
+		bukatuDenaButton = new JButton();
+		bukatuDenaButton.setText("Bukatu");
+		final GroupLayout groupLayout_3 = new GroupLayout((JComponent) this);
+		groupLayout_3.setHorizontalGroup(
+			groupLayout_3.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(groupLayout_3.createSequentialGroup()
+					.addGroup(groupLayout_3.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addGroup(groupLayout_3.createSequentialGroup()
 							.addContainerGap()
-							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-								.addComponent(separator, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+							.addGroup(groupLayout_3.createParallelGroup(GroupLayout.Alignment.LEADING)
+								.addComponent(separator_3, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
 								.addComponent(izenaEmanArtikulueiLabel)
 								.addComponent(zureGustuakEzagututaLabel)
 								.addComponent(bidaliDiezazukeguEtaLabel)
 								.addComponent(agertukoDiraEdonolakoLabel)
 								.addComponent(lehenetsitakoGeneroaLabel)
-								.addGroup(groupLayout.createSequentialGroup()
+								.addGroup(groupLayout_3.createSequentialGroup()
 									.addGap(12, 12, 12)
-									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+									.addGroup(groupLayout_3.createParallelGroup(GroupLayout.Alignment.LEADING)
 										.addComponent(gizonezkoaRadioButton)
 										.addComponent(emakumeaRadioButton)))
 								.addComponent(lehenetsitakoOinaLabel)
-								.addGroup(groupLayout.createSequentialGroup()
+								.addGroup(groupLayout_3.createSequentialGroup()
 									.addGap(12, 12, 12)
-									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+									.addGroup(groupLayout_3.createParallelGroup(GroupLayout.Alignment.LEADING)
 										.addComponent(ezkerOinaRadioButton)
 										.addComponent(eskuinOinaRadioButton)))
-								.addGroup(groupLayout.createSequentialGroup()
+								.addGroup(groupLayout_3.createSequentialGroup()
 									.addComponent(lehenetsitakoNeurriaLabel)
 									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-									.addComponent(textField, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE))))
-						.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(oinNeurriaTextField, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE))))
+						.addGroup(groupLayout_3.createSequentialGroup()
 							.addGap(192, 192, 192)
-							.addComponent(bukatuButton)))
+							.addComponent(bukatuDenaButton)))
 					.addContainerGap())
 		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
+		groupLayout_3.setVerticalGroup(
+			groupLayout_3.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(groupLayout_3.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(izenaEmanArtikulueiLabel)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(separator, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
+					.addComponent(separator_3, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
 					.addGap(20, 20, 20)
 					.addComponent(zureGustuakEzagututaLabel)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -148,14 +148,14 @@ public class ArtikuluenHobespenak extends JPanel {
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(ezkerOinaRadioButton)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+					.addGroup(groupLayout_3.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(lehenetsitakoNeurriaLabel)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(oinNeurriaTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-					.addComponent(bukatuButton)
+					.addComponent(bukatuDenaButton)
 					.addContainerGap())
 		);
-		setLayout(groupLayout);
+		setLayout(groupLayout_3);
 		//
 	}
 

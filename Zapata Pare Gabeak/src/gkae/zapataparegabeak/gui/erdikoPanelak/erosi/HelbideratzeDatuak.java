@@ -1,14 +1,15 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.erosi;
 
 import java.awt.Font;
+
 import javax.swing.GroupLayout;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
-import javax.swing.SpringLayout;
 
 public class HelbideratzeDatuak extends JPanel {
 
@@ -41,7 +42,7 @@ public class HelbideratzeDatuak extends JPanel {
 		JLabel helbideratzeDatuakLabel;
 		helbideratzeDatuakLabel = new JLabel();
 		helbideratzeDatuakLabel.setFont(new Font("", Font.PLAIN, 18));
-		helbideratzeDatuakLabel.setText("Bidalketaren Hartzailearen Datuak");
+		helbideratzeDatuakLabel.setText("Erosi: Bidalketaren Hartzailearen Datuak");
 
 		JLabel hartzailearenIzenaLabel;
 		hartzailearenIzenaLabel = new JLabel();
@@ -78,37 +79,44 @@ public class HelbideratzeDatuak extends JPanel {
 		probintziaLabel.setText("Probintzia:");
 
 		comboBox = new JComboBox(probintziak);
+
+		JSeparator separator;
+		separator = new JSeparator();
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addGroup(GroupLayout.Alignment.TRAILING, groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+							.addGroup(GroupLayout.Alignment.LEADING, groupLayout.createSequentialGroup()
+								.addContainerGap()
+								.addComponent(separator, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE))
+							.addGroup(GroupLayout.Alignment.LEADING, groupLayout.createSequentialGroup()
+								.addGap(20, 20, 20)
+								.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+									.addComponent(textField_2, GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
+									.addComponent(helbideaadibSantaLabel)
+									.addGroup(groupLayout.createSequentialGroup()
+										.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+											.addComponent(hartzailearenIzenaLabel, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
+											.addComponent(hartzailearenAbizenakLabel))
+										.addGap(24, 24, 24)
+										.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+											.addComponent(textField, GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
+											.addComponent(textField_1, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)))
+									.addGroup(groupLayout.createSequentialGroup()
+										.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+											.addComponent(postakutxatilaLabel)
+											.addComponent(hiriaLabel)
+											.addComponent(probintziaLabel, GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE))
+										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+										.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+											.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 155, GroupLayout.PREFERRED_SIZE)
+											.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, 255, GroupLayout.PREFERRED_SIZE)
+											.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))))))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addContainerGap()
-							.addComponent(helbideratzeDatuakLabel))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(20, 20, 20)
-							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-								.addComponent(textField_2, GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
-								.addComponent(helbideaadibSantaLabel)
-								.addGroup(groupLayout.createSequentialGroup()
-									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-										.addComponent(hartzailearenIzenaLabel, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
-										.addComponent(hartzailearenAbizenakLabel))
-									.addGap(24, 24, 24)
-									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-										.addComponent(textField, GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
-										.addComponent(textField_1, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)))
-								.addGroup(groupLayout.createSequentialGroup()
-									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-										.addComponent(postakutxatilaLabel)
-										.addComponent(hiriaLabel)
-										.addComponent(probintziaLabel, GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE))
-									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-										.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 155, GroupLayout.PREFERRED_SIZE)
-										.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, 255, GroupLayout.PREFERRED_SIZE)
-										.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))))))
+							.addComponent(helbideratzeDatuakLabel)))
 					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
@@ -116,6 +124,8 @@ public class HelbideratzeDatuak extends JPanel {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(helbideratzeDatuakLabel)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(separator, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addGap(19, 19, 19)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(hartzailearenIzenaLabel)

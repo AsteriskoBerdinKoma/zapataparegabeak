@@ -1,8 +1,8 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.izenaEman;
 
 import java.awt.Font;
-import javax.swing.ButtonGroup;
 
+import javax.swing.ButtonGroup;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -14,10 +14,12 @@ import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 public class BidalketaHobespenak extends JPanel {
 
-	private ButtonGroup buttonGroup = new ButtonGroup();
+	private ButtonGroup buttonGroupOrdainketa = new ButtonGroup();
 	/**
 	 * 
 	 */
@@ -26,10 +28,25 @@ public class BidalketaHobespenak extends JPanel {
 	private JTextField textField_5;
 	private JTextField textField_4;
 	private JComboBox comboBox;
+	
+	private String[] probintziak = new String[]{"Araba","Albacete","Alacant","Almeria","Asturias","Avila","Badajoz",
+			"Bartzelona","Balear irlak","Bizkaia","Burgos","Caceres","Cadiz","Castello",
+			"Ciudad Real","Coru�a","Cuenca","Errioxa","Gipuzkoa","Girona","Granada",
+			"Guadalajara","Huelva","Huesca","Jaen","Kantabria","Kordoba","Leon","Lleida",
+			"Lugo","Madrilgo Erkidegoa","Malaga","Murtziako Erkidegoa","Nafarroa",
+			"Ourense","Palentzia","Las Palmas","Pontevedra","Salamanca","Segovia",
+			"Sevilla","Soria","Tarragona","Tenerife","Teruel","Toledo","Valentzia",
+			"Valladolid","Zamora","Zaragoza"};
+	
 	private JTextField textField_3;
 	private JTextField textField_2;
 	private JTextField textField_1;
 	private JTextField textField;
+	
+	private JRadioButton jasotzeanOrdaintzekoMetodoaRadioButton;
+	private JRadioButton txartelBidezkoOrdainketaRadioButton;
+	private JPanel txartelInfoPanel;
+	
 	/**
 	 * Create the panel
 	 */
@@ -41,8 +58,8 @@ public class BidalketaHobespenak extends JPanel {
 		izenaEmanBidalketaLabel.setFont(new Font("Sans", Font.PLAIN, 18));
 		izenaEmanBidalketaLabel.setText("Izena Eman: Bidalketa Hobespenak");
 
-		JSeparator separator;
-		separator = new JSeparator();
+		JSeparator separator_2;
+		separator_2 = new JSeparator();
 
 		JLabel hartzailearenIzenaLabel;
 		hartzailearenIzenaLabel = new JLabel();
@@ -72,25 +89,27 @@ public class BidalketaHobespenak extends JPanel {
 		probintziaLabel = new JLabel();
 		probintziaLabel.setText("Hartzailearen Probintzia:");
 
-		comboBox = new JComboBox();
+		comboBox = new JComboBox(probintziak);
 
 		JLabel ordainketaMotaLabel;
 		ordainketaMotaLabel = new JLabel();
 		ordainketaMotaLabel.setText("Ordainketa Mota Lehenetsia:");
 
-		JRadioButton jasotzeanOrdaintzekoMetodoaRadioButton;
 		jasotzeanOrdaintzekoMetodoaRadioButton = new JRadioButton();
-		buttonGroup.add(jasotzeanOrdaintzekoMetodoaRadioButton);
+		
+		jasotzeanOrdaintzekoMetodoaRadioButton.setSelected(true);
+		buttonGroupOrdainketa.add(jasotzeanOrdaintzekoMetodoaRadioButton);
 		jasotzeanOrdaintzekoMetodoaRadioButton.setText("Jasotzean ordaintzea");
 
-		JRadioButton txartelBidezkoOrdainketaRadioButton;
 		txartelBidezkoOrdainketaRadioButton = new JRadioButton();
-		buttonGroup.add(txartelBidezkoOrdainketaRadioButton);
+		
+		buttonGroupOrdainketa.add(txartelBidezkoOrdainketaRadioButton);
 		txartelBidezkoOrdainketaRadioButton.setText("Txartel bidezko ordainketa");
 
-		JPanel panel;
-		panel = new JPanel();
-		panel.setBorder(new TitledBorder(null, "", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
+		
+		txartelInfoPanel = new JPanel();
+		txartelInfoPanel.setVisible(false);
+		txartelInfoPanel.setBorder(new TitledBorder(null, "", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
 
 		JLabel jabearenIzenabizenakLabel;
 		jabearenIzenabizenakLabel = new JLabel();
@@ -114,14 +133,14 @@ public class BidalketaHobespenak extends JPanel {
 		uuuuhheeLabel = new JLabel();
 		uuuuhheeLabel.setText("(UUUU/hh/ee)");
 
-		JButton bukatuButton;
-		bukatuButton = new JButton();
-		bukatuButton.setText("Bukatu");
+		JButton bukatuBidalketaButton;
+		bukatuBidalketaButton = new JButton();
+		bukatuBidalketaButton.setText("Bukatu");
 
 		JButton artikulueiBuruzkoHobespenakButton;
 		artikulueiBuruzkoHobespenakButton = new JButton();
 		artikulueiBuruzkoHobespenakButton.setText("Artikuluei Buruzko Hobespenak Eman");
-		final GroupLayout groupLayout_1 = new GroupLayout((JComponent) panel);
+		final GroupLayout groupLayout_1 = new GroupLayout((JComponent) txartelInfoPanel);
 		groupLayout_1.setHorizontalGroup(
 			groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(groupLayout_1.createSequentialGroup()
@@ -157,65 +176,85 @@ public class BidalketaHobespenak extends JPanel {
 						.addComponent(uuuuhheeLabel))
 					.addContainerGap(16, Short.MAX_VALUE))
 		);
-		panel.setLayout(groupLayout_1);
-		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
+		txartelInfoPanel.setLayout(groupLayout_1);
+		//
+		
+		txartelBidezkoOrdainketaRadioButton.addChangeListener(new ChangeListener() {
+			public void stateChanged(final ChangeEvent e) {
+				if (txartelBidezkoOrdainketaRadioButton.isSelected()){
+					txartelInfoPanel.setVisible(true);
+					panelValidation();
+				}
+			}
+		});
+		
+		jasotzeanOrdaintzekoMetodoaRadioButton.addChangeListener(new ChangeListener() {
+			public void stateChanged(final ChangeEvent e) {
+				if(jasotzeanOrdaintzekoMetodoaRadioButton.isSelected()){
+					txartelInfoPanel.setVisible(false);
+					panelValidation();
+				}
+			}
+		});
+		final GroupLayout groupLayout_2 = new GroupLayout((JComponent) this);
+		groupLayout_2.setHorizontalGroup(
+			groupLayout_2.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(groupLayout_2.createSequentialGroup()
+					.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addGroup(groupLayout_2.createSequentialGroup()
 							.addContainerGap()
-							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+							.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.LEADING)
 								.addComponent(textField_2, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
-								.addComponent(separator, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+								.addComponent(separator_2, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
 								.addComponent(izenaEmanBidalketaLabel)
 								.addComponent(helbideaadibSantaLabel)
-								.addGroup(groupLayout.createSequentialGroup()
-									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+								.addGroup(groupLayout_2.createSequentialGroup()
+									.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.LEADING)
 										.addComponent(hartzailearenAbizenakLabel)
 										.addComponent(hartzailearenIzenaLabel))
 									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+									.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.LEADING)
 										.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
 										.addComponent(textField, GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)))
-								.addGroup(groupLayout.createSequentialGroup()
-									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+								.addGroup(groupLayout_2.createSequentialGroup()
+									.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.LEADING)
 										.addComponent(postakutxatilaLabel)
 										.addComponent(probintziaLabel))
 									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+									.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.LEADING, false)
 										.addComponent(textField_3)
 										.addComponent(comboBox, 0, 135, Short.MAX_VALUE))
 									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE))
 								.addComponent(ordainketaMotaLabel)))
-						.addGroup(groupLayout.createSequentialGroup()
+						.addGroup(groupLayout_2.createSequentialGroup()
 							.addGap(47, 47, 47)
-							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+							.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.LEADING)
 								.addComponent(txartelBidezkoOrdainketaRadioButton)
 								.addComponent(jasotzeanOrdaintzekoMetodoaRadioButton)
-								.addGroup(groupLayout.createSequentialGroup()
+								.addGroup(groupLayout_2.createSequentialGroup()
 									.addGap(21, 21, 21)
-									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-										.addGroup(groupLayout.createSequentialGroup()
-											.addComponent(bukatuButton)
+									.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.LEADING)
+										.addGroup(groupLayout_2.createSequentialGroup()
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+											.addComponent(bukatuBidalketaButton)
 											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 											.addComponent(artikulueiBuruzkoHobespenakButton))
-										.addComponent(panel, GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE))))))
+										.addComponent(txartelInfoPanel, GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE))))))
 					.addContainerGap())
 		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
+		groupLayout_2.setVerticalGroup(
+			groupLayout_2.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(groupLayout_2.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(izenaEmanBidalketaLabel)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(separator, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
+					.addComponent(separator_2, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
 					.addGap(15, 15, 15)
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+					.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(hartzailearenIzenaLabel)
 						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+					.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(hartzailearenAbizenakLabel)
 						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -223,11 +262,11 @@ public class BidalketaHobespenak extends JPanel {
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+					.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(postakutxatilaLabel)
 						.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+					.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(probintziaLabel)
 						.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
 					.addGap(25, 25, 25)
@@ -237,15 +276,26 @@ public class BidalketaHobespenak extends JPanel {
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(txartelBidezkoOrdainketaRadioButton)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(bukatuButton)
+					.addComponent(txartelInfoPanel, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(bukatuBidalketaButton)
 						.addComponent(artikulueiBuruzkoHobespenakButton))
 					.addContainerGap())
 		);
-		setLayout(groupLayout);
-		//
+		setLayout(groupLayout_2);
 	}
 
+	public void panelValidation(){
+		this.revalidate();
+	}
+	
+//	public static void main(String[] args){
+//		JFrame j = new JFrame("Frogak");
+//		BidalketaHobespenak o = new BidalketaHobespenak();
+//		j.add(o);
+//		j.setSize(o.getSize());
+//		j.setVisible(true);
+//		j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//	}
 }
