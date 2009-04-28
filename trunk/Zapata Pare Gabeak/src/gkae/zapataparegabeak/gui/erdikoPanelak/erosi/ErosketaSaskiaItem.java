@@ -1,15 +1,20 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.erosi;
 
+import gkae.zapataparegabeak.objektuak.Kudeaketa;
+import gkae.zapataparegabeak.objektuak.SaskiratutakoZapatak;
 import gkae.zapataparegabeak.objektuak.Zapata;
 
 import java.awt.Color;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpringLayout;
+import javax.swing.border.EtchedBorder;
 
 import com.swtdesigner.SwingResourceManager;
 
@@ -27,11 +32,14 @@ public class ErosketaSaskiaItem extends JPanel {
 	private JLabel irudiaLabel;
 	private JButton saskitikEzabatuButton;
 	
+	private Zapata informazioa;
+	
 	/**
 	 * Create the panel
 	 */
 	public ErosketaSaskiaItem() {
 		super();
+		setBorder(new EtchedBorder(EtchedBorder.LOWERED));
 		springLayout = new SpringLayout();
 		setLayout(springLayout);
 
@@ -55,7 +63,7 @@ public class ErosketaSaskiaItem extends JPanel {
 		add(artikuluarenIzenaLabel);
 
 		label = new JLabel();
-		label.setText("0.0 €");
+		label.setText("0.0 �");
 		add(label);
 		springLayout.putConstraint(SpringLayout.EAST, label, 75, SpringLayout.EAST, prezioaLabel);
 		springLayout.putConstraint(SpringLayout.WEST, label, 5, SpringLayout.EAST, prezioaLabel);
@@ -76,12 +84,21 @@ public class ErosketaSaskiaItem extends JPanel {
 		springLayout.putConstraint(SpringLayout.NORTH, irudiaLabel, 5, SpringLayout.NORTH, this);
 
 		saskitikEzabatuButton = new JButton();
+		saskitikEzabatuButton.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent arg0) {
+				//Saskiko zerrendatik kendu
+				Kudeaketa.getInstance().zapataSaskitikKendu(informazioa);
+				//Saskia eguneratu
+				saskiEguneraketa();	
+			}
+		});
+		saskitikEzabatuButton.setIcon(SwingResourceManager.getIcon(ErosketaSaskiaItem.class, "/gkae/zapataparegabeak/resources/ikonoak/trash.png"));
 		saskitikEzabatuButton.setMargin(new Insets(2, 2, 2, 4));
 		saskitikEzabatuButton.setIcon(SwingResourceManager.getIcon(ErosketaSaskiaItem.class, "/gkae/zapataparegabeak/resources/trash.png"));
 		saskitikEzabatuButton.setText("Saskitik Ezabatu");
 		add(saskitikEzabatuButton);
 		springLayout.putConstraint(SpringLayout.EAST, saskitikEzabatuButton, -7, SpringLayout.EAST, this);
-		springLayout.putConstraint(SpringLayout.WEST, saskitikEzabatuButton, -150, SpringLayout.EAST, this);
+		springLayout.putConstraint(SpringLayout.WEST, saskitikEzabatuButton, -172, SpringLayout.EAST, this);
 		springLayout.putConstraint(SpringLayout.SOUTH, saskitikEzabatuButton, -8, SpringLayout.SOUTH, this);
 		springLayout.putConstraint(SpringLayout.NORTH, saskitikEzabatuButton, -33, SpringLayout.SOUTH, this);
 
@@ -92,6 +109,27 @@ public class ErosketaSaskiaItem extends JPanel {
 		springLayout.putConstraint(SpringLayout.WEST, spinner, 250, SpringLayout.WEST, this);
 		springLayout.putConstraint(SpringLayout.NORTH, spinner, 43, SpringLayout.NORTH, this);
 
+		final JLabel stockaLabel = new JLabel();
+		stockaLabel.setText("Stock-a:");
+		add(stockaLabel);
+		springLayout.putConstraint(SpringLayout.EAST, stockaLabel, 54, SpringLayout.WEST, saskitikEzabatuButton);
+		springLayout.putConstraint(SpringLayout.WEST, stockaLabel, 0, SpringLayout.WEST, saskitikEzabatuButton);
+		springLayout.putConstraint(SpringLayout.NORTH, stockaLabel, 45, SpringLayout.NORTH, this);
+
+		final JLabel ezLabel = new JLabel();
+		ezLabel.setText("Ez");
+		add(ezLabel);
+		springLayout.putConstraint(SpringLayout.EAST, ezLabel, 54, SpringLayout.EAST, stockaLabel);
+		springLayout.putConstraint(SpringLayout.WEST, ezLabel, 0, SpringLayout.EAST, stockaLabel);
+		springLayout.putConstraint(SpringLayout.NORTH, ezLabel, 45, SpringLayout.NORTH, this);
+
+		final JButton stockDagoeneanAbisatuButton = new JButton();
+		stockDagoeneanAbisatuButton.setText("Stock Dagoenean Abisatu");
+		add(stockDagoeneanAbisatuButton);
+		springLayout.putConstraint(SpringLayout.EAST, stockDagoeneanAbisatuButton, 0, SpringLayout.EAST, saskitikEzabatuButton);
+		springLayout.putConstraint(SpringLayout.WEST, stockDagoeneanAbisatuButton, 360, SpringLayout.WEST, this);
+		springLayout.putConstraint(SpringLayout.NORTH, stockDagoeneanAbisatuButton, 76, SpringLayout.NORTH, this);
+
 	}
 	
 	public void setDatuak(Zapata z){
@@ -99,16 +137,11 @@ public class ErosketaSaskiaItem extends JPanel {
 		label.setText(z.getPrezioa()-z.getPrezioa()*100/z.getBeherapenEhuneko()+" €");
 		irudiaLabel.setIcon(SwingResourceManager.getIcon(ErosketaSaskiaItem.class, "/gkae/zapataparegabeak/resources/zapatak/"+z.getIrudiPath()));
 		
-		if(!z.isStockDago()){
-			final JButton stockDagoeneanAbisatuButton = new JButton();
-			stockDagoeneanAbisatuButton.setText("Stock dagoenean abisatu");
-			add(stockDagoeneanAbisatuButton);
-			springLayout.putConstraint(SpringLayout.EAST, stockDagoeneanAbisatuButton, 0, SpringLayout.EAST, saskitikEzabatuButton);
-			springLayout.putConstraint(SpringLayout.WEST, stockDagoeneanAbisatuButton, 340, SpringLayout.WEST, this);
-			springLayout.putConstraint(SpringLayout.SOUTH, stockDagoeneanAbisatuButton, 30, SpringLayout.SOUTH, spinner);
-			springLayout.putConstraint(SpringLayout.NORTH, stockDagoeneanAbisatuButton, 5, SpringLayout.SOUTH, spinner);
-			//
-		}
+		informazioa = z;
+	}
+	
+	private void saskiEguneraketa(){
+		Kudeaketa.getInstance().saskiaEguneratu(this);
 	}
 
 }
