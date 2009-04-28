@@ -1,6 +1,8 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.izenaEman;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -92,10 +94,22 @@ public class KautotzeInformazioa extends JPanel {
 
 		JButton bukatuButton;
 		bukatuButton = new JButton();
+		bukatuButton.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				//Informazioa gorde
+				//Orri nagusira itzuli
+			}
+		});
 		bukatuButton.setText("Bukatu");
 
 		JButton erosketaHobespenakEmanButton;
 		erosketaHobespenakEmanButton = new JButton();
+		erosketaHobespenakEmanButton.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				//Informazioa gorde
+				//Hurrengo pantailara joan
+			}
+		});
 		erosketaHobespenakEmanButton.setText("Bidalketa Hobespenak Eman");
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
