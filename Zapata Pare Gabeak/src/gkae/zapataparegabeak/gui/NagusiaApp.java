@@ -57,7 +57,7 @@ public class NagusiaApp {
 	 */
 	private void createContents() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 681, 589);
+		frame.setBounds(100, 100, 1018, 638);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		final NagusiaPanel nagusiaPanel = new NagusiaPanel();
