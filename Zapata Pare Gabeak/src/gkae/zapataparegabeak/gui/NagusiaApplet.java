@@ -1,8 +1,11 @@
 package gkae.zapataparegabeak.gui;
 
 import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.Frame;
 
 import javax.swing.JApplet;
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -13,10 +16,23 @@ public class NagusiaApplet extends JApplet {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	private Frame frame;
+	
 	@Override
 	public void start() {
 		resize(800, 600);
 	}
+	
+	private Frame findParentFrame(){ 
+	    Container c = this; 
+	    while(c != null){ 
+	      if (c instanceof Frame) 
+	        return (Frame)c; 
+
+	      c = c.getParent(); 
+	    } 
+	    return (Frame)null; 
+	  } 
 	
 	/**
 	 * Create the applet.
@@ -38,7 +54,10 @@ public class NagusiaApplet extends JApplet {
 			e.printStackTrace();
 		}
 		{
-			NagusiaPanel nagusiaPanel = new NagusiaPanel();
+			//frame = findParentFrame();
+			frame = (Frame)SwingUtilities.getAncestorOfClass(Frame.class, this);
+			System.out.println(frame);
+			NagusiaPanel nagusiaPanel = new NagusiaPanel(frame);
 			getContentPane().add(nagusiaPanel, BorderLayout.CENTER);
 		}
 	}

@@ -40,7 +40,7 @@ public class LoginPanela extends JPanel {
 
 		final JXHyperlink izenaEmanHyperlink = new JXHyperlink();
 		izenaEmanHyperlink.setAlignmentX(Component.CENTER_ALIGNMENT);
-		izenaEmanHyperlink.setText("Izena eman");
+		izenaEmanHyperlink.setText("Izena Eman");
 		panel.add(izenaEmanHyperlink);
 
 		JLabel erabiltzaileaLabel;
@@ -56,19 +56,19 @@ public class LoginPanela extends JPanel {
 		textField_1 = new JTextField();
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(GroupLayout.Alignment.TRAILING, groupLayout.createSequentialGroup()
+			groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addComponent(panel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+						.addComponent(panel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 								.addComponent(pasahitzaLabel, GroupLayout.Alignment.TRAILING)
 								.addComponent(erabiltzaileaLabel, GroupLayout.Alignment.TRAILING))
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-								.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
-								.addComponent(textField, GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))))
+								.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
+								.addComponent(textField, GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE))))
 					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
@@ -82,7 +82,7 @@ public class LoginPanela extends JPanel {
 						.addComponent(pasahitzaLabel)
 						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(panel, GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE))
+					.addComponent(panel, GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE))
 		);
 		setLayout(groupLayout);
 		//

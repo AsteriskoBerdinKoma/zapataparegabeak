@@ -8,6 +8,7 @@ import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Frame;
 
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
@@ -33,11 +34,16 @@ public class NagusiaPanel extends JPanel {
 	private JPanel panel_7;
 	private JLabel label_2;
 	
+	private Frame jabea;
+	
 	/**
 	 * Create the panel.
+	 * @param frame 
 	 */
-	public NagusiaPanel() {
+	public NagusiaPanel(Frame frame) {
 		{
+			this.jabea = frame;
+			
 			panel_4 = new JPanel();
 			panel_4.setBackground(Color.BLACK);
 			panel_4.setLayout(new BorderLayout(0, 0));
@@ -88,7 +94,7 @@ public class NagusiaPanel extends JPanel {
 					.addGroup(groupLayout.createSequentialGroup()
 						.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
 						.addGap(5, 5, 5)
-						.addComponent(panel, GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE))
+						.addComponent(panel, GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE))
 			);
 			panel_6.setLayout(groupLayout);
 		}
@@ -108,7 +114,7 @@ public class NagusiaPanel extends JPanel {
 				groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 					.addGroup(groupLayout.createSequentialGroup()
 						.addComponent(erosketaSaskiaMenuPanel, GroupLayout.PREFERRED_SIZE, 261, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(358, Short.MAX_VALUE))
+						.addContainerGap(77, Short.MAX_VALUE))
 			);
 			panel_7.setLayout(groupLayout);
 		}
@@ -182,15 +188,15 @@ public class NagusiaPanel extends JPanel {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(10, 10, 10)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addComponent(panel_4, GroupLayout.DEFAULT_SIZE, 1034, Short.MAX_VALUE)
-						.addComponent(panel_2, GroupLayout.DEFAULT_SIZE, 1034, Short.MAX_VALUE)
+						.addComponent(panel_4, GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
+						.addComponent(panel_2, GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(panel_6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addGap(5, 5, 5)
-							.addComponent(panel_5, GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
+							.addComponent(panel_5, GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(panel_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addComponent(panel_3, GroupLayout.DEFAULT_SIZE, 1034, Short.MAX_VALUE))
+						.addComponent(panel_3, GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE))
 					.addGap(10, 10, 10))
 		);
 		groupLayout.setVerticalGroup(
@@ -202,13 +208,17 @@ public class NagusiaPanel extends JPanel {
 					.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addGap(5, 5, 5)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addComponent(panel_5, GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
-						.addComponent(panel_7, GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
-						.addComponent(panel_6, GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE))
+						.addComponent(panel_5, GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
+						.addComponent(panel_7, GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
+						.addComponent(panel_6, GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(panel_3, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
 					.addGap(10, 10, 10))
 		);
 		setLayout(groupLayout);
+	}
+	
+	public Frame getJabea(){
+		return jabea;
 	}
 }
