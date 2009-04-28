@@ -60,7 +60,7 @@ public class NagusiaApp {
 		frame.setBounds(100, 100, 1018, 638);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		final NagusiaPanel nagusiaPanel = new NagusiaPanel();
+		final NagusiaPanel nagusiaPanel = new NagusiaPanel(frame);
 		frame.getContentPane().add(nagusiaPanel, BorderLayout.CENTER);
 	}
 

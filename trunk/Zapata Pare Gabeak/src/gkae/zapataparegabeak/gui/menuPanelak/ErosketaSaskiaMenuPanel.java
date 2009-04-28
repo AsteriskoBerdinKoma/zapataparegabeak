@@ -3,6 +3,7 @@ package gkae.zapataparegabeak.gui.menuPanelak;
 import gkae.zapataparegabeak.objektuak.Zapata;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.util.Vector;
 
 import javax.swing.BoxLayout;
@@ -65,25 +66,43 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 		
 		saskiraGehitu(new Zapata (2,"Ezker",42f,"Emakumezkoa","Zilarra/Urdina/Arrosa","Larrua","Korritzeko zapatak","Saucony",98.95f,false,"ez",0.0f,true,60,true,"2.jpg" ));
 		saskiraGehitu(new Zapata (3,"Ezker",38f,"Emakumezkoa","Zilarra","Larrua","Fashion Zapatak","Paris Hilton",63.95f,false,"ez",0.0f,true,20,true,"3.jpg" ));
+
+		JLabel prezioaLabel;
+		prezioaLabel = new JLabel();
+		prezioaLabel.setFont(new Font("", Font.BOLD, 12));
+		prezioaLabel.setText("Prezioa Totala:");
+
+		JLabel label;
+		label = new JLabel();
+		label.setFont(new Font("", Font.BOLD, 12));
+		label.setText("0.0€");
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(GroupLayout.Alignment.TRAILING, groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(erosketaGauzatuButton))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addComponent(zureErosketaSaskiaLabel)
-					.addContainerGap())
-				.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+					.addContainerGap(299, Short.MAX_VALUE))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(prezioaLabel)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(label)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
+					.addComponent(erosketaGauzatuButton))
+				.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addComponent(zureErosketaSaskiaLabel)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(erosketaGauzatuButton))
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(prezioaLabel)
+						.addComponent(label)
+						.addComponent(erosketaGauzatuButton))
+					.addContainerGap())
 		);
 		setLayout(groupLayout);
 	}
@@ -114,6 +133,7 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 
 			JXHyperlink artikuluarenIzenaHyperlink;
 			artikuluarenIzenaHyperlink = new JXHyperlink();
+			artikuluarenIzenaHyperlink.setFont(new Font("", Font.BOLD, 12));
 			artikuluarenIzenaHyperlink.setToolTipText("Egin klik hemen artikuluaren zehaztasunak ikusteko");
 			artikuluarenIzenaHyperlink.setText("Artikuluaren izena");
 
@@ -131,7 +151,7 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 
 			JLabel prezioTotalaLabel;
 			prezioTotalaLabel = new JLabel();
-			prezioTotalaLabel.setText("Prezio Totala:");
+			prezioTotalaLabel.setText("Prezioa:");
 
 			JLabel label;
 			label = new JLabel();
@@ -153,20 +173,20 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 									.addGroup(groupLayout.createSequentialGroup()
 										.addComponent(kopuruaLabel)
 										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(spinner, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+										.addComponent(spinner, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
 									.addGroup(groupLayout.createSequentialGroup()
 										.addComponent(prezioTotalaLabel)
 										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 										.addComponent(label)))
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
 								.addComponent(button, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
-							.addComponent(artikuluarenIzenaHyperlink, GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE))
+							.addComponent(artikuluarenIzenaHyperlink, GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))
 						.addContainerGap())
-					.addComponent(separator, GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
+					.addComponent(separator, GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
 			);
 			groupLayout.setVerticalGroup(
-				groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-					.addGroup(GroupLayout.Alignment.LEADING, groupLayout.createSequentialGroup()
+				groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addGroup(groupLayout.createSequentialGroup()
 						.addContainerGap()
 						.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 							.addGroup(groupLayout.createSequentialGroup()
