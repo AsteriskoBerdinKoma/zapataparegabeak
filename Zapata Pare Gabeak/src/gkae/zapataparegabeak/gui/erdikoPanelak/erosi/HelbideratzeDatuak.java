@@ -1,10 +1,13 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.erosi;
 
 import java.awt.Font;
+import javax.swing.GroupLayout;
 import javax.swing.JComboBox;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.LayoutStyle;
 import javax.swing.SpringLayout;
 
 public class HelbideratzeDatuak extends JPanel {
@@ -18,7 +21,7 @@ public class HelbideratzeDatuak extends JPanel {
 	
 	private String[] probintziak = new String[]{"Araba","Albacete","Alacant","Almeria","Asturias","Avila","Badajoz",
 												"Bartzelona","Balear irlak","Bizkaia","Burgos","Caceres","Cadiz","Castello",
-												"Ciudad Real","Coruña","Cuenca","Errioxa","Gipuzkoa","Girona","Granada",
+												"Ciudad Real","Coruï¿½a","Cuenca","Errioxa","Gipuzkoa","Girona","Granada",
 												"Guadalajara","Huelva","Huesca","Jaen","Kantabria","Kordoba","Leon","Lleida",
 												"Lugo","Madrilgo Erkidegoa","Malaga","Murtziako Erkidegoa","Nafarroa",
 												"Ourense","Palentzia","Las Palmas","Pontevedra","Salamanca","Segovia",
@@ -29,99 +32,117 @@ public class HelbideratzeDatuak extends JPanel {
 	private JTextField textField_2;
 	private JTextField textField_1;
 	private JTextField textField;
-	private SpringLayout springLayout;
 	/**
 	 * Create the panel
 	 */
 	public HelbideratzeDatuak() {
 		super();
-		springLayout = new SpringLayout();
-		setLayout(springLayout);
 
-		final JLabel helbideratzeDatuakLabel = new JLabel();
+		JLabel helbideratzeDatuakLabel;
+		helbideratzeDatuakLabel = new JLabel();
 		helbideratzeDatuakLabel.setFont(new Font("", Font.PLAIN, 18));
 		helbideratzeDatuakLabel.setText("Bidalketaren Hartzailearen Datuak");
-		add(helbideratzeDatuakLabel);
-		springLayout.putConstraint(SpringLayout.NORTH, helbideratzeDatuakLabel, 20, SpringLayout.NORTH, this);
-		springLayout.putConstraint(SpringLayout.WEST, helbideratzeDatuakLabel, 15, SpringLayout.WEST, this);
 
-		final JLabel hartzailearenIzenaLabel = new JLabel();
+		JLabel hartzailearenIzenaLabel;
+		hartzailearenIzenaLabel = new JLabel();
 		hartzailearenIzenaLabel.setText("Izena:");
-		add(hartzailearenIzenaLabel);
-		springLayout.putConstraint(SpringLayout.EAST, hartzailearenIzenaLabel, 130, SpringLayout.WEST, this);
-		springLayout.putConstraint(SpringLayout.WEST, hartzailearenIzenaLabel, 5, SpringLayout.WEST, helbideratzeDatuakLabel);
-		springLayout.putConstraint(SpringLayout.SOUTH, hartzailearenIzenaLabel, 90, SpringLayout.NORTH, this);
 
-		final JLabel hartzailearenAbizenakLabel = new JLabel();
+		JLabel hartzailearenAbizenakLabel;
+		hartzailearenAbizenakLabel = new JLabel();
 		hartzailearenAbizenakLabel.setText("Abizenak:");
-		add(hartzailearenAbizenakLabel);
-		springLayout.putConstraint(SpringLayout.EAST, hartzailearenAbizenakLabel, 0, SpringLayout.EAST, helbideratzeDatuakLabel);
-		springLayout.putConstraint(SpringLayout.WEST, hartzailearenAbizenakLabel, 0, SpringLayout.WEST, hartzailearenIzenaLabel);
-		springLayout.putConstraint(SpringLayout.SOUTH, hartzailearenAbizenakLabel, 115, SpringLayout.NORTH, this);
 
 		textField = new JTextField();
-		add(textField);
-		springLayout.putConstraint(SpringLayout.EAST, textField, 365, SpringLayout.WEST, this);
-		springLayout.putConstraint(SpringLayout.WEST, textField, 75, SpringLayout.WEST, this);
-		springLayout.putConstraint(SpringLayout.NORTH, textField, 0, SpringLayout.NORTH, hartzailearenIzenaLabel);
 
 		textField_1 = new JTextField();
-		add(textField_1);
-		springLayout.putConstraint(SpringLayout.EAST, textField_1, 0, SpringLayout.EAST, textField);
-		springLayout.putConstraint(SpringLayout.WEST, textField_1, 0, SpringLayout.WEST, textField);
-		springLayout.putConstraint(SpringLayout.NORTH, textField_1, 0, SpringLayout.NORTH, hartzailearenAbizenakLabel);
 
-		final JLabel helbideaadibSantaLabel = new JLabel();
+		JLabel helbideaadibSantaLabel;
+		helbideaadibSantaLabel = new JLabel();
 		helbideaadibSantaLabel.setText("Helbidea (Adib. Santa Korda Kalea 67, 2.Ezk):");
-		add(helbideaadibSantaLabel);
-		springLayout.putConstraint(SpringLayout.EAST, helbideaadibSantaLabel, 0, SpringLayout.EAST, textField_1);
-		springLayout.putConstraint(SpringLayout.WEST, helbideaadibSantaLabel, 0, SpringLayout.WEST, hartzailearenAbizenakLabel);
-		springLayout.putConstraint(SpringLayout.NORTH, helbideaadibSantaLabel, 140, SpringLayout.NORTH, this);
 
 		textField_2 = new JTextField();
-		add(textField_2);
-		springLayout.putConstraint(SpringLayout.SOUTH, textField_2, 175, SpringLayout.NORTH, this);
-		springLayout.putConstraint(SpringLayout.NORTH, textField_2, 5, SpringLayout.SOUTH, helbideaadibSantaLabel);
-		springLayout.putConstraint(SpringLayout.EAST, textField_2, 0, SpringLayout.EAST, helbideaadibSantaLabel);
-		springLayout.putConstraint(SpringLayout.WEST, textField_2, 0, SpringLayout.WEST, helbideaadibSantaLabel);
 
-		final JLabel postakutxatilaLabel = new JLabel();
+		JLabel postakutxatilaLabel;
+		postakutxatilaLabel = new JLabel();
 		postakutxatilaLabel.setText("Posta-Kutxatila:");
-		add(postakutxatilaLabel);
-		springLayout.putConstraint(SpringLayout.EAST, postakutxatilaLabel, 105, SpringLayout.WEST, this);
-		springLayout.putConstraint(SpringLayout.WEST, postakutxatilaLabel, 0, SpringLayout.WEST, textField_2);
-		springLayout.putConstraint(SpringLayout.SOUTH, postakutxatilaLabel, 200, SpringLayout.NORTH, this);
 
 		textField_3 = new JTextField();
-		add(textField_3);
-		springLayout.putConstraint(SpringLayout.EAST, textField_3, 175, SpringLayout.WEST, this);
-		springLayout.putConstraint(SpringLayout.WEST, textField_3, 5, SpringLayout.EAST, postakutxatilaLabel);
-		springLayout.putConstraint(SpringLayout.NORTH, textField_3, 184, SpringLayout.NORTH, this);
 
-		final JLabel hiriaLabel = new JLabel();
+		JLabel hiriaLabel;
+		hiriaLabel = new JLabel();
 		hiriaLabel.setText("Hiria:");
-		add(hiriaLabel);
-		springLayout.putConstraint(SpringLayout.NORTH, hiriaLabel, 215, SpringLayout.NORTH, this);
-		springLayout.putConstraint(SpringLayout.WEST, hiriaLabel, 0, SpringLayout.WEST, postakutxatilaLabel);
 
 		textField_4 = new JTextField();
-		add(textField_4);
-		springLayout.putConstraint(SpringLayout.EAST, textField_4, 0, SpringLayout.EAST, textField_2);
-		springLayout.putConstraint(SpringLayout.WEST, textField_4, 0, SpringLayout.WEST, textField_3);
-		springLayout.putConstraint(SpringLayout.NORTH, textField_4, 213, SpringLayout.NORTH, this);
 
-		final JLabel probintziaLabel = new JLabel();
+		JLabel probintziaLabel;
+		probintziaLabel = new JLabel();
 		probintziaLabel.setText("Probintzia:");
-		add(probintziaLabel);
-		springLayout.putConstraint(SpringLayout.EAST, probintziaLabel, 85, SpringLayout.WEST, this);
-		springLayout.putConstraint(SpringLayout.WEST, probintziaLabel, 0, SpringLayout.WEST, hiriaLabel);
-		springLayout.putConstraint(SpringLayout.NORTH, probintziaLabel, 250, SpringLayout.NORTH, this);
 
 		comboBox = new JComboBox(probintziak);
-		add(comboBox);
-		springLayout.putConstraint(SpringLayout.EAST, comboBox, 265, SpringLayout.WEST, this);
-		springLayout.putConstraint(SpringLayout.WEST, comboBox, 0, SpringLayout.WEST, textField_4);
-		springLayout.putConstraint(SpringLayout.NORTH, comboBox, 246, SpringLayout.NORTH, this);
+		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(helbideratzeDatuakLabel))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(20, 20, 20)
+							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+								.addComponent(textField_2, GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
+								.addComponent(helbideaadibSantaLabel)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+										.addComponent(hartzailearenIzenaLabel, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
+										.addComponent(hartzailearenAbizenakLabel))
+									.addGap(24, 24, 24)
+									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+										.addComponent(textField, GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
+										.addComponent(textField_1, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+										.addComponent(postakutxatilaLabel)
+										.addComponent(hiriaLabel)
+										.addComponent(probintziaLabel, GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE))
+									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+										.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 155, GroupLayout.PREFERRED_SIZE)
+										.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, 255, GroupLayout.PREFERRED_SIZE)
+										.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE))))))
+					.addContainerGap())
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(helbideratzeDatuakLabel)
+					.addGap(19, 19, 19)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(hartzailearenIzenaLabel)
+						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(10, 10, 10)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(hartzailearenAbizenakLabel)
+						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(19, 19, 19)
+					.addComponent(helbideaadibSantaLabel)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(postakutxatilaLabel)
+						.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(hiriaLabel)
+						.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(probintziaLabel)
+						.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(58, 58, 58))
+		);
+		setLayout(groupLayout);
 		//
 	}
 

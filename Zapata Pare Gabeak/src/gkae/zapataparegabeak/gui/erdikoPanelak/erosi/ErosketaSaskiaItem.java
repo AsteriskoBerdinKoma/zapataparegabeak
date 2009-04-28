@@ -8,11 +8,14 @@ import java.awt.Color;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.GroupLayout;
 
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
+import javax.swing.LayoutStyle;
 import javax.swing.SpringLayout;
 import javax.swing.border.EtchedBorder;
 
@@ -25,7 +28,6 @@ public class ErosketaSaskiaItem extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JSpinner spinner;
-	private SpringLayout springLayout;
 	private JLabel prezioaLabel;
 	private JLabel artikuluarenIzenaLabel;
 	private JLabel label;
@@ -40,48 +42,24 @@ public class ErosketaSaskiaItem extends JPanel {
 	public ErosketaSaskiaItem() {
 		super();
 		setBorder(new EtchedBorder(EtchedBorder.LOWERED));
-		springLayout = new SpringLayout();
-		setLayout(springLayout);
 
 		prezioaLabel = new JLabel();
 		prezioaLabel.setText("Prezioa:");
-		add(prezioaLabel);
-		springLayout.putConstraint(SpringLayout.SOUTH, prezioaLabel, 95, SpringLayout.NORTH, this);
-		springLayout.putConstraint(SpringLayout.NORTH, prezioaLabel, 80, SpringLayout.NORTH, this);
-		springLayout.putConstraint(SpringLayout.EAST, prezioaLabel, 213, SpringLayout.WEST, this);
-		springLayout.putConstraint(SpringLayout.WEST, prezioaLabel, 165, SpringLayout.WEST, this);
 
-		final JLabel kantitateaLabel = new JLabel();
+		JLabel kantitateaLabel;
+		kantitateaLabel = new JLabel();
 		kantitateaLabel.setText("Kantitatea:");
-		add(kantitateaLabel);
-		springLayout.putConstraint(SpringLayout.EAST, kantitateaLabel, 240, SpringLayout.WEST, this);
-		springLayout.putConstraint(SpringLayout.WEST, kantitateaLabel, 165, SpringLayout.WEST, this);
-		springLayout.putConstraint(SpringLayout.SOUTH, kantitateaLabel, 60, SpringLayout.NORTH, this);
 
 		artikuluarenIzenaLabel = new JLabel();
 		artikuluarenIzenaLabel.setText("Artikuluaren izena");
-		add(artikuluarenIzenaLabel);
 
 		label = new JLabel();
-		label.setText("0.0 €");
-		add(label);
-		springLayout.putConstraint(SpringLayout.EAST, label, 75, SpringLayout.EAST, prezioaLabel);
-		springLayout.putConstraint(SpringLayout.WEST, label, 5, SpringLayout.EAST, prezioaLabel);
-		springLayout.putConstraint(SpringLayout.SOUTH, label, 95, SpringLayout.NORTH, this);
+		label.setText("0.0 ï¿½");
 
 		irudiaLabel = new JLabel();
 		irudiaLabel.setForeground(Color.WHITE);
 		irudiaLabel.setBackground(Color.WHITE);
 		irudiaLabel.setIcon(SwingResourceManager.getIcon(ErosketaSaskiaItem.class, "/gkae/zapataparegabeak/resources/zapatak/noimage120.png"));
-		add(irudiaLabel);
-		springLayout.putConstraint(SpringLayout.EAST, irudiaLabel, 138, SpringLayout.WEST, this);
-		springLayout.putConstraint(SpringLayout.WEST, irudiaLabel, 10, SpringLayout.WEST, this);
-		springLayout.putConstraint(SpringLayout.SOUTH, artikuluarenIzenaLabel, 36, SpringLayout.NORTH, this);
-		springLayout.putConstraint(SpringLayout.NORTH, artikuluarenIzenaLabel, 0, SpringLayout.NORTH, irudiaLabel);
-		springLayout.putConstraint(SpringLayout.EAST, artikuluarenIzenaLabel, 310, SpringLayout.EAST, irudiaLabel);
-		springLayout.putConstraint(SpringLayout.WEST, artikuluarenIzenaLabel, 5, SpringLayout.EAST, irudiaLabel);
-		springLayout.putConstraint(SpringLayout.SOUTH, irudiaLabel, 125, SpringLayout.NORTH, this);
-		springLayout.putConstraint(SpringLayout.NORTH, irudiaLabel, 5, SpringLayout.NORTH, this);
 
 		saskitikEzabatuButton = new JButton();
 		saskitikEzabatuButton.addActionListener(new ActionListener() {
@@ -96,39 +74,85 @@ public class ErosketaSaskiaItem extends JPanel {
 		saskitikEzabatuButton.setMargin(new Insets(2, 2, 2, 4));
 		saskitikEzabatuButton.setIcon(SwingResourceManager.getIcon(ErosketaSaskiaItem.class, "/gkae/zapataparegabeak/resources/trash.png"));
 		saskitikEzabatuButton.setText("Saskitik Ezabatu");
-		add(saskitikEzabatuButton);
-		springLayout.putConstraint(SpringLayout.EAST, saskitikEzabatuButton, -7, SpringLayout.EAST, this);
-		springLayout.putConstraint(SpringLayout.WEST, saskitikEzabatuButton, -172, SpringLayout.EAST, this);
-		springLayout.putConstraint(SpringLayout.SOUTH, saskitikEzabatuButton, -8, SpringLayout.SOUTH, this);
-		springLayout.putConstraint(SpringLayout.NORTH, saskitikEzabatuButton, -33, SpringLayout.SOUTH, this);
 
 		spinner = new JSpinner();
 		spinner.setValue(1);
-		add(spinner);
-		springLayout.putConstraint(SpringLayout.EAST, spinner, 285, SpringLayout.WEST, this);
-		springLayout.putConstraint(SpringLayout.WEST, spinner, 250, SpringLayout.WEST, this);
-		springLayout.putConstraint(SpringLayout.NORTH, spinner, 43, SpringLayout.NORTH, this);
 
-		final JLabel stockaLabel = new JLabel();
+		JLabel stockaLabel;
+		stockaLabel = new JLabel();
 		stockaLabel.setText("Stock-a:");
-		add(stockaLabel);
-		springLayout.putConstraint(SpringLayout.EAST, stockaLabel, 54, SpringLayout.WEST, saskitikEzabatuButton);
-		springLayout.putConstraint(SpringLayout.WEST, stockaLabel, 0, SpringLayout.WEST, saskitikEzabatuButton);
-		springLayout.putConstraint(SpringLayout.NORTH, stockaLabel, 45, SpringLayout.NORTH, this);
 
-		final JLabel ezLabel = new JLabel();
+		JLabel ezLabel;
+		ezLabel = new JLabel();
 		ezLabel.setText("Ez");
-		add(ezLabel);
-		springLayout.putConstraint(SpringLayout.EAST, ezLabel, 54, SpringLayout.EAST, stockaLabel);
-		springLayout.putConstraint(SpringLayout.WEST, ezLabel, 0, SpringLayout.EAST, stockaLabel);
-		springLayout.putConstraint(SpringLayout.NORTH, ezLabel, 45, SpringLayout.NORTH, this);
 
-		final JButton stockDagoeneanAbisatuButton = new JButton();
+		JButton stockDagoeneanAbisatuButton;
+		stockDagoeneanAbisatuButton = new JButton();
 		stockDagoeneanAbisatuButton.setText("Stock Dagoenean Abisatu");
-		add(stockDagoeneanAbisatuButton);
-		springLayout.putConstraint(SpringLayout.EAST, stockDagoeneanAbisatuButton, 0, SpringLayout.EAST, saskitikEzabatuButton);
-		springLayout.putConstraint(SpringLayout.WEST, stockDagoeneanAbisatuButton, 360, SpringLayout.WEST, this);
-		springLayout.putConstraint(SpringLayout.NORTH, stockDagoeneanAbisatuButton, 76, SpringLayout.NORTH, this);
+		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(10, 10, 10)
+					.addComponent(irudiaLabel)
+					.addGap(29, 29, 29)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(artikuluarenIzenaLabel, GroupLayout.PREFERRED_SIZE, 305, GroupLayout.PREFERRED_SIZE)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(kantitateaLabel, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
+							.addGap(8, 8, 8)
+							.addComponent(spinner, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+							.addGap(81, 81, 81)
+							.addComponent(stockaLabel, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
+							.addComponent(ezLabel, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+							.addGroup(groupLayout.createSequentialGroup()
+								.addComponent(stockDagoeneanAbisatuButton)
+								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+								.addComponent(saskitikEzabatuButton, GroupLayout.PREFERRED_SIZE, 165, GroupLayout.PREFERRED_SIZE))
+							.addGroup(groupLayout.createSequentialGroup()
+								.addComponent(prezioaLabel)
+								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(label, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
+								.addGap(243, 243, 243)))))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(artikuluarenIzenaLabel)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGap(9, 9, 9)
+									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+										.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+											.addComponent(spinner, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+											.addComponent(kantitateaLabel))
+										.addGroup(groupLayout.createSequentialGroup()
+											.addGap(2, 2, 2)
+											.addComponent(stockaLabel))
+										.addGroup(groupLayout.createSequentialGroup()
+											.addGap(2, 2, 2)
+											.addComponent(ezLabel)))
+									.addGap(17, 17, 17)
+									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+										.addComponent(label)
+										.addComponent(prezioaLabel))
+									.addGap(37, 37, 37))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+										.addComponent(saskitikEzabatuButton, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+										.addComponent(stockDagoeneanAbisatuButton))
+									.addContainerGap())))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(irudiaLabel)
+							.addContainerGap(19, Short.MAX_VALUE))))
+		);
+		setLayout(groupLayout);
 
 	}
 	
