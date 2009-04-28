@@ -96,7 +96,7 @@ public class KautotzeInformazioa extends JPanel {
 
 		JButton erosketaHobespenakEmanButton;
 		erosketaHobespenakEmanButton = new JButton();
-		erosketaHobespenakEmanButton.setText("Erosketa Hobespenak Eman");
+		erosketaHobespenakEmanButton.setText("Bidalketa Hobespenak Eman");
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -105,7 +105,7 @@ public class KautotzeInformazioa extends JPanel {
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 						.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 							.addGroup(groupLayout.createSequentialGroup()
-								.addComponent(separator, GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
+								.addComponent(separator, GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
 								.addContainerGap())
 							.addGroup(groupLayout.createSequentialGroup()
 								.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -121,11 +121,11 @@ public class KautotzeInformazioa extends JPanel {
 													.addComponent(erabiltzaileIzenaLabel))
 												.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 												.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-													.addComponent(textField, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-													.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-													.addComponent(textField_2, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-													.addComponent(passwordField, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-													.addComponent(passwordField_1, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)))
+													.addComponent(textField, GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+													.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+													.addComponent(textField_2, GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+													.addComponent(passwordField, GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+													.addComponent(passwordField_1, GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)))
 											.addComponent(oharraBatekinLabel))
 										.addGap(219, 219, 219))
 									.addComponent(mesedezIdatziItzazuLabel)
@@ -177,7 +177,7 @@ public class KautotzeInformazioa extends JPanel {
 					.addComponent(label, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(bukatuButton)
 						.addComponent(erosketaHobespenakEmanButton))
