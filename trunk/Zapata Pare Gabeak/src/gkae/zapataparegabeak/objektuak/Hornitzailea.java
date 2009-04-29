@@ -7,6 +7,14 @@ public class Hornitzailea {
 	private String helbidea;
 	private int telefonoa;
 	private String ePosta;
+	
+	
+	
+	public Hornitzailea(int i) {
+		super();
+		this.id = i;
+	}
+
 	public Hornitzailea(int id, String izena, String helbidea, int telefonoa,
 			String posta) {
 		super();
