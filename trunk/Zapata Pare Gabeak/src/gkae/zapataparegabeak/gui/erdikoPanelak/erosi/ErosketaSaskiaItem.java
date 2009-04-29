@@ -1,22 +1,20 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.erosi;
 
 import gkae.zapataparegabeak.objektuak.Kudeaketa;
-import gkae.zapataparegabeak.objektuak.SaskiratutakoZapatak;
 import gkae.zapataparegabeak.objektuak.Zapata;
 
 import java.awt.Color;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.GroupLayout;
 
+import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.LayoutStyle;
-import javax.swing.SpringLayout;
 import javax.swing.border.EtchedBorder;
 
 import com.swtdesigner.SwingResourceManager;
@@ -67,7 +65,7 @@ public class ErosketaSaskiaItem extends JPanel {
 				//Saskiko zerrendatik kendu
 				Kudeaketa.getInstance().zapataSaskitikKendu(informazioa);
 				//Saskia eguneratu
-				saskiEguneraketa();	
+				//saskiEguneraketa();	
 			}
 		});
 		saskitikEzabatuButton.setIcon(SwingResourceManager.getIcon(ErosketaSaskiaItem.class, "/gkae/zapataparegabeak/resources/ikonoak/trash.png"));
@@ -164,8 +162,8 @@ public class ErosketaSaskiaItem extends JPanel {
 		informazioa = z;
 	}
 	
-	private void saskiEguneraketa(){
-		Kudeaketa.getInstance().saskiaEguneratu(this);
-	}
+//	private void saskiEguneraketa(){
+//		Kudeaketa.getInstance().saskiaEguneratu(this);
+//	}
 
 }
