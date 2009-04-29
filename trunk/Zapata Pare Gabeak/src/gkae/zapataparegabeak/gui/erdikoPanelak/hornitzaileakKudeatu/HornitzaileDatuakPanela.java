@@ -2,6 +2,8 @@ package gkae.zapataparegabeak.gui.erdikoPanelak.hornitzaileakKudeatu;
 
 import gkae.zapataparegabeak.objektuak.Hornitzailea;
 
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import javax.swing.GroupLayout;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
@@ -25,6 +27,10 @@ public class HornitzaileDatuakPanela extends JPanel {
 	 */
 	public HornitzaileDatuakPanela() {
 		super();
+		
+
+		
+	
 		setBorder(new TitledBorder(null, "Hornitzailearen datuak", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
 		springLayout = new SpringLayout();
 		setLayout(springLayout);
@@ -102,12 +108,30 @@ public class HornitzaileDatuakPanela extends JPanel {
 		HePosta.setEditable(editable);
 	}
 	public void setDatuak(Hornitzailea h) {
-		
+		if(h != null){
 		HIzena.setText(h.getIzena());
 		HHelbidea.setText(h.getHelbidea());
 		HTelefonoa.setText(new Integer(h.getTelefonoa()).toString());
 		HePosta.setText(h.getEPosta());
+		}
+		else{
+			HIzena.setText("");
+			HHelbidea.setText("");
+			HTelefonoa.setText("");
+			HePosta.setText("");
+		}
 		
 	}
-
+	public String getIzena(){
+		return HIzena.getText();
+	}
+	public String getHelbidea(){
+		return HHelbidea.getText();
+	}
+	public String getTelefonoa(){
+		return HTelefonoa.getText();
+	}
+	public String getePosta(){
+		return HePosta.getText();
+	}
 }
