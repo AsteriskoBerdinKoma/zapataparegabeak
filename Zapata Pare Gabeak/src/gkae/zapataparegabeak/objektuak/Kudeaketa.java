@@ -12,12 +12,14 @@ public class Kudeaketa {
 	private final SaskiratutakoZapatak saskiZap;
 	private final Katalogoa katalogoa;
 	private final ErosketaSaskia saskia;
+	private final Erabiltzaileak erabiltzaileak;
 	
 	
 	private Kudeaketa() {
 		this.saskiZap = SaskiratutakoZapatak.getInstance();
 		this.katalogoa = Katalogoa.getInstance();
 		this.saskia = ErosketaSaskia.getInstance();
+		this.erabiltzaileak = Erabiltzaileak.getInstance();
 	}
 
 	public static Kudeaketa getInstance() {
@@ -41,6 +43,10 @@ public class Kudeaketa {
 	public void saskiaEguneratu(ErosketaSaskiaItem erosketaSaskiaItem) {
 		this.saskia.edukiakEguneratu(erosketaSaskiaItem);
 		
+	}
+	
+	public void erabErregistratu(ErabiltzaileInfo erab){
+		this.erabiltzaileak.erabGehitu(erab);
 	}
 
 }
