@@ -140,6 +140,16 @@ public class ProduktuDatuak extends JPanel {
 		JLabel label_2;
 		label_2 = new JLabel();
 		label_2.setIcon(SwingResourceManager.getIcon(ProduktuDatuak.class, "/gkae/zapataparegabeak/resources/zapatak/noimage120.png"));
+
+		JButton atzeraButton;
+		atzeraButton = new JButton();
+		atzeraButton.setIcon(SwingResourceManager.getIcon(ProduktuDatuak.class, "/gkae/zapataparegabeak/resources/ikonoak/left_arrow24.png"));
+		atzeraButton.setText("Atzera");
+
+		JButton onartuButton;
+		onartuButton = new JButton();
+		onartuButton.setIcon(SwingResourceManager.getIcon(ProduktuDatuak.class, "/gkae/zapataparegabeak/resources/ikonoak/accept_item24.png"));
+		onartuButton.setText("Onartu");
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -162,26 +172,25 @@ public class ProduktuDatuak extends JPanel {
 						.addComponent(textField_9, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-								.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-									.addGroup(groupLayout.createSequentialGroup()
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+										.addComponent(textField_8, GroupLayout.Alignment.LEADING, 53, 53, 53)
+										.addComponent(comboBox, GroupLayout.Alignment.LEADING, 0, 53, Short.MAX_VALUE)
+										.addComponent(comboBox_1, GroupLayout.Alignment.LEADING, 0, 53, Short.MAX_VALUE))
+									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+										.addComponent(eMotaLabel)
+										.addComponent(zenbatLabel)
 										.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-											.addComponent(textField_8, GroupLayout.Alignment.LEADING)
-											.addComponent(comboBox, GroupLayout.Alignment.LEADING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-											.addComponent(comboBox_1, GroupLayout.Alignment.LEADING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-										.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-											.addComponent(eMotaLabel)
-											.addComponent(zenbatLabel)
-											.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-												.addComponent(bEhunekotanLabel)
-												.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-													.addComponent(label_1)
-													.addComponent(label)))))
-									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-										.addComponent(textField_2, GroupLayout.Alignment.LEADING)
-										.addComponent(textField_3, GroupLayout.Alignment.LEADING)
-										.addComponent(textField_1, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE))
-									.addComponent(textField_4, GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
+											.addComponent(bEhunekotanLabel)
+											.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+												.addComponent(label_1)
+												.addComponent(label)))))
+								.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+									.addComponent(textField_2, GroupLayout.Alignment.LEADING)
+									.addComponent(textField_3, GroupLayout.Alignment.LEADING)
+									.addComponent(textField_1, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE))
+								.addComponent(textField_4, GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
 								.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
 									.addComponent(textField_7, GroupLayout.Alignment.LEADING)
 									.addComponent(textField_6, GroupLayout.Alignment.LEADING)
@@ -195,13 +204,18 @@ public class ProduktuDatuak extends JPanel {
 											.addGap(31, 31, 31))
 										.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 											.addComponent(textField_11, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE)
-											.addComponent(textField, GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-											.addComponent(textField_10, GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)))
+											.addComponent(textField, GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+											.addComponent(textField_10, GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+											.addGroup(groupLayout.createSequentialGroup()
+												.addGap(12, 12, 12)
+												.addComponent(atzeraButton, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE)
+												.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+												.addComponent(onartuButton))))
 									.addComponent(textField_12, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE))
 								.addGroup(GroupLayout.Alignment.TRAILING, groupLayout.createSequentialGroup()
 									.addComponent(label_2)
 									.addGap(38, 38, 38)))))
-					.addGap(31, 31, 31))
+					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -266,7 +280,10 @@ public class ProduktuDatuak extends JPanel {
 						.addComponent(stockanLabel)
 						.addComponent(zenbatLabel)
 						.addComponent(textField_11, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(28, Short.MAX_VALUE))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(atzeraButton, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+						.addComponent(onartuButton)))
 		);
 		setLayout(groupLayout);
 		//
