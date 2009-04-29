@@ -29,6 +29,9 @@ public class ErabiltzaileInfo {
 
 	// Kudeaketa erabiltzailea ahal da
 	private boolean isAdmin;
+	
+	//Erabiltzailea kautotuta dago
+	private boolean kautotutaDago;
 
 	public ErabiltzaileInfo(String erabIzena, String eposta, String pasahitza) {
 		super();
@@ -50,6 +53,7 @@ public class ErabiltzaileInfo {
 		this.oinLehen = "";
 		this.neurriLehen = -1;
 		this.isAdmin = false;
+		this.kautotutaDago = false;
 	}
 
 	public String getErabIzena() {
@@ -194,6 +198,14 @@ public class ErabiltzaileInfo {
 
 	public void setTxartelData(String txartelData) {
 		this.txartelData = txartelData;
+	}
+
+	public boolean isKautotutaDago() {
+		return kautotutaDago;
+	}
+
+	public void setKautotutaDago(boolean kautotutaDago) {
+		this.kautotutaDago = kautotutaDago;
 	}
 
 }

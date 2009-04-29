@@ -150,7 +150,7 @@ public class IzenaEmanPanel extends JPanel {
 		JLabel label;
 		label = new JLabel();
 		label.setIconTextGap(0);
-		label.setIcon(SwingResourceManager.getIcon(KautotzeInformazioa.class, "/gkae/zapataparegabeak/resources/jcaptcha.jpg"));
+		label.setIcon(SwingResourceManager.getIcon(IzenaEmanPanel.class, "/gkae/zapataparegabeak/resources/jcaptcha.jpg"));
 
 		chaptchaTextField = new JTextField();
 

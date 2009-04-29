@@ -1,8 +1,5 @@
 package gkae.zapataparegabeak.objektuak;
 
-import gkae.zapataparegabeak.gui.erdikoPanelak.erosi.ErosketaSaskia;
-import gkae.zapataparegabeak.gui.erdikoPanelak.erosi.ErosketaSaskiaItem;
-
 import java.util.Vector;
 
 public class Kudeaketa {
@@ -11,14 +8,13 @@ public class Kudeaketa {
 	
 	private final SaskiratutakoZapatak saskiZap;
 	private final Katalogoa katalogoa;
-	private final ErosketaSaskia saskia;
+
 	private final Erabiltzaileak erabiltzaileak;
 	
 	
 	private Kudeaketa() {
 		this.saskiZap = SaskiratutakoZapatak.getInstance();
 		this.katalogoa = Katalogoa.getInstance();
-		this.saskia = ErosketaSaskia.getInstance();
 		this.erabiltzaileak = Erabiltzaileak.getInstance();
 	}
 
@@ -40,10 +36,6 @@ public class Kudeaketa {
 		return this.saskiZap.getSaskikoZapatak();
 	}
 
-	public void saskiaEguneratu(ErosketaSaskiaItem erosketaSaskiaItem) {
-		this.saskia.edukiakEguneratu(erosketaSaskiaItem);
-		
-	}
 	
 	public void erabErregistratu(ErabiltzaileInfo erab){
 		this.erabiltzaileak.erabGehitu(erab);
