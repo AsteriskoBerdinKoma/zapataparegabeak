@@ -33,12 +33,17 @@ public class ErosketaSaskiaItem extends JPanel {
 	private JButton saskitikEzabatuButton;
 	
 	private Zapata informazioa;
+	private ErosiPanel jabea;
 	
 	/**
 	 * Create the panel
 	 */
-	public ErosketaSaskiaItem() {
+	public ErosketaSaskiaItem(ErosiPanel owner, Zapata zap) {
 		super();
+		
+		this.jabea = owner;
+		this.informazioa = zap;
+		
 		setBorder(new EtchedBorder(EtchedBorder.LOWERED));
 
 		prezioaLabel = new JLabel();
@@ -65,7 +70,9 @@ public class ErosketaSaskiaItem extends JPanel {
 				//Saskiko zerrendatik kendu
 				Kudeaketa.getInstance().zapataSaskitikKendu(informazioa);
 				//Saskia eguneratu
-				//saskiEguneraketa();	
+				setInvisible();
+				jabea.saskiaEguneratu();
+				
 			}
 		});
 		saskitikEzabatuButton.setIcon(SwingResourceManager.getIcon(ErosketaSaskiaItem.class, "/gkae/zapataparegabeak/resources/ikonoak/trash.png"));
@@ -103,11 +110,12 @@ public class ErosketaSaskiaItem extends JPanel {
 							.addGap(81, 81, 81)
 							.addComponent(stockaLabel, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
 							.addComponent(ezLabel, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+						.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
 							.addGroup(groupLayout.createSequentialGroup()
 								.addComponent(stockDagoeneanAbisatuButton)
 								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(saskitikEzabatuButton, GroupLayout.PREFERRED_SIZE, 165, GroupLayout.PREFERRED_SIZE))
+								.addComponent(saskitikEzabatuButton, GroupLayout.PREFERRED_SIZE, 165, GroupLayout.PREFERRED_SIZE)
+								.addContainerGap())
 							.addGroup(groupLayout.createSequentialGroup()
 								.addComponent(prezioaLabel)
 								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -141,29 +149,29 @@ public class ErosketaSaskiaItem extends JPanel {
 										.addComponent(prezioaLabel))
 									.addGap(37, 37, 37))
 								.addGroup(groupLayout.createSequentialGroup()
-									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
 									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-										.addComponent(saskitikEzabatuButton, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-										.addComponent(stockDagoeneanAbisatuButton))
+										.addComponent(stockDagoeneanAbisatuButton)
+										.addComponent(saskitikEzabatuButton, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
 									.addContainerGap())))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(irudiaLabel)
-							.addContainerGap(19, Short.MAX_VALUE))))
+							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
 		);
 		setLayout(groupLayout);
-
+		setDatuak(informazioa);
+	}
+	
+	public void setInvisible(){
+		this.setVisible(false);
 	}
 	
 	public void setDatuak(Zapata z){
 		artikuluarenIzenaLabel.setText(z.getGeneroa()+" - "+z.getKategoria()+" "+z.getOina()+" "+z.getNeurria());
-		label.setText(z.getPrezioa()-z.getPrezioa()*100/z.getBeherapenEhuneko()+" €");
+		label.setText(z.getPrezioa()-(z.getPrezioa()*100/z.getBeherapenEhuneko())+" €");
 		irudiaLabel.setIcon(SwingResourceManager.getIcon(ErosketaSaskiaItem.class, "/gkae/zapataparegabeak/resources/zapatak/"+z.getIrudiPath()));
 		
 		informazioa = z;
 	}
-	
-//	private void saskiEguneraketa(){
-//		Kudeaketa.getInstance().saskiaEguneratu(this);
-//	}
 
 }
