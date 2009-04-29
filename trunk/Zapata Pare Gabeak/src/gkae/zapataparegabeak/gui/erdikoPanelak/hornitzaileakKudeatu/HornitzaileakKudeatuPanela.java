@@ -135,89 +135,38 @@ public class HornitzaileakKudeatuPanela extends JPanel {
 		});
 		ezabatuButton.setText("Ezabatu");
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
-		groupLayout
-				.setHorizontalGroup(groupLayout
-						.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addGroup(
-								groupLayout
-										.createSequentialGroup()
-										.addContainerGap()
-										.addComponent(list,
-												GroupLayout.PREFERRED_SIZE,
-												125, GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(hornitzaileDatuak,
-												GroupLayout.DEFAULT_SIZE, 226,
-												Short.MAX_VALUE)
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addGroup(
-												groupLayout
-														.createParallelGroup(
-																GroupLayout.Alignment.LEADING,
-																false)
-														.addComponent(
-																editatuButton,
-																GroupLayout.Alignment.TRAILING,
-																GroupLayout.DEFAULT_SIZE,
-																GroupLayout.DEFAULT_SIZE,
-																Short.MAX_VALUE)
-														.addComponent(
-																berriaGehituButton,
-																GroupLayout.Alignment.TRAILING)
-														.addComponent(
-																ezabatuButton,
-																GroupLayout.PREFERRED_SIZE,
-																95,
-																GroupLayout.PREFERRED_SIZE))
-										.addContainerGap()));
-		groupLayout
-				.setVerticalGroup(groupLayout
-						.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addGroup(
-								groupLayout
-										.createSequentialGroup()
-										.addGroup(
-												groupLayout
-														.createParallelGroup(
-																GroupLayout.Alignment.LEADING)
-														.addGroup(
-																groupLayout
-																		.createSequentialGroup()
-																		.addContainerGap()
-																		.addGroup(
-																				groupLayout
-																						.createParallelGroup(
-																								GroupLayout.Alignment.LEADING)
-																						.addComponent(
-																								list,
-																								GroupLayout.DEFAULT_SIZE,
-																								199,
-																								Short.MAX_VALUE)
-																						.addComponent(
-																								hornitzaileDatuak,
-																								GroupLayout.DEFAULT_SIZE,
-																								199,
-																								Short.MAX_VALUE)))
-														.addGroup(
-																groupLayout
-																		.createSequentialGroup()
-																		.addGap(
-																				19,
-																				19,
-																				19)
-																		.addComponent(
-																				editatuButton)
-																		.addPreferredGap(
-																				LayoutStyle.ComponentPlacement.RELATED)
-																		.addComponent(
-																				berriaGehituButton)
-																		.addPreferredGap(
-																				LayoutStyle.ComponentPlacement.RELATED)
-																		.addComponent(
-																				ezabatuButton)))
-										.addContainerGap()));
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(list, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(hornitzaileDatuak, GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+						.addComponent(editatuButton, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(berriaGehituButton, GroupLayout.Alignment.TRAILING)
+						.addComponent(ezabatuButton, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap())
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+								.addComponent(list, GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+								.addComponent(hornitzaileDatuak, GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(19, 19, 19)
+							.addComponent(editatuButton)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addComponent(berriaGehituButton)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addComponent(ezabatuButton)))
+					.addContainerGap())
+		);
 		setLayout(groupLayout);
 	}
 
