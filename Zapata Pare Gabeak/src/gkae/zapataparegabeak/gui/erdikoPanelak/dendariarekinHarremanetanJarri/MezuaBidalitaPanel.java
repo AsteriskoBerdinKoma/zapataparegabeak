@@ -30,7 +30,7 @@ public class MezuaBidalitaPanel extends JPanel {
 		eskerrikAskoGurekinTextArea.setBorder(null);
 		eskerrikAskoGurekinTextArea.setBackground(UIManager.getColor("Button.background"));
 		eskerrikAskoGurekinTextArea.setEditable(false);
-		eskerrikAskoGurekinTextArea.setText("Eskerrik asko gurekin kontaktuan jartzeagatik. E-posta helbide bat eman baduzu ahalik eta azkarren erantzuten saitauko gara.");
+		eskerrikAskoGurekinTextArea.setText("Eskerrik asko gurekin kontaktuan jartzeagatik. E-posta helbide bat eman baduzu ahalik eta azkarren erantzuten saiatuko gara.");
 
 		JLabel eskerrikAskoGurekinLabel;
 		eskerrikAskoGurekinLabel = new JLabel();
@@ -47,8 +47,8 @@ public class MezuaBidalitaPanel extends JPanel {
 					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-				.addGroup(GroupLayout.Alignment.LEADING, groupLayout.createSequentialGroup()
+			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(eskerrikAskoGurekinLabel)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
