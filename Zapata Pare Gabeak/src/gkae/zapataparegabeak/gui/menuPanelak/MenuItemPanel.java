@@ -11,6 +11,11 @@ import org.jdesktop.swingx.JXHyperlink;
 
 public class MenuItemPanel extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel panel;
 	
 	/**
