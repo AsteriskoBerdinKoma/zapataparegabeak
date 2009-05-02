@@ -20,6 +20,7 @@ import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
 import javax.swing.SwingConstants;
+import gkae.zapataparegabeak.gui.erdikoPanelak.dendariarekinHarremanetanJarri.HarremanetanJarriPanela;
 
 public class NagusiaPanel extends JPanel {
 	private JTextField textField;
@@ -86,15 +87,15 @@ public class NagusiaPanel extends JPanel {
 			final GroupLayout groupLayout = new GroupLayout((JComponent) panel_6);
 			groupLayout.setHorizontalGroup(
 				groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-					.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-					.addComponent(panel, GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+					.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+					.addComponent(panel, GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
 			);
 			groupLayout.setVerticalGroup(
 				groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 					.addGroup(groupLayout.createSequentialGroup()
 						.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
 						.addGap(5, 5, 5)
-						.addComponent(panel, GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE))
+						.addComponent(panel, GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE))
 			);
 			panel_6.setLayout(groupLayout);
 		}
@@ -114,7 +115,7 @@ public class NagusiaPanel extends JPanel {
 				groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 					.addGroup(groupLayout.createSequentialGroup()
 						.addComponent(erosketaSaskiaMenuPanel, GroupLayout.PREFERRED_SIZE, 261, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(77, Short.MAX_VALUE))
+						.addContainerGap(355, Short.MAX_VALUE))
 			);
 			panel_7.setLayout(groupLayout);
 		}
@@ -157,6 +158,12 @@ public class NagusiaPanel extends JPanel {
 				final JPanel panel = new JPanel();
 				panel.setLayout(new CardLayout());
 				panel_5.add(panel, BorderLayout.CENTER);
+
+				{
+					final HarremanetanJarriPanela harremanetanJarriPanela = new HarremanetanJarriPanela();
+					harremanetanJarriPanela.setName("harremanetanJarriPanela");
+					panel.add(harremanetanJarriPanela, harremanetanJarriPanela.getName());
+				}
 			}
 		}
 
@@ -188,15 +195,17 @@ public class NagusiaPanel extends JPanel {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(10, 10, 10)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addComponent(panel_4, GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
-						.addComponent(panel_2, GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
+						.addComponent(panel_4, GroupLayout.DEFAULT_SIZE, 1034, Short.MAX_VALUE)
+						.addComponent(panel_3, GroupLayout.DEFAULT_SIZE, 1034, Short.MAX_VALUE)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(panel_6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addGap(5, 5, 5)
-							.addComponent(panel_5, GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-							.addComponent(panel_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addComponent(panel_3, GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE))
+							.addComponent(panel_6, GroupLayout.PREFERRED_SIZE, 225, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+								.addComponent(panel_2, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+								.addComponent(panel_5, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 506, Short.MAX_VALUE))
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addComponent(panel_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 					.addGap(10, 10, 10))
 		);
 		groupLayout.setVerticalGroup(
@@ -208,9 +217,9 @@ public class NagusiaPanel extends JPanel {
 					.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addGap(5, 5, 5)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addComponent(panel_5, GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
-						.addComponent(panel_7, GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
-						.addComponent(panel_6, GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE))
+						.addComponent(panel_6, GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
+						.addComponent(panel_5, GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
+						.addComponent(panel_7, GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(panel_3, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
 					.addGap(10, 10, 10))
