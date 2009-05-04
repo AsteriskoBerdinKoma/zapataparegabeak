@@ -1,13 +1,17 @@
 package gkae.zapataparegabeak.gui.menuPanelak;
 
+import gkae.zapataparegabeak.objektuak.SaskiratutakoZapatak;
 import gkae.zapataparegabeak.objektuak.Zapata;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
+import java.text.DecimalFormat;
 import java.util.Vector;
 
 import javax.swing.BoxLayout;
 import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
@@ -31,18 +35,15 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private Vector<Zapata> saskia;
-	
 	private final JPanel panel;
 	private final JScrollPane scrollPane;
+	private final JLabel label;
 
 	/**
 	 * Create the panel
 	 */
 	public ErosketaSaskiaMenuPanel() {
 		super();
-		
-		saskia = new Vector<Zapata>();
 		
 		setBorder(new TitledBorder(null, "Erosketa Saskia", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
 
@@ -62,17 +63,12 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 		panel.setSize(462, 272);
 
 		scrollPane.setViewportView(panel);
-		//
-		
-		saskiraGehitu(new Zapata (2,"Ezker",42f,"Emakumezkoa","Zilarra/Urdina/Arrosa","Larrua","Korritzeko zapatak","Saucony",98.95f,false,"ez",0.0f,true,60,true,"2.jpg" ));
-		saskiraGehitu(new Zapata (3,"Ezker",38f,"Emakumezkoa","Zilarra","Larrua","Fashion Zapatak","Paris Hilton",63.95f,false,"ez",0.0f,true,20,true,"3.jpg" ));
 
 		JLabel prezioaLabel;
 		prezioaLabel = new JLabel();
 		prezioaLabel.setFont(new Font("", Font.BOLD, 12));
 		prezioaLabel.setText("Prezioa Totala:");
 
-		JLabel label;
 		label = new JLabel();
 		label.setFont(new Font("", Font.BOLD, 12));
 		label.setText("0.0€");
@@ -105,35 +101,48 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 					.addContainerGap())
 		);
 		setLayout(groupLayout);
+		saskiaEguneratu();
 	}
 	
-	public void saskiraGehitu(Zapata zapata){
-		saskia.addElement(zapata);
-		ErosketaSaskiaItem item = new ErosketaSaskiaItem();
-		//item.setSize(80, 80);
-		panel.add(item);
+	public void saskiaEguneratu(){
+		Vector<Zapata> saskia = SaskiratutakoZapatak.getInstance().getSaskikoZapatak();
+		double prezioTotala = 0;
+		for (Zapata z: saskia){
+			prezioTotala += z.getPrezioa();
+			ErosketaSaskiaItem item = new ErosketaSaskiaItem(z);
+			panel.add(item);
+		}		
+		DecimalFormat twoDForm = new DecimalFormat("#.##");
+		//Double.valueOf(twoDForm.format(prezioTotala));
+
+		label.setText(twoDForm.format(prezioTotala) + " €");
 	}
 
 	public class ErosketaSaskiaItem extends JPanel {
 
-		private JSpinner spinner;
 		/**
 		 * 
 		 */
 		private static final long serialVersionUID = 1L;
 		
-		public ErosketaSaskiaItem() {
+		private Zapata z;
+		private JLabel irudiaLabel;
+		private JXHyperlink artikuluarenIzenaHyperlink;
+		private JSpinner spinner;
+		private JLabel label;		
+		
+		public ErosketaSaskiaItem(Zapata z) {
 			super();
 
-			JLabel irudiaLabel;
+			this.z = z;
+			
 			irudiaLabel = new JLabel();
-			irudiaLabel.setText("Ez dago irudirik");
+			
 			irudiaLabel.setHorizontalTextPosition(SwingConstants.CENTER);
 			irudiaLabel.setBorder(new LineBorder(Color.black, 1, false));
-
-			JXHyperlink artikuluarenIzenaHyperlink;
+			
 			artikuluarenIzenaHyperlink = new JXHyperlink();
-			artikuluarenIzenaHyperlink.setFont(new Font("", Font.BOLD, 12));
+			artikuluarenIzenaHyperlink.setFont(new Font("", Font.BOLD, 10));
 			artikuluarenIzenaHyperlink.setToolTipText("Egin klik hemen artikuluaren zehaztasunak ikusteko");
 			artikuluarenIzenaHyperlink.setText("Artikuluaren izena");
 
@@ -153,12 +162,12 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 			prezioTotalaLabel = new JLabel();
 			prezioTotalaLabel.setText("Prezioa:");
 
-			JLabel label;
 			label = new JLabel();
 			label.setText("0.0€");
 
 			JSeparator separator;
 			separator = new JSeparator();
+			setDatuak();
 			
 			final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 			groupLayout.setHorizontalGroup(
@@ -178,11 +187,11 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 										.addComponent(prezioTotalaLabel)
 										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 										.addComponent(label)))
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
 								.addComponent(button, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
-							.addComponent(artikuluarenIzenaHyperlink, GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))
+							.addComponent(artikuluarenIzenaHyperlink, GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE))
 						.addContainerGap())
-					.addComponent(separator, GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
+					.addComponent(separator, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
 			);
 			groupLayout.setVerticalGroup(
 				groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -213,5 +222,21 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 			setLayout(groupLayout);
 		}
 		
+		private void setDatuak(){
+			artikuluarenIzenaHyperlink.setText(z.getGeneroa()+" - "+z.getKategoria()+"\n"+z.getOina()+" "+z.getNeurria());
+			spinner.setValue(SaskiratutakoZapatak.getInstance().getSaskiratutakoKopurua(z));
+			label.setText(z.getPrezioa() + " €");
+			
+			String irudi;
+			if(z.isIruditxoaDu())
+				irudi = "/gkae/zapataparegabeak/resources/zapatak/"+z.getIrudiPath();
+			else
+				irudi = "/gkae/zapataparegabeak/resources/zapatak/noimage120";
+			
+			ImageIcon iconOrig = SwingResourceManager.getIcon(ErosketaSaskiaItem.class, irudi);
+			ImageIcon iconResized = new ImageIcon(iconOrig.getImage().getScaledInstance(67, 61, Image.SCALE_SMOOTH));
+			
+			irudiaLabel.setIcon(iconResized);
+		}
 	}
 }
