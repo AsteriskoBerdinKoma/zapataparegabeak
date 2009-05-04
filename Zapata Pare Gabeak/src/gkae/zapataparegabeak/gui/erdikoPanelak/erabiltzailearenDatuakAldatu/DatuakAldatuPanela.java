@@ -15,13 +15,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
-import javax.swing.JSpinner;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
 
 public class DatuakAldatuPanela extends JPanel {
 
+	private JTextField textField_1;
 	/**
 	 * 
 	 */
@@ -29,7 +29,6 @@ public class DatuakAldatuPanela extends JPanel {
 
 	private ButtonGroup buttonGroup_2 = new ButtonGroup();
 	private ButtonGroup buttonGroup_1 = new ButtonGroup();
-	private JSpinner spinner;
 	private ButtonGroup buttonGroup = new ButtonGroup();
 	private JPasswordField passwordField_1;
 	private JPasswordField passwordField;
@@ -219,8 +218,6 @@ public class DatuakAldatuPanela extends JPanel {
 		neurriaLabel = new JLabel();
 		neurriaLabel.setText("Oin neurria:");
 
-		spinner = new JSpinner();
-
 		ezkerraRadioButton = new JRadioButton();
 		ezkerraRadioButton.setEnabled(false);
 		buttonGroup_2.add(ezkerraRadioButton);
@@ -257,6 +254,8 @@ public class DatuakAldatuPanela extends JPanel {
 		oinarenNeurriaGordeLabel = new JLabel();
 		oinarenNeurriaGordeLabel.setFont(new Font("", Font.ITALIC, 12));
 		oinarenNeurriaGordeLabel.setText("Oinaren neurria gorde nahi ez baduzu jarri 0 balioa");
+
+		textField_1 = new JTextField();
 		
 		final GroupLayout groupLayout_1 = new GroupLayout((JComponent) panel_2);
 		groupLayout_1.setHorizontalGroup(
@@ -269,22 +268,24 @@ public class DatuakAldatuPanela extends JPanel {
 						.addGroup(groupLayout_1.createSequentialGroup()
 							.addGap(21, 21, 21)
 							.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
-								.addComponent(gizonezkoaRadioButton)
-								.addComponent(emakumezkoaRadioButton)))
-						.addGroup(groupLayout_1.createSequentialGroup()
-							.addComponent(neurriaLabel)
-							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-							.addComponent(spinner, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-							.addComponent(oinarenNeurriaGordeLabel))
-						.addGroup(groupLayout_1.createSequentialGroup()
-							.addGap(21, 21, 21)
-							.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
 								.addComponent(eskuinaRadioButton)
-								.addComponent(ezkerraRadioButton))))
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+								.addComponent(ezkerraRadioButton)))
+						.addGroup(groupLayout_1.createSequentialGroup()
+							.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+								.addGroup(GroupLayout.Alignment.LEADING, groupLayout_1.createSequentialGroup()
+									.addComponent(neurriaLabel)
+									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+									.addComponent(textField_1))
+								.addGroup(GroupLayout.Alignment.LEADING, groupLayout_1.createSequentialGroup()
+									.addGap(21, 21, 21)
+									.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
+										.addComponent(gizonezkoaRadioButton)
+										.addComponent(emakumezkoaRadioButton))))
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addComponent(oinarenNeurriaGordeLabel)))
+					.addContainerGap(35, Short.MAX_VALUE))
 				.addGroup(groupLayout_1.createSequentialGroup()
-					.addContainerGap(62, Short.MAX_VALUE)
+					.addContainerGap(345, Short.MAX_VALUE)
 					.addComponent(aldaketakGordeButton_2)
 					.addContainerGap())
 		);
@@ -300,7 +301,7 @@ public class DatuakAldatuPanela extends JPanel {
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(neurriaLabel)
-						.addComponent(spinner, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(oinarenNeurriaGordeLabel))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(oinaCheckBox)
@@ -308,7 +309,7 @@ public class DatuakAldatuPanela extends JPanel {
 					.addComponent(ezkerraRadioButton)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(eskuinaRadioButton)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
 					.addComponent(aldaketakGordeButton_2)
 					.addContainerGap())
 		);
