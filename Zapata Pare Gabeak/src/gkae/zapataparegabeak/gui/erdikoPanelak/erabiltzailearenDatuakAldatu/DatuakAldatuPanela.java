@@ -1,5 +1,11 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.erabiltzailearenDatuakAldatu;
 
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
 import javax.swing.ButtonGroup;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -20,7 +26,7 @@ public class DatuakAldatuPanela extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	private ButtonGroup buttonGroup_2 = new ButtonGroup();
 	private ButtonGroup buttonGroup_1 = new ButtonGroup();
 	private JSpinner spinner;
@@ -32,12 +38,27 @@ public class DatuakAldatuPanela extends JPanel {
 	private JTextField textField_4;
 	private JTextField textField_3;
 	private JTextField textField;
+	private JCheckBox ordaintzekoMetodoaCheckBox;
+	private JRadioButton txartelBidezRadioButton;
+	private JRadioButton jasotzeanOrdainduRadioButton;
+	private JRadioButton emakumezkoaRadioButton;
+	private JRadioButton gizonezkoaRadioButton;
+	private JCheckBox generoaCheckBox;
+	private JRadioButton ezkerraRadioButton;
+	private JRadioButton eskuinaRadioButton;
+	private JCheckBox oinaCheckBox;
+	private JLabel txartelZenbakiaLabel;
+	
+	private ErabiltzailearenDatuakAldatuPanela jabea;
+
 	/**
 	 * Create the panel
 	 */
-	public DatuakAldatuPanela() {
+	public DatuakAldatuPanela(ErabiltzailearenDatuakAldatuPanela jabea) {
 		super();
 
+		this.jabea = jabea;
+		
 		JTabbedPane tabbedPane;
 		tabbedPane = new JTabbedPane();
 
@@ -60,6 +81,7 @@ public class DatuakAldatuPanela extends JPanel {
 
 		JButton aldaketakGordeButton;
 		aldaketakGordeButton = new JButton();
+		aldaketakGordeButton.addActionListener(new AldaketakGordeAction());
 		aldaketakGordeButton.setText("Aldaketak gorde");
 
 		passwordField = new JPasswordField();
@@ -130,36 +152,177 @@ public class DatuakAldatuPanela extends JPanel {
 
 		JButton aldaketakGordeButton_1;
 		aldaketakGordeButton_1 = new JButton();
+		aldaketakGordeButton_1.addActionListener(new AldaketakGordeAction());
 		aldaketakGordeButton_1.setText("Aldaketak gorde");
 
-		JRadioButton txartelBidezRadioButton;
 		txartelBidezRadioButton = new JRadioButton();
-		txartelBidezRadioButton.setSelected(true);
+		txartelBidezRadioButton.addItemListener(new ItemListener() {
+			public void itemStateChanged(final ItemEvent e) {
+				textField_6.setEnabled(ordaintzekoMetodoaCheckBox.isSelected() && txartelBidezRadioButton.isSelected());
+				txartelZenbakiaLabel.setEnabled(ordaintzekoMetodoaCheckBox.isSelected() && txartelBidezRadioButton.isSelected());
+			}
+		});
 		buttonGroup.add(txartelBidezRadioButton);
+		txartelBidezRadioButton.setEnabled(false);
 		txartelBidezRadioButton.setText("Txartel bidez");
 
-		JLabel txartelZenbakiaLabel;
 		txartelZenbakiaLabel = new JLabel();
+		txartelZenbakiaLabel.setEnabled(false);
 		txartelZenbakiaLabel.setText("Txartel zenbakia:");
 
 		textField_6 = new JTextField();
+		textField_6.setEnabled(false);
 
-		JRadioButton jasotzeanOrdainduRadioButton;
 		jasotzeanOrdainduRadioButton = new JRadioButton();
+		jasotzeanOrdainduRadioButton.setEnabled(false);
 		buttonGroup.add(jasotzeanOrdainduRadioButton);
 		jasotzeanOrdainduRadioButton.setText("Jasotzean ordaindu");
 
-		JCheckBox ordaintzekoMetodoaCheckBox;
 		ordaintzekoMetodoaCheckBox = new JCheckBox();
+		ordaintzekoMetodoaCheckBox.addItemListener(new ItemListener() {
+			public void itemStateChanged(final ItemEvent arg0) {
+				txartelBidezRadioButton.setEnabled(ordaintzekoMetodoaCheckBox
+						.isSelected());
+				jasotzeanOrdainduRadioButton
+						.setEnabled(ordaintzekoMetodoaCheckBox.isSelected());
+				textField_6.setEnabled(ordaintzekoMetodoaCheckBox.isSelected() && txartelBidezRadioButton.isSelected());
+				txartelZenbakiaLabel.setEnabled(ordaintzekoMetodoaCheckBox.isSelected() && txartelBidezRadioButton.isSelected());
+			}
+		});
+		
+		
 		ordaintzekoMetodoaCheckBox.setText("Ordaintzeko metodoa:");
+
+		final JPanel panel_2 = new JPanel();
+		tabbedPane.addTab("Produktuei Buruzko Hobespenak", null, panel_2, null);
+
+		emakumezkoaRadioButton = new JRadioButton();
+		emakumezkoaRadioButton.setEnabled(false);
+		buttonGroup_1.add(emakumezkoaRadioButton);
+		emakumezkoaRadioButton.setText("Emakumezkoa");
+
+		gizonezkoaRadioButton = new JRadioButton();
+		gizonezkoaRadioButton.setEnabled(false);
+		buttonGroup_1.add(gizonezkoaRadioButton);
+		gizonezkoaRadioButton.setText("Gizonezkoa");
+		
+		generoaCheckBox = new JCheckBox();
+		generoaCheckBox.addItemListener(new ItemListener() {
+			public void itemStateChanged(final ItemEvent arg0) {
+				emakumezkoaRadioButton.setEnabled(generoaCheckBox.isSelected());
+				gizonezkoaRadioButton.setEnabled(generoaCheckBox.isSelected());
+			}
+		});
+		generoaCheckBox.setText("Generoa:");
+
+		JLabel neurriaLabel;
+		neurriaLabel = new JLabel();
+		neurriaLabel.setText("Oin neurria:");
+
+		spinner = new JSpinner();
+
+		ezkerraRadioButton = new JRadioButton();
+		ezkerraRadioButton.setEnabled(false);
+		buttonGroup_2.add(ezkerraRadioButton);
+		ezkerraRadioButton.setText("Ezkerra");
+
+		eskuinaRadioButton = new JRadioButton();
+		eskuinaRadioButton.setEnabled(false);
+		buttonGroup_2.add(eskuinaRadioButton);
+		eskuinaRadioButton.setText("Eskuina");
+		
+		oinaCheckBox = new JCheckBox();
+		oinaCheckBox.addItemListener(new ItemListener() {
+			public void itemStateChanged(final ItemEvent e) {
+				ezkerraRadioButton.setEnabled(oinaCheckBox.isSelected());
+				eskuinaRadioButton.setEnabled(oinaCheckBox.isSelected());
+			}
+		});
+		oinaCheckBox.setText("Oina:");
+		
+		JButton aldaketakGordeButton_2;
+		aldaketakGordeButton_2 = new JButton();
+		aldaketakGordeButton_2.addActionListener(new AldaketakGordeAction());
+		aldaketakGordeButton_2.setText("Aldaketak gorde");
+		
+		ezkerraRadioButton.setSelected(true);
+		emakumezkoaRadioButton.setSelected(true);
+		txartelBidezRadioButton.setSelected(true);
+		
+		ordaintzekoMetodoaCheckBox.setSelected(false);
+		generoaCheckBox.setSelected(false);
+		oinaCheckBox.setSelected(false);
+
+		JLabel oinarenNeurriaGordeLabel;
+		oinarenNeurriaGordeLabel = new JLabel();
+		oinarenNeurriaGordeLabel.setFont(new Font("", Font.ITALIC, 12));
+		oinarenNeurriaGordeLabel.setText("Oinaren neurria gorde nahi ez baduzu jarri 0 balioa");
+		
+		final GroupLayout groupLayout_1 = new GroupLayout((JComponent) panel_2);
+		groupLayout_1.setHorizontalGroup(
+			groupLayout_1.createParallelGroup(GroupLayout.Alignment.TRAILING)
+				.addGroup(groupLayout_1.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(oinaCheckBox)
+						.addComponent(generoaCheckBox)
+						.addGroup(groupLayout_1.createSequentialGroup()
+							.addGap(21, 21, 21)
+							.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
+								.addComponent(gizonezkoaRadioButton)
+								.addComponent(emakumezkoaRadioButton)))
+						.addGroup(groupLayout_1.createSequentialGroup()
+							.addComponent(neurriaLabel)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addComponent(spinner, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addComponent(oinarenNeurriaGordeLabel))
+						.addGroup(groupLayout_1.createSequentialGroup()
+							.addGap(21, 21, 21)
+							.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
+								.addComponent(eskuinaRadioButton)
+								.addComponent(ezkerraRadioButton))))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+				.addGroup(groupLayout_1.createSequentialGroup()
+					.addContainerGap(62, Short.MAX_VALUE)
+					.addComponent(aldaketakGordeButton_2)
+					.addContainerGap())
+		);
+		groupLayout_1.setVerticalGroup(
+			groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(groupLayout_1.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(generoaCheckBox)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(emakumezkoaRadioButton)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(gizonezkoaRadioButton)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(neurriaLabel)
+						.addComponent(spinner, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(oinarenNeurriaGordeLabel))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(oinaCheckBox)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(ezkerraRadioButton)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(eskuinaRadioButton)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addComponent(aldaketakGordeButton_2)
+					.addContainerGap())
+		);
+		panel_2.setLayout(groupLayout_1);
+		//
+		
 		final GroupLayout groupLayout_2 = new GroupLayout((JComponent) panel_1);
 		groupLayout_2.setHorizontalGroup(
-			groupLayout_2.createParallelGroup(GroupLayout.Alignment.TRAILING)
+			groupLayout_2.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(groupLayout_2.createSequentialGroup()
 					.addContainerGap(253, Short.MAX_VALUE)
 					.addComponent(aldaketakGordeButton_1)
 					.addContainerGap())
-				.addGroup(GroupLayout.Alignment.LEADING, groupLayout_2.createSequentialGroup()
+				.addGroup(groupLayout_2.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.LEADING)
 						.addGroup(groupLayout_2.createSequentialGroup()
@@ -216,99 +379,6 @@ public class DatuakAldatuPanela extends JPanel {
 					.addContainerGap())
 		);
 		panel_1.setLayout(groupLayout_2);
-
-		final JPanel panel_2 = new JPanel();
-		tabbedPane.addTab("Produktuei Buruzko Hobespenak", null, panel_2, null);
-
-		JCheckBox generoaCheckBox;
-		generoaCheckBox = new JCheckBox();
-		generoaCheckBox.setText("Generoa:");
-
-		JRadioButton emakumezkoaRadioButton;
-		emakumezkoaRadioButton = new JRadioButton();
-		buttonGroup_1.add(emakumezkoaRadioButton);
-		emakumezkoaRadioButton.setText("Emakumezkoa");
-
-		JRadioButton gizonezkoaRadioButton;
-		gizonezkoaRadioButton = new JRadioButton();
-		buttonGroup_1.add(gizonezkoaRadioButton);
-		gizonezkoaRadioButton.setText("Gizonezkoa");
-
-		JLabel neurriaLabel;
-		neurriaLabel = new JLabel();
-		neurriaLabel.setText("Neurria:");
-
-		spinner = new JSpinner();
-
-		JCheckBox oinaCheckBox;
-		oinaCheckBox = new JCheckBox();
-		oinaCheckBox.setText("Oina:");
-
-		JRadioButton ezkerraRadioButton;
-		ezkerraRadioButton = new JRadioButton();
-		buttonGroup_2.add(ezkerraRadioButton);
-		ezkerraRadioButton.setText("Ezkerra");
-
-		JRadioButton eskuinaRadioButton;
-		eskuinaRadioButton = new JRadioButton();
-		buttonGroup_2.add(eskuinaRadioButton);
-		eskuinaRadioButton.setText("Eskuina");
-
-		JButton aldaketakGordeButton_2;
-		aldaketakGordeButton_2 = new JButton();
-		aldaketakGordeButton_2.setText("Aldaketak gorde");
-		final GroupLayout groupLayout_1 = new GroupLayout((JComponent) panel_2);
-		groupLayout_1.setHorizontalGroup(
-			groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(groupLayout_1.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addComponent(oinaCheckBox)
-						.addComponent(generoaCheckBox)
-						.addGroup(groupLayout_1.createSequentialGroup()
-							.addGap(21, 21, 21)
-							.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
-								.addComponent(gizonezkoaRadioButton)
-								.addComponent(emakumezkoaRadioButton)))
-						.addGroup(groupLayout_1.createSequentialGroup()
-							.addComponent(neurriaLabel)
-							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-							.addComponent(spinner, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout_1.createSequentialGroup()
-							.addGap(21, 21, 21)
-							.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
-								.addComponent(eskuinaRadioButton)
-								.addComponent(ezkerraRadioButton))))
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-				.addGroup(GroupLayout.Alignment.TRAILING, groupLayout_1.createSequentialGroup()
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addComponent(aldaketakGordeButton_2)
-					.addContainerGap())
-		);
-		groupLayout_1.setVerticalGroup(
-			groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(groupLayout_1.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(generoaCheckBox)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(emakumezkoaRadioButton)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(gizonezkoaRadioButton)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(neurriaLabel)
-						.addComponent(spinner, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(oinaCheckBox)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(ezkerraRadioButton)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(eskuinaRadioButton)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addComponent(aldaketakGordeButton_2)
-					.addContainerGap())
-		);
-		panel_2.setLayout(groupLayout_1);
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -325,7 +395,12 @@ public class DatuakAldatuPanela extends JPanel {
 					.addContainerGap())
 		);
 		setLayout(groupLayout);
-		//
+	}
+	
+	private final class AldaketakGordeAction implements ActionListener {
+		public void actionPerformed(final ActionEvent arg0) {
+			jabea.aldaketakGorde();
+		}
 	}
 
 }

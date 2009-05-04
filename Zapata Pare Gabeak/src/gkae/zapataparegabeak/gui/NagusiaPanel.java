@@ -21,6 +21,7 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
 import javax.swing.SwingConstants;
 import gkae.zapataparegabeak.gui.erdikoPanelak.dendariarekinHarremanetanJarri.HarremanetanJarriPanela;
+import gkae.zapataparegabeak.gui.erdikoPanelak.erabiltzailearenDatuakAldatu.ErabiltzailearenDatuakAldatuPanela;
 
 public class NagusiaPanel extends JPanel {
 	private JTextField textField;
@@ -158,6 +159,12 @@ public class NagusiaPanel extends JPanel {
 				final JPanel panel = new JPanel();
 				panel.setLayout(new CardLayout());
 				panel_5.add(panel, BorderLayout.CENTER);
+
+				{
+					final ErabiltzailearenDatuakAldatuPanela erabiltzailearenDatuakAldatuPanela = new ErabiltzailearenDatuakAldatuPanela();
+					erabiltzailearenDatuakAldatuPanela.setName("erabiltzailearenDatuakAldatuPanela");
+					panel.add(erabiltzailearenDatuakAldatuPanela, erabiltzailearenDatuakAldatuPanela.getName());
+				}
 
 				{
 					final HarremanetanJarriPanela harremanetanJarriPanela = new HarremanetanJarriPanela();
