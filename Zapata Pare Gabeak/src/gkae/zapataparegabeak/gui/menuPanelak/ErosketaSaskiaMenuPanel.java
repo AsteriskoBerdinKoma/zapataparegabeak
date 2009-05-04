@@ -111,10 +111,9 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 			prezioTotala += z.getPrezioa();
 			ErosketaSaskiaItem item = new ErosketaSaskiaItem(z);
 			panel.add(item);
-		}		
+		}
+		
 		DecimalFormat twoDForm = new DecimalFormat("#.##");
-		//Double.valueOf(twoDForm.format(prezioTotala));
-
 		label.setText(twoDForm.format(prezioTotala) + " €");
 	}
 
