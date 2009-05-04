@@ -1,16 +1,21 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa;
 
-import java.awt.FlowLayout;
 import java.awt.Font;
-import javax.swing.BoxLayout;
+
 import javax.swing.GroupLayout;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.LayoutStyle;
 
 public class KatalogoaPanela extends JPanel {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Create the panel
@@ -26,43 +31,39 @@ public class KatalogoaPanela extends JPanel {
 		katalogoaLabel.setFont(new Font("Dialog", Font.PLAIN, 18));
 		katalogoaLabel.setText("Katalogoa");
 
-		JPanel panel;
-		panel = new JPanel();
+		JScrollPane scrollPane;
+		scrollPane = new JScrollPane();
 
-		JPanel panel_1;
-		panel_1 = new JPanel();
+		final JPanel panel = new JPanel();
+		scrollPane.setViewportView(panel);
 
-		JPanel panel_2;
-		panel_2 = new JPanel();
+		KatalogoItemPanela katalogoItemPanela;
+		katalogoItemPanela = new KatalogoItemPanela();
 		final GroupLayout groupLayout_1 = new GroupLayout((JComponent) panel);
 		groupLayout_1.setHorizontalGroup(
 			groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(GroupLayout.Alignment.TRAILING, groupLayout_1.createSequentialGroup()
-					.addGap(24, 24, 24)
-					.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(panel_2, GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+				.addGroup(groupLayout_1.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(katalogoItemPanela, GroupLayout.DEFAULT_SIZE, 2, Short.MAX_VALUE)
 					.addContainerGap())
 		);
 		groupLayout_1.setVerticalGroup(
 			groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(GroupLayout.Alignment.TRAILING, groupLayout_1.createSequentialGroup()
+				.addGroup(groupLayout_1.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addComponent(panel_1, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
-						.addComponent(panel_2, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE))
-					.addContainerGap())
+					.addComponent(katalogoItemPanela, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		panel.setLayout(groupLayout_1);
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+			groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addComponent(separator, GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE)
-						.addComponent(katalogoaLabel, GroupLayout.PREFERRED_SIZE, 154, GroupLayout.PREFERRED_SIZE)
-						.addComponent(panel, GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE))
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+						.addComponent(scrollPane, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
+						.addComponent(separator, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
+						.addComponent(katalogoaLabel, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 154, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
@@ -73,7 +74,7 @@ public class KatalogoaPanela extends JPanel {
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(separator, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(panel, GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
 					.addContainerGap())
 		);
 		setLayout(groupLayout);
