@@ -91,7 +91,6 @@ public class HarremanetanJarriPanela extends JPanel {
 				mezuaIdatziPanela.garbitu();
 				((CardLayout)panel.getLayout()).show(panel, "mezuaIdatziPanela");
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
