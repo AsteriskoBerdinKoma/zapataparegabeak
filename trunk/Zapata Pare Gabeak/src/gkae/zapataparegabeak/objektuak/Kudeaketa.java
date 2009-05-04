@@ -40,5 +40,9 @@ public class Kudeaketa {
 	public void erabErregistratu(ErabiltzaileInfo erab){
 		this.erabiltzaileak.erabGehitu(erab);
 	}
+	
+	public Vector<ErabiltzaileInfo> getErabiltzaileak(){
+		return this.erabiltzaileak.getErabZerrenda();
+	}
 
 }

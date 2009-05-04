@@ -26,6 +26,11 @@ public class Erabiltzaileak {
 	public void erabGehitu(ErabiltzaileInfo erabBerri){
 		this.users.add(erabBerri);
 	}
+
+	public Vector<ErabiltzaileInfo> getErabZerrenda() {
+		return this.users;
+		
+	}
 	
 
 }
