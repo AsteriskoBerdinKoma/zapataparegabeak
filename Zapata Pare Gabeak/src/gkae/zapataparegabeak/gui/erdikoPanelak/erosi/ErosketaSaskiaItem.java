@@ -104,6 +104,11 @@ public class ErosketaSaskiaItem extends JPanel {
 
 		
 		stockDagoeneanAbisatuButton = new JButton();
+		stockDagoeneanAbisatuButton.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				jabea.changeCard("stockAbisua");
+			}
+		});
 		stockDagoeneanAbisatuButton.setText("Stock Dagoenean Abisatu");
 		setDatuak(informazioa);
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
@@ -122,17 +127,15 @@ public class ErosketaSaskiaItem extends JPanel {
 							.addGap(81, 81, 81)
 							.addComponent(stockaLabel, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
 							.addComponent(ezLabel, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-							.addGroup(groupLayout.createSequentialGroup()
-								.addComponent(stockDagoeneanAbisatuButton)
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(saskitikEzabatuButton, GroupLayout.PREFERRED_SIZE, 165, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap())
-							.addGroup(GroupLayout.Alignment.LEADING, groupLayout.createSequentialGroup()
-								.addComponent(prezioaLabel)
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(label, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap()))))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(stockDagoeneanAbisatuButton)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addComponent(saskitikEzabatuButton, GroupLayout.PREFERRED_SIZE, 165, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(prezioaLabel)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addComponent(label, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)))
+					.addGap(39, 39, 39))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
