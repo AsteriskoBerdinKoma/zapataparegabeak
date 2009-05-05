@@ -1,11 +1,14 @@
 package gkae.zapataparegabeak.gui.menuPanelak;
 
+import gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa.ArtikuluarenXehetasunakDialog;
 import gkae.zapataparegabeak.objektuak.SaskiratutakoZapatak;
 import gkae.zapataparegabeak.objektuak.Zapata;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import java.util.Vector;
 
@@ -14,6 +17,7 @@ import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -149,11 +153,21 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 			this.z = z;
 			
 			irudiaLabel = new JLabel();
+			irudiaLabel.setBackground(Color.WHITE);
+			irudiaLabel.setOpaque(true);
 			
 			irudiaLabel.setHorizontalTextPosition(SwingConstants.CENTER);
 			irudiaLabel.setBorder(new LineBorder(Color.black, 1, false));
 			
 			artikuluarenIzenaHyperlink = new JXHyperlink();
+			artikuluarenIzenaHyperlink.addActionListener(new ActionListener() {
+				public void actionPerformed(final ActionEvent arg0) {
+					ArtikuluarenXehetasunakDialog axd = new ArtikuluarenXehetasunakDialog(ErosketaSaskiaItem.this.z);
+					axd.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					axd.setLocationRelativeTo(null);
+					axd.setVisible(true);
+				}
+			});
 			artikuluarenIzenaHyperlink.setFont(new Font("", Font.BOLD, 10));
 			artikuluarenIzenaHyperlink.setToolTipText("Egin klik hemen artikuluaren zehaztasunak ikusteko");
 			artikuluarenIzenaHyperlink.setText("Artikuluaren izena");
@@ -205,11 +219,11 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 										.addComponent(prezioTotalaLabel)
 										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 										.addComponent(label)))
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
 								.addComponent(button, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
-							.addComponent(artikuluarenIzenaHyperlink, GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE))
+							.addComponent(artikuluarenIzenaHyperlink, GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE))
 						.addContainerGap())
-					.addComponent(separator, GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+					.addComponent(separator, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
 			);
 			groupLayout.setVerticalGroup(
 				groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -252,7 +266,7 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 				irudi = "/gkae/zapataparegabeak/resources/zapatak/noimage120";
 			
 			ImageIcon iconOrig = SwingResourceManager.getIcon(ErosketaSaskiaItem.class, irudi);
-			ImageIcon iconResized = new ImageIcon(iconOrig.getImage().getScaledInstance(67, 61, Image.SCALE_SMOOTH));
+			ImageIcon iconResized = new ImageIcon(iconOrig.getImage().getScaledInstance(67, (60*67)/120, Image.SCALE_SMOOTH));
 			
 			irudiaLabel.setIcon(iconResized);
 		}
