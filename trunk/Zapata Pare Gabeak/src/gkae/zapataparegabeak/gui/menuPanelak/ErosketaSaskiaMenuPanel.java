@@ -23,6 +23,8 @@ import javax.swing.LayoutStyle;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import org.jdesktop.swingx.JXHyperlink;
 
@@ -38,6 +40,8 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 	private final JPanel panel;
 	private final JScrollPane scrollPane;
 	private final JLabel label;
+	
+	private DecimalFormat twoDForm;
 
 	/**
 	 * Create the panel
@@ -47,6 +51,8 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 		
 		setBorder(new TitledBorder(null, "Erosketa Saskia", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
 
+		twoDForm = new DecimalFormat("#.##");
+		
 		JButton erosketaGauzatuButton;
 		erosketaGauzatuButton = new JButton();
 		erosketaGauzatuButton.setText("Erosketa gauzatu");
@@ -108,15 +114,22 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 		Vector<Zapata> saskia = SaskiratutakoZapatak.getInstance().getSaskikoZapatak();
 		double prezioTotala = 0;
 		for (Zapata z: saskia){
-			prezioTotala += z.getPrezioa();
+			prezioTotala += (z.getPrezioa() * SaskiratutakoZapatak.getInstance().getSaskiratutakoKopurua(z));
 			ErosketaSaskiaItem item = new ErosketaSaskiaItem(z);
 			panel.add(item);
 		}
 		
-		DecimalFormat twoDForm = new DecimalFormat("#.##");
 		label.setText(twoDForm.format(prezioTotala) + " €");
 	}
 
+	public void prezioakEguneratu() {
+		Vector<Zapata> saskia = SaskiratutakoZapatak.getInstance().getSaskikoZapatak();
+		double prezioTotala = 0;
+		for (Zapata z: saskia)
+			prezioTotala += (z.getPrezioa() * SaskiratutakoZapatak.getInstance().getSaskiratutakoKopurua(z));
+		label.setText(twoDForm.format(prezioTotala) + " €");
+	}
+	
 	public class ErosketaSaskiaItem extends JPanel {
 
 		/**
@@ -153,16 +166,22 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 			JLabel kopuruaLabel;
 			kopuruaLabel = new JLabel();
 			kopuruaLabel.setText("Kopurua:");
-
+			
+			label = new JLabel();
+			label.setText("0.0€");
+			
 			spinner = new JSpinner();
-			spinner.setValue(1);
-
+			spinner.addChangeListener(new ChangeListener() {
+				public void stateChanged(final ChangeEvent arg0) {
+					SaskiratutakoZapatak.getInstance().setKopurua(ErosketaSaskiaItem.this.z, Integer.parseInt(spinner.getValue().toString()));
+					setDatuak();
+					prezioakEguneratu();
+				}
+			});
+			
 			JLabel prezioTotalaLabel;
 			prezioTotalaLabel = new JLabel();
 			prezioTotalaLabel.setText("Prezioa:");
-
-			label = new JLabel();
-			label.setText("0.0€");
 
 			JSeparator separator;
 			separator = new JSeparator();
@@ -186,11 +205,11 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 										.addComponent(prezioTotalaLabel)
 										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 										.addComponent(label)))
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
 								.addComponent(button, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
-							.addComponent(artikuluarenIzenaHyperlink, GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE))
+							.addComponent(artikuluarenIzenaHyperlink, GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE))
 						.addContainerGap())
-					.addComponent(separator, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+					.addComponent(separator, GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
 			);
 			groupLayout.setVerticalGroup(
 				groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -224,7 +243,7 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 		private void setDatuak(){
 			artikuluarenIzenaHyperlink.setText(z.getGeneroa()+" - "+z.getKategoria()+"\n"+z.getOina()+" "+z.getNeurria());
 			spinner.setValue(SaskiratutakoZapatak.getInstance().getSaskiratutakoKopurua(z));
-			label.setText(z.getPrezioa() + " €");
+			label.setText(twoDForm.format(z.getPrezioa() * SaskiratutakoZapatak.getInstance().getSaskiratutakoKopurua(z)) + " €");
 			
 			String irudi;
 			if(z.isIruditxoaDu())

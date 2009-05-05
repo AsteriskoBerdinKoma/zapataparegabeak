@@ -53,6 +53,10 @@ public class SaskiratutakoZapatak {
 		return vZapatak;
 	}
 	
+	public void setKopurua(Zapata z, int kopurua) {
+		bilatuSaskiItem(z).setKopurua(kopurua);
+	}
+	
 	private class SaskiItem{
 		
 		private int kopurua;
