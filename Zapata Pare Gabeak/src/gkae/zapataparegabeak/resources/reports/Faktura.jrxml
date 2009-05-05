@@ -3,7 +3,7 @@
 	<parameter name="DENDA_DATUAK" class="java.lang.String"/>
 	<parameter name="EROSLE_DATUAK" class="java.lang.String"/>
 	<parameter name="FAKTURA_ZENB" class="java.lang.String"/>
-	<parameter name="LOGO_URL" class="java.lang.String"/>
+	<parameter name="LOGO_URL" class="java.net.URL"/>
 	<parameter name="ZENB_GORD" class="java.lang.String"/>
 	<parameter name="ZERGA_OINARRI" class="java.lang.String"/>
 	<parameter name="BEZ" class="java.lang.String"/>
@@ -56,7 +56,7 @@
 			</line>
 			<image>
 				<reportElement x="0" y="0" width="359" height="39"/>
-				<imageExpression class="java.lang.String"><![CDATA[$P{LOGO_URL}]]></imageExpression>
+				<imageExpression class="java.net.URL"><![CDATA[$P{LOGO_URL}]]></imageExpression>
 			</image>
 		</band>
 	</title>
