@@ -1,10 +1,13 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa;
 
 import gkae.zapataparegabeak.gui.erdikoPanelak.erosi.ErosketaSaskiaItem;
+import gkae.zapataparegabeak.objektuak.Kudeaketa;
+import gkae.zapataparegabeak.objektuak.Zapata;
 
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Insets;
+
 import javax.swing.BoxLayout;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
@@ -17,10 +20,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.LayoutStyle;
 import javax.swing.SwingConstants;
-import org.jdesktop.swingx.JXFindBar;
-import org.jdesktop.swingx.JXHyperlink;
-import org.jdesktop.swingx.JXSearchPanel;
-import org.jdesktop.swingx.JXTitledSeparator;
+
 import com.swtdesigner.SwingResourceManager;
 
 public class BilaketaEmaitzak extends JPanel {
@@ -29,6 +29,8 @@ public class BilaketaEmaitzak extends JPanel {
 	private JComboBox comboBox_2;
 	private JComboBox comboBox_1;
 	private JComboBox comboBox;
+	
+	final JPanel resultPanel;
 	/**
 	 * 
 	 */
@@ -79,9 +81,9 @@ public class BilaketaEmaitzak extends JPanel {
 		JScrollPane scrollPane;
 		scrollPane = new JScrollPane();
 
-		final JPanel panel = new JPanel();
-		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-		scrollPane.setViewportView(panel);
+		resultPanel = new JPanel();
+		resultPanel.setLayout(new BoxLayout(resultPanel, BoxLayout.Y_AXIS));
+		scrollPane.setViewportView(resultPanel);
 
 		JButton korritzekoZapatakButton;
 		korritzekoZapatakButton = new JButton();
@@ -109,8 +111,8 @@ public class BilaketaEmaitzak extends JPanel {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
-						.addComponent(separator, GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
+						.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+						.addComponent(separator, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
 						.addComponent(bilaketarenEmaitzakLabel)
 						.addComponent(label)
 						.addComponent(emaitzenIragazketaLabel)
@@ -166,6 +168,14 @@ public class BilaketaEmaitzak extends JPanel {
 		);
 		setLayout(groupLayout);
 		//
+	}
+	
+	public void emaitzakEguneratu() {
+		resultPanel.removeAll();
+		for(Zapata z: Kudeaketa.getInstance().katalogokoZapatak()){
+			resultPanel.add(new KatalogoItemPanela(z));
+		}
+		
 	}
 
 }

@@ -1,6 +1,6 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.erosi;
 
-import gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa.ArtikuluarenXehetasunak;
+import gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa.ArtikuluarenXehetasunakDialog;
 import gkae.zapataparegabeak.objektuak.Kudeaketa;
 import gkae.zapataparegabeak.objektuak.Zapata;
 
@@ -14,6 +14,7 @@ import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
@@ -65,7 +66,10 @@ public class ErosketaSaskiaItem extends JPanel {
 		artikuluarenIzenaLabel = new JXHyperlink();
 		artikuluarenIzenaLabel.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent arg0) {
-				ArtikuluarenXehetasunak ax = new ArtikuluarenXehetasunak(informazioa);
+				ArtikuluarenXehetasunakDialog ax = new ArtikuluarenXehetasunakDialog(informazioa);
+				ax.setVisible(true);
+				ax.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+				ax.setLocationRelativeTo(null);
 			}
 		});
 		artikuluarenIzenaLabel.setText("Artikuluaren izena");
