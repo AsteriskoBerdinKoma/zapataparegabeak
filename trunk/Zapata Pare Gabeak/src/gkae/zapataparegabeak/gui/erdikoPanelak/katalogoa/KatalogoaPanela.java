@@ -1,7 +1,11 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa;
 
+import gkae.zapataparegabeak.objektuak.Kudeaketa;
+import gkae.zapataparegabeak.objektuak.Zapata;
+
 import java.awt.Font;
 
+import javax.swing.BoxLayout;
 import javax.swing.GroupLayout;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
@@ -16,6 +20,8 @@ public class KatalogoaPanela extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	private JPanel artikuluZerrenda;
 
 	/**
 	 * Create the panel
@@ -34,35 +40,18 @@ public class KatalogoaPanela extends JPanel {
 		JScrollPane scrollPane;
 		scrollPane = new JScrollPane();
 
-		final JPanel panel = new JPanel();
-		scrollPane.setViewportView(panel);
-
-		KatalogoItemPanela katalogoItemPanela;
-		katalogoItemPanela = new KatalogoItemPanela();
-		final GroupLayout groupLayout_1 = new GroupLayout((JComponent) panel);
-		groupLayout_1.setHorizontalGroup(
-			groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(groupLayout_1.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(katalogoItemPanela, GroupLayout.DEFAULT_SIZE, 2, Short.MAX_VALUE)
-					.addContainerGap())
-		);
-		groupLayout_1.setVerticalGroup(
-			groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(groupLayout_1.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(katalogoItemPanela, GroupLayout.PREFERRED_SIZE, 132, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-		);
-		panel.setLayout(groupLayout_1);
+		final JPanel artikuluZerrenda = new JPanel();
+		artikuluZerrenda.setLayout(new BoxLayout(artikuluZerrenda, BoxLayout.Y_AXIS));
+		artikuluZerrenda.setSize(473, 310);
+		scrollPane.setViewportView(artikuluZerrenda);
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addComponent(scrollPane, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
-						.addComponent(separator, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
+						.addComponent(scrollPane, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+						.addComponent(separator, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
 						.addComponent(katalogoaLabel, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 154, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap())
 		);
@@ -74,11 +63,20 @@ public class KatalogoaPanela extends JPanel {
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(separator, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
 					.addContainerGap())
 		);
 		setLayout(groupLayout);
 		//
+		katalogoaEguneratu();
+	}
+	
+	public void katalogoaEguneratu() {
+		artikuluZerrenda.removeAll();
+		for(Zapata z: Kudeaketa.getInstance().katalogokoZapatak()){
+			artikuluZerrenda.add(new KatalogoItemPanela(z));
+		}
+		
 	}
 
 }

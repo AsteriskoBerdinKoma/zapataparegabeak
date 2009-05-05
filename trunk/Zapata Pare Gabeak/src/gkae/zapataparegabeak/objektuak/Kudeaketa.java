@@ -44,5 +44,9 @@ public class Kudeaketa {
 	public Vector<ErabiltzaileInfo> getErabiltzaileak(){
 		return this.erabiltzaileak.getErabZerrenda();
 	}
+	
+	public Vector<Zapata> katalogokoZapatak(){
+		return this.katalogoa.getKatalagoa();
+	}
 
 }

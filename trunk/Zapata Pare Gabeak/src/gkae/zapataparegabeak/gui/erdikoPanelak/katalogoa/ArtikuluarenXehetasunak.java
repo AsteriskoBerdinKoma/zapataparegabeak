@@ -1,9 +1,15 @@
-package gkae.zapataparegabeak.gui.erdikoPanelak.bilaketaKatalogoa;
+package gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa;
+
+import gkae.zapataparegabeak.objektuak.Kudeaketa;
+import gkae.zapataparegabeak.objektuak.Zapata;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.Insets;
+
 import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
@@ -12,25 +18,39 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JSpinner;
 import javax.swing.JTextArea;
-import javax.swing.JTextPane;
 import javax.swing.LayoutStyle;
 import javax.swing.UIManager;
-import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.border.TitledBorder;
+
 import com.swtdesigner.SwingResourceManager;
 
 public class ArtikuluarenXehetasunak extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTextArea ezDagoDeskribapenikTextArea;
 	private JSpinner spinner;
 	private JComboBox comboBox;
+	private Zapata zp;
+	
+	JLabel datumodeloaLabel;
+	JLabel datuoinaLabel;
+	JLabel datugeneroaLabel;
+	JLabel datukategoriaLabel;
+	JLabel datumaterialaLabel;
+	JLabel datumarkaLabel;
+	JLabel datukoloreaLabel;
+	JLabel irudialabel;
+	JLabel datuprezioaLabel;
+	
 	/**
 	 * Create the panel
 	 */
-	public ArtikuluarenXehetasunak() {
+	public ArtikuluarenXehetasunak(Zapata zp) {
 		super();
-
+		this.zp = zp;
 		JLabel artikuluarenXehetasunakLabel;
 		artikuluarenXehetasunakLabel = new JLabel();
 		artikuluarenXehetasunakLabel.setFont(new Font("", Font.PLAIN, 18));
@@ -39,9 +59,9 @@ public class ArtikuluarenXehetasunak extends JPanel {
 		JSeparator separator;
 		separator = new JSeparator();
 
-		JLabel label;
-		label = new JLabel();
-		label.setIcon(SwingResourceManager.getIcon(ArtikuluarenXehetasunak.class, "/gkae/zapataparegabeak/resources/zapatak/noimage120.png"));
+		
+		irudialabel = new JLabel();
+		irudialabel.setIcon(SwingResourceManager.getIcon(ArtikuluarenXehetasunak.class, "/gkae/zapataparegabeak/resources/zapatak/noimage120.png"));
 
 		JLabel modeloaLabel;
 		modeloaLabel = new JLabel();
@@ -71,29 +91,29 @@ public class ArtikuluarenXehetasunak extends JPanel {
 		neurriaLabel = new JLabel();
 		neurriaLabel.setText("Neurria:");
 
-		comboBox = new JComboBox();
+		comboBox = new JComboBox(new String[]{"38","40","42","43.5","46"});
 
-		JLabel datumodeloaLabel;
+		
 		datumodeloaLabel = new JLabel();
 		datumodeloaLabel.setText("datuModeloa");
 
-		JLabel datuoinaLabel;
+		
 		datuoinaLabel = new JLabel();
 		datuoinaLabel.setText("datuOina");
 
-		JLabel datugeneroaLabel;
+		
 		datugeneroaLabel = new JLabel();
 		datugeneroaLabel.setText("datuGeneroa");
 
-		JLabel datukategoriaLabel;
+		
 		datukategoriaLabel = new JLabel();
 		datukategoriaLabel.setText("datuKategoria");
 
-		JLabel datumaterialaLabel;
+		
 		datumaterialaLabel = new JLabel();
 		datumaterialaLabel.setText("datuMateriala");
 
-		JLabel datumarkaLabel;
+		
 		datumarkaLabel = new JLabel();
 		datumarkaLabel.setText("datuMarka");
 
@@ -101,7 +121,7 @@ public class ArtikuluarenXehetasunak extends JPanel {
 		koloreaLabel = new JLabel();
 		koloreaLabel.setText("Kolorea:");
 
-		JLabel datukoloreaLabel;
+		
 		datukoloreaLabel = new JLabel();
 		datukoloreaLabel.setText("datuKolorea");
 
@@ -129,6 +149,14 @@ public class ArtikuluarenXehetasunak extends JPanel {
 		ezDagoDeskribapenikTextArea.setEditable(false);
 		ezDagoDeskribapenikTextArea.setBorder(new LineBorder(Color.black, 1, false));
 		ezDagoDeskribapenikTextArea.setBackground(UIManager.getColor("Button.background"));
+
+		JLabel prezioaLabel;
+		prezioaLabel = new JLabel();
+		prezioaLabel.setText("Prezioa:");
+
+		
+		datuprezioaLabel = new JLabel();
+		datuprezioaLabel.setText("datuPrezioa");
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -139,37 +167,29 @@ public class ArtikuluarenXehetasunak extends JPanel {
 						.addComponent(separator, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
 						.addComponent(artikuluarenXehetasunakLabel)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(label)
+							.addComponent(irudialabel)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 								.addComponent(materialaLabel)
 								.addGroup(groupLayout.createSequentialGroup()
 									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-										.addGroup(groupLayout.createSequentialGroup()
-											.addComponent(generoaLabel)
-											.addGap(13, 13, 13))
+										.addComponent(generoaLabel)
 										.addComponent(modeloaLabel)
 										.addComponent(markaLabel)
 										.addComponent(oinaLabel)
 										.addComponent(koloreaLabel)
-										.addComponent(kategoriaLabel))
-									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+										.addComponent(kategoriaLabel)
+										.addComponent(prezioaLabel))
+									.addGap(18, 18, 18)
 									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-										.addGroup(groupLayout.createSequentialGroup()
-											.addGap(12, 12, 12)
-											.addComponent(datugeneroaLabel))
-										.addGroup(groupLayout.createSequentialGroup()
-											.addGap(12, 12, 12)
-											.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-												.addComponent(datumodeloaLabel)
-												.addComponent(datuoinaLabel)))
-										.addGroup(groupLayout.createSequentialGroup()
-											.addGap(12, 12, 12)
-											.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-												.addComponent(datumaterialaLabel)
-												.addComponent(datukategoriaLabel)
-												.addComponent(datumarkaLabel)
-												.addComponent(datukoloreaLabel))))))
+										.addComponent(datuprezioaLabel)
+										.addComponent(datugeneroaLabel)
+										.addComponent(datumodeloaLabel)
+										.addComponent(datuoinaLabel)
+										.addComponent(datumaterialaLabel)
+										.addComponent(datukategoriaLabel)
+										.addComponent(datumarkaLabel)
+										.addComponent(datukoloreaLabel))))
 							.addGap(170, 170, 170))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(neurriaLabel)
@@ -193,7 +213,7 @@ public class ArtikuluarenXehetasunak extends JPanel {
 					.addComponent(separator, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addComponent(label)
+						.addComponent(irudialabel)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 								.addComponent(modeloaLabel)
@@ -222,7 +242,11 @@ public class ArtikuluarenXehetasunak extends JPanel {
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(koloreaLabel)
 						.addComponent(datukoloreaLabel))
-					.addGap(46, 46, 46)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(prezioaLabel)
+						.addComponent(datuprezioaLabel))
+					.addGap(24, 24, 24)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(neurriaLabel)
 						.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
@@ -232,11 +256,34 @@ public class ArtikuluarenXehetasunak extends JPanel {
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(produktuarenDeskribapenaLabel)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(ezDagoDeskribapenikTextArea, GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+					.addComponent(ezDagoDeskribapenikTextArea, GroupLayout.PREFERRED_SIZE, 140, Short.MAX_VALUE)
 					.addContainerGap())
 		);
 		setLayout(groupLayout);
 		//
+		
+		setDatuak();
+	}
+	
+	public void setDatuak(){
+		datugeneroaLabel.setText(zp.getGeneroa());
+		datukategoriaLabel.setText(zp.getKategoria());
+		datukoloreaLabel.setText(zp.getKolorea());
+		datumarkaLabel.setText(zp.getMarka());
+		datumaterialaLabel.setText(zp.getEstiloa());
+		datumodeloaLabel.setText("Modelo Generikoa");
+		datuoinaLabel.setText(zp.getOina());
+		if(zp.isEskaintzanDago()){
+			double beherapena = zp.getPrezioa()*(100.0/zp.getBeherapenEhuneko());
+			double prezioBeheratua = zp.getPrezioa() - beherapena;
+			datuprezioaLabel.setText("%"+zp.getBeherapenEhuneko()+" beherapena: "+String.valueOf(prezioBeheratua)+"€");
+		} else {
+			datuprezioaLabel.setText(String.valueOf(zp.getPrezioa()));
+		}
+		
+		ImageIcon iconOrig = SwingResourceManager.getIcon(ArtikuluarenXehetasunak.class, "/gkae/zapataparegabeak/resources/zapatak/"+zp.getIrudiPath());
+		ImageIcon iconResized = new ImageIcon(iconOrig.getImage().getScaledInstance(120, 60, Image.SCALE_SMOOTH));
+		irudialabel.setIcon(iconResized);	
 	}
 
 }
