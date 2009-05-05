@@ -1,12 +1,12 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa;
 
-import gkae.zapataparegabeak.objektuak.Kudeaketa;
 import gkae.zapataparegabeak.objektuak.Zapata;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Insets;
+import java.text.DecimalFormat;
 
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
@@ -44,6 +44,7 @@ public class ArtikuluarenXehetasunak extends JPanel {
 	JLabel datukoloreaLabel;
 	JLabel irudialabel;
 	JLabel datuprezioaLabel;
+	private DecimalFormat twoDForm;
 	
 	/**
 	 * Create the panel
@@ -51,6 +52,8 @@ public class ArtikuluarenXehetasunak extends JPanel {
 	public ArtikuluarenXehetasunak(Zapata zp) {
 		super();
 		this.zp = zp;
+		
+		twoDForm = new DecimalFormat("#.##");
 		JLabel artikuluarenXehetasunakLabel;
 		artikuluarenXehetasunakLabel = new JLabel();
 		artikuluarenXehetasunakLabel.setFont(new Font("", Font.PLAIN, 18));
@@ -274,11 +277,11 @@ public class ArtikuluarenXehetasunak extends JPanel {
 		datumodeloaLabel.setText("Modelo Generikoa");
 		datuoinaLabel.setText(zp.getOina());
 		if(zp.isEskaintzanDago()){
-			double beherapena = zp.getPrezioa()*(100.0/zp.getBeherapenEhuneko());
+			double beherapena = zp.getPrezioa()*(zp.getBeherapenEhuneko()/100.0);
 			double prezioBeheratua = zp.getPrezioa() - beherapena;
-			datuprezioaLabel.setText("%"+zp.getBeherapenEhuneko()+" beherapena: "+String.valueOf(prezioBeheratua)+"€");
+			datuprezioaLabel.setText("%"+zp.getBeherapenEhuneko()+" beherapena: "+twoDForm.format(prezioBeheratua)+"€");
 		} else {
-			datuprezioaLabel.setText(String.valueOf(zp.getPrezioa()));
+			datuprezioaLabel.setText(twoDForm.format(zp.getPrezioa())+"€");
 		}
 		
 		ImageIcon iconOrig = SwingResourceManager.getIcon(ArtikuluarenXehetasunak.class, "/gkae/zapataparegabeak/resources/zapatak/"+zp.getIrudiPath());
