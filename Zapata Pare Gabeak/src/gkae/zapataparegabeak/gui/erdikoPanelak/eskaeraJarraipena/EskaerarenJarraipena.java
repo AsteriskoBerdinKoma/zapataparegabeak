@@ -8,7 +8,6 @@ import java.awt.Font;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Date;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -27,8 +26,6 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
 
-import org.jdesktop.swingx.JXGlassBox;
-import org.jdesktop.swingx.JXTable;
 import com.swtdesigner.SwingResourceManager;
 
 public class EskaerarenJarraipena extends JPanel {

@@ -1,4 +1,4 @@
-package gkae.zapataparegabeak.gui.erdikoPanelak.bilaketaKatalogoa;
+package gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa;
 
 import gkae.zapataparegabeak.gui.erdikoPanelak.erosi.ErosketaSaskiaItem;
 
