@@ -31,12 +31,12 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import com.swtdesigner.SwingResourceManager;
+import gkae.zapataparegabeak.gui.erdikoPanelak.erosi.FakturaPanel;
 
 public class ErosiPanel extends JPanel {
 
 	private JTextField textField_1;
 	private JTextField textField;
-	private JTable table;
 	private JTextField kodePostaBerTextField;
 	private JTextField kodePostaTextField;
 	private JTextField segKodeTextField;
@@ -571,13 +571,13 @@ public class ErosiPanel extends JPanel {
 					.addComponent(jasotzeanOrdaintzekoMetodoakLabel)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(gastuGehigarriakDirelaLabel)
-					.addGap(17, 17, 17)
+					.addGap(16, 16, 16)
 					.addComponent(aukeraEzazuOrdainketaLabel)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(jasotzeanOrdainduRadioButton)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(kredituTxartelBidezRadioButton)
-					.addGap(3, 3, 3)
+					.addGap(4, 4, 4)
 					.addComponent(txartelInfo, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
 					.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.BASELINE)
@@ -629,14 +629,15 @@ public class ErosiPanel extends JPanel {
 		atzeraButton_2.setIcon(SwingResourceManager.getIcon(ErosiPanel.class, "/gkae/zapataparegabeak/resources/ikonoak/left_arrow24.png"));
 		atzeraButton_2.setText("Atzera");
 
-		table = new JTable();
+		FakturaPanel fakturaPanel;
+		fakturaPanel = new FakturaPanel();
 		final GroupLayout groupLayout_4 = new GroupLayout((JComponent) eskaerarenLaburpena);
 		groupLayout_4.setHorizontalGroup(
 			groupLayout_4.createParallelGroup(GroupLayout.Alignment.TRAILING)
 				.addGroup(groupLayout_4.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(groupLayout_4.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addComponent(table, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
+						.addComponent(fakturaPanel, GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
 						.addComponent(separator_3, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
 						.addGroup(GroupLayout.Alignment.TRAILING, groupLayout_4.createSequentialGroup()
 							.addComponent(atzeraButton_2)
@@ -660,9 +661,9 @@ public class ErosiPanel extends JPanel {
 						.addComponent(eskaerarenLaburpenaLabel_1))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(separator_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(19, 19, 19)
-					.addComponent(table, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 233, Short.MAX_VALUE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(fakturaPanel, GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addGroup(groupLayout_4.createParallelGroup(GroupLayout.Alignment.TRAILING)
 						.addComponent(erosketaBukatuButton)
 						.addComponent(atzeraButton_2))

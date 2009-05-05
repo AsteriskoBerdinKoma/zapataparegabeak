@@ -1,5 +1,6 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.erosi;
 
+import gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa.ArtikuluarenXehetasunak;
 import gkae.zapataparegabeak.objektuak.Kudeaketa;
 import gkae.zapataparegabeak.objektuak.Zapata;
 
@@ -21,6 +22,8 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import org.jdesktop.swingx.JXHyperlink;
+
 import com.swtdesigner.SwingResourceManager;
 
 public class ErosketaSaskiaItem extends JPanel {
@@ -31,7 +34,7 @@ public class ErosketaSaskiaItem extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JSpinner spinner;
 	private JLabel prezioaLabel;
-	private JLabel artikuluarenIzenaLabel;
+	private JXHyperlink artikuluarenIzenaLabel;
 	private JLabel label;
 	private JLabel irudiaLabel;
 	private JButton saskitikEzabatuButton;
@@ -59,7 +62,12 @@ public class ErosketaSaskiaItem extends JPanel {
 		kantitateaLabel = new JLabel();
 		kantitateaLabel.setText("Kantitatea:");
 
-		artikuluarenIzenaLabel = new JLabel();
+		artikuluarenIzenaLabel = new JXHyperlink();
+		artikuluarenIzenaLabel.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent arg0) {
+				ArtikuluarenXehetasunak ax = new ArtikuluarenXehetasunak(informazioa);
+			}
+		});
 		artikuluarenIzenaLabel.setText("Artikuluaren izena");
 
 		label = new JLabel();
@@ -143,7 +151,7 @@ public class ErosketaSaskiaItem extends JPanel {
 					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(artikuluarenIzenaLabel)
+							.addComponent(artikuluarenIzenaLabel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 								.addGroup(groupLayout.createSequentialGroup()
