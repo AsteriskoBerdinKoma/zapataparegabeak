@@ -211,7 +211,9 @@ public class ErosiPanel extends JPanel {
 
 		hiriaTextField = new JTextField();
 
-		comboBox = new JComboBox();
+		comboBox = new JComboBox(new String[]{"Araba","Alacant","Albacete","Almeria","Asturias","Avila","Badajoz","Balear Uharteak","Bartzelona","Bizkaia","Burgos","Caceres","Cadiz","Castello","Ciudad Real","Coruña","Cuenca","Errioxa","Gipuzkoa","Girona","Granada","Guadalajara","Huelva","Huesca","Jaen","Kantabria","Kordoba","Leon","Lleida","Lugo","Madrilgo Erkidegoa","Malaga","Murtziako Erkidegoa","Nafarroa","Ourense","Palentzia","Las Palmas","Pontevedra","Salamanca","Segovia","Sevilla","Soria","Tarragona","Tenerifeko Santa Kruz","Teruel","Toledo","Valentzia","Valladolid","Zamora","Zaragoza"});
+		
+		
 
 		JButton jarraituButton_1;
 		jarraituButton_1 = new JButton();
@@ -252,9 +254,9 @@ public class ErosiPanel extends JPanel {
 			groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(groupLayout_1.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addComponent(helbideTextField, GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
-						.addGroup(groupLayout_1.createSequentialGroup()
+					.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(helbideTextField, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
+						.addGroup(GroupLayout.Alignment.TRAILING, groupLayout_1.createSequentialGroup()
 							.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
 								.addComponent(hartzailearenAbizenakLabel)
 								.addComponent(hartzailearenIzenaLabel))
@@ -266,7 +268,7 @@ public class ErosiPanel extends JPanel {
 							.addComponent(postakutxatilaLabel)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(pkTextField, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout_1.createSequentialGroup()
+						.addGroup(GroupLayout.Alignment.TRAILING, groupLayout_1.createSequentialGroup()
 							.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
 								.addComponent(hiriaLabel)
 								.addComponent(probintziaLabel))
@@ -276,11 +278,11 @@ public class ErosiPanel extends JPanel {
 									.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE)
 									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED))
 								.addComponent(hiriaTextField, GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)))
-						.addGroup(groupLayout_1.createSequentialGroup()
+						.addGroup(GroupLayout.Alignment.TRAILING, groupLayout_1.createSequentialGroup()
 							.addComponent(atzeraButton)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(jarraituButton_1))
-						.addComponent(separator_1, GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
+						.addComponent(separator_1, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
 						.addGroup(groupLayout_1.createSequentialGroup()
 							.addComponent(erosketaSaskiaLabel_1)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -526,19 +528,19 @@ public class ErosiPanel extends JPanel {
 			groupLayout_2.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(groupLayout_2.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.TRAILING)
+					.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.LEADING)
 						.addGroup(groupLayout_2.createSequentialGroup()
 							.addComponent(erosketaSaskiaLabel_2)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(ordainketaMetodoaLabel_1)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(eskaerarenLaburpenaLabel))
-						.addComponent(txartelInfo, GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
-						.addGroup(groupLayout_2.createSequentialGroup()
+						.addComponent(txartelInfo, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
+						.addGroup(GroupLayout.Alignment.TRAILING, groupLayout_2.createSequentialGroup()
 							.addComponent(atzeraButton_1)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(jarraituButton_2))
-						.addComponent(separator_2, GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
+						.addComponent(separator_2, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
 						.addComponent(erosiOrdainketaDatuakLabel)
 						.addComponent(ordainketaEgitekoBiLabel)
 						.addComponent(jasotzeanOrdaintzekoMetodoakLabel)
@@ -633,10 +635,10 @@ public class ErosiPanel extends JPanel {
 			groupLayout_4.createParallelGroup(GroupLayout.Alignment.TRAILING)
 				.addGroup(groupLayout_4.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(groupLayout_4.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addComponent(table, GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
-						.addComponent(separator_3, GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
-						.addGroup(groupLayout_4.createSequentialGroup()
+					.addGroup(groupLayout_4.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(table, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
+						.addComponent(separator_3, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
+						.addGroup(GroupLayout.Alignment.TRAILING, groupLayout_4.createSequentialGroup()
 							.addComponent(atzeraButton_2)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(erosketaBukatuButton))
@@ -977,6 +979,10 @@ public class ErosiPanel extends JPanel {
 	}
 	
 	public void changeCard(String destination){
+		if(!stockEpostaEmanda.equals("")){
+			kodePostaTextField.setText(stockEpostaEmanda);
+			kodePostaBerTextField.setText(stockEpostaEmanda);
+		}
 		CardLayout cl = (CardLayout)(this.getLayout());
         cl.show(this, destination);
 	}
@@ -996,7 +1002,7 @@ public class ErosiPanel extends JPanel {
 		ErosiPanel o = new ErosiPanel();
 		Kudeaketa.getInstance();
 		j.add(o);
-		j.setSize(o.getSize());
+		j.setSize(o.getPreferredSize());
 		j.setVisible(true);
 		j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
