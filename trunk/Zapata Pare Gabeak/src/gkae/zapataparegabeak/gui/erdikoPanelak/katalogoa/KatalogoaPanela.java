@@ -1,6 +1,8 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa;
 
+import gkae.zapataparegabeak.objektuak.Katalogoa;
 import gkae.zapataparegabeak.objektuak.Kudeaketa;
+import gkae.zapataparegabeak.objektuak.SaskiratutakoZapatak;
 import gkae.zapataparegabeak.objektuak.Zapata;
 
 import java.awt.Font;
@@ -8,6 +10,7 @@ import java.awt.Font;
 import javax.swing.BoxLayout;
 import javax.swing.GroupLayout;
 import javax.swing.JComponent;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -21,7 +24,7 @@ public class KatalogoaPanela extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private JPanel artikuluZerrenda;
+	private final JPanel artikuluZerrenda;
 
 	/**
 	 * Create the panel
@@ -40,7 +43,7 @@ public class KatalogoaPanela extends JPanel {
 		JScrollPane scrollPane;
 		scrollPane = new JScrollPane();
 
-		final JPanel artikuluZerrenda = new JPanel();
+		artikuluZerrenda = new JPanel();
 		artikuluZerrenda.setLayout(new BoxLayout(artikuluZerrenda, BoxLayout.Y_AXIS));
 		artikuluZerrenda.setSize(473, 310);
 		scrollPane.setViewportView(artikuluZerrenda);
@@ -76,6 +79,19 @@ public class KatalogoaPanela extends JPanel {
 		for(Zapata z: Kudeaketa.getInstance().katalogokoZapatak()){
 			artikuluZerrenda.add(new KatalogoItemPanela(z));
 		}
+		
+	}
+	
+	public static void main(String[] args){
+		JFrame j = new JFrame("Frogak");
+		Kudeaketa.getInstance();
+		Katalogoa.getInstance();
+		SaskiratutakoZapatak.getInstance();
+		KatalogoaPanela k = new KatalogoaPanela();
+		j.add(k);
+		j.setSize(k.getPreferredSize());
+		j.setVisible(true);
+		j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}
 

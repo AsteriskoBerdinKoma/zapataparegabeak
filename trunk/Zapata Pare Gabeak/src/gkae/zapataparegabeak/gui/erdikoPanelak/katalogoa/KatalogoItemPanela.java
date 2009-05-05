@@ -1,6 +1,5 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa;
 
-import gkae.zapataparegabeak.objektuak.Kudeaketa;
 import gkae.zapataparegabeak.objektuak.SaskiratutakoZapatak;
 import gkae.zapataparegabeak.objektuak.Zapata;
 
@@ -169,6 +168,7 @@ public class KatalogoItemPanela extends JPanel {
 		);
 		setLayout(groupLayout);
 		//
+		setDatuak();
 	}
 	
 	public void setDatuak(){
@@ -180,7 +180,7 @@ public class KatalogoItemPanela extends JPanel {
 			datuStock.setText("Ez");
 		
 		ImageIcon iconOrig = SwingResourceManager.getIcon(KatalogoItemPanela.class, "/gkae/zapataparegabeak/resources/zapatak/"+zapataInfo.getIrudiPath());
-		ImageIcon iconResized = new ImageIcon(iconOrig.getImage().getScaledInstance(120, 60, Image.SCALE_SMOOTH));
+		ImageIcon iconResized = new ImageIcon(iconOrig.getImage().getScaledInstance(100, 60, Image.SCALE_SMOOTH));
 		irudiaLabel.setIcon(iconResized);
 	}
 
