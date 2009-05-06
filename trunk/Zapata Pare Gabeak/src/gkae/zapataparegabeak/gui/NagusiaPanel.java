@@ -18,7 +18,6 @@ import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
-import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -32,6 +31,7 @@ import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
 import javax.swing.SwingConstants;
+
 import com.swtdesigner.SwingResourceManager;
 
 public class NagusiaPanel extends JPanel {
@@ -47,17 +47,14 @@ public class NagusiaPanel extends JPanel {
 	private JPanel rightMenuPanel;
 	private JLabel bannerLabel;
 	private final JPanel centralPanel;
-	
-	private Frame jabea;
+	private final BezeroEskuinMenuPanela bezeroEskuinMenuPanela;
 	
 	/**
 	 * Create the panel.
 	 * @param frame 
 	 */
-	public NagusiaPanel(Frame frame) {
-		{
-			this.jabea = frame;
-			
+	public NagusiaPanel() {
+		{	
 			bannerPanel = new JPanel();
 			bannerPanel.setBackground(Color.BLACK);
 			bannerPanel.setLayout(new BorderLayout(0, 0));
@@ -98,15 +95,15 @@ public class NagusiaPanel extends JPanel {
 				navigationMenuHolder.setLayout(new CardLayout());
 
 				{
-					final KudeaketaMenuPanela kudeaketaMenuPanela = new KudeaketaMenuPanela();
-					kudeaketaMenuPanela.setName("kudeaketaMenuPanela");
-					navigationMenuHolder.add(kudeaketaMenuPanela, kudeaketaMenuPanela.getName());
-				}
-
-				{
 					final MenuPanel menuPanel = new MenuPanel();
 					menuPanel.setName("menuPanel");
 					navigationMenuHolder.add(menuPanel, menuPanel.getName());
+				}
+
+				{
+					final KudeaketaMenuPanela kudeaketaMenuPanela = new KudeaketaMenuPanela();
+					kudeaketaMenuPanela.setName("kudeaketaMenuPanela");
+					navigationMenuHolder.add(kudeaketaMenuPanela, kudeaketaMenuPanela.getName());
 				}
 			}
 			final GroupLayout groupLayout = new GroupLayout((JComponent) leftMenuPanel);
@@ -120,7 +117,7 @@ public class NagusiaPanel extends JPanel {
 					.addGroup(groupLayout.createSequentialGroup()
 						.addComponent(loginPanelHolder, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
 						.addGap(5, 5, 5)
-						.addComponent(navigationMenuHolder, GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE))
+						.addComponent(navigationMenuHolder, GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE))
 			);
 			leftMenuPanel.setLayout(groupLayout);
 		}
@@ -130,7 +127,7 @@ public class NagusiaPanel extends JPanel {
 			rightMenuPanel.setSize(237, 332);
 
 			{
-				final BezeroEskuinMenuPanela bezeroEskuinMenuPanela = new BezeroEskuinMenuPanela();
+				bezeroEskuinMenuPanela = new BezeroEskuinMenuPanela();
 				bezeroEskuinMenuPanela.setName("bezeroEskuinMenuPanela");
 				rightMenuPanel.add(bezeroEskuinMenuPanela, bezeroEskuinMenuPanela.getName());
 			}
@@ -194,7 +191,7 @@ public class NagusiaPanel extends JPanel {
 				}
 
 				{
-					final HarremanetanJarriPanela harremanetanJarriPanela = new HarremanetanJarriPanela(this);
+					final HarremanetanJarriPanela harremanetanJarriPanela = new HarremanetanJarriPanela();
 					harremanetanJarriPanela.setName("harremanetanJarriPanela");
 					centralPanel.add(harremanetanJarriPanela, harremanetanJarriPanela.getName());
 				}
@@ -261,15 +258,15 @@ public class NagusiaPanel extends JPanel {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(10, 10, 10)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addComponent(southPanel, GroupLayout.DEFAULT_SIZE, 1076, Short.MAX_VALUE)
-						.addComponent(bannerPanel, GroupLayout.DEFAULT_SIZE, 1076, Short.MAX_VALUE)
+						.addComponent(southPanel, GroupLayout.DEFAULT_SIZE, 1130, Short.MAX_VALUE)
+						.addComponent(bannerPanel, GroupLayout.DEFAULT_SIZE, 1130, Short.MAX_VALUE)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(leftMenuPanel, GroupLayout.PREFERRED_SIZE, 258, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-								.addComponent(searchPanel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
-								.addComponent(centralPanelHolder, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 496, Short.MAX_VALUE))
+								.addComponent(searchPanel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+								.addComponent(centralPanelHolder, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 506, Short.MAX_VALUE))
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(rightMenuPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap())
@@ -283,18 +280,14 @@ public class NagusiaPanel extends JPanel {
 					.addComponent(searchPanel, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addComponent(rightMenuPanel, GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
-						.addComponent(leftMenuPanel, GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
-						.addComponent(centralPanelHolder, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE))
+						.addComponent(rightMenuPanel, GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
+						.addComponent(leftMenuPanel, GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
+						.addComponent(centralPanelHolder, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(southPanel, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
 					.addGap(10, 10, 10))
 		);
 		setLayout(groupLayout);
-	}
-	
-	public Frame getJabea(){
-		return jabea;
 	}
 	
 	public void ikusiKatalogoaPanela(){
@@ -330,5 +323,9 @@ public class NagusiaPanel extends JPanel {
 	public void ikusiEskaerarenJarraipenaPanela(){
 		CardLayout cl = (CardLayout)(centralPanel.getLayout());
         cl.show(centralPanel, "eskaerarenJarraipena");
+	}
+	
+	public void saskiaEguneratu(){
+		bezeroEskuinMenuPanela.saskiaEguneratu();
 	}
 }

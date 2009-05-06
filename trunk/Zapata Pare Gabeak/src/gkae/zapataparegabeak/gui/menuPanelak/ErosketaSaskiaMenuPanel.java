@@ -44,6 +44,7 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 	private final JPanel panel;
 	private final JScrollPane scrollPane;
 	private final JLabel label;
+	private final JLabel label_1;
 	
 	private DecimalFormat twoDForm;
 
@@ -81,50 +82,72 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 		prezioaLabel.setText("Prezioa Totala:");
 
 		label = new JLabel();
-		label.setFont(new Font("", Font.BOLD, 12));
 		label.setText("0.0€");
+
+		JLabel produktuKopuruaLabel;
+		produktuKopuruaLabel = new JLabel();
+		produktuKopuruaLabel.setFont(new Font("", Font.BOLD, 12));
+		produktuKopuruaLabel.setText("Produktu kopurua:");
+		
+		label_1 = new JLabel();
+		label_1.setText("0");
+		
 		saskiaEguneratu();
+		
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addComponent(zureErosketaSaskiaLabel)
-					.addContainerGap(82, Short.MAX_VALUE))
+					.addContainerGap(202, Short.MAX_VALUE))
+				.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(prezioaLabel)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+						.addComponent(produktuKopuruaLabel)
+						.addComponent(prezioaLabel))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(label)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(label)
+						.addComponent(label_1))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
 					.addComponent(erosketaGauzatuButton))
-				.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addComponent(zureErosketaSaskiaLabel)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(prezioaLabel)
-						.addComponent(label)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+								.addComponent(produktuKopuruaLabel)
+								.addComponent(label_1))
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+								.addComponent(label)
+								.addComponent(prezioaLabel)))
 						.addComponent(erosketaGauzatuButton))
-					.addContainerGap())
+					.addGap(0, 0, 0))
 		);
 		setLayout(groupLayout);
 	}
 	
 	public void saskiaEguneratu(){
+		panel.removeAll();
 		Vector<Zapata> saskia = SaskiratutakoZapatak.getInstance().getSaskikoZapatak();
+		int kont = 0;
 		double prezioTotala = 0;
 		for (Zapata z: saskia){
 			prezioTotala += (z.getPrezioa() * SaskiratutakoZapatak.getInstance().getSaskiratutakoKopurua(z));
+			kont++;
 			ErosketaSaskiaItem item = new ErosketaSaskiaItem(z);
 			panel.add(item);
 		}
-		
 		label.setText(twoDForm.format(prezioTotala) + " €");
+		label_1.setText(String.valueOf(kont));
 	}
 
 	public void prezioakEguneratu() {
@@ -175,6 +198,12 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 
 			JButton button;
 			button = new JButton();
+			button.addActionListener(new ActionListener() {
+				public void actionPerformed(final ActionEvent arg0) {
+					SaskiratutakoZapatak.getInstance().saskitikKendu(ErosketaSaskiaItem.this.z);
+					ErosketaSaskiaMenuPanel.this.saskiaEguneratu();
+				}
+			});
 			button.setToolTipText("Artikulua saskitik kendu");
 			button.setIcon(SwingResourceManager.getIcon(ErosketaSaskiaItem.class, "/gkae/zapataparegabeak/resources/ikonoak/delete_item24.png"));
 
@@ -210,7 +239,7 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 						.addComponent(irudiaLabel, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
 						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 						.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-							.addComponent(artikuluarenIzenaHyperlink, GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+							.addComponent(artikuluarenIzenaHyperlink, GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
 							.addGroup(groupLayout.createSequentialGroup()
 								.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 									.addGroup(groupLayout.createSequentialGroup()
@@ -224,7 +253,7 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 								.addComponent(button, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)))
 						.addContainerGap())
-					.addComponent(separator, GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+					.addComponent(separator, GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
 			);
 			groupLayout.setVerticalGroup(
 				groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
