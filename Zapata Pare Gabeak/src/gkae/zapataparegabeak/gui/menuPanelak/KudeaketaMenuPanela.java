@@ -38,7 +38,7 @@ public class KudeaketaMenuPanela extends JPanel {
 
 			JXTaskPane taskPane;
 			taskPane = new JXTaskPane();
-			taskPane.setTitle("Gizonezkoen zapatak");
+			taskPane.setTitle("Salmentak");
 
 			final JXHyperlink produktuakKudeatuHyperlink = new JXHyperlink();
 			produktuakKudeatuHyperlink.setText("• Produktuak kudeaketa");
@@ -58,7 +58,7 @@ public class KudeaketaMenuPanela extends JPanel {
 
 			JXTaskPane taskPane_1;
 			taskPane_1 = new JXTaskPane();
-			taskPane_1.setTitle("Emakumezkoen zapatak");
+			taskPane_1.setTitle("Biltegia");
 
 			final JXHyperlink hornitzaileenKudeaketaHyperlink = new JXHyperlink();
 			hornitzaileenKudeaketaHyperlink.setText("• Hornitzaileen kudeaketa");
@@ -78,9 +78,9 @@ public class KudeaketaMenuPanela extends JPanel {
 				groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
 					.addGroup(groupLayout.createSequentialGroup()
 						.addContainerGap()
-						.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-							.addComponent(taskPane, GroupLayout.PREFERRED_SIZE, 216, Short.MAX_VALUE)
-							.addComponent(taskPane_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+							.addComponent(taskPane_1, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+							.addComponent(taskPane, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 						.addContainerGap())
 			);
 			groupLayout.setVerticalGroup(
