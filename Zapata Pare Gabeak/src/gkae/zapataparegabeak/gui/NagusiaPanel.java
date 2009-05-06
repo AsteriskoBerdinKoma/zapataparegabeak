@@ -3,8 +3,12 @@ package gkae.zapataparegabeak.gui;
 import gkae.zapataparegabeak.gui.erdikoPanelak.dendariarekinHarremanetanJarri.HarremanetanJarriPanela;
 import gkae.zapataparegabeak.gui.erdikoPanelak.erabiltzailearenDatuakAldatu.ErabiltzailearenDatuakAldatuPanela;
 import gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa.KatalogoaPanela;
-import gkae.zapataparegabeak.gui.menuPanelak.ErosketaSaskiaMenuPanel;
+import gkae.zapataparegabeak.gui.menuPanelak.AbisuakMenuPanela;
+import gkae.zapataparegabeak.gui.menuPanelak.BezeroEskuinMenuPanela;
+import gkae.zapataparegabeak.gui.menuPanelak.KautotutaPanel;
+import gkae.zapataparegabeak.gui.menuPanelak.KudeaketaMenuPanela;
 import gkae.zapataparegabeak.gui.menuPanelak.LoginPanela;
+import gkae.zapataparegabeak.gui.menuPanelak.MenuPanel;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -22,11 +26,7 @@ import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
 import javax.swing.SwingConstants;
-import gkae.zapataparegabeak.gui.menuPanelak.KautotutaPanel;
-import gkae.zapataparegabeak.gui.menuPanelak.MenuPanel;
-import gkae.zapataparegabeak.gui.menuPanelak.KudeaketaMenuPanela;
-import gkae.zapataparegabeak.gui.menuPanelak.AbisuakMenuPanela;
-import gkae.zapataparegabeak.gui.menuPanelak.BezeroEskuinMenuPanela;
+import com.swtdesigner.SwingResourceManager;
 
 public class NagusiaPanel extends JPanel {
 	private JTextField textField;
@@ -105,15 +105,15 @@ public class NagusiaPanel extends JPanel {
 			final GroupLayout groupLayout = new GroupLayout((JComponent) leftMenuPanel);
 			groupLayout.setHorizontalGroup(
 				groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-					.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
-					.addComponent(panel, GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+					.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+					.addComponent(panel, GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
 			);
 			groupLayout.setVerticalGroup(
 				groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 					.addGroup(groupLayout.createSequentialGroup()
 						.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
 						.addGap(5, 5, 5)
-						.addComponent(panel, GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE))
+						.addComponent(panel, GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE))
 			);
 			leftMenuPanel.setLayout(groupLayout);
 		}
@@ -212,6 +212,7 @@ public class NagusiaPanel extends JPanel {
 
 			{
 				final JButton bilatuButton = new JButton();
+				bilatuButton.setIcon(SwingResourceManager.getIcon(NagusiaPanel.class, "/gkae/zapataparegabeak/resources/ikonoak/search_magnifier24.png"));
 				bilatuButton.setText("Bilatu");
 				searchPanel.add(bilatuButton, BorderLayout.EAST);
 			}
@@ -222,39 +223,31 @@ public class NagusiaPanel extends JPanel {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(10, 10, 10)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(bannerPanel, GroupLayout.DEFAULT_SIZE, 861, Short.MAX_VALUE)
-							.addContainerGap())
-						.addGroup(groupLayout.createSequentialGroup()
+						.addComponent(copyrightPanel, GroupLayout.DEFAULT_SIZE, 1071, Short.MAX_VALUE)
+						.addComponent(bannerPanel, GroupLayout.DEFAULT_SIZE, 1071, Short.MAX_VALUE)
+						.addGroup(GroupLayout.Alignment.TRAILING, groupLayout.createSequentialGroup()
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addComponent(leftMenuPanel, GroupLayout.PREFERRED_SIZE, 258, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-								.addComponent(copyrightPanel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 873, Short.MAX_VALUE)
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(leftMenuPanel, GroupLayout.PREFERRED_SIZE, 225, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-										.addGroup(groupLayout.createSequentialGroup()
-											.addComponent(searchPanel, GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
-											.addGap(237, 237, 237))
-										.addGroup(groupLayout.createSequentialGroup()
-											.addComponent(centralPanel, GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
-											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-											.addComponent(rightMenuPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)))
-									.addGap(22, 22, 22)))
-							.addGap(0, 0, 0))))
+								.addComponent(searchPanel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
+								.addComponent(centralPanel, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 496, Short.MAX_VALUE))
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addComponent(rightMenuPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(10, 10, 10)
 					.addComponent(bannerPanel, GroupLayout.PREFERRED_SIZE, 74, GroupLayout.PREFERRED_SIZE)
-					.addGap(5, 5, 5)
-					.addComponent(searchPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(5, 5, 5)
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addComponent(centralPanel, GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
-						.addComponent(leftMenuPanel, GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
-						.addComponent(rightMenuPanel, GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(searchPanel, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+						.addComponent(rightMenuPanel, GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
+						.addComponent(leftMenuPanel, GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
+						.addComponent(centralPanel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(copyrightPanel, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
 					.addGap(10, 10, 10))
