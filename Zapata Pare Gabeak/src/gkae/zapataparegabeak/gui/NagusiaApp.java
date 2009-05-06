@@ -59,10 +59,10 @@ public class NagusiaApp {
 	private void createContents() {
 		Kudeaketa.getInstance();
 		frame = new JFrame();
-		frame.setBounds(100, 100, 1018, 638);
+		frame.setBounds(100, 100, 1180, 718);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		final NagusiaPanel nagusiaPanel = new NagusiaPanel(frame);
+		final NagusiaPanel nagusiaPanel = new NagusiaPanel();
 		frame.getContentPane().add(nagusiaPanel, BorderLayout.CENTER);
 	}
 

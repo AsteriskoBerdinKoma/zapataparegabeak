@@ -16,6 +16,7 @@ public class BezeroEskuinMenuPanela extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	private JXHyperlink eskaerenHistorikoaHyperlink;
+	private ErosketaSaskiaMenuPanel erosketaSaskiaMenuPanel;
 	
 	/**
 	 * Create the panel
@@ -23,7 +24,6 @@ public class BezeroEskuinMenuPanela extends JPanel {
 	public BezeroEskuinMenuPanela() {
 		super();
 
-		ErosketaSaskiaMenuPanel erosketaSaskiaMenuPanel;
 		erosketaSaskiaMenuPanel = new ErosketaSaskiaMenuPanel();
 
 		JXHyperlink eskaerenJarraipenaHyperlink;
@@ -63,6 +63,10 @@ public class BezeroEskuinMenuPanela extends JPanel {
 	
 	public void bezeroKautotua(boolean kautotua){
 		eskaerenHistorikoaHyperlink.setVisible(kautotua);
+	}
+
+	public void saskiaEguneratu() {
+		erosketaSaskiaMenuPanel.saskiaEguneratu();
 	}
 
 }

@@ -1,7 +1,5 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.dendariarekinHarremanetanJarri;
 
-import gkae.zapataparegabeak.gui.NagusiaPanel;
-
 import java.awt.CardLayout;
 import java.awt.Font;
 
@@ -22,16 +20,12 @@ public class HarremanetanJarriPanela extends JPanel {
 	private JPanel panel;
 	private final MezuaIdatziPanela mezuaIdatziPanela;
 	
-	//Gurasoaren erreferentzia pantailaz aldatzeko
-	private NagusiaPanel jabea;
-	
 	/**
 	 * Create the panel
 	 * @param nagusiaPanel 
 	 */
-	public HarremanetanJarriPanela(NagusiaPanel nagusiaPanel) {
+	public HarremanetanJarriPanela() {
 		super();
-		this.jabea = nagusiaPanel;
 		
 		JLabel harremanetanJarriLabel;
 		harremanetanJarriLabel = new JLabel();
