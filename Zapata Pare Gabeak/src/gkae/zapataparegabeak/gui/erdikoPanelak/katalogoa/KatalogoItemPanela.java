@@ -1,5 +1,6 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa;
 
+import gkae.zapataparegabeak.gui.NagusiaPanel;
 import gkae.zapataparegabeak.objektuak.SaskiratutakoZapatak;
 import gkae.zapataparegabeak.objektuak.Zapata;
 
@@ -37,14 +38,19 @@ public class KatalogoItemPanela extends JPanel {
 	private JLabel modeloaKoloreaLabel;
 	private JLabel datuPrezioa;
 	private JLabel irudiaLabel;
-	JLabel datuStock;
+	private JLabel datuStock;
+	private NagusiaPanel jabea;
 	
 	/**
 	 * Create the panel
+	 * @param jabea 
 	 */
-	public KatalogoItemPanela(Zapata z) {
+	public KatalogoItemPanela(NagusiaPanel jabea, Zapata z) {
 		super();
+		
 		setBorder(new LineBorder(Color.black, 1, false));
+		
+		this.jabea = jabea;
 		this.zapataInfo = z;
 
 		
@@ -91,6 +97,7 @@ public class KatalogoItemPanela extends JPanel {
 				//Zapata hau saskira gehitu
 				SaskiratutakoZapatak.getInstance().saskiraGehitu(zapataInfo,Integer.parseInt(spinner.getValue().toString()));
 				//Eskubiko menua eguneratu
+				KatalogoItemPanela.this.jabea.saskiaEguneratu();
 			}
 		});
 		button_1.setIcon(SwingResourceManager.getIcon(KatalogoItemPanela.class, "/gkae/zapataparegabeak/resources/ikonoak/add_cart24.png"));

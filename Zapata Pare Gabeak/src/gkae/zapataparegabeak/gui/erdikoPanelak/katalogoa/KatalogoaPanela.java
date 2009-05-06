@@ -7,7 +7,6 @@ import gkae.zapataparegabeak.objektuak.SaskiratutakoZapatak;
 import gkae.zapataparegabeak.objektuak.Zapata;
 
 import java.awt.Font;
-import java.awt.Frame;
 
 import javax.swing.BoxLayout;
 import javax.swing.GroupLayout;
@@ -84,7 +83,7 @@ public class KatalogoaPanela extends JPanel {
 	public void katalogoaEguneratu() {
 		artikuluZerrenda.removeAll();
 		for(Zapata z: Kudeaketa.getInstance().katalogokoZapatak()){
-			artikuluZerrenda.add(new KatalogoItemPanela(z));
+			artikuluZerrenda.add(new KatalogoItemPanela(jabea, z));
 		}
 		
 	}
@@ -94,7 +93,7 @@ public class KatalogoaPanela extends JPanel {
 		Kudeaketa.getInstance();
 		Katalogoa.getInstance();
 		SaskiratutakoZapatak.getInstance();
-		KatalogoaPanela k = new KatalogoaPanela(new NagusiaPanel(new Frame()));
+		KatalogoaPanela k = new KatalogoaPanela(new NagusiaPanel());
 		j.add(k);
 		j.setSize(k.getPreferredSize());
 		j.setVisible(true);

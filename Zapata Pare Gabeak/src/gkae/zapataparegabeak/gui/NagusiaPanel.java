@@ -9,7 +9,6 @@ import gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa.BilaketaEmaitzak;
 import gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa.KatalogoaPanela;
 import gkae.zapataparegabeak.gui.menuPanelak.AbisuakMenuPanela;
 import gkae.zapataparegabeak.gui.menuPanelak.BezeroEskuinMenuPanela;
-import gkae.zapataparegabeak.gui.menuPanelak.KautotutaPanel;
 import gkae.zapataparegabeak.gui.menuPanelak.KudeaketaMenuPanela;
 import gkae.zapataparegabeak.gui.menuPanelak.LoginPanela;
 import gkae.zapataparegabeak.gui.menuPanelak.MenuPanel;
@@ -80,12 +79,6 @@ public class NagusiaPanel extends JPanel {
 					final LoginPanela loginPanela = new LoginPanela();
 					loginPanela.setName("loginPanela");
 					loginPanelHolder.add(loginPanela, loginPanela.getName());
-				}
-
-				{
-					final KautotutaPanel kautotutaPanel = new KautotutaPanel();
-					kautotutaPanel.setName("kautotutaPanel");
-					loginPanelHolder.add(kautotutaPanel, kautotutaPanel.getName());
 				}
 			}
 
