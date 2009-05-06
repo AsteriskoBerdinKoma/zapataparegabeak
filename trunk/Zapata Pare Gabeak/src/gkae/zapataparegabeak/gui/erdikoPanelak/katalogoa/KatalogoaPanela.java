@@ -1,11 +1,13 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa;
 
+import gkae.zapataparegabeak.gui.NagusiaPanel;
 import gkae.zapataparegabeak.objektuak.Katalogoa;
 import gkae.zapataparegabeak.objektuak.Kudeaketa;
 import gkae.zapataparegabeak.objektuak.SaskiratutakoZapatak;
 import gkae.zapataparegabeak.objektuak.Zapata;
 
 import java.awt.Font;
+import java.awt.Frame;
 
 import javax.swing.BoxLayout;
 import javax.swing.GroupLayout;
@@ -25,12 +27,17 @@ public class KatalogoaPanela extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	private final JPanel artikuluZerrenda;
+	
+	//Gurasoaren erreferentzia pantailaz aldatzeko
+	private NagusiaPanel jabea;
 
 	/**
 	 * Create the panel
+	 * @param nagusiaPanel 
 	 */
-	public KatalogoaPanela() {
+	public KatalogoaPanela(NagusiaPanel nagusiaPanel) {
 		super();
+		this.jabea = nagusiaPanel;
 
 		JSeparator separator;
 		separator = new JSeparator();
@@ -87,7 +94,7 @@ public class KatalogoaPanela extends JPanel {
 		Kudeaketa.getInstance();
 		Katalogoa.getInstance();
 		SaskiratutakoZapatak.getInstance();
-		KatalogoaPanela k = new KatalogoaPanela();
+		KatalogoaPanela k = new KatalogoaPanela(new NagusiaPanel(new Frame()));
 		j.add(k);
 		j.setSize(k.getPreferredSize());
 		j.setVisible(true);

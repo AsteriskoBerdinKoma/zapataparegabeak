@@ -1,5 +1,6 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.eskaeraJarraipena;
 
+import gkae.zapataparegabeak.gui.NagusiaPanel;
 import gkae.zapataparegabeak.objektuak.ErabiltzaileInfo;
 import gkae.zapataparegabeak.objektuak.EskaeraElementua;
 import gkae.zapataparegabeak.objektuak.Kudeaketa;
@@ -7,6 +8,7 @@ import gkae.zapataparegabeak.objektuak.Zapata;
 
 import java.awt.CardLayout;
 import java.awt.Font;
+import java.awt.Frame;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -106,11 +108,16 @@ public class EskaerarenJarraipena extends JPanel {
 
 	}
 
+	//Gurasoaren erreferentzia pantailaz aldatzeko
+	private NagusiaPanel jabea;
+	
 	/**
 	 * Create the panel
+	 * @param nagusiaPanel 
 	 */
-	public EskaerarenJarraipena() {
+	public EskaerarenJarraipena(NagusiaPanel nagusiaPanel) {
 		super();
+		this.jabea = nagusiaPanel;
 		setLayout(new CardLayout());
 		
 		eskaeraBat = new Vector<EskaeraElementua>();
@@ -472,7 +479,7 @@ public class EskaerarenJarraipena extends JPanel {
 
 	public static void main(String[] args) {
 		JFrame j = new JFrame("Frogak");
-		EskaerarenJarraipena e = new EskaerarenJarraipena();
+		EskaerarenJarraipena e = new EskaerarenJarraipena(new NagusiaPanel(new Frame()));
 		j.add(e);
 		j.setSize(e.getPreferredSize());
 		j.setVisible(true);

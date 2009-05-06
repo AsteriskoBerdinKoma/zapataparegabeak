@@ -2,6 +2,10 @@ package gkae.zapataparegabeak.gui;
 
 import gkae.zapataparegabeak.gui.erdikoPanelak.dendariarekinHarremanetanJarri.HarremanetanJarriPanela;
 import gkae.zapataparegabeak.gui.erdikoPanelak.erabiltzailearenDatuakAldatu.ErabiltzailearenDatuakAldatuPanela;
+import gkae.zapataparegabeak.gui.erdikoPanelak.erosi.ErosiPanel;
+import gkae.zapataparegabeak.gui.erdikoPanelak.eskaeraJarraipena.EskaerarenJarraipena;
+import gkae.zapataparegabeak.gui.erdikoPanelak.izenaEman.IzenaEmanPanel;
+import gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa.BilaketaEmaitzak;
 import gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa.KatalogoaPanela;
 import gkae.zapataparegabeak.gui.menuPanelak.AbisuakMenuPanela;
 import gkae.zapataparegabeak.gui.menuPanelak.BezeroEskuinMenuPanela;
@@ -40,6 +44,7 @@ public class NagusiaPanel extends JPanel {
 	private JPanel leftMenuPanel;
 	private JPanel rightMenuPanel;
 	private JLabel label_2;
+	private final JPanel centralPanel;
 	
 	private Frame jabea;
 	
@@ -113,7 +118,7 @@ public class NagusiaPanel extends JPanel {
 					.addGroup(groupLayout.createSequentialGroup()
 						.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
 						.addGap(5, 5, 5)
-						.addComponent(panel, GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE))
+						.addComponent(panel, GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE))
 			);
 			leftMenuPanel.setLayout(groupLayout);
 		}
@@ -134,10 +139,10 @@ public class NagusiaPanel extends JPanel {
 				rightMenuPanel.add(abisuakMenuPanela, abisuakMenuPanela.getName());
 			}
 		}
-		JPanel centralPanel;
+		JPanel centralPanelHolder;
 		{
-			centralPanel = new JPanel();
-			centralPanel.setLayout(new BorderLayout());
+			centralPanelHolder = new JPanel();
+			centralPanelHolder.setLayout(new BorderLayout());
 			{
 				label_2 = new JLabel("");
 				label_2.setIcon(new ImageIcon(NagusiaPanel.class.getResource("/gkae/zapataparegabeak/resources/banner.jpg")));
@@ -160,36 +165,60 @@ public class NagusiaPanel extends JPanel {
 			{
 				final JSeparator separator = new JSeparator();
 				separator.setOrientation(SwingConstants.VERTICAL);
-				centralPanel.add(separator, BorderLayout.WEST);
+				centralPanelHolder.add(separator, BorderLayout.WEST);
 			}
 
 			{
 				final JSeparator separator = new JSeparator();
 				separator.setOrientation(SwingConstants.VERTICAL);
-				centralPanel.add(separator, BorderLayout.EAST);
+				centralPanelHolder.add(separator, BorderLayout.EAST);
 			}
 
 			{
-				final JPanel panel = new JPanel();
-				panel.setLayout(new CardLayout());
-				centralPanel.add(panel, BorderLayout.CENTER);
+				centralPanel = new JPanel();
+				centralPanel.setLayout(new CardLayout());
+				centralPanelHolder.add(centralPanel, BorderLayout.CENTER);
 
 				{
-					final KatalogoaPanela katalogoaPanela = new KatalogoaPanela();
+					final KatalogoaPanela katalogoaPanela = new KatalogoaPanela(this);
 					katalogoaPanela.setName("katalogoaPanela");
-					panel.add(katalogoaPanela, katalogoaPanela.getName());
+					centralPanel.add(katalogoaPanela, katalogoaPanela.getName());
 				}
 
 				{
-					final ErabiltzailearenDatuakAldatuPanela erabiltzailearenDatuakAldatuPanela = new ErabiltzailearenDatuakAldatuPanela();
+					final ErabiltzailearenDatuakAldatuPanela erabiltzailearenDatuakAldatuPanela = new ErabiltzailearenDatuakAldatuPanela(this);
 					erabiltzailearenDatuakAldatuPanela.setName("erabiltzailearenDatuakAldatuPanela");
-					panel.add(erabiltzailearenDatuakAldatuPanela, erabiltzailearenDatuakAldatuPanela.getName());
+					centralPanel.add(erabiltzailearenDatuakAldatuPanela, erabiltzailearenDatuakAldatuPanela.getName());
 				}
 
 				{
-					final HarremanetanJarriPanela harremanetanJarriPanela = new HarremanetanJarriPanela();
+					final HarremanetanJarriPanela harremanetanJarriPanela = new HarremanetanJarriPanela(this);
 					harremanetanJarriPanela.setName("harremanetanJarriPanela");
-					panel.add(harremanetanJarriPanela, harremanetanJarriPanela.getName());
+					centralPanel.add(harremanetanJarriPanela, harremanetanJarriPanela.getName());
+				}
+				
+				{
+					final ErosiPanel erosiPanel = new ErosiPanel(this);
+					erosiPanel.setName("erosiPanel");
+					centralPanel.add(erosiPanel, erosiPanel.getName());
+				}
+				
+				{
+					final EskaerarenJarraipena eskaerarenJarraipena = new EskaerarenJarraipena(this);
+					eskaerarenJarraipena.setName("eskaerarenJarraipena");
+					centralPanel.add(eskaerarenJarraipena, eskaerarenJarraipena.getName());
+				}
+				
+				{
+					final IzenaEmanPanel izenaEmanPanel = new IzenaEmanPanel(this);
+					izenaEmanPanel.setName("izenaEmanPanel");
+					centralPanel.add(izenaEmanPanel, izenaEmanPanel.getName());
+				}
+				
+				{
+					final BilaketaEmaitzak bilaketaEmaitzak = new BilaketaEmaitzak(this);
+					bilaketaEmaitzak.setName("bilaketaEmaitzak");
+					centralPanel.add(bilaketaEmaitzak, bilaketaEmaitzak.getName());
 				}
 			}
 		}
@@ -222,16 +251,16 @@ public class NagusiaPanel extends JPanel {
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(10, 10, 10)
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addComponent(copyrightPanel, GroupLayout.DEFAULT_SIZE, 1071, Short.MAX_VALUE)
-						.addComponent(bannerPanel, GroupLayout.DEFAULT_SIZE, 1071, Short.MAX_VALUE)
-						.addGroup(GroupLayout.Alignment.TRAILING, groupLayout.createSequentialGroup()
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+						.addComponent(copyrightPanel, GroupLayout.DEFAULT_SIZE, 1076, Short.MAX_VALUE)
+						.addComponent(bannerPanel, GroupLayout.DEFAULT_SIZE, 1076, Short.MAX_VALUE)
+						.addGroup(groupLayout.createSequentialGroup()
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(leftMenuPanel, GroupLayout.PREFERRED_SIZE, 258, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
 								.addComponent(searchPanel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
-								.addComponent(centralPanel, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 496, Short.MAX_VALUE))
+								.addComponent(centralPanelHolder, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 496, Short.MAX_VALUE))
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(rightMenuPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap())
@@ -245,9 +274,9 @@ public class NagusiaPanel extends JPanel {
 					.addComponent(searchPanel, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addComponent(rightMenuPanel, GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
-						.addComponent(leftMenuPanel, GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
-						.addComponent(centralPanel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE))
+						.addComponent(rightMenuPanel, GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
+						.addComponent(leftMenuPanel, GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
+						.addComponent(centralPanelHolder, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(copyrightPanel, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
 					.addGap(10, 10, 10))
@@ -257,5 +286,40 @@ public class NagusiaPanel extends JPanel {
 	
 	public Frame getJabea(){
 		return jabea;
+	}
+	
+	public void ikusiKatalogoaPanela(){
+		CardLayout cl = (CardLayout)(centralPanel.getLayout());
+        cl.show(centralPanel, "katalogoaPanela");
+	}
+	
+	public void ikusiErabDatuakAldatuPanela(){
+		CardLayout cl = (CardLayout)(centralPanel.getLayout());
+        cl.show(centralPanel, "erabiltzailearenDatuakAldatuPanela");
+	}
+	
+	public void ikusiHarremanetanJarriPanela(){
+		CardLayout cl = (CardLayout)(centralPanel.getLayout());
+        cl.show(centralPanel, "harremanetanJarriPanela");
+	}
+	
+	public void ikusiBilaketaEmaitzakPanela(){
+		CardLayout cl = (CardLayout)(centralPanel.getLayout());
+        cl.show(centralPanel, "bilaketaEmaitzak");
+	}
+	
+	public void ikusiErosiPanela(){
+		CardLayout cl = (CardLayout)(centralPanel.getLayout());
+        cl.show(centralPanel, "erosiPanel");
+	}
+	
+	public void ikusiIzenaEmanPanela(){
+		CardLayout cl = (CardLayout)(centralPanel.getLayout());
+        cl.show(centralPanel, "izenaEmanPanel");
+	}
+	
+	public void ikusiEskaerarenJarraipenaPanela(){
+		CardLayout cl = (CardLayout)(centralPanel.getLayout());
+        cl.show(centralPanel, "eskaerarenJarraipena");
 	}
 }

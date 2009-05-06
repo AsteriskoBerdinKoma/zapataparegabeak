@@ -1,5 +1,6 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa;
 
+import gkae.zapataparegabeak.gui.NagusiaPanel;
 import gkae.zapataparegabeak.gui.erdikoPanelak.erosi.ErosketaSaskiaItem;
 import gkae.zapataparegabeak.objektuak.Kudeaketa;
 import gkae.zapataparegabeak.objektuak.Zapata;
@@ -35,12 +36,17 @@ public class BilaketaEmaitzak extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	//Gurasoaren erreferentzia pantailaz aldatzeko
+	private NagusiaPanel jabea;
 
 	/**
 	 * Create the panel
+	 * @param nagusiaPanel 
 	 */
-	public BilaketaEmaitzak() {
+	public BilaketaEmaitzak(NagusiaPanel nagusiaPanel) {
 		super();
+		this.jabea = nagusiaPanel;
 
 		JLabel bilaketarenEmaitzakLabel;
 		bilaketarenEmaitzakLabel = new JLabel();
