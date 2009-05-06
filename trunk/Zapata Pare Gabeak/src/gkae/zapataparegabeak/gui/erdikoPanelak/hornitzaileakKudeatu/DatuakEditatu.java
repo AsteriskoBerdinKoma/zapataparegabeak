@@ -12,6 +12,8 @@ import javax.swing.JComponent;
 
 import javax.swing.JDialog;
 import javax.swing.LayoutStyle;
+import javax.swing.SwingConstants;
+import com.swtdesigner.SwingResourceManager;
 import gkae.zapataparegabeak.gui.erdikoPanelak.hornitzaileakKudeatu.HornitzaileDatuakPanela;
 import gkae.zapataparegabeak.objektuak.HornitzaileZerrenda;
 import gkae.zapataparegabeak.objektuak.Hornitzailea;
@@ -30,6 +32,8 @@ public class DatuakEditatu extends JDialog {
 
 		JButton aldaketakOnartuButton;
 		aldaketakOnartuButton = new JButton();
+		aldaketakOnartuButton.setHorizontalAlignment(SwingConstants.LEFT);
+		aldaketakOnartuButton.setIcon(SwingResourceManager.getIcon(DatuakEditatu.class, "/gkae/zapataparegabeak/resources/ikonoak/accept_item24.png"));
 		aldaketakOnartuButton.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent arg0) {
 //				if (h == null) {
@@ -55,6 +59,8 @@ public class DatuakEditatu extends JDialog {
 
 		JButton utziButton;
 		utziButton = new JButton();
+		utziButton.setHorizontalAlignment(SwingConstants.LEFT);
+		utziButton.setIcon(SwingResourceManager.getIcon(DatuakEditatu.class, "/gkae/zapataparegabeak/resources/ikonoak/delete_item24.png"));
 		utziButton.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				dispose();

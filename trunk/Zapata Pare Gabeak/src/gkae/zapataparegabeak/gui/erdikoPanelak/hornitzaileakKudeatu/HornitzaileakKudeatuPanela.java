@@ -23,10 +23,12 @@ import javax.swing.LayoutStyle;
 import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.SpringLayout;
+import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import com.swtdesigner.SwingResourceManager;
 
 import gkae.zapataparegabeak.gui.erdikoPanelak.hornitzaileakKudeatu.HornitzaileDatuakPanela;
 import gkae.zapataparegabeak.objektuak.HornitzaileZerrenda;
@@ -62,12 +64,14 @@ public class HornitzaileakKudeatuPanela extends JPanel {
 
 		JButton editatuButton;
 		editatuButton = new JButton();
+		editatuButton.setHorizontalAlignment(SwingConstants.LEFT);
+		editatuButton.setIcon(SwingResourceManager.getIcon(HornitzaileakKudeatuPanela.class, "/gkae/zapataparegabeak/resources/ikonoak/edit_item24.png"));
 		editatuButton.addFocusListener(new FocusAdapter() {
 			public void focusGained(final FocusEvent e) {
 				// if(eguneratu){
 
 				list.repaint();
-				
+
 				Hornitzailea h = (Hornitzailea) list.getSelectedValue();
 				// if(h != null)
 				hornitzaileDatuak.setDatuak(h);
@@ -81,6 +85,7 @@ public class HornitzaileakKudeatuPanela extends JPanel {
 
 				if (h != null) {
 					DatuakEditatu dE = new DatuakEditatu();
+					dE.setLocationRelativeTo(null);
 					dE.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 					dE.setDatuak(h);
 					dE.setVisible(true);
@@ -93,26 +98,29 @@ public class HornitzaileakKudeatuPanela extends JPanel {
 
 		JButton berriaGehituButton;
 		berriaGehituButton = new JButton();
+		berriaGehituButton.setHorizontalAlignment(SwingConstants.LEFT);
+		berriaGehituButton.setIcon(SwingResourceManager.getIcon(HornitzaileakKudeatuPanela.class, "/gkae/zapataparegabeak/resources/ikonoak/add_item24.png"));
 		berriaGehituButton.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent arg0) {
-				Hornitzailea h = new Hornitzailea(HornitzaileZerrenda.getInstance().getZerrenda().lastElement().getId()+1);
-				//h.setIzena("  ");
+				Hornitzailea h = new Hornitzailea(HornitzaileZerrenda
+						.getInstance().getZerrenda().lastElement().getId() + 1);
+				// h.setIzena("  ");
 				HornitzaileZerrenda.getInstance().hornitzaileaGehitu(h);
-				//zerrendaKargatu();
+				// zerrendaKargatu();
 				DatuakEditatu dE = new DatuakEditatu();
 				dE.setDatuak(h);
 				dE.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 				dE.setVisible(true);
-				dE.addWindowListener(new WindowAdapter(){
+				dE.addWindowListener(new WindowAdapter() {
 					@Override
 					public void windowClosed(WindowEvent e) {
 						// TODO Auto-generated method stub
 						super.windowClosed(e);
-						//list.repaint();
+						// list.repaint();
 						zerrendaKargatu();
 					}
 				});
-				//list.repaint();
+				// list.repaint();
 			}
 		});
 		berriaGehituButton.setText("Berria Gehitu");
@@ -124,6 +132,9 @@ public class HornitzaileakKudeatuPanela extends JPanel {
 
 		JButton ezabatuButton;
 		ezabatuButton = new JButton();
+		ezabatuButton.setHorizontalAlignment(SwingConstants.LEFT);
+		
+		ezabatuButton.setIcon(SwingResourceManager.getIcon(HornitzaileakKudeatuPanela.class, "/gkae/zapataparegabeak/resources/ikonoak/delete_item24.png"));
 		ezabatuButton.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				Hornitzailea h = (Hornitzailea) list.getSelectedValue();
@@ -153,12 +164,12 @@ public class HornitzaileakKudeatuPanela extends JPanel {
 							.addGap(12, 12, 12)
 							.addComponent(list, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-							.addComponent(hornitzaileDatuak, GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+							.addComponent(hornitzaileDatuak, GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+								.addComponent(editatuButton)
 								.addComponent(ezabatuButton, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
-								.addComponent(berriaGehituButton)
-								.addComponent(editatuButton)))
+								.addComponent(berriaGehituButton)))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addContainerGap()
 							.addComponent(eskaerenHistorikoaLabel, GroupLayout.PREFERRED_SIZE, 185, GroupLayout.PREFERRED_SIZE))
