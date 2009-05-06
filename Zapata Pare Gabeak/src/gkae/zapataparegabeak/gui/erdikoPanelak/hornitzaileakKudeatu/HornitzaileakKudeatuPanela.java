@@ -153,7 +153,7 @@ public class HornitzaileakKudeatuPanela extends JPanel {
 							.addGap(12, 12, 12)
 							.addComponent(list, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-							.addComponent(hornitzaileDatuak, GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
+							.addComponent(hornitzaileDatuak, GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 								.addComponent(ezabatuButton, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
@@ -164,7 +164,7 @@ public class HornitzaileakKudeatuPanela extends JPanel {
 							.addComponent(eskaerenHistorikoaLabel, GroupLayout.PREFERRED_SIZE, 185, GroupLayout.PREFERRED_SIZE))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addContainerGap()
-							.addComponent(separator, GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
+							.addComponent(separator, GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
 							.addGap(13, 13, 13)))
 					.addGap(9, 9, 9))
 		);
@@ -196,6 +196,7 @@ public class HornitzaileakKudeatuPanela extends JPanel {
 							.addContainerGap())))
 		);
 		groupLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {berriaGehituButton, editatuButton, ezabatuButton});
+		groupLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {berriaGehituButton, editatuButton, ezabatuButton});
 		setLayout(groupLayout);
 	}
 
