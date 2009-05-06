@@ -1,10 +1,12 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.izenaEman;
 
+import gkae.zapataparegabeak.gui.NagusiaPanel;
 import gkae.zapataparegabeak.objektuak.ErabiltzaileInfo;
 import gkae.zapataparegabeak.objektuak.Kudeaketa;
 
 import java.awt.CardLayout;
 import java.awt.Font;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -80,13 +82,17 @@ public class IzenaEmanPanel extends JPanel {
 	//ErabiltzaileInformazioa gordetzeko objektua
 	private ErabiltzaileInfo erabInfo;
 	
-	
+	//Gurasoaren erreferentzia pantailaz aldatzeko
+	private NagusiaPanel jabea;
 
 	/**
 	 * Create the panel
+	 * @param nagusiaPanel 
 	 */
-	public IzenaEmanPanel() {
+	public IzenaEmanPanel(NagusiaPanel nagusiaPanel) {
 		super();
+		this.jabea = nagusiaPanel;
+		
 		setLayout(new CardLayout());
 
 		
@@ -718,7 +724,7 @@ public class IzenaEmanPanel extends JPanel {
 	
 	public static void main(String[] args){
 		JFrame j = new JFrame("Frogak");
-		IzenaEmanPanel o = new IzenaEmanPanel();
+		IzenaEmanPanel o = new IzenaEmanPanel(new NagusiaPanel(new Frame()));
 		j.add(o);
 		j.setSize(o.getSize());
 		j.setVisible(true);

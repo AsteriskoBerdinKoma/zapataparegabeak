@@ -1,5 +1,6 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.erosi;
 
+import gkae.zapataparegabeak.gui.NagusiaPanel;
 import gkae.zapataparegabeak.objektuak.Kudeaketa;
 import gkae.zapataparegabeak.objektuak.SaskiratutakoZapatak;
 import gkae.zapataparegabeak.objektuak.Zapata;
@@ -7,6 +8,7 @@ import gkae.zapataparegabeak.objektuak.Zapata;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -61,12 +63,18 @@ public class ErosiPanel extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	//Gurasoaren erreferentzia pantailaz aldatzeko
+	private NagusiaPanel jabea;
 
 	/**
 	 * Create the panel
+	 * @param nagusiaPanel 
 	 */
-	public ErosiPanel() {
+	public ErosiPanel(NagusiaPanel nagusiaPanel) {
 		super();
+		this.jabea = nagusiaPanel;
+		
 		setLayout(new CardLayout());
 
 		final JPanel erosketaSaskia = new JPanel();
@@ -998,7 +1006,7 @@ public class ErosiPanel extends JPanel {
 	
 	public static void main(String[] args){
 		JFrame j = new JFrame("Frogak");
-		ErosiPanel o = new ErosiPanel();
+		ErosiPanel o = new ErosiPanel(new NagusiaPanel(new Frame()));
 		Kudeaketa.getInstance();
 		j.add(o);
 		j.setSize(o.getPreferredSize());

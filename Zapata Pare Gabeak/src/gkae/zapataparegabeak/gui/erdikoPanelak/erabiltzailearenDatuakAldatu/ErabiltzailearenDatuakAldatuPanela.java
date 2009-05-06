@@ -1,5 +1,7 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.erabiltzailearenDatuakAldatu;
 
+import gkae.zapataparegabeak.gui.NagusiaPanel;
+
 import java.awt.Component;
 import java.awt.Font;
 
@@ -26,11 +28,16 @@ public class ErabiltzailearenDatuakAldatuPanela extends JPanel {
 	
 	private AldaketakGorde ag;
 	
+	//Gurasoaren erreferentzia pantailaz aldatzeko
+	private NagusiaPanel jabea;
+	
 	/**
 	 * Create the panel
+	 * @param nagusiaPanel 
 	 */
-	public ErabiltzailearenDatuakAldatuPanela() {
+	public ErabiltzailearenDatuakAldatuPanela(NagusiaPanel nagusiaPanel) {
 		super();
+		this.jabea = nagusiaPanel;
 
 		ag = new AldaketakGorde();
 		
