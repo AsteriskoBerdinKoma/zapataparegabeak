@@ -479,7 +479,7 @@ public class EskaerarenJarraipena extends JPanel {
 
 	public static void main(String[] args) {
 		JFrame j = new JFrame("Frogak");
-		EskaerarenJarraipena e = new EskaerarenJarraipena(new NagusiaPanel(new Frame()));
+		EskaerarenJarraipena e = new EskaerarenJarraipena(new NagusiaPanel());
 		j.add(e);
 		j.setSize(e.getPreferredSize());
 		j.setVisible(true);

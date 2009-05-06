@@ -1006,7 +1006,7 @@ public class ErosiPanel extends JPanel {
 	
 	public static void main(String[] args){
 		JFrame j = new JFrame("Frogak");
-		ErosiPanel o = new ErosiPanel(new NagusiaPanel(new Frame()));
+		ErosiPanel o = new ErosiPanel(new NagusiaPanel());
 		Kudeaketa.getInstance();
 		j.add(o);
 		j.setSize(o.getPreferredSize());

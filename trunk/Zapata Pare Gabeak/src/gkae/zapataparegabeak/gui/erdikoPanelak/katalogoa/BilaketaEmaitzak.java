@@ -181,7 +181,7 @@ public class BilaketaEmaitzak extends JPanel {
 		resultPanel.removeAll();
 		int counter = 0;
 		for(Zapata z: Kudeaketa.getInstance().katalogokoZapatak()){
-			resultPanel.add(new KatalogoItemPanela(z));
+			resultPanel.add(new KatalogoItemPanela(jabea, z));
 			counter++;
 			if(counter==5)
 				break;

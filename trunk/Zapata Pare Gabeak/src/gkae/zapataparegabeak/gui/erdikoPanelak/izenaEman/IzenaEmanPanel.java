@@ -724,7 +724,7 @@ public class IzenaEmanPanel extends JPanel {
 	
 	public static void main(String[] args){
 		JFrame j = new JFrame("Frogak");
-		IzenaEmanPanel o = new IzenaEmanPanel(new NagusiaPanel(new Frame()));
+		IzenaEmanPanel o = new IzenaEmanPanel(new NagusiaPanel());
 		j.add(o);
 		j.setSize(o.getSize());
 		j.setVisible(true);
