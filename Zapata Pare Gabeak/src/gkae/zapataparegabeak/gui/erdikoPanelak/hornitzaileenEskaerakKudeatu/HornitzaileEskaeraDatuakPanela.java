@@ -104,7 +104,9 @@ public class HornitzaileEskaeraDatuakPanela extends JPanel {
 	}
 
 	public void setDatuak(HornitzaileEskaera h) {
+		
 		if(h != null){
+		
 		HEkodea.setText(new Integer(h.getKodea()).toString());
 		HEizena.setText(h.getHornitzaileIzena());
 		HEePosta.setText(h.getHornitzaileEPosta());
@@ -112,11 +114,24 @@ public class HornitzaileEskaeraDatuakPanela extends JPanel {
 		
 		}
 		else{
+			
 			HEkodea.setText("");
 			HEizena.setText("");
 			HEePosta.setText("");
 			HEkantitatea.setText("");
 		}
 		
+	}
+	public String getKodea(){
+		return HEkodea.getText();
+	}
+	public String getIzena(){
+		return HEizena.getText();
+	}
+	public String getePosta(){
+		return HEePosta.getText();
+	}
+	public String getKantitatea(){
+		return HEkantitatea.getText();
 	}
 }
