@@ -58,7 +58,7 @@ public class BilaketaEmaitzak extends JPanel {
 
 		JLabel label;
 		label = new JLabel();
-		label.setText("2 artikulu kointzidente aurkitu dira.");
+		label.setText("5 artikulu kointzidente aurkitu dira.");
 
 		JLabel emaitzenIragazketaLabel;
 		emaitzenIragazketaLabel = new JLabel();
@@ -111,6 +111,8 @@ public class BilaketaEmaitzak extends JPanel {
 		korritzekoZapatakButton_1.setHorizontalAlignment(SwingConstants.LEFT);
 		korritzekoZapatakButton_1.setText("Ezkerrekoa");
 		korritzekoZapatakButton_1.setIcon(iconResized);
+		//
+		emaitzakEguneratu();
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
@@ -130,7 +132,7 @@ public class BilaketaEmaitzak extends JPanel {
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(comboBox_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-							.addComponent(comboBox_4, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE))
+							.addComponent(comboBox_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(12, 12, 12)
 							.addComponent(kategoriaLabel)
@@ -169,11 +171,10 @@ public class BilaketaEmaitzak extends JPanel {
 						.addComponent(oinaEzkerrekoaLabel)
 						.addComponent(korritzekoZapatakButton_1, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
 					.addContainerGap())
 		);
 		setLayout(groupLayout);
-		//
 	}
 	
 	public void emaitzakEguneratu() {
@@ -182,7 +183,7 @@ public class BilaketaEmaitzak extends JPanel {
 		for(Zapata z: Kudeaketa.getInstance().katalogokoZapatak()){
 			resultPanel.add(new KatalogoItemPanela(z));
 			counter++;
-			if(counter==10)
+			if(counter==5)
 				break;
 		}
 		
