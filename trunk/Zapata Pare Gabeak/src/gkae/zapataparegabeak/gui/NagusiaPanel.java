@@ -19,6 +19,8 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
@@ -33,17 +35,17 @@ import javax.swing.SwingConstants;
 import com.swtdesigner.SwingResourceManager;
 
 public class NagusiaPanel extends JPanel {
-	private JTextField textField;
+	private JTextField bilatuTextField;
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
 	private JPanel bannerPanel;
-	private JPanel copyrightPanel;
+	private JPanel southPanel;
 	private JPanel leftMenuPanel;
 	private JPanel rightMenuPanel;
-	private JLabel label_2;
+	private JLabel bannerLabel;
 	private final JPanel centralPanel;
 	
 	private Frame jabea;
@@ -66,59 +68,59 @@ public class NagusiaPanel extends JPanel {
 			}
 		}
 		{
-			copyrightPanel = new JPanel();
-			copyrightPanel.setLayout(new BorderLayout(0, 0));
+			southPanel = new JPanel();
+			southPanel.setLayout(new BorderLayout(0, 0));
 		}
 		{
 			leftMenuPanel = new JPanel();
 
-			JPanel panel_1;
+			JPanel loginPanelHolder;
 			{
-				panel_1 = new JPanel();
-				panel_1.setLayout(new CardLayout());
+				loginPanelHolder = new JPanel();
+				loginPanelHolder.setLayout(new CardLayout());
 
 				{
 					final LoginPanela loginPanela = new LoginPanela();
 					loginPanela.setName("loginPanela");
-					panel_1.add(loginPanela, loginPanela.getName());
+					loginPanelHolder.add(loginPanela, loginPanela.getName());
 				}
 
 				{
 					final KautotutaPanel kautotutaPanel = new KautotutaPanel();
 					kautotutaPanel.setName("kautotutaPanel");
-					panel_1.add(kautotutaPanel, kautotutaPanel.getName());
+					loginPanelHolder.add(kautotutaPanel, kautotutaPanel.getName());
 				}
 			}
 
-			JPanel panel;
+			JPanel navigationMenuHolder;
 			{
-				panel = new JPanel();
-				panel.setLayout(new CardLayout());
+				navigationMenuHolder = new JPanel();
+				navigationMenuHolder.setLayout(new CardLayout());
 
 				{
 					final KudeaketaMenuPanela kudeaketaMenuPanela = new KudeaketaMenuPanela();
 					kudeaketaMenuPanela.setName("kudeaketaMenuPanela");
-					panel.add(kudeaketaMenuPanela, kudeaketaMenuPanela.getName());
+					navigationMenuHolder.add(kudeaketaMenuPanela, kudeaketaMenuPanela.getName());
 				}
 
 				{
 					final MenuPanel menuPanel = new MenuPanel();
 					menuPanel.setName("menuPanel");
-					panel.add(menuPanel, menuPanel.getName());
+					navigationMenuHolder.add(menuPanel, menuPanel.getName());
 				}
 			}
 			final GroupLayout groupLayout = new GroupLayout((JComponent) leftMenuPanel);
 			groupLayout.setHorizontalGroup(
 				groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-					.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
-					.addComponent(panel, GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+					.addComponent(loginPanelHolder, GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+					.addComponent(navigationMenuHolder, GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
 			);
 			groupLayout.setVerticalGroup(
 				groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 					.addGroup(groupLayout.createSequentialGroup()
-						.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
+						.addComponent(loginPanelHolder, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
 						.addGap(5, 5, 5)
-						.addComponent(panel, GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE))
+						.addComponent(navigationMenuHolder, GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE))
 			);
 			leftMenuPanel.setLayout(groupLayout);
 		}
@@ -144,21 +146,21 @@ public class NagusiaPanel extends JPanel {
 			centralPanelHolder = new JPanel();
 			centralPanelHolder.setLayout(new BorderLayout());
 			{
-				label_2 = new JLabel("");
-				label_2.setIcon(new ImageIcon(NagusiaPanel.class.getResource("/gkae/zapataparegabeak/resources/banner.jpg")));
-				bannerPanel.add(label_2, BorderLayout.CENTER);
+				bannerLabel = new JLabel("");
+				bannerLabel.setIcon(new ImageIcon(NagusiaPanel.class.getResource("/gkae/zapataparegabeak/resources/banner.jpg")));
+				bannerPanel.add(bannerLabel, BorderLayout.CENTER);
 			}
 			{
 				JSeparator separator = new JSeparator();
-				copyrightPanel.add(separator, BorderLayout.NORTH);
+				southPanel.add(separator, BorderLayout.NORTH);
 			}
 			{
-				JPanel panel_8 = new JPanel();
-				panel_8.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-				copyrightPanel.add(panel_8, BorderLayout.CENTER);
+				JPanel copyrightPanel = new JPanel();
+				copyrightPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+				southPanel.add(copyrightPanel, BorderLayout.CENTER);
 				{
-					JLabel label = new JLabel("\u00A92009 - Zapata Pare Gabeak, S.L.");
-					panel_8.add(label);
+					JLabel copyrightLabel = new JLabel("\u00A92009 - Zapata Pare Gabeak, S.L.");
+					copyrightPanel.add(copyrightLabel);
 				}
 			}
 
@@ -235,12 +237,19 @@ public class NagusiaPanel extends JPanel {
 			}
 
 			{
-				textField = new JTextField();
-				searchPanel.add(textField, BorderLayout.CENTER);
+				bilatuTextField = new JTextField();
+				searchPanel.add(bilatuTextField, BorderLayout.CENTER);
 			}
 
 			{
 				final JButton bilatuButton = new JButton();
+				bilatuButton.addActionListener(new ActionListener() {
+					public void actionPerformed(final ActionEvent e) {
+						//bilatuTextField.getText();
+						//Dagokion panelera joan
+						ikusiBilaketaEmaitzakPanela();
+					}
+				});
 				bilatuButton.setIcon(SwingResourceManager.getIcon(NagusiaPanel.class, "/gkae/zapataparegabeak/resources/ikonoak/search_magnifier24.png"));
 				bilatuButton.setText("Bilatu");
 				searchPanel.add(bilatuButton, BorderLayout.EAST);
@@ -252,7 +261,7 @@ public class NagusiaPanel extends JPanel {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(10, 10, 10)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addComponent(copyrightPanel, GroupLayout.DEFAULT_SIZE, 1076, Short.MAX_VALUE)
+						.addComponent(southPanel, GroupLayout.DEFAULT_SIZE, 1076, Short.MAX_VALUE)
 						.addComponent(bannerPanel, GroupLayout.DEFAULT_SIZE, 1076, Short.MAX_VALUE)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -278,7 +287,7 @@ public class NagusiaPanel extends JPanel {
 						.addComponent(leftMenuPanel, GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
 						.addComponent(centralPanelHolder, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(copyrightPanel, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
+					.addComponent(southPanel, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
 					.addGap(10, 10, 10))
 		);
 		setLayout(groupLayout);
