@@ -39,6 +39,7 @@ public class EskaerarenJarraipena extends JPanel {
 	private JTable table;
 	private final JPanel eskaeraBatPanel;
 	
+	//Eskaerei buruzko informazioa gordetzeko egiturak
 	private Vector<EskaeraElementua> eskaeraBat;
 	private Vector<EskaeraElementua> eskaeraBi;
 	
