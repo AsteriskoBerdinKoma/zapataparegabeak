@@ -66,14 +66,14 @@ public class HEDatuakEditatu extends JDialog {
 		utziButton.setText("Utzi");
 		final GroupLayout groupLayout = new GroupLayout((JComponent) getContentPane());
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addComponent(hornitzaileEskaeraDatuakPanela, GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
-				.addGroup(GroupLayout.Alignment.TRAILING, groupLayout.createSequentialGroup()
+			groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+				.addComponent(hornitzaileEskaeraDatuakPanela, GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
+				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap(296, Short.MAX_VALUE)
 					.addComponent(utziButton)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(aldaketakOnartuButton, GroupLayout.PREFERRED_SIZE, 115, GroupLayout.PREFERRED_SIZE)
-					.addGap(20, 20, 20))
+					.addComponent(aldaketakOnartuButton)
+					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)

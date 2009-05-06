@@ -1,8 +1,13 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.hornitzaileenEskaerakKudeatu;
 
+import gkae.zapataparegabeak.objektuak.HornitzaileEskaera;
+import gkae.zapataparegabeak.objektuak.Hornitzailea;
+
+import javax.swing.DefaultListModel;
 import javax.swing.GroupLayout;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
@@ -11,6 +16,7 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
 public class HornitzaileEskaeraDatuakPanela extends JPanel {
+	
 
 	private JTextField HEkantitatea;
 	private JTextField HEePosta;
@@ -97,4 +103,20 @@ public class HornitzaileEskaeraDatuakPanela extends JPanel {
 		HEkantitatea.setEditable(editable);
 	}
 
+	public void setDatuak(HornitzaileEskaera h) {
+		if(h != null){
+		HEkodea.setText(new Integer(h.getKodea()).toString());
+		HEizena.setText(h.getHornitzaileIzena());
+		HEePosta.setText(h.getHornitzaileEPosta());
+		HEkantitatea.setText(new Integer(h.getKantitatea()).toString());
+		
+		}
+		else{
+			HEkodea.setText("");
+			HEizena.setText("");
+			HEePosta.setText("");
+			HEkantitatea.setText("");
+		}
+		
+	}
 }
