@@ -88,7 +88,7 @@ public class NagusiaPanel extends JPanel {
 				navigationMenuHolder.setLayout(new CardLayout());
 
 				{
-					final MenuPanel menuPanel = new MenuPanel();
+					final MenuPanel menuPanel = new MenuPanel(this);
 					menuPanel.setName("menuPanel");
 					navigationMenuHolder.add(menuPanel, menuPanel.getName());
 				}
@@ -120,7 +120,7 @@ public class NagusiaPanel extends JPanel {
 			rightMenuPanel.setSize(237, 332);
 
 			{
-				bezeroEskuinMenuPanela = new BezeroEskuinMenuPanela();
+				bezeroEskuinMenuPanela = new BezeroEskuinMenuPanela(this);
 				bezeroEskuinMenuPanela.setName("bezeroEskuinMenuPanela");
 				rightMenuPanel.add(bezeroEskuinMenuPanela, bezeroEskuinMenuPanela.getName());
 			}

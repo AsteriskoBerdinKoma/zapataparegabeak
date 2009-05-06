@@ -6,6 +6,8 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.LayoutStyle;
 import org.jdesktop.swingx.JXHyperlink;
+
+import gkae.zapataparegabeak.gui.NagusiaPanel;
 import gkae.zapataparegabeak.gui.menuPanelak.ErosketaSaskiaMenuPanel;
 
 public class BezeroEskuinMenuPanela extends JPanel {
@@ -18,13 +20,17 @@ public class BezeroEskuinMenuPanela extends JPanel {
 	private JXHyperlink eskaerenHistorikoaHyperlink;
 	private ErosketaSaskiaMenuPanel erosketaSaskiaMenuPanel;
 	
+	private NagusiaPanel jabea;
+	
 	/**
 	 * Create the panel
 	 */
-	public BezeroEskuinMenuPanela() {
+	public BezeroEskuinMenuPanela(NagusiaPanel jabea) {
 		super();
+		
+		this.jabea = jabea;
 
-		erosketaSaskiaMenuPanel = new ErosketaSaskiaMenuPanel();
+		erosketaSaskiaMenuPanel = new ErosketaSaskiaMenuPanel(this.jabea);
 
 		JXHyperlink eskaerenJarraipenaHyperlink;
 		eskaerenJarraipenaHyperlink = new JXHyperlink();
