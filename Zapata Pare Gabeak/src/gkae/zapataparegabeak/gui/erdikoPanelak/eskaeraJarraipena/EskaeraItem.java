@@ -53,6 +53,7 @@ public class EskaeraItem extends JPanel {
 	JLabel datuprezioaLabel;
 	JLabel irudiaLabel;
 	
+	//Atzerapenerako aukerak
 	JRadioButton eskaeraBerdinMantenduRadioButton;
 	JRadioButton artikuluHauBesteRadioButton;
 	JRadioButton artikuluHonenEskariaRadioButton;

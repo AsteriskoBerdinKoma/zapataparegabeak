@@ -20,27 +20,8 @@ public class ItzuleraJarraibideak extends JDialog {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Launch the application
-	 * @param args
-	 */
-	public static void main(String args[]) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ItzuleraJarraibideak dialog = new ItzuleraJarraibideak();
-					dialog.addWindowListener(new WindowAdapter() {
-						public void windowClosing(WindowEvent e) {
-							System.exit(0);
-						}
-					});
-					dialog.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
+	
 
 	/**
 	 * Create the dialog
@@ -150,5 +131,26 @@ public class ItzuleraJarraibideak extends JDialog {
 		panel.setLayout(groupLayout);
 		//
 	}
-
+	
+	/**
+	 * Launch the application
+	 * @param args
+	 */
+	public static void main(String args[]) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ItzuleraJarraibideak dialog = new ItzuleraJarraibideak();
+					dialog.addWindowListener(new WindowAdapter() {
+						public void windowClosing(WindowEvent e) {
+							System.exit(0);
+						}
+					});
+					dialog.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 }
