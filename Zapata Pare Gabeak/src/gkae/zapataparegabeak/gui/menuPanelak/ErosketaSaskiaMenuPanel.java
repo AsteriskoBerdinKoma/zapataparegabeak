@@ -82,20 +82,21 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 		label = new JLabel();
 		label.setFont(new Font("", Font.BOLD, 12));
 		label.setText("0.0€");
+		saskiaEguneratu();
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addComponent(zureErosketaSaskiaLabel)
-					.addContainerGap(299, Short.MAX_VALUE))
+					.addContainerGap(179, Short.MAX_VALUE))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(prezioaLabel)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(label)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
 					.addComponent(erosketaGauzatuButton))
-				.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
+				.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
@@ -111,7 +112,6 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 					.addContainerGap())
 		);
 		setLayout(groupLayout);
-		saskiaEguneratu();
 	}
 	
 	public void saskiaEguneratu(){
@@ -219,11 +219,11 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 										.addComponent(prezioTotalaLabel)
 										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 										.addComponent(label)))
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
 								.addComponent(button, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
-							.addComponent(artikuluarenIzenaHyperlink, GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE))
+							.addComponent(artikuluarenIzenaHyperlink, GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
 						.addContainerGap())
-					.addComponent(separator, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+					.addComponent(separator, GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
 			);
 			groupLayout.setVerticalGroup(
 				groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
