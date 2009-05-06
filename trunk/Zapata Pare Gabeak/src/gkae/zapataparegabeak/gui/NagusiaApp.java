@@ -8,6 +8,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import gkae.zapataparegabeak.gui.NagusiaPanel;
+import gkae.zapataparegabeak.objektuak.Kudeaketa;
 
 public class NagusiaApp {
 
@@ -56,6 +57,7 @@ public class NagusiaApp {
 	 * Initialize the contents of the frame
 	 */
 	private void createContents() {
+		Kudeaketa.getInstance();
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1018, 638);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

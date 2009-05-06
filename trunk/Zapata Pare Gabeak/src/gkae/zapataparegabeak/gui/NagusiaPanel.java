@@ -31,10 +31,10 @@ public class NagusiaPanel extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private JPanel panel_4;
-	private JPanel panel_3;
-	private JPanel panel_6;
-	private JPanel panel_7;
+	private JPanel bannerPanel;
+	private JPanel copyrightPanel;
+	private JPanel leftMenuPanel;
+	private JPanel rightMenuPanel;
 	private JLabel label_2;
 	
 	private Frame jabea;
@@ -47,21 +47,21 @@ public class NagusiaPanel extends JPanel {
 		{
 			this.jabea = frame;
 			
-			panel_4 = new JPanel();
-			panel_4.setBackground(Color.BLACK);
-			panel_4.setLayout(new BorderLayout(0, 0));
+			bannerPanel = new JPanel();
+			bannerPanel.setBackground(Color.BLACK);
+			bannerPanel.setLayout(new BorderLayout(0, 0));
 
 			{
 				final JSeparator separator = new JSeparator();
-				panel_4.add(separator, BorderLayout.SOUTH);
+				bannerPanel.add(separator, BorderLayout.SOUTH);
 			}
 		}
 		{
-			panel_3 = new JPanel();
-			panel_3.setLayout(new BorderLayout(0, 0));
+			copyrightPanel = new JPanel();
+			copyrightPanel.setLayout(new BorderLayout(0, 0));
 		}
 		{
-			panel_6 = new JPanel();
+			leftMenuPanel = new JPanel();
 
 			JPanel panel_1;
 			{
@@ -86,7 +86,7 @@ public class NagusiaPanel extends JPanel {
 					panel.add(menuPanela, menuPanela.getName());
 				}
 			}
-			final GroupLayout groupLayout = new GroupLayout((JComponent) panel_6);
+			final GroupLayout groupLayout = new GroupLayout((JComponent) leftMenuPanel);
 			groupLayout.setHorizontalGroup(
 				groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 					.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
@@ -97,47 +97,47 @@ public class NagusiaPanel extends JPanel {
 					.addGroup(groupLayout.createSequentialGroup()
 						.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
 						.addGap(5, 5, 5)
-						.addComponent(panel, GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE))
+						.addComponent(panel, GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE))
 			);
-			panel_6.setLayout(groupLayout);
+			leftMenuPanel.setLayout(groupLayout);
 		}
 		{
-			panel_7 = new JPanel();
+			rightMenuPanel = new JPanel();
 
 			ErosketaSaskiaMenuPanel erosketaSaskiaMenuPanel;
 			{
 				erosketaSaskiaMenuPanel = new ErosketaSaskiaMenuPanel();
 			}
-			final GroupLayout groupLayout = new GroupLayout((JComponent) panel_7);
+			final GroupLayout groupLayout = new GroupLayout((JComponent) rightMenuPanel);
 			groupLayout.setHorizontalGroup(
 				groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-					.addComponent(erosketaSaskiaMenuPanel, GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+					.addComponent(erosketaSaskiaMenuPanel, GroupLayout.PREFERRED_SIZE, 291, Short.MAX_VALUE)
 			);
 			groupLayout.setVerticalGroup(
 				groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 					.addGroup(groupLayout.createSequentialGroup()
 						.addComponent(erosketaSaskiaMenuPanel, GroupLayout.PREFERRED_SIZE, 261, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(71, Short.MAX_VALUE))
+						.addContainerGap(221, Short.MAX_VALUE))
 			);
-			panel_7.setLayout(groupLayout);
+			rightMenuPanel.setLayout(groupLayout);
 		}
-		JPanel panel_5;
+		JPanel centralPanel;
 		{
-			panel_5 = new JPanel();
-			panel_5.setLayout(new BorderLayout());
+			centralPanel = new JPanel();
+			centralPanel.setLayout(new BorderLayout());
 			{
 				label_2 = new JLabel("");
 				label_2.setIcon(new ImageIcon(NagusiaPanel.class.getResource("/gkae/zapataparegabeak/resources/banner.jpg")));
-				panel_4.add(label_2, BorderLayout.CENTER);
+				bannerPanel.add(label_2, BorderLayout.CENTER);
 			}
 			{
 				JSeparator separator = new JSeparator();
-				panel_3.add(separator, BorderLayout.NORTH);
+				copyrightPanel.add(separator, BorderLayout.NORTH);
 			}
 			{
 				JPanel panel_8 = new JPanel();
 				panel_8.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-				panel_3.add(panel_8, BorderLayout.CENTER);
+				copyrightPanel.add(panel_8, BorderLayout.CENTER);
 				{
 					JLabel label = new JLabel("\u00A92009 - Zapata Pare Gabeak, S.L.");
 					panel_8.add(label);
@@ -147,19 +147,19 @@ public class NagusiaPanel extends JPanel {
 			{
 				final JSeparator separator = new JSeparator();
 				separator.setOrientation(SwingConstants.VERTICAL);
-				panel_5.add(separator, BorderLayout.WEST);
+				centralPanel.add(separator, BorderLayout.WEST);
 			}
 
 			{
 				final JSeparator separator = new JSeparator();
 				separator.setOrientation(SwingConstants.VERTICAL);
-				panel_5.add(separator, BorderLayout.EAST);
+				centralPanel.add(separator, BorderLayout.EAST);
 			}
 
 			{
 				final JPanel panel = new JPanel();
 				panel.setLayout(new CardLayout());
-				panel_5.add(panel, BorderLayout.CENTER);
+				centralPanel.add(panel, BorderLayout.CENTER);
 
 				{
 					final KatalogoaPanela katalogoaPanela = new KatalogoaPanela();
@@ -181,26 +181,26 @@ public class NagusiaPanel extends JPanel {
 			}
 		}
 
-		JPanel panel_2;
+		JPanel searchPanel;
 		{
-			panel_2 = new JPanel();
-			panel_2.setLayout(new BorderLayout());
+			searchPanel = new JPanel();
+			searchPanel.setLayout(new BorderLayout());
 
 			{
 				final JLabel bilatuLabel = new JLabel();
 				bilatuLabel.setText("Bilaketa:");
-				panel_2.add(bilatuLabel, BorderLayout.WEST);
+				searchPanel.add(bilatuLabel, BorderLayout.WEST);
 			}
 
 			{
 				textField = new JTextField();
-				panel_2.add(textField, BorderLayout.CENTER);
+				searchPanel.add(textField, BorderLayout.CENTER);
 			}
 
 			{
 				final JButton bilatuButton = new JButton();
 				bilatuButton.setText("Bilatu");
-				panel_2.add(bilatuButton, BorderLayout.EAST);
+				searchPanel.add(bilatuButton, BorderLayout.EAST);
 			}
 		}
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
@@ -209,32 +209,32 @@ public class NagusiaPanel extends JPanel {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(10, 10, 10)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addComponent(panel_4, GroupLayout.DEFAULT_SIZE, 882, Short.MAX_VALUE)
-						.addComponent(panel_3, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 882, Short.MAX_VALUE)
+						.addComponent(bannerPanel, GroupLayout.DEFAULT_SIZE, 932, Short.MAX_VALUE)
+						.addComponent(copyrightPanel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 932, Short.MAX_VALUE)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(panel_6, GroupLayout.PREFERRED_SIZE, 225, GroupLayout.PREFERRED_SIZE)
+							.addComponent(leftMenuPanel, GroupLayout.PREFERRED_SIZE, 225, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-								.addComponent(panel_2, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)
-								.addComponent(panel_5, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE))
+								.addComponent(searchPanel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
+								.addComponent(centralPanel, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 404, Short.MAX_VALUE))
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-							.addComponent(panel_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(rightMenuPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 					.addGap(10, 10, 10))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(10, 10, 10)
-					.addComponent(panel_4, GroupLayout.PREFERRED_SIZE, 74, GroupLayout.PREFERRED_SIZE)
+					.addComponent(bannerPanel, GroupLayout.PREFERRED_SIZE, 74, GroupLayout.PREFERRED_SIZE)
 					.addGap(5, 5, 5)
-					.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addComponent(searchPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addGap(5, 5, 5)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addComponent(panel_5, GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
-						.addComponent(panel_7, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
-						.addComponent(panel_6, GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE))
+						.addComponent(centralPanel, GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
+						.addComponent(rightMenuPanel, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
+						.addComponent(leftMenuPanel, GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(panel_3, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
+					.addComponent(copyrightPanel, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
 					.addGap(10, 10, 10))
 		);
 		setLayout(groupLayout);
