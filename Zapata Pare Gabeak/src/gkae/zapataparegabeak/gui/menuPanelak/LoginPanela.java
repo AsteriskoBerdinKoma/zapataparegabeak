@@ -1,12 +1,14 @@
 package gkae.zapataparegabeak.gui.menuPanelak;
 
 import gkae.zapataparegabeak.objektuak.ErabiltzaileInfo;
+import gkae.zapataparegabeak.objektuak.Erabiltzaileak;
 import gkae.zapataparegabeak.objektuak.Kudeaketa;
 
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
 import javax.swing.BoxLayout;
 import javax.swing.GroupLayout;
@@ -18,7 +20,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
-import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
 import org.jdesktop.swingx.JXHyperlink;
@@ -32,9 +33,10 @@ public class LoginPanela extends JPanel {
 	
 	private JPasswordField passPassField;
 	private JTextField erabTextField;
-	JLabel kaixoLabel;
-	JXHyperlink datuakAldatuHyperlink;
-	JXHyperlink saioaAmaituHyperlink;
+	
+	private JLabel kaixoEzezagunLabel;
+	private JXHyperlink zureDatuakAldatuHyperlink;
+	private JXHyperlink saioaItxiHyperlink;
 
 	/**
 	 * Create the panel
@@ -55,19 +57,24 @@ public class LoginPanela extends JPanel {
 		final JButton kautotuButton = new JButton();
 		kautotuButton.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
-				for (ErabiltzaileInfo ei: Kudeaketa.getInstance().getErabiltzaileak()){
-					if(erabTextField.getText().trim().equals(ei.getErabIzena()) &&
-					  passPassField.getPassword().equals(ei.getPasahitza())){
+				boolean kautotuta = false;
+				Vector<ErabiltzaileInfo> erab = Erabiltzaileak.getInstance().getErabZerrenda();
+				for (ErabiltzaileInfo ei: erab){
+					if(erabTextField.getText().equals(ei.getErabIzena()) &&
+					   passPassField.getPassword().toString().equals(ei.getPasahitza())){
 						ei.setKautotutaDago(true);
-						kaixoLabel.setText("Kaixo, "+erabTextField.getText());
+						kaixoEzezagunLabel.setText("Kaixo, "+erabTextField.getText());
 						if(ei.isAdmin()){
-							datuakAldatuHyperlink.setVisible(false);
+							zureDatuakAldatuHyperlink.setVisible(false);
 							kartaAldatu("kautotutaPanela");
 							//MENU NAGUSIA ALDATU ADMINISTRAZIOKO ZATIA IKUSTEKO
 							
 						}
+						kautotuta = true;
 						break;
-					} else {
+					}
+				}
+				if (!kautotuta){
 						JOptionPane jop = new JOptionPane(
 		                        "Erabiltzaile edo pasahitz okerra eman duzu.\nSaiatu berriz.",
 		                        JOptionPane.ERROR_MESSAGE);
@@ -75,8 +82,8 @@ public class LoginPanela extends JPanel {
 		                        .setVisible(true);
 						erabTextField.setText("");
 						passPassField.setText("");
-					}
 				}
+				
 			}
 		});
 		kautotuButton.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -138,64 +145,62 @@ public class LoginPanela extends JPanel {
 		);
 		kautotzePanela.setLayout(groupLayout);
 
-		final JPanel kautotutaPanela = new JPanel();
-		kautotutaPanela.setName("kautotutaPanela");
-		add(kautotutaPanela, kautotutaPanela.getName());
-		
-		
-		datuakAldatuHyperlink = new JXHyperlink();
-		datuakAldatuHyperlink.addActionListener(new ActionListener() {
-			public void actionPerformed(final ActionEvent arg0) {
-				// Datuak aldatu panelera joan
-			}
-		});
-		datuakAldatuHyperlink.setText("Datuak Aldatu");
+		final JPanel kautotutaPanel = new JPanel();
+		kautotutaPanel.setName("kautotutaPanela");
+		add(kautotutaPanel, kautotutaPanel.getName());
 
 		
-		saioaAmaituHyperlink = new JXHyperlink();
-		saioaAmaituHyperlink.addActionListener(new ActionListener() {
+		kaixoEzezagunLabel = new JLabel();
+		kaixoEzezagunLabel.setText("Kaixo, Ezezagun");
+
+		
+		zureDatuakAldatuHyperlink = new JXHyperlink();
+		zureDatuakAldatuHyperlink.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
-				for (ErabiltzaileInfo ei : Kudeaketa.getInstance()
-						.getErabiltzaileak()) {
-					if (ei.isKautotutaDago()) {
-						ei.setKautotutaDago(false);
-					}
-				}
-				// Kautotze leihora itzuli
-
+				//Datuak aldatu panelera joan
 			}
 		});
-		saioaAmaituHyperlink.setText("Saioa Amaitu");
+		zureDatuakAldatuHyperlink.setText("• Zure Datuak Aldatu");
 
 		
-		kaixoLabel = new JLabel();
-		kaixoLabel.setText("Kaixo, Ezezagun");
-		final GroupLayout groupLayout_1 = new GroupLayout((JComponent) this);
+		saioaItxiHyperlink = new JXHyperlink();
+		saioaItxiHyperlink.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				kartaAldatu("kautotzePanela");
+				for(ErabiltzaileInfo ei: Kudeaketa.getInstance().getErabiltzaileak()){
+					if (ei.isKautotutaDago())
+						ei.setKautotutaDago(false);
+				}
+				//MENU NAGUSIA BEZERO EZEZAGUNAREN ERAN JARRI
+			}
+		});
+		saioaItxiHyperlink.setText("• Saioa Itxi");
+		final GroupLayout groupLayout_1 = new GroupLayout((JComponent) kautotutaPanel);
 		groupLayout_1.setHorizontalGroup(
 			groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(groupLayout_1.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addComponent(kaixoLabel)
+						.addComponent(kaixoEzezagunLabel)
 						.addGroup(groupLayout_1.createSequentialGroup()
 							.addGap(12, 12, 12)
 							.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
-								.addComponent(saioaAmaituHyperlink, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(datuakAldatuHyperlink, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
-					.addContainerGap(386, Short.MAX_VALUE))
+								.addComponent(saioaItxiHyperlink, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(zureDatuakAldatuHyperlink, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+					.addContainerGap(346, Short.MAX_VALUE))
 		);
 		groupLayout_1.setVerticalGroup(
 			groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(groupLayout_1.createSequentialGroup()
-					.addGap(11, 11, 11)
-					.addComponent(kaixoLabel)
+					.addContainerGap()
+					.addComponent(kaixoEzezagunLabel)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(datuakAldatuHyperlink, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addComponent(zureDatuakAldatuHyperlink, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(saioaAmaituHyperlink, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(278, Short.MAX_VALUE))
+					.addComponent(saioaItxiHyperlink, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(277, Short.MAX_VALUE))
 		);
-		kautotutaPanela.setLayout(groupLayout_1);
+		kautotutaPanel.setLayout(groupLayout_1);
 		//
 	}
 	
