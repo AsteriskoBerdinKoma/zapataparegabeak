@@ -1,5 +1,6 @@
 package gkae.zapataparegabeak.gui.menuPanelak;
 
+import gkae.zapataparegabeak.gui.NagusiaPanel;
 import gkae.zapataparegabeak.objektuak.ErabiltzaileInfo;
 import gkae.zapataparegabeak.objektuak.Erabiltzaileak;
 import gkae.zapataparegabeak.objektuak.Kudeaketa;
@@ -38,11 +39,16 @@ public class LoginPanela extends JPanel {
 	private JXHyperlink zureDatuakAldatuHyperlink;
 	private JXHyperlink saioaItxiHyperlink;
 
+	//Nagusiaren erreferentzia pantailaz aldatzeko
+	private NagusiaPanel owner;
+	
 	/**
 	 * Create the panel
 	 */
-	public LoginPanela() {
+	public LoginPanela(NagusiaPanel nagusiaPanel) {
 		super();
+		this.owner = nagusiaPanel;
+		
 		setBorder(new TitledBorder(null, "Kautotze Menua",
 				TitledBorder.DEFAULT_JUSTIFICATION,
 				TitledBorder.DEFAULT_POSITION, null, null));
@@ -70,11 +76,15 @@ public class LoginPanela extends JPanel {
 						kaixoEzezagunLabel.setText("Kaixo, "+ erabTextField.getText());
 						if (ei.isAdmin()) {
 							zureDatuakAldatuHyperlink.setVisible(false);
-							kartaAldatu("kautotutaPanela");
+							
 							// MENU NAGUSIA ALDATU ADMINISTRAZIOKO ZATIA
 							// IKUSTEKO
+							owner.ikusiAdminMenua();
+						} else {
+							// MENU NAGUSIA ALDATU ERAB. EZAGUN ZATIA IKUSTEKO
+							owner.ikusiErabiltzaileEzagunMenua();
 						}
-						
+						kartaAldatu("kautotutaPanela");
 						break;
 					}
 				}
@@ -96,8 +106,7 @@ public class LoginPanela extends JPanel {
 		final JXHyperlink izenaEmanHyperlink = new JXHyperlink();
 		izenaEmanHyperlink.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent arg0) {
-				// Erdiko panelean aldaketa gauzatu
-
+				owner.ikusiIzenaEmanPanela();
 			}
 		});
 
@@ -196,7 +205,7 @@ public class LoginPanela extends JPanel {
 		zureDatuakAldatuHyperlink = new JXHyperlink();
 		zureDatuakAldatuHyperlink.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
-				// Datuak aldatu panelera joan
+				owner.ikusiErabDatuakAldatuPanela();
 			}
 		});
 		zureDatuakAldatuHyperlink.setText("• Zure Datuak Aldatu");
@@ -210,7 +219,11 @@ public class LoginPanela extends JPanel {
 					if (ei.isKautotutaDago())
 						ei.setKautotutaDago(false);
 				}
-				// MENU NAGUSIA BEZERO EZEZAGUNAREN ERAN JARRI
+				erabTextField.setText("");
+				passPassField.setText("");
+				//Menu nagusia aldatu
+				owner.ikusiKatalogoaPanela();
+				owner.ikusiErabiltzaileEzezagunMenua();
 			}
 		});
 		saioaItxiHyperlink.setText("• Saioa Itxi");
