@@ -21,7 +21,7 @@ public class Katalogoa {
 		katalogoa.addElement(new Zapata (6, "Eskuin",38f,"Emakumezkoa","Zilarra","Larrua","Fashion Zapatak","Paris Hilton",63.95f,false,"ez",0.0f,true,20,true,"3.jpg" ));
 		katalogoa.addElement(new Zapata (7, "Eskuin",35f,"Emakumezkoa","Txuria","Oihala","Ballet","Touch ups",30.95f,true,"Beherapena",5.0f,true,50,true,"5.jpg"));
 		katalogoa.addElement(new Zapata (8, "Ezker", 45f,"Gizonezkoa", "Txuri-urdina","Larrua","Futbol botak","Diadora",99.95f,false,"ez",0.0f,true,60,true,"6.jpg" ));
-		katalogoa.addElement(new Zapata (9, "Eskuin",36f,"Emakumezkoa","Txuria/Beltza/Laranja/Berdea/Urdina/Gorria/Grixa/Arroxa","Plastikoa","Sandaliak","Crocs",29.95f,false,"ez",0.0f,true,20,true,"7.jpg" ));
+		katalogoa.addElement(new Zapata (9, "Eskuin",36f,"Emakumezkoa","Txuria/Beltza/Laranja/Berdea","Plastikoa","Sandaliak","Crocs",29.95f,false,"ez",0.0f,true,20,true,"7.jpg" ));
 		katalogoa.addElement(new Zapata (10,"Ezker", 40f,"Emakumezkoa","Txuri/Beltz/Urdina/Gorria","Oihala","Casual","Keds",29.99f,true,"Beherapena",28.0f,true,5,true,"8.jpg"));
 		katalogoa.addElement(new Zapata (11,"Ezker", 43f,"Emakumezkoa","Zilarra/Urdina/Arrosa","Larrua","Korritzeko zapatak","Saucony",98.95f,false,"ez",0.0f,true,60,true,"2.jpg" ));
 		katalogoa.addElement(new Zapata (12,"Ezker", 34f,"Emakumezkoa","Zilarra","Larrua","Fashion Zapatak","Paris Hilton",63.95f,false,"ez",0.0f,true,20,true,"3.jpg" ));

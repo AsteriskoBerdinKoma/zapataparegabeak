@@ -15,6 +15,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
@@ -48,6 +49,11 @@ public class KatalogoItemPanela extends JPanel {
 
 		
 		irudiaLabel = new JLabel();
+		ImageIcon iconOrig = SwingResourceManager.getIcon(KatalogoItemPanela.class, "/gkae/zapataparegabeak/resources/zapatak/noimage120.png");
+		ImageIcon iconResized = new ImageIcon(iconOrig.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
+		irudiaLabel.setIcon(iconResized);
+		irudiaLabel.setBackground(Color.WHITE);
+		irudiaLabel.setOpaque(true);
 		irudiaLabel.setBorder(new LineBorder(Color.black, 1, false));
 
 		
@@ -69,7 +75,10 @@ public class KatalogoItemPanela extends JPanel {
 		button = new JButton();
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent arg0) {
-				ArtikuluarenXehetasunak ax = new ArtikuluarenXehetasunak(zapataInfo);
+				ArtikuluarenXehetasunakDialog ax = new ArtikuluarenXehetasunakDialog(zapataInfo);
+				ax.setLocationRelativeTo(null);
+				ax.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+				ax.setVisible(true);
 				//Menu nagusira gehitu eta bista bertara aldatu
 			}
 		});
@@ -81,6 +90,7 @@ public class KatalogoItemPanela extends JPanel {
 			public void actionPerformed(final ActionEvent e) {
 				//Zapata hau saskira gehitu
 				SaskiratutakoZapatak.getInstance().saskiraGehitu(zapataInfo,Integer.parseInt(spinner.getValue().toString()));
+				//Eskubiko menua eguneratu
 			}
 		});
 		button_1.setIcon(SwingResourceManager.getIcon(KatalogoItemPanela.class, "/gkae/zapataparegabeak/resources/ikonoak/add_cart24.png"));
@@ -106,6 +116,8 @@ public class KatalogoItemPanela extends JPanel {
 
 		comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"36", "38", "40", "43"}));
+		//
+		setDatuak();
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -122,11 +134,10 @@ public class KatalogoItemPanela extends JPanel {
 							.addComponent(kopuruaLabel)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(spinner, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
 							.addComponent(button_1)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(button))
-						.addComponent(modeloaKoloreaLabel, GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 								.addComponent(prezioaLabel)
@@ -134,7 +145,8 @@ public class KatalogoItemPanela extends JPanel {
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 								.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(datuPrezioa))))
+								.addComponent(datuPrezioa)))
+						.addComponent(modeloaKoloreaLabel))
 					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
@@ -167,8 +179,6 @@ public class KatalogoItemPanela extends JPanel {
 					.addContainerGap())
 		);
 		setLayout(groupLayout);
-		//
-		setDatuak();
 	}
 	
 	public void setDatuak(){
