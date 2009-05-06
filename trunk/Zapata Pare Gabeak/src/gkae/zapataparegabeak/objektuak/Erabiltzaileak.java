@@ -13,8 +13,8 @@ public class Erabiltzaileak {
 		users = new Vector<ErabiltzaileInfo>();
 		ErabiltzaileInfo admin = new ErabiltzaileInfo("peru","admin@zapatapg.net","peru");
 		admin.setAdmin(true);
-		users.add(admin);
-		users.add(new ErabiltzaileInfo("erosle1","erosle1@mail.com","erosle1"));
+		users.addElement(admin);
+		users.addElement(new ErabiltzaileInfo("erosle1","erosle1@mail.com","erosle1"));
 	}
 	
 	public static Erabiltzaileak getInstance() {
