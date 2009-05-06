@@ -23,7 +23,7 @@ import javax.swing.border.TitledBorder;
 
 import org.jdesktop.swingx.JXHyperlink;
 
-public class Login2Panela extends JPanel {
+public class LoginPanela extends JPanel {
 
 	/**
 	 * 
@@ -39,7 +39,7 @@ public class Login2Panela extends JPanel {
 	/**
 	 * Create the panel
 	 */
-	public Login2Panela() {
+	public LoginPanela() {
 		super();
 		setBorder(new TitledBorder(null, "Kautotze Menua", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
 		setLayout(new CardLayout());
