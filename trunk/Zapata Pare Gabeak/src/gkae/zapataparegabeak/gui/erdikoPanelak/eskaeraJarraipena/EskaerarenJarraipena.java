@@ -1,14 +1,18 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.eskaeraJarraipena;
 
 import gkae.zapataparegabeak.objektuak.ErabiltzaileInfo;
+import gkae.zapataparegabeak.objektuak.EskaeraElementua;
 import gkae.zapataparegabeak.objektuak.Kudeaketa;
+import gkae.zapataparegabeak.objektuak.Zapata;
 
 import java.awt.CardLayout;
 import java.awt.Font;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
+import javax.swing.BoxLayout;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -30,8 +34,14 @@ import com.swtdesigner.SwingResourceManager;
 
 public class EskaerarenJarraipena extends JPanel {
 
+	private JPanel eskaeraBiPanel;
 	private JTextField textField;
 	private JTable table;
+	private final JPanel eskaeraBatPanel;
+	
+	private Vector<EskaeraElementua> eskaeraBat;
+	private Vector<EskaeraElementua> eskaeraBi;
+	
 	/**
 	 * 
 	 */
@@ -101,6 +111,14 @@ public class EskaerarenJarraipena extends JPanel {
 	public EskaerarenJarraipena() {
 		super();
 		setLayout(new CardLayout());
+		
+		eskaeraBat = new Vector<EskaeraElementua>();
+		eskaeraBi = new Vector<EskaeraElementua>();
+		eskaeraBat.addElement(new EskaeraElementua (new Zapata (1, "Ezker", 40f,"Gizonezkoa", "Txuri/Beltz/Zilarra","Larrua","Korritzeko zapatak","Brooks",132.0f,true,"Beherapena",28.0f,true,50,true,"1.jpg"),1,"Onartzeke","2009/05/10 - 14:45","Oraindik ez da bidali",false));
+		eskaeraBat.addElement(new EskaeraElementua (new Zapata (2, "Ezker", 42f,"Emakumezkoa","Zilarra/Urdina/Arrosa","Larrua","Korritzeko zapatak","Saucony",98.95f,false,"ez",0.0f,true,60,true,"2.jpg" ),2,"Onartzeke","2009/05/10 - 14:45","Oraindik ez da bidali",true));
+		eskaeraBi.addElement(new EskaeraElementua(new Zapata (3, "Ezker", 38f,"Emakumezkoa","Zilarra","Larrua","Fashion Zapatak","Paris Hilton",63.95f,false,"ez",0.0f,true,20,true,"3.jpg" ),1,"Bidalita","2008/12/12 -15:56","2008/12/14 - 16:56",false));
+		eskaeraBi.addElement(new EskaeraElementua(new Zapata (4, "Eskuin",40f,"Gizonezkoa", "Txuri/Beltz/Zilarra","Larrua","Korritzeko zapatak","Brooks",132.0f,true,"Beherapena",28.0f,true,50,true,"1.jpg"),2,"Bidalita","2008/12/12 -15:56","2008/12/14 - 16:56",false));
+		
 
 		HistorikoTableModel htm = new HistorikoTableModel();
 
@@ -191,7 +209,7 @@ public class EskaerarenJarraipena extends JPanel {
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(erosketenZerrendaIkusiLabel)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
 					.addContainerGap())
 		);
 		eskaerenHistorikoa.setLayout(groupLayout);
@@ -301,17 +319,31 @@ public class EskaerarenJarraipena extends JPanel {
 		JScrollPane scrollPane_1;
 		scrollPane_1 = new JScrollPane();
 
-		final JPanel panel = new JPanel();
-		scrollPane_1.setViewportView(panel);
+		eskaeraBatPanel = new JPanel();
+		eskaeraBatPanel.setLayout(new BoxLayout(eskaeraBatPanel, BoxLayout.Y_AXIS));
+		scrollPane_1.setViewportView(eskaeraBatPanel);
+
+		JButton atzeraEginButton;
+		atzeraEginButton = new JButton();
+		atzeraEginButton.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				changeCard("eskaerenHistorikoa");
+				checkKautotuta();
+				textField.setText("");
+			}
+		});
+		atzeraEginButton.setIcon(SwingResourceManager.getIcon(EskaerarenJarraipena.class, "/gkae/zapataparegabeak/resources/ikonoak/left_arrow24.png"));
+		atzeraEginButton.setText("Atzera Egin");
 		final GroupLayout groupLayout_2 = new GroupLayout((JComponent) eskaeraAktibo);
 		groupLayout_2.setHorizontalGroup(
-			groupLayout_2.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(GroupLayout.Alignment.TRAILING, groupLayout_2.createSequentialGroup()
+			groupLayout_2.createParallelGroup(GroupLayout.Alignment.TRAILING)
+				.addGroup(groupLayout_2.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.TRAILING)
 						.addComponent(scrollPane_1, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
 						.addComponent(separator_2, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
 						.addComponent(eskaerarenJarraipenaLabel_1, GroupLayout.Alignment.LEADING)
+						.addComponent(atzeraEginButton)
 						.addComponent(honaHemenEskaeraLabel, GroupLayout.Alignment.LEADING))
 					.addContainerGap())
 		);
@@ -322,27 +354,81 @@ public class EskaerarenJarraipena extends JPanel {
 					.addComponent(eskaerarenJarraipenaLabel_1)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(separator_2, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
-					.addGap(15, 15, 15)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(honaHemenEskaeraLabel)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(scrollPane_1, GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
-					.addContainerGap())
+					.addComponent(scrollPane_1, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(atzeraEginButton)
+					.addGap(8, 8, 8))
 		);
 		eskaeraAktibo.setLayout(groupLayout_2);
 
 		final JPanel eskaeraBukatua = new JPanel();
 		eskaeraBukatua.setName("eskaeraBukatua");
 		add(eskaeraBukatua, eskaeraBukatua.getName());
+
+		JLabel eskaerarenJarraipenaLabel_1_1;
+		eskaerarenJarraipenaLabel_1_1 = new JLabel();
+		eskaerarenJarraipenaLabel_1_1.setFont(new Font("Dialog", Font.PLAIN, 18));
+		eskaerarenJarraipenaLabel_1_1.setText("Eskaeraren Jarraipena: E014-657");
+
+		JSeparator separator_2_1;
+		separator_2_1 = new JSeparator();
+
+		JLabel honaHemenEskaeraLabel_1;
+		honaHemenEskaeraLabel_1 = new JLabel();
+		honaHemenEskaeraLabel_1.setText("Hona hemen eskaera honetako artikuluak eta beraien egoera.");
+
+		JScrollPane scrollPane_1_1;
+		scrollPane_1_1 = new JScrollPane();
+
+		eskaeraBiPanel = new JPanel();
+		eskaeraBiPanel.setLayout(new BoxLayout(eskaeraBiPanel, BoxLayout.Y_AXIS));
+		scrollPane_1_1.setViewportView(eskaeraBiPanel);
+
+		JButton atzeraEginButton_1;
+		atzeraEginButton_1 = new JButton();
+		atzeraEginButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				changeCard("eskaerenHistorikoa");
+				checkKautotuta();
+				textField.setText("");
+			}
+		});
+		atzeraEginButton_1.setIcon(SwingResourceManager.getIcon(EskaerarenJarraipena.class, "/gkae/zapataparegabeak/resources/ikonoak/left_arrow24.png"));
+		atzeraEginButton_1.setText("Atzera Egin");
 		final GroupLayout groupLayout_3 = new GroupLayout((JComponent) eskaeraBukatua);
 		groupLayout_3.setHorizontalGroup(
 			groupLayout_3.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGap(0, 0, Short.MAX_VALUE)
+				.addGroup(groupLayout_3.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(groupLayout_3.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(scrollPane_1_1, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+						.addComponent(eskaerarenJarraipenaLabel_1_1, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE)
+						.addComponent(separator_2_1, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+						.addComponent(honaHemenEskaeraLabel_1, GroupLayout.PREFERRED_SIZE, 350, GroupLayout.PREFERRED_SIZE)
+						.addComponent(atzeraEginButton_1, GroupLayout.Alignment.TRAILING))
+					.addContainerGap())
 		);
 		groupLayout_3.setVerticalGroup(
 			groupLayout_3.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGap(0, 0, Short.MAX_VALUE)
+				.addGroup(groupLayout_3.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(eskaerarenJarraipenaLabel_1_1, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(separator_2_1, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(honaHemenEskaeraLabel_1)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(scrollPane_1_1, GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(atzeraEginButton_1)
+					.addContainerGap())
 		);
 		eskaeraBukatua.setLayout(groupLayout_3);
+		zerrendaEguneratu();
+		checkKautotuta();
 	}
 	
 	public void changeCard(String destination){
@@ -361,6 +447,27 @@ public class EskaerarenJarraipena extends JPanel {
 			changeCard("kodeEskaera");
 		}
 	}
+	
+	public void zerrendaEguneratu() {
+		eskaeraBatPanel.removeAll();
+		eskaeraBiPanel.removeAll();
+		for(EskaeraElementua zi: eskaeraBat){
+			eskaeraBatPanel.add(new EskaeraItem(this,zi));
+		}
+		for(EskaeraElementua zj: eskaeraBi){
+			eskaeraBiPanel.add(new EskaeraItem(this,zj));
+		}
+		this.revalidate();
+		
+	}
+	
+	public void kenduEskaeraBat(EskaeraElementua e){
+		eskaeraBat.remove(e);
+	}
+	
+	public void kenduEskaeraBi(EskaeraElementua e){
+		eskaeraBi.remove(e);
+	}
 
 	public static void main(String[] args) {
 		JFrame j = new JFrame("Frogak");
@@ -370,5 +477,7 @@ public class EskaerarenJarraipena extends JPanel {
 		j.setVisible(true);
 		j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+
+	
 
 }
