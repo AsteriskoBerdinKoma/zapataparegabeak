@@ -13,14 +13,17 @@ public class AlbaranenLista extends JPanel {
 
 	private JTextField textField;
 	private JList list_1;
+	private BezeroenEskaerakPanel owner;
 	/**
 	 * Create the panel
+	 * @param bezeroenEskaerakPanel 
 	 */
-	public AlbaranenLista() {
+	public AlbaranenLista(BezeroenEskaerakPanel bezeroenEskaerakPanel) {
 		super();
 
 		list_1 = new JList();
-
+		owner = bezeroenEskaerakPanel;
+		
 		JLabel bezeroenEskaerenListaLabel;
 		bezeroenEskaerenListaLabel = new JLabel();
 		bezeroenEskaerenListaLabel.setText("Prozesatutako Eskaeren Albaranak");

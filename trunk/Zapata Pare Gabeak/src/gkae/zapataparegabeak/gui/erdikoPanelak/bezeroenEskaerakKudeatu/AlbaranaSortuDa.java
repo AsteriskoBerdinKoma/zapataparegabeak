@@ -1,6 +1,8 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -9,12 +11,15 @@ import javax.swing.JPanel;
 import javax.swing.LayoutStyle;
 
 public class AlbaranaSortuDa extends JPanel {
+	
+	BezeroenEskaerakPanel owner;
 
 	/**
 	 * Create the panel
 	 */
-	public AlbaranaSortuDa() {
+	public AlbaranaSortuDa(BezeroenEskaerakPanel nagusia) {
 		super();
+		owner = nagusia;
 
 		JLabel eskaerarenAlbaranaSortuLabel;
 		eskaerarenAlbaranaSortuLabel = new JLabel();
@@ -23,6 +28,11 @@ public class AlbaranaSortuDa extends JPanel {
 
 		JButton onartuButton;
 		onartuButton = new JButton();
+		onartuButton.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent arg0) {
+				owner.changeCard("proba");
+			}
+		});
 		onartuButton.setText("Onartu");
 
 		JButton inprimatuButton;
