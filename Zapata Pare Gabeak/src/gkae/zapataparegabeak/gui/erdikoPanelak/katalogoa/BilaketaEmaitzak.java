@@ -172,8 +172,12 @@ public class BilaketaEmaitzak extends JPanel {
 	
 	public void emaitzakEguneratu() {
 		resultPanel.removeAll();
+		int counter = 0;
 		for(Zapata z: Kudeaketa.getInstance().katalogokoZapatak()){
 			resultPanel.add(new KatalogoItemPanela(z));
+			counter++;
+			if(counter==10)
+				break;
 		}
 		
 	}
