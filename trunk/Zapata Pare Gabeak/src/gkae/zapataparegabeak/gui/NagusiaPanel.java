@@ -47,6 +47,7 @@ public class NagusiaPanel extends JPanel {
 	private JLabel bannerLabel;
 	private final JPanel centralPanel;
 	private final BezeroEskuinMenuPanela bezeroEskuinMenuPanela;
+	private JPanel navigationMenuHolder;
 	
 	/**
 	 * Create the panel.
@@ -76,13 +77,13 @@ public class NagusiaPanel extends JPanel {
 				loginPanelHolder.setLayout(new CardLayout());
 
 				{
-					final LoginPanela loginPanela = new LoginPanela();
+					final LoginPanela loginPanela = new LoginPanela(this);
 					loginPanela.setName("loginPanela");
 					loginPanelHolder.add(loginPanela, loginPanela.getName());
 				}
 			}
 
-			JPanel navigationMenuHolder;
+			
 			{
 				navigationMenuHolder = new JPanel();
 				navigationMenuHolder.setLayout(new CardLayout());
@@ -102,15 +103,15 @@ public class NagusiaPanel extends JPanel {
 			final GroupLayout groupLayout = new GroupLayout((JComponent) leftMenuPanel);
 			groupLayout.setHorizontalGroup(
 				groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-					.addComponent(loginPanelHolder, GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
-					.addComponent(navigationMenuHolder, GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+					.addComponent(loginPanelHolder, GroupLayout.PREFERRED_SIZE, 258, Short.MAX_VALUE)
+					.addComponent(navigationMenuHolder, GroupLayout.PREFERRED_SIZE, 258, Short.MAX_VALUE)
 			);
 			groupLayout.setVerticalGroup(
 				groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 					.addGroup(groupLayout.createSequentialGroup()
 						.addComponent(loginPanelHolder, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
 						.addGap(5, 5, 5)
-						.addComponent(navigationMenuHolder, GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE))
+						.addComponent(navigationMenuHolder, GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE))
 			);
 			leftMenuPanel.setLayout(groupLayout);
 		}
@@ -251,8 +252,8 @@ public class NagusiaPanel extends JPanel {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(10, 10, 10)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addComponent(southPanel, GroupLayout.DEFAULT_SIZE, 1130, Short.MAX_VALUE)
-						.addComponent(bannerPanel, GroupLayout.DEFAULT_SIZE, 1130, Short.MAX_VALUE)
+						.addComponent(southPanel, GroupLayout.DEFAULT_SIZE, 1258, Short.MAX_VALUE)
+						.addComponent(bannerPanel, GroupLayout.DEFAULT_SIZE, 1258, Short.MAX_VALUE)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(leftMenuPanel, GroupLayout.PREFERRED_SIZE, 258, GroupLayout.PREFERRED_SIZE)
@@ -273,9 +274,9 @@ public class NagusiaPanel extends JPanel {
 					.addComponent(searchPanel, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addComponent(rightMenuPanel, GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
-						.addComponent(leftMenuPanel, GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
-						.addComponent(centralPanelHolder, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE))
+						.addComponent(rightMenuPanel, GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
+						.addComponent(leftMenuPanel, GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
+						.addComponent(centralPanelHolder, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(southPanel, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
 					.addGap(10, 10, 10))
@@ -320,5 +321,32 @@ public class NagusiaPanel extends JPanel {
 	
 	public void saskiaEguneratu(){
 		bezeroEskuinMenuPanela.saskiaEguneratu();
+	}
+	
+	public void ikusiErabiltzaileEzezagunMenua(){
+		//Ezkerreko panelean ezezagunentzat
+		CardLayout cl = (CardLayout)(navigationMenuHolder.getLayout());
+        cl.show(navigationMenuHolder, "menuPanel");
+		//Eskubiko panelean ezezagunentzat
+        CardLayout cl1 = (CardLayout)(rightMenuPanel.getLayout());
+        cl1.show(rightMenuPanel, "bezeroEskuinMenuPanela");
+	}
+	
+	public void ikusiErabiltzaileEzagunMenua(){
+		//Ezkerreko panelean ezagunentzat
+		CardLayout cl = (CardLayout)(navigationMenuHolder.getLayout());
+        cl.show(navigationMenuHolder, "menuPanel");
+        //Eskubiko panelean ezagunentzat
+        CardLayout cl1 = (CardLayout)(rightMenuPanel.getLayout());
+        cl1.show(rightMenuPanel, "bezeroEskuinMenuPanela");
+	}
+	
+	public void ikusiAdminMenua(){
+		//Ezkerreko panelean adminentzat
+		CardLayout cl = (CardLayout)(navigationMenuHolder.getLayout());
+        cl.show(navigationMenuHolder, "kudeaketaMenuPanela");
+        //Eskubiko panelean adminentzat
+        CardLayout cl1 = (CardLayout)(rightMenuPanel.getLayout());
+        cl1.show(rightMenuPanel, "abisuakMenuPanela");
 	}
 }
