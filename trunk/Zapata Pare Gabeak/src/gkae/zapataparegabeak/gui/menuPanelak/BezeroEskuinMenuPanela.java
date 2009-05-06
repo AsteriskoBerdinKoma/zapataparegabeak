@@ -39,25 +39,23 @@ public class BezeroEskuinMenuPanela extends JPanel {
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(12, 12, 12)
-					.addComponent(eskaerenJarraipenaHyperlink, GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-					.addContainerGap())
+				.addComponent(erosketaSaskiaMenuPanel, GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(eskaerenHistorikoaHyperlink, GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(eskaerenJarraipenaHyperlink, GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
+						.addComponent(eskaerenHistorikoaHyperlink, GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE))
 					.addContainerGap())
-				.addComponent(erosketaSaskiaMenuPanel, GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addComponent(erosketaSaskiaMenuPanel, GroupLayout.PREFERRED_SIZE, 205, GroupLayout.PREFERRED_SIZE)
+					.addComponent(erosketaSaskiaMenuPanel, GroupLayout.PREFERRED_SIZE, 305, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(eskaerenJarraipenaHyperlink, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(eskaerenHistorikoaHyperlink, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addContainerGap(13, Short.MAX_VALUE))
 		);
 		setLayout(groupLayout);
 		//
