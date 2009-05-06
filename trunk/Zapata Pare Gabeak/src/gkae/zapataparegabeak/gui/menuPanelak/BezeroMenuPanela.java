@@ -16,7 +16,7 @@ import org.jdesktop.swingx.JXTaskPane;
 
 import com.swtdesigner.SwingResourceManager;
 
-public class MenuPanela extends JPanel {
+public class BezeroMenuPanela extends JPanel {
 
 	/**
 	 * 
@@ -26,7 +26,7 @@ public class MenuPanela extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public MenuPanela() {
+	public BezeroMenuPanela() {
 		
 		setLayout(new BorderLayout(0, 0));
 		{
@@ -43,52 +43,52 @@ public class MenuPanela extends JPanel {
 			JXTaskPane taskPane;
 			taskPane = new JXTaskPane();
 			taskPane.setForeground(new Color(0, 0, 255));
-			taskPane.setTitle("Gizonezkoen zapatak");
+			taskPane.setTitle("• Gizonezkoen zapatak");
 
 			final JXHyperlink botakHyperlink = new JXHyperlink();
-			botakHyperlink.setText("Botak");
+			botakHyperlink.setText("• Botak");
 			taskPane.add(botakHyperlink, BorderLayout.NORTH);
 
 			final JXHyperlink kirolZapatakHyperlink = new JXHyperlink();
-			kirolZapatakHyperlink.setText("Kirol zapatak");
+			kirolZapatakHyperlink.setText("• Kirol zapatak");
 			taskPane.add(kirolZapatakHyperlink, BorderLayout.SOUTH);
 
 			final JXHyperlink bereziakHyperlink = new JXHyperlink();
-			bereziakHyperlink.setText("Bereziak");
+			bereziakHyperlink.setText("• Bereziak");
 			taskPane.add(bereziakHyperlink, BorderLayout.WEST);
 
 			final JXHyperlink bestelakoakHyperlink = new JXHyperlink();
-			bestelakoakHyperlink.setText("Bestelakoak");
+			bestelakoakHyperlink.setText("• Bestelakoak");
 			taskPane.add(bestelakoakHyperlink, BorderLayout.EAST);
 
 			JXTaskPane taskPane_1;
 			taskPane_1 = new JXTaskPane();
 			taskPane_1.setForeground(new Color(0, 0, 255));
-			taskPane_1.setTitle("Emakumezkoen zapatak");
+			taskPane_1.setTitle("• Emakumezkoen zapatak");
 
 			final JXHyperlink botakHyperlink_1 = new JXHyperlink();
-			botakHyperlink_1.setText("Botak");
+			botakHyperlink_1.setText("• Botak");
 			taskPane_1.add(botakHyperlink_1, BorderLayout.NORTH);
 
 			final JXHyperlink kirolZapatakHyperlink_1 = new JXHyperlink();
-			kirolZapatakHyperlink_1.setText("Kirol zapatak");
+			kirolZapatakHyperlink_1.setText("• Kirol zapatak");
 			taskPane_1.add(kirolZapatakHyperlink_1, BorderLayout.SOUTH);
 
 			final JXHyperlink bestelakoakHyperlink_1 = new JXHyperlink();
-			bestelakoakHyperlink_1.setText("Bestelakoak");
+			bestelakoakHyperlink_1.setText("• Bestelakoak");
 			taskPane_1.add(bestelakoakHyperlink_1, BorderLayout.WEST);
 
 			final JXHyperlink takoidunakHyperlink = new JXHyperlink();
-			takoidunakHyperlink.setText("Takoidunak");
+			takoidunakHyperlink.setText("• Takoidunak");
 			taskPane_1.add(takoidunakHyperlink, BorderLayout.EAST);
 
 			final JXHyperlink bereziakHyperlink_1 = new JXHyperlink();
-			bereziakHyperlink_1.setText("Bereziak");
+			bereziakHyperlink_1.setText("• Bereziak");
 			taskPane_1.add(bereziakHyperlink_1);
 
 			JXHyperlink produktuBerrienakHyperlink;
 			produktuBerrienakHyperlink = new JXHyperlink();
-			produktuBerrienakHyperlink.setIcon(SwingResourceManager.getIcon(MenuPanela.class, "/gkae/zapataparegabeak/resources/ikonoak/right_arrow24.png"));
+			produktuBerrienakHyperlink.setIcon(SwingResourceManager.getIcon(BezeroMenuPanela.class, "/gkae/zapataparegabeak/resources/ikonoak/right_arrow24.png"));
 			produktuBerrienakHyperlink.setFont(new Font("", Font.BOLD, 14));
 			produktuBerrienakHyperlink.setText("Produktu berrienak");
 			
@@ -98,9 +98,9 @@ public class MenuPanela extends JPanel {
 					.addGroup(groupLayout.createSequentialGroup()
 						.addContainerGap()
 						.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-							.addComponent(taskPane, GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+							.addComponent(taskPane, GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
 							.addComponent(taskPane_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addComponent(produktuBerrienakHyperlink, GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
+							.addComponent(produktuBerrienakHyperlink, GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE))
 						.addContainerGap())
 			);
 			groupLayout.setVerticalGroup(

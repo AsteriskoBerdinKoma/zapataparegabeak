@@ -15,6 +15,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
 import javax.swing.UIManager;
+import com.swtdesigner.SwingResourceManager;
 
 public class MezuaIdatziPanela extends JPanel {
 
@@ -73,6 +74,7 @@ public class MezuaIdatziPanela extends JPanel {
 
 		JButton bidaliButton;
 		bidaliButton = new JButton();
+		bidaliButton.setIcon(SwingResourceManager.getIcon(MezuaIdatziPanela.class, "/gkae/zapataparegabeak/resources/ikonoak/email24.png"));
 		bidaliButton.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				MezuaIdatziPanela.this.jabea.mezuaBidali();
@@ -82,6 +84,7 @@ public class MezuaIdatziPanela extends JPanel {
 
 		JButton garbituButton;
 		garbituButton = new JButton();
+		garbituButton.setIcon(SwingResourceManager.getIcon(MezuaIdatziPanela.class, "/gkae/zapataparegabeak/resources/ikonoak/trash.png"));
 		garbituButton.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				garbitu();
@@ -101,8 +104,8 @@ public class MezuaIdatziPanela extends JPanel {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addComponent(textArea, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
-						.addComponent(oharraBatekinTextArea, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
+						.addComponent(textArea, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+						.addComponent(oharraBatekinTextArea, GroupLayout.Alignment.TRAILING)
 						.addGroup(GroupLayout.Alignment.TRAILING, groupLayout.createSequentialGroup()
 							.addComponent(garbituButton)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -115,10 +118,10 @@ public class MezuaIdatziPanela extends JPanel {
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 								.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
-								.addComponent(textField, GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)))
-						.addComponent(oharraBatekinLabel, GroupLayout.PREFERRED_SIZE, 375, GroupLayout.PREFERRED_SIZE)
-						.addComponent(mezuaLabel))
+								.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
+								.addComponent(textField, GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)))
+						.addComponent(mezuaLabel)
+						.addComponent(oharraBatekinLabel, GroupLayout.PREFERRED_SIZE, 375, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
@@ -143,7 +146,7 @@ public class MezuaIdatziPanela extends JPanel {
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(mezuaLabel)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(textArea, GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+					.addComponent(textArea, GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(bidaliButton)
