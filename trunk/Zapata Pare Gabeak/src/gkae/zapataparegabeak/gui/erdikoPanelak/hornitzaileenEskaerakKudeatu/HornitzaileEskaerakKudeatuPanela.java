@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
+import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
 import javax.swing.ListSelectionModel;
 import javax.swing.SpringLayout;
@@ -32,6 +33,7 @@ import com.swtdesigner.SwingResourceManager;
 
 public class HornitzaileEskaerakKudeatuPanela extends JPanel {
 
+	private JTextField textField;
 	private HornitzaileEskaeraDatuakPanela hornitzaileEskaeraDatuakPanela;
 	private DefaultListModel listModel;
 	private JList list;
@@ -99,145 +101,67 @@ public class HornitzaileEskaerakKudeatuPanela extends JPanel {
 		eskaerenHistorikoaLabel.setFont(new Font("Dialog", Font.PLAIN, 18));
 		eskaerenHistorikoaLabel.setText("Hornitzaileen Eskaerak Kudeatu");
 
+		JLabel hornitzaileenAraberaBilatuLabel;
+		hornitzaileenAraberaBilatuLabel = new JLabel();
+		hornitzaileenAraberaBilatuLabel.setText("Hornitzaileen arabera bilatu:");
+
+		textField = new JTextField();
+
+		JButton ezabatuButton;
+		ezabatuButton = new JButton();
+		ezabatuButton.setHorizontalAlignment(SwingConstants.LEFT);
+		ezabatuButton.setIcon(SwingResourceManager.getIcon(HornitzaileEskaerakKudeatuPanela.class, "/gkae/zapataparegabeak/resources/ikonoak/delete_item24.png"));
+		ezabatuButton.setText("Ezabatu");
+
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
-		groupLayout
-				.setHorizontalGroup(groupLayout
-						.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addGroup(
-								groupLayout
-										.createSequentialGroup()
-										.addContainerGap()
-										.addGroup(
-												groupLayout
-														.createParallelGroup(
-																GroupLayout.Alignment.LEADING)
-														.addGroup(
-																groupLayout
-																		.createSequentialGroup()
-																		.addGroup(
-																				groupLayout
-																						.createParallelGroup(
-																								GroupLayout.Alignment.TRAILING)
-																						.addGroup(
-																								groupLayout
-																										.createSequentialGroup()
-																										.addComponent(
-																												separator,
-																												GroupLayout.DEFAULT_SIZE,
-																												542,
-																												Short.MAX_VALUE)
-																										.addGap(
-																												12,
-																												12,
-																												12))
-																						.addGroup(
-																								groupLayout
-																										.createSequentialGroup()
-																										.addComponent(
-																												list,
-																												GroupLayout.PREFERRED_SIZE,
-																												148,
-																												GroupLayout.PREFERRED_SIZE)
-																										.addPreferredGap(
-																												LayoutStyle.ComponentPlacement.RELATED)
-																										.addComponent(
-																												hornitzaileEskaeraDatuakPanela,
-																												GroupLayout.DEFAULT_SIZE,
-																												269,
-																												Short.MAX_VALUE)
-																										.addPreferredGap(
-																												LayoutStyle.ComponentPlacement.RELATED)
-																										.addGroup(
-																												groupLayout
-																														.createParallelGroup(
-																																GroupLayout.Alignment.TRAILING)
-																														.addComponent(
-																																editatuButton,
-																																GroupLayout.PREFERRED_SIZE,
-																																109,
-																																GroupLayout.PREFERRED_SIZE)
-																														.addComponent(
-																																konfirmatuButton,
-																																GroupLayout.PREFERRED_SIZE,
-																																125,
-																																GroupLayout.PREFERRED_SIZE))))
-																		.addGap(
-																				11,
-																				11,
-																				11))
-														.addGroup(
-																groupLayout
-																		.createSequentialGroup()
-																		.addComponent(
-																				eskaerenHistorikoaLabel,
-																				GroupLayout.PREFERRED_SIZE,
-																				266,
-																				GroupLayout.PREFERRED_SIZE)
-																		.addContainerGap(
-																				299,
-																				Short.MAX_VALUE)))));
-		groupLayout
-				.setVerticalGroup(groupLayout
-						.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addGroup(
-								groupLayout
-										.createSequentialGroup()
-										.addContainerGap()
-										.addComponent(eskaerenHistorikoaLabel,
-												GroupLayout.PREFERRED_SIZE, 24,
-												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(separator,
-												GroupLayout.PREFERRED_SIZE,
-												GroupLayout.DEFAULT_SIZE,
-												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addGroup(
-												groupLayout
-														.createParallelGroup(
-																GroupLayout.Alignment.LEADING)
-														.addGroup(
-																groupLayout
-																		.createSequentialGroup()
-																		.addGap(
-																				23,
-																				23,
-																				23)
-																		.addComponent(
-																				editatuButton)
-																		.addPreferredGap(
-																				LayoutStyle.ComponentPlacement.RELATED)
-																		.addComponent(
-																				konfirmatuButton))
-														.addGroup(
-																groupLayout
-																		.createSequentialGroup()
-																		.addGap(
-																				15,
-																				15,
-																				15)
-																		.addGroup(
-																				groupLayout
-																						.createParallelGroup(
-																								GroupLayout.Alignment.LEADING,
-																								false)
-																						.addComponent(
-																								list,
-																								GroupLayout.DEFAULT_SIZE,
-																								GroupLayout.DEFAULT_SIZE,
-																								Short.MAX_VALUE)
-																						.addComponent(
-																								hornitzaileEskaeraDatuakPanela,
-																								GroupLayout.DEFAULT_SIZE,
-																								GroupLayout.DEFAULT_SIZE,
-																								Short.MAX_VALUE))))
-										.addContainerGap(17, Short.MAX_VALUE)));
-		groupLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL,
-				new java.awt.Component[] { editatuButton, konfirmatuButton });
-		groupLayout.linkSize(javax.swing.SwingConstants.VERTICAL,
-				new java.awt.Component[] { editatuButton, konfirmatuButton });
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(separator, GroupLayout.DEFAULT_SIZE, 649, Short.MAX_VALUE)
+						.addComponent(eskaerenHistorikoaLabel, GroupLayout.PREFERRED_SIZE, 266, GroupLayout.PREFERRED_SIZE)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+								.addComponent(hornitzaileenAraberaBilatuLabel)
+								.addComponent(list, GroupLayout.PREFERRED_SIZE, 165, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+								.addComponent(hornitzaileEskaeraDatuakPanela, GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
+								.addComponent(textField, GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE))
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+								.addComponent(ezabatuButton)
+								.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+									.addComponent(editatuButton)
+									.addComponent(konfirmatuButton)))))
+					.addContainerGap())
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(eskaerenHistorikoaLabel, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(separator, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(hornitzaileenAraberaBilatuLabel)
+						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(editatuButton)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addComponent(konfirmatuButton)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addComponent(ezabatuButton))
+						.addComponent(hornitzaileEskaeraDatuakPanela, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(list, GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE))
+					.addGap(14, 14, 14))
+		);
+		groupLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {editatuButton, ezabatuButton, konfirmatuButton});
+		groupLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {editatuButton, ezabatuButton, konfirmatuButton});
 
 		setLayout(groupLayout);
 		//
