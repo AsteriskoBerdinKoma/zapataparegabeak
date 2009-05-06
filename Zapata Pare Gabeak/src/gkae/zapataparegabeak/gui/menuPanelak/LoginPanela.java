@@ -30,10 +30,10 @@ public class LoginPanela extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	private JPasswordField passPassField;
 	private JTextField erabTextField;
-	
+
 	private JLabel kaixoEzezagunLabel;
 	private JXHyperlink zureDatuakAldatuHyperlink;
 	private JXHyperlink saioaItxiHyperlink;
@@ -43,13 +43,15 @@ public class LoginPanela extends JPanel {
 	 */
 	public LoginPanela() {
 		super();
-		setBorder(new TitledBorder(null, "Kautotze Menua", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
+		setBorder(new TitledBorder(null, "Kautotze Menua",
+				TitledBorder.DEFAULT_JUSTIFICATION,
+				TitledBorder.DEFAULT_POSITION, null, null));
 		setLayout(new CardLayout());
 
 		final JPanel kautotzePanela = new JPanel();
 		kautotzePanela.setName("kautotzePanela");
 		add(kautotzePanela, kautotzePanela.getName());
-		
+
 		JPanel azpiPanela;
 		azpiPanela = new JPanel();
 		azpiPanela.setLayout(new BoxLayout(azpiPanela, BoxLayout.Y_AXIS));
@@ -58,32 +60,33 @@ public class LoginPanela extends JPanel {
 		kautotuButton.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				boolean kautotuta = false;
-				Vector<ErabiltzaileInfo> erab = Erabiltzaileak.getInstance().getErabZerrenda();
-				for (ErabiltzaileInfo ei: erab){
-					if(erabTextField.getText().equals(ei.getErabIzena()) &&
-					   passPassField.getPassword().toString().equals(ei.getPasahitza())){
+				Vector<ErabiltzaileInfo> erab = Erabiltzaileak.getInstance()
+						.getErabZerrenda();
+				for (ErabiltzaileInfo ei : erab) {
+					if (erabTextField.getText().equals(ei.getErabIzena()) && 
+						new String(passPassField.getPassword()).equals(ei.getPasahitza())) {
 						ei.setKautotutaDago(true);
-						kaixoEzezagunLabel.setText("Kaixo, "+erabTextField.getText());
-						if(ei.isAdmin()){
+						kautotuta = true;
+						kaixoEzezagunLabel.setText("Kaixo, "+ erabTextField.getText());
+						if (ei.isAdmin()) {
 							zureDatuakAldatuHyperlink.setVisible(false);
 							kartaAldatu("kautotutaPanela");
-							//MENU NAGUSIA ALDATU ADMINISTRAZIOKO ZATIA IKUSTEKO
-							
+							// MENU NAGUSIA ALDATU ADMINISTRAZIOKO ZATIA
+							// IKUSTEKO
 						}
-						kautotuta = true;
+						
 						break;
 					}
 				}
-				if (!kautotuta){
-						JOptionPane jop = new JOptionPane(
-		                        "Erabiltzaile edo pasahitz okerra eman duzu.\nSaiatu berriz.",
-		                        JOptionPane.ERROR_MESSAGE);
-						jop.createDialog("Kautotzean arazoa")
-		                        .setVisible(true);
-						erabTextField.setText("");
-						passPassField.setText("");
+				if (!kautotuta) {
+					JOptionPane jop = new JOptionPane(
+							"Erabiltzaile edo pasahitz okerra eman duzu.\nSaiatu berriz.",
+							JOptionPane.ERROR_MESSAGE);
+					jop.createDialog("Kautotzean arazoa").setVisible(true);
+					erabTextField.setText("");
+					passPassField.setText("");
 				}
-				
+
 			}
 		});
 		kautotuButton.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -93,11 +96,11 @@ public class LoginPanela extends JPanel {
 		final JXHyperlink izenaEmanHyperlink = new JXHyperlink();
 		izenaEmanHyperlink.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent arg0) {
-				//Erdiko panelean aldaketa gauzatu
-				
+				// Erdiko panelean aldaketa gauzatu
+
 			}
 		});
-		
+
 		izenaEmanHyperlink.setAlignmentX(Component.CENTER_ALIGNMENT);
 		izenaEmanHyperlink.setText("Izena Eman");
 		azpiPanela.add(izenaEmanHyperlink);
@@ -113,100 +116,163 @@ public class LoginPanela extends JPanel {
 		erabTextField = new JTextField();
 
 		passPassField = new JPasswordField();
-		final GroupLayout groupLayout = new GroupLayout((JComponent) kautotzePanela);
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addComponent(azpiPanela, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-								.addComponent(pasahitzaLabel, GroupLayout.Alignment.TRAILING)
-								.addComponent(erabiltzaileaLabel, GroupLayout.Alignment.TRAILING))
-							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-								.addComponent(passPassField, GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
-								.addComponent(erabTextField, GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE))))
-					.addContainerGap())
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(erabiltzaileaLabel)
-						.addComponent(erabTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(pasahitzaLabel)
-						.addComponent(passPassField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(azpiPanela, GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE))
-		);
+		final GroupLayout groupLayout = new GroupLayout(
+				(JComponent) kautotzePanela);
+		groupLayout
+				.setHorizontalGroup(groupLayout
+						.createParallelGroup(GroupLayout.Alignment.TRAILING)
+						.addGroup(
+								groupLayout
+										.createSequentialGroup()
+										.addContainerGap()
+										.addGroup(
+												groupLayout
+														.createParallelGroup(
+																GroupLayout.Alignment.TRAILING)
+														.addComponent(
+																azpiPanela,
+																GroupLayout.Alignment.LEADING,
+																GroupLayout.DEFAULT_SIZE,
+																466,
+																Short.MAX_VALUE)
+														.addGroup(
+																groupLayout
+																		.createSequentialGroup()
+																		.addGroup(
+																				groupLayout
+																						.createParallelGroup(
+																								GroupLayout.Alignment.LEADING)
+																						.addComponent(
+																								pasahitzaLabel,
+																								GroupLayout.Alignment.TRAILING)
+																						.addComponent(
+																								erabiltzaileaLabel,
+																								GroupLayout.Alignment.TRAILING))
+																		.addPreferredGap(
+																				LayoutStyle.ComponentPlacement.RELATED)
+																		.addGroup(
+																				groupLayout
+																						.createParallelGroup(
+																								GroupLayout.Alignment.LEADING)
+																						.addComponent(
+																								passPassField,
+																								GroupLayout.DEFAULT_SIZE,
+																								382,
+																								Short.MAX_VALUE)
+																						.addComponent(
+																								erabTextField,
+																								GroupLayout.DEFAULT_SIZE,
+																								382,
+																								Short.MAX_VALUE))))
+										.addContainerGap()));
+		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(
+				GroupLayout.Alignment.LEADING).addGroup(
+				groupLayout.createSequentialGroup().addGroup(
+						groupLayout.createParallelGroup(
+								GroupLayout.Alignment.BASELINE).addComponent(
+								erabiltzaileaLabel).addComponent(erabTextField,
+								GroupLayout.PREFERRED_SIZE,
+								GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE)).addPreferredGap(
+						LayoutStyle.ComponentPlacement.RELATED).addGroup(
+						groupLayout.createParallelGroup(
+								GroupLayout.Alignment.BASELINE).addComponent(
+								pasahitzaLabel).addComponent(passPassField,
+								GroupLayout.PREFERRED_SIZE,
+								GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE)).addPreferredGap(
+						LayoutStyle.ComponentPlacement.RELATED).addComponent(
+						azpiPanela, GroupLayout.DEFAULT_SIZE, 297,
+						Short.MAX_VALUE)));
 		kautotzePanela.setLayout(groupLayout);
 
 		final JPanel kautotutaPanel = new JPanel();
 		kautotutaPanel.setName("kautotutaPanela");
 		add(kautotutaPanel, kautotutaPanel.getName());
 
-		
 		kaixoEzezagunLabel = new JLabel();
 		kaixoEzezagunLabel.setText("Kaixo, Ezezagun");
 
-		
 		zureDatuakAldatuHyperlink = new JXHyperlink();
 		zureDatuakAldatuHyperlink.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
-				//Datuak aldatu panelera joan
+				// Datuak aldatu panelera joan
 			}
 		});
 		zureDatuakAldatuHyperlink.setText("• Zure Datuak Aldatu");
 
-		
 		saioaItxiHyperlink = new JXHyperlink();
 		saioaItxiHyperlink.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				kartaAldatu("kautotzePanela");
-				for(ErabiltzaileInfo ei: Kudeaketa.getInstance().getErabiltzaileak()){
+				for (ErabiltzaileInfo ei : Kudeaketa.getInstance()
+						.getErabiltzaileak()) {
 					if (ei.isKautotutaDago())
 						ei.setKautotutaDago(false);
 				}
-				//MENU NAGUSIA BEZERO EZEZAGUNAREN ERAN JARRI
+				// MENU NAGUSIA BEZERO EZEZAGUNAREN ERAN JARRI
 			}
 		});
 		saioaItxiHyperlink.setText("• Saioa Itxi");
-		final GroupLayout groupLayout_1 = new GroupLayout((JComponent) kautotutaPanel);
-		groupLayout_1.setHorizontalGroup(
-			groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(groupLayout_1.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addComponent(kaixoEzezagunLabel)
-						.addGroup(groupLayout_1.createSequentialGroup()
-							.addGap(12, 12, 12)
-							.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
-								.addComponent(saioaItxiHyperlink, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(zureDatuakAldatuHyperlink, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
-					.addContainerGap(346, Short.MAX_VALUE))
-		);
-		groupLayout_1.setVerticalGroup(
-			groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(groupLayout_1.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(kaixoEzezagunLabel)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(zureDatuakAldatuHyperlink, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(saioaItxiHyperlink, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(277, Short.MAX_VALUE))
-		);
+		final GroupLayout groupLayout_1 = new GroupLayout(
+				(JComponent) kautotutaPanel);
+		groupLayout_1
+				.setHorizontalGroup(groupLayout_1
+						.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addGroup(
+								groupLayout_1
+										.createSequentialGroup()
+										.addContainerGap()
+										.addGroup(
+												groupLayout_1
+														.createParallelGroup(
+																GroupLayout.Alignment.LEADING)
+														.addComponent(
+																kaixoEzezagunLabel)
+														.addGroup(
+																groupLayout_1
+																		.createSequentialGroup()
+																		.addGap(
+																				12,
+																				12,
+																				12)
+																		.addGroup(
+																				groupLayout_1
+																						.createParallelGroup(
+																								GroupLayout.Alignment.LEADING)
+																						.addComponent(
+																								saioaItxiHyperlink,
+																								GroupLayout.PREFERRED_SIZE,
+																								GroupLayout.DEFAULT_SIZE,
+																								GroupLayout.PREFERRED_SIZE)
+																						.addComponent(
+																								zureDatuakAldatuHyperlink,
+																								GroupLayout.PREFERRED_SIZE,
+																								GroupLayout.DEFAULT_SIZE,
+																								GroupLayout.PREFERRED_SIZE))))
+										.addContainerGap(346, Short.MAX_VALUE)));
+		groupLayout_1.setVerticalGroup(groupLayout_1.createParallelGroup(
+				GroupLayout.Alignment.LEADING).addGroup(
+				groupLayout_1.createSequentialGroup().addContainerGap()
+						.addComponent(kaixoEzezagunLabel).addPreferredGap(
+								LayoutStyle.ComponentPlacement.RELATED)
+						.addComponent(zureDatuakAldatuHyperlink,
+								GroupLayout.PREFERRED_SIZE,
+								GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE).addPreferredGap(
+								LayoutStyle.ComponentPlacement.RELATED)
+						.addComponent(saioaItxiHyperlink,
+								GroupLayout.PREFERRED_SIZE,
+								GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE).addContainerGap(
+								277, Short.MAX_VALUE)));
 		kautotutaPanel.setLayout(groupLayout_1);
 		//
 	}
-	
-	public void kartaAldatu(String destination){
-		CardLayout cl = (CardLayout)(this.getLayout());
-        cl.show(this, destination);
+
+	public void kartaAldatu(String destination) {
+		CardLayout cl = (CardLayout) (this.getLayout());
+		cl.show(this, destination);
 	}
 
 }
