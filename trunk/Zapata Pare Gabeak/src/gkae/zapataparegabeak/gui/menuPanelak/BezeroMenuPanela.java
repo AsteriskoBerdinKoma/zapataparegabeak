@@ -53,7 +53,7 @@ public class BezeroMenuPanela extends JPanel {
 			final JXHyperlink botakHyperlink = new JXHyperlink();
 			botakHyperlink.addActionListener(new ActionListener() {
 				public void actionPerformed(final ActionEvent e) {
-					ikusiFiltroEmaitzak();
+					ikusiFiltroEmaitzak("Gizonezkoen Botak");
 				}
 			});
 			botakHyperlink.setText("• Botak");
@@ -62,7 +62,7 @@ public class BezeroMenuPanela extends JPanel {
 			final JXHyperlink kirolZapatakHyperlink = new JXHyperlink();
 			kirolZapatakHyperlink.addActionListener(new ActionListener() {
 				public void actionPerformed(final ActionEvent e) {
-					ikusiFiltroEmaitzak();
+					ikusiFiltroEmaitzak("Gizonezkoen Kirol Zapatak");
 				}
 			});
 			kirolZapatakHyperlink.setText("• Kirol zapatak");
@@ -71,7 +71,7 @@ public class BezeroMenuPanela extends JPanel {
 			final JXHyperlink bereziakHyperlink = new JXHyperlink();
 			bereziakHyperlink.addActionListener(new ActionListener() {
 				public void actionPerformed(final ActionEvent e) {
-					ikusiFiltroEmaitzak();
+					ikusiFiltroEmaitzak("Gizonezkoen Zapata Bereziak");
 				}
 			});
 			bereziakHyperlink.setText("• Bereziak");
@@ -80,7 +80,7 @@ public class BezeroMenuPanela extends JPanel {
 			final JXHyperlink bestelakoakHyperlink = new JXHyperlink();
 			bestelakoakHyperlink.addActionListener(new ActionListener() {
 				public void actionPerformed(final ActionEvent e) {
-					ikusiFiltroEmaitzak();
+					ikusiFiltroEmaitzak("Gizonezkoen Bestelako Zapatak");
 				}
 			});
 			bestelakoakHyperlink.setText("• Bestelakoak");
@@ -93,7 +93,7 @@ public class BezeroMenuPanela extends JPanel {
 			final JXHyperlink botakHyperlink_1 = new JXHyperlink();
 			botakHyperlink_1.addActionListener(new ActionListener() {
 				public void actionPerformed(final ActionEvent e) {
-					ikusiFiltroEmaitzak();
+					ikusiFiltroEmaitzak("Emakumezkoen Botak");
 				}
 			});
 			botakHyperlink_1.setText("• Botak");
@@ -102,7 +102,7 @@ public class BezeroMenuPanela extends JPanel {
 			final JXHyperlink kirolZapatakHyperlink_1 = new JXHyperlink();
 			kirolZapatakHyperlink_1.addActionListener(new ActionListener() {
 				public void actionPerformed(final ActionEvent e) {
-					ikusiFiltroEmaitzak();
+					ikusiFiltroEmaitzak("Emakumezkoen Kirol Zapatak");
 				}
 			});
 			kirolZapatakHyperlink_1.setText("• Kirol zapatak");
@@ -111,7 +111,7 @@ public class BezeroMenuPanela extends JPanel {
 			final JXHyperlink bestelakoakHyperlink_1 = new JXHyperlink();
 			bestelakoakHyperlink_1.addActionListener(new ActionListener() {
 				public void actionPerformed(final ActionEvent e) {
-					ikusiFiltroEmaitzak();
+					ikusiFiltroEmaitzak("Emakumezkoen Bestelako Zapatak");
 				}
 			});
 			bestelakoakHyperlink_1.setText("• Bestelakoak");
@@ -120,7 +120,7 @@ public class BezeroMenuPanela extends JPanel {
 			final JXHyperlink takoidunakHyperlink = new JXHyperlink();
 			takoidunakHyperlink.addActionListener(new ActionListener() {
 				public void actionPerformed(final ActionEvent e) {
-					ikusiFiltroEmaitzak();
+					ikusiFiltroEmaitzak("Emakumezkoen Takoidun Zapatak");
 				}
 			});
 			takoidunakHyperlink.setText("• Takoidunak");
@@ -129,7 +129,7 @@ public class BezeroMenuPanela extends JPanel {
 			final JXHyperlink bereziakHyperlink_1 = new JXHyperlink();
 			bereziakHyperlink_1.addActionListener(new ActionListener() {
 				public void actionPerformed(final ActionEvent e) {
-					ikusiFiltroEmaitzak();
+					ikusiFiltroEmaitzak("Emakumezkoen Zapata Bereziak");
 				}
 			});
 			bereziakHyperlink_1.setText("• Bereziak");
@@ -172,7 +172,7 @@ public class BezeroMenuPanela extends JPanel {
 
 	}
 	
-	private void ikusiFiltroEmaitzak(){
-		this.jabea.ikusiBilaketaEmaitzakPanela();
+	private void ikusiFiltroEmaitzak(String titulua){
+		this.jabea.ikusiMenuEmaitzaPanela(titulua);
 	}
 }
