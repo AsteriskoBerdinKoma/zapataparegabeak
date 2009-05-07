@@ -33,6 +33,7 @@ import javax.swing.SwingConstants;
 
 import com.swtdesigner.SwingResourceManager;
 import gkae.zapataparegabeak.gui.erdikoPanelak.hornitzaileakKudeatu.HornitzaileakKudeatuPanela;
+import gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa.MenuEmaitzaPanela;
 
 public class NagusiaPanel extends JPanel {
 	private JTextField bilatuTextField;
@@ -50,6 +51,7 @@ public class NagusiaPanel extends JPanel {
 	private final BezeroEskuinMenuPanela bezeroEskuinMenuPanela;
 	private JPanel navigationMenuHolder;
 	private final ErosiPanel erosiPanel;
+	private final MenuEmaitzaPanela menuEmaitzaPanela;
 	
 	/**
 	 * Create the panel.
@@ -113,7 +115,7 @@ public class NagusiaPanel extends JPanel {
 					.addGroup(groupLayout.createSequentialGroup()
 						.addComponent(loginPanelHolder, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
 						.addGap(5, 5, 5)
-						.addComponent(navigationMenuHolder, GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE))
+						.addComponent(navigationMenuHolder, GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))
 			);
 			leftMenuPanel.setLayout(groupLayout);
 		}
@@ -221,6 +223,12 @@ public class NagusiaPanel extends JPanel {
 					hornitzaileakKudeatuPanela.setName("hornitzaileakKudeatuPanela");
 					centralPanel.add(hornitzaileakKudeatuPanela, hornitzaileakKudeatuPanela.getName());
 				}
+
+				{
+					menuEmaitzaPanela = new MenuEmaitzaPanela(this);
+					menuEmaitzaPanela.setName("menuEmaitzaPanela");
+					centralPanel.add(menuEmaitzaPanela, menuEmaitzaPanela.getName());
+				}
 			}
 		}
 
@@ -260,15 +268,15 @@ public class NagusiaPanel extends JPanel {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(10, 10, 10)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addComponent(southPanel, GroupLayout.DEFAULT_SIZE, 1277, Short.MAX_VALUE)
-						.addComponent(bannerPanel, GroupLayout.DEFAULT_SIZE, 1277, Short.MAX_VALUE)
+						.addComponent(southPanel, GroupLayout.DEFAULT_SIZE, 1138, Short.MAX_VALUE)
+						.addComponent(bannerPanel, GroupLayout.DEFAULT_SIZE, 1138, Short.MAX_VALUE)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(leftMenuPanel, GroupLayout.PREFERRED_SIZE, 258, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-								.addComponent(searchPanel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)
-								.addComponent(centralPanelHolder, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE))
+								.addComponent(searchPanel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
+								.addComponent(centralPanelHolder, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE))
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(rightMenuPanel, GroupLayout.PREFERRED_SIZE, 329, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap())
@@ -282,9 +290,9 @@ public class NagusiaPanel extends JPanel {
 					.addComponent(searchPanel, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addComponent(centralPanelHolder, GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
-						.addComponent(rightMenuPanel, GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
-						.addComponent(leftMenuPanel, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE))
+						.addComponent(centralPanelHolder, GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
+						.addComponent(rightMenuPanel, GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
+						.addComponent(leftMenuPanel, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(southPanel, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
 					.addGap(10, 10, 10))
@@ -293,26 +301,31 @@ public class NagusiaPanel extends JPanel {
 	}
 	
 	public void ikusiKatalogoaPanela(){
+		rightMenuPanel.setVisible(true);
 		CardLayout cl = (CardLayout)(centralPanel.getLayout());
         cl.show(centralPanel, "katalogoaPanela");
 	}
 	
 	public void ikusiErabDatuakAldatuPanela(){
+		rightMenuPanel.setVisible(true);
 		CardLayout cl = (CardLayout)(centralPanel.getLayout());
         cl.show(centralPanel, "erabiltzailearenDatuakAldatuPanela");
 	}
 	
 	public void ikusiHarremanetanJarriPanela(){
+		rightMenuPanel.setVisible(true);
 		CardLayout cl = (CardLayout)(centralPanel.getLayout());
         cl.show(centralPanel, "harremanetanJarriPanela");
 	}
 	
 	public void ikusiBilaketaEmaitzakPanela(){
+		rightMenuPanel.setVisible(true);
 		CardLayout cl = (CardLayout)(centralPanel.getLayout());
         cl.show(centralPanel, "bilaketaEmaitzak");
 	}
 	
 	public void ikusiErosiPanela(){
+		rightMenuPanel.setVisible(false);
 		erosiPanel.saskiaEguneratu();
 		erosiPanel.prezioTotalaEguneratu();
 		CardLayout cl = (CardLayout)(centralPanel.getLayout());
@@ -320,11 +333,13 @@ public class NagusiaPanel extends JPanel {
 	}
 	
 	public void ikusiIzenaEmanPanela(){
+		rightMenuPanel.setVisible(true);
 		CardLayout cl = (CardLayout)(centralPanel.getLayout());
         cl.show(centralPanel, "izenaEmanPanel");
 	}
 	
 	public void ikusiEskaerarenJarraipenaPanela(){
+		rightMenuPanel.setVisible(true);
 		CardLayout cl = (CardLayout)(centralPanel.getLayout());
         cl.show(centralPanel, "eskaerarenJarraipena");
 	}
@@ -335,6 +350,7 @@ public class NagusiaPanel extends JPanel {
 	}
 	
 	public void ikusiErabiltzaileEzezagunMenua(){
+		rightMenuPanel.setVisible(true);
 		//Ezkerreko panelean ezezagunentzat
 		CardLayout cl = (CardLayout)(navigationMenuHolder.getLayout());
         cl.show(navigationMenuHolder, "menuPanel");
@@ -345,6 +361,7 @@ public class NagusiaPanel extends JPanel {
 	}
 	
 	public void ikusiErabiltzaileEzagunMenua(){
+		rightMenuPanel.setVisible(true);
 		//Ezkerreko panelean ezagunentzat
 		CardLayout cl = (CardLayout)(navigationMenuHolder.getLayout());
         cl.show(navigationMenuHolder, "menuPanel");
@@ -355,6 +372,7 @@ public class NagusiaPanel extends JPanel {
 	}
 	
 	public void ikusiAdminMenua(){
+		rightMenuPanel.setVisible(true);
 		//Ezkerreko panelean adminentzat
 		CardLayout cl = (CardLayout)(navigationMenuHolder.getLayout());
         cl.show(navigationMenuHolder, "kudeaketaMenuPanela");
@@ -364,42 +382,57 @@ public class NagusiaPanel extends JPanel {
 	}
 
 	public void ikusiProduktuakKudeatu() {
+		rightMenuPanel.setVisible(true);
 		// TODO Auto-generated method stub
 		
 	}
 
 	public void ikusiMaterialaEskatu() {
+		rightMenuPanel.setVisible(true);
 		// TODO Auto-generated method stub
 		
 	}
 
 	public void ikusiHornitzaileenEskaerakKudeatu() {
+		rightMenuPanel.setVisible(true);
 		// TODO Auto-generated method stub
 		
 	}
 
 	public void ikusiHornitzaileakKudeatu() {
+		rightMenuPanel.setVisible(true);
 		CardLayout cl = (CardLayout)(centralPanel.getLayout());
         cl.show(centralPanel, "hornitzaileakKudeatuPanela");
 	}
 
 	public void ikusiSalmentenEstatistikak() {
+		rightMenuPanel.setVisible(true);
 		// TODO Auto-generated method stub
 		
 	}
 
 	public void ikusiBezeroarekinHarremanetanJarri() {
+		rightMenuPanel.setVisible(true);
 		// TODO Auto-generated method stub
 		
 	}
 
 	public void ikusiBezeroenEskaerakKudeatu() {
+		rightMenuPanel.setVisible(true);
 		// TODO Auto-generated method stub
 		
 	}
 
 	public void ikusiEskaerenHistorikoa() {
+		rightMenuPanel.setVisible(true);
 		// TODO Auto-generated method stub
 		
+	}
+
+	public void ikusiMenuEmaitzaPanela(String titulua) {
+		rightMenuPanel.setVisible(true);
+		
+		CardLayout cl = (CardLayout)(centralPanel.getLayout());
+        cl.show(centralPanel, "menuEmaitzaPanela");
 	}
 }

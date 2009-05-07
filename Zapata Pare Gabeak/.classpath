@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Blizarazu/Mis documentos/EHU/Hautazkoak/GKAE/Zapata Pare Gabeak/lib/swingx-0.9.7.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Blizarazu/Mis documentos/EHU/Hautazkoak/GKAE/Zapata Pare Gabeak/lib/jasperreports-3.5.1.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Blizarazu/Mis documentos/EHU/Hautazkoak/GKAE/Zapata Pare Gabeak/lib/poi-3.2-FINAL-20081019.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Blizarazu/Mis documentos/EHU/Hautazkoak/GKAE/Zapata Pare Gabeak/lib/commons-beanutils-1.7.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Blizarazu/Mis documentos/EHU/Hautazkoak/GKAE/Zapata Pare Gabeak/lib/commons-collections-2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Blizarazu/Mis documentos/EHU/Hautazkoak/GKAE/Zapata Pare Gabeak/lib/commons-digester-1.7.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Blizarazu/Mis documentos/EHU/Hautazkoak/GKAE/Zapata Pare Gabeak/lib/commons-logging-1.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/Blizarazu/Mis documentos/EHU/Hautazkoak/GKAE/Zapata Pare Gabeak/lib/iText-2.1.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
