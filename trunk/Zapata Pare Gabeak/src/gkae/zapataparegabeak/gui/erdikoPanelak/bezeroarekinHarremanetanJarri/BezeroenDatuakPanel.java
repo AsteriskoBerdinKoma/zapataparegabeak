@@ -109,6 +109,15 @@ public class BezeroenDatuakPanel extends JPanel {
 		setLayout(groupLayout);
 		//
 	}
+	
+	void setEditable(boolean editable){
+		harProbintzia.setEditable(editable);
+		harAbizenak.setEditable(editable);
+		harIzena.setEditable(editable);
+		ePosta.setEditable(editable);
+		erabIzena.setEditable(editable);
+	}
+	
 	public void setDatuak(ErabiltzaileInfo e) {
 		// TODO Auto-generated method stub
 		if(e != null){
