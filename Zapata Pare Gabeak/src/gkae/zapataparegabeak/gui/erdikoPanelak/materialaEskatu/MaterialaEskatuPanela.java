@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
 import javax.swing.BoxLayout;
 import javax.swing.GroupLayout;
@@ -34,13 +35,14 @@ public class MaterialaEskatuPanela extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	private final JPanel artikuluZerrenda;
+	private final Vector<MaterialaItemPanela> CBPanela;
 
 	/**
 	 * Create the panel
 	 */
 	public MaterialaEskatuPanela() {
 		super();
-
+		CBPanela = new Vector<MaterialaItemPanela>();
 		JSeparator separator;
 		separator = new JSeparator();
 
@@ -70,6 +72,9 @@ public class MaterialaEskatuPanela extends JPanel {
                         JOptionPane.INFORMATION_MESSAGE);
 						jop.createDialog("Eskaera gordeta")
                         .setVisible(true);
+						for(MaterialaItemPanela m: CBPanela){
+							m.setAukeratuta(false);
+						}
 			}
 		});
 		eskaeraGordeButton.setText("Eskaera Gorde");
@@ -99,15 +104,15 @@ public class MaterialaEskatuPanela extends JPanel {
 			groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addComponent(katalogoaLabel, GroupLayout.PREFERRED_SIZE, 154, GroupLayout.PREFERRED_SIZE)
-						.addComponent(separator, GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
-						.addComponent(nahiDituzunProduktuakTextArea, GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
-						.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
-						.addGroup(groupLayout.createSequentialGroup()
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(separator, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+						.addComponent(nahiDituzunProduktuakTextArea, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+						.addComponent(scrollPane, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+						.addGroup(GroupLayout.Alignment.TRAILING, groupLayout.createSequentialGroup()
 							.addComponent(berriaEskatuButton)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-							.addComponent(eskaeraGordeButton)))
+							.addComponent(eskaeraGordeButton))
+						.addComponent(katalogoaLabel, GroupLayout.PREFERRED_SIZE, 154, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
@@ -133,7 +138,9 @@ public class MaterialaEskatuPanela extends JPanel {
 	public void katalogoaEguneratu() {
 		artikuluZerrenda.removeAll();
 		for(Zapata z: Kudeaketa.getInstance().katalogokoZapatak()){
-			artikuluZerrenda.add(new MaterialaItemPanela(z));
+			MaterialaItemPanela mip = new MaterialaItemPanela(z);
+			artikuluZerrenda.add(mip);
+			CBPanela.addElement(mip);
 		}
 		
 	}

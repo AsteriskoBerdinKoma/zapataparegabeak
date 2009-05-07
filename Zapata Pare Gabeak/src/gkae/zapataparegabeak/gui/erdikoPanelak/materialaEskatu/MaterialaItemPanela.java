@@ -38,6 +38,7 @@ public class MaterialaItemPanela extends JPanel {
 	private JLabel modeloaKoloreaLabel;
 	private JLabel datuPrezioa;
 	private JLabel irudiaLabel;
+	private JCheckBox checkBox;
 	JLabel datuStock;
 	
 	/**
@@ -105,8 +106,9 @@ public class MaterialaItemPanela extends JPanel {
 		//
 		setDatuak();
 
-		JCheckBox checkBox;
+		
 		checkBox = new JCheckBox();
+	
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -135,13 +137,11 @@ public class MaterialaItemPanela extends JPanel {
 									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 									.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 									.addGap(46, 46, 46)
-									.addComponent(button, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
-									.addGap(0, 0, Short.MAX_VALUE))
+									.addComponent(button, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE))
 								.addGroup(groupLayout.createSequentialGroup()
 									.addComponent(kopuruaLabel)
 									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-									.addComponent(spinner, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)))))
+									.addComponent(spinner, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)))))
 					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
@@ -190,6 +190,11 @@ public class MaterialaItemPanela extends JPanel {
 		ImageIcon iconOrig = SwingResourceManager.getIcon(MaterialaItemPanela.class, "/gkae/zapataparegabeak/resources/zapatak/"+zapataInfo.getIrudiPath());
 		ImageIcon iconResized = new ImageIcon(iconOrig.getImage().getScaledInstance(50, (60*50)/120, Image.SCALE_SMOOTH));
 		irudiaLabel.setIcon(iconResized);
+	}
+
+	public void setAukeratuta(boolean b) {
+		checkBox.setSelected(b);
+				
 	}
 
 }
