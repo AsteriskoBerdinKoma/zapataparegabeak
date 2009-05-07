@@ -31,7 +31,7 @@ public class MenuPanel extends JPanel {
 		this.jabea = jabea;
 
 		BezeroMenuPanela bezeroMenuPanela;
-		bezeroMenuPanela = new BezeroMenuPanela();
+		bezeroMenuPanela = new BezeroMenuPanela(this.jabea);
 
 		JXHyperlink produktuBerrienakHyperlink;
 		produktuBerrienakHyperlink = new JXHyperlink();

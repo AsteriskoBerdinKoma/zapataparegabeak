@@ -1,6 +1,10 @@
 package gkae.zapataparegabeak.gui.menuPanelak;
 
+import gkae.zapataparegabeak.gui.NagusiaPanel;
+
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.GroupLayout;
 import javax.swing.JComponent;
@@ -19,10 +23,14 @@ public class KudeaketaMenuPanela extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	private NagusiaPanel jabea;
+	
 	/**
 	 * Create the panel.
 	 */
-	public KudeaketaMenuPanela() {
+	public KudeaketaMenuPanela(NagusiaPanel jabea) {
+		
+		this.jabea = jabea;
 		
 		setLayout(new BorderLayout(0, 0));
 		{
@@ -41,18 +49,38 @@ public class KudeaketaMenuPanela extends JPanel {
 			taskPane.setTitle("Salmentak");
 
 			final JXHyperlink produktuakKudeatuHyperlink = new JXHyperlink();
+			produktuakKudeatuHyperlink.addActionListener(new ActionListener() {
+				public void actionPerformed(final ActionEvent e) {
+					KudeaketaMenuPanela.this.jabea.ikusiProduktuakKudeatu();
+				}
+			});
 			produktuakKudeatuHyperlink.setText("• Produktuak kudeaketa");
 			taskPane.add(produktuakKudeatuHyperlink, BorderLayout.SOUTH);
 
 			final JXHyperlink esHyperlink = new JXHyperlink();
+			esHyperlink.addActionListener(new ActionListener() {
+				public void actionPerformed(final ActionEvent e) {
+					KudeaketaMenuPanela.this.jabea.ikusiBezeroenEskaerakKudeatu();
+				}
+			});
 			esHyperlink.setText("• Eskaeren kudeaketa");
 			taskPane.add(esHyperlink, BorderLayout.NORTH);
 
 			final JXHyperlink bezeroarekinHarremanetanJarriHyperlink = new JXHyperlink();
+			bezeroarekinHarremanetanJarriHyperlink.addActionListener(new ActionListener() {
+				public void actionPerformed(final ActionEvent e) {
+					KudeaketaMenuPanela.this.jabea.ikusiBezeroarekinHarremanetanJarri();
+				}
+			});
 			bezeroarekinHarremanetanJarriHyperlink.setText("• Bezeroarekin harremanetan jarri");
 			taskPane.add(bezeroarekinHarremanetanJarriHyperlink, BorderLayout.CENTER);
 
 			final JXHyperlink salmentenEstatistikakHyperlink = new JXHyperlink();
+			salmentenEstatistikakHyperlink.addActionListener(new ActionListener() {
+				public void actionPerformed(final ActionEvent e) {
+					KudeaketaMenuPanela.this.jabea.ikusiSalmentenEstatistikak();
+				}
+			});
 			salmentenEstatistikakHyperlink.setText("• Salmenten estatistikak");
 			taskPane.add(salmentenEstatistikakHyperlink, BorderLayout.WEST);
 
@@ -61,15 +89,30 @@ public class KudeaketaMenuPanela extends JPanel {
 			taskPane_1.setTitle("Biltegia");
 
 			final JXHyperlink hornitzaileenKudeaketaHyperlink = new JXHyperlink();
+			hornitzaileenKudeaketaHyperlink.addActionListener(new ActionListener() {
+				public void actionPerformed(final ActionEvent e) {
+					KudeaketaMenuPanela.this.jabea.ikusiHornitzaileakKudeatu();
+				}
+			});
 			hornitzaileenKudeaketaHyperlink.setText("• Hornitzaileen kudeaketa");
 			taskPane_1.add(hornitzaileenKudeaketaHyperlink, BorderLayout.NORTH);
 
 			final JXHyperlink hyperlink = new JXHyperlink();
+			hyperlink.addActionListener(new ActionListener() {
+				public void actionPerformed(final ActionEvent e) {
+					KudeaketaMenuPanela.this.jabea.ikusiHornitzaileenEskaerakKudeatu();
+				}
+			});
 			hyperlink.setToolTipText("Hornitzaileei egindako eskaeren kudeaketa");
 			hyperlink.setText("• Hornitzaileei egindako eskaerak");
 			taskPane_1.add(hyperlink, BorderLayout.SOUTH);
 
 			final JXHyperlink hyperlink_1 = new JXHyperlink();
+			hyperlink_1.addActionListener(new ActionListener() {
+				public void actionPerformed(final ActionEvent e) {
+					KudeaketaMenuPanela.this.jabea.ikusiMaterialaEskatu();
+				}
+			});
 			hyperlink_1.setText("• Materiala eskatu");
 			taskPane_1.add(hyperlink_1, BorderLayout.WEST);
 			

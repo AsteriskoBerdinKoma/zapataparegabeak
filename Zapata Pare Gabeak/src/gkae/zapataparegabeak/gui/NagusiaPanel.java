@@ -95,7 +95,7 @@ public class NagusiaPanel extends JPanel {
 				}
 
 				{
-					final KudeaketaMenuPanela kudeaketaMenuPanela = new KudeaketaMenuPanela();
+					final KudeaketaMenuPanela kudeaketaMenuPanela = new KudeaketaMenuPanela(this);
 					kudeaketaMenuPanela.setName("kudeaketaMenuPanela");
 					navigationMenuHolder.add(kudeaketaMenuPanela, kudeaketaMenuPanela.getName());
 				}
@@ -348,5 +348,45 @@ public class NagusiaPanel extends JPanel {
         //Eskubiko panelean adminentzat
         CardLayout cl1 = (CardLayout)(rightMenuPanel.getLayout());
         cl1.show(rightMenuPanel, "abisuakMenuPanela");
+	}
+
+	public void ikusiProduktuakKudeatu() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void ikusiMaterialaEskatu() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void ikusiHornitzaileenEskaerakKudeatu() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void ikusiHornitzaileakKudeatu() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void ikusiSalmentenEstatistikak() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void ikusiBezeroarekinHarremanetanJarri() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void ikusiBezeroenEskaerakKudeatu() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void ikusiEskaerenHistorikoa() {
+		// TODO Auto-generated method stub
+		
 	}
 }
