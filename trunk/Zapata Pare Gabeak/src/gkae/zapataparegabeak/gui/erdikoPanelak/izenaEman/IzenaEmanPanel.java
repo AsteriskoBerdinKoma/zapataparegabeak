@@ -172,8 +172,7 @@ public class IzenaEmanPanel extends JPanel {
 			public void actionPerformed(final ActionEvent e) {
 				// Informazioa gorde
 				erabInfo = new ErabiltzaileInfo(erabIzenaTextField.getText(),
-						epostaTextField.getText(), pasahitzaPassField
-								.getPassword().toString());
+												epostaTextField.getText(), String.valueOf(pasahitzaPassField.getPassword()));
 				Kudeaketa.getInstance().erabErregistratu(erabInfo);
 				JOptionPane jop = new JOptionPane(
 						"Erregistroa ondo joan da.\nErabil ezazu ezkerreko menua zure burua kautotzeko.",
@@ -192,8 +191,7 @@ public class IzenaEmanPanel extends JPanel {
 			public void actionPerformed(final ActionEvent e) {
 				// Informazioa gorde
 				erabInfo = new ErabiltzaileInfo(erabIzenaTextField.getText(),
-						epostaTextField.getText(), pasahitzaPassField
-								.getPassword().toString());
+						epostaTextField.getText(), String.valueOf(pasahitzaPassField.getPassword()));
 				erabInfo.setBidalketaHobEmanda(true);
 				Kudeaketa.getInstance().erabErregistratu(erabInfo);
 				// Hurrengo panelera pasa

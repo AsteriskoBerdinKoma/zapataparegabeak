@@ -1,6 +1,8 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.erosi;
 
 import gkae.zapataparegabeak.gui.NagusiaPanel;
+import gkae.zapataparegabeak.objektuak.ErabiltzaileInfo;
+import gkae.zapataparegabeak.objektuak.Erabiltzaileak;
 import gkae.zapataparegabeak.objektuak.Kudeaketa;
 import gkae.zapataparegabeak.objektuak.SaskiratutakoZapatak;
 import gkae.zapataparegabeak.objektuak.Zapata;
@@ -9,6 +11,7 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
@@ -38,8 +41,8 @@ import com.swtdesigner.SwingResourceManager;
 
 public class ErosiPanel extends JPanel {
 
-	private JTextField textField_1;
-	private JTextField textField;
+	private JTextField stockEpostaBerretsiTextField;
+	private JTextField stockEpostaTextField;
 	private JTextField kodePostaBerTextField;
 	private JTextField kodePostaTextField;
 	private JTextField segKodeTextField;
@@ -158,6 +161,16 @@ public class ErosiPanel extends JPanel {
 		datuPrezioTotala = new JLabel();
 		datuPrezioTotala.setFont(new Font("", Font.BOLD, 16));
 		datuPrezioTotala.setText("0.0€");
+
+		JButton katalogoaOrriNagusiraButton;
+		katalogoaOrriNagusiraButton = new JButton();
+		katalogoaOrriNagusiraButton.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				jabea.ikusiKatalogoaPanela();
+			}
+		});
+		katalogoaOrriNagusiraButton.setIcon(SwingResourceManager.getIcon(ErosiPanel.class, "/gkae/zapataparegabeak/resources/ikonoak/home24.png"));
+		katalogoaOrriNagusiraButton.setText("Katalogoa Orri Nagusira Itzuli");
 		final GroupLayout groupLayout = new GroupLayout((JComponent) erosketaSaskia);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -173,7 +186,9 @@ public class ErosiPanel extends JPanel {
 							.addComponent(prezioaGuztiraLabel)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(datuPrezioTotala)
-							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 265, Short.MAX_VALUE)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+							.addComponent(katalogoaOrriNagusiraButton)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(jarraituButton))
 						.addComponent(separator, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
 						.addComponent(erosiErosketaSaskiaLabel)
@@ -199,10 +214,12 @@ public class ErosiPanel extends JPanel {
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(jarraituButton)
-						.addComponent(prezioaGuztiraLabel)
-						.addComponent(datuPrezioTotala))
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+						.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+							.addComponent(jarraituButton)
+							.addComponent(prezioaGuztiraLabel)
+							.addComponent(datuPrezioTotala))
+						.addComponent(katalogoaOrriNagusiraButton))
 					.addContainerGap())
 		);
 		erosketaSaskia.setLayout(groupLayout);
@@ -813,6 +830,17 @@ public class ErosiPanel extends JPanel {
 			}
 		});
 		bidaliButton.setText("Bidali");
+
+		JButton katalogokoOrriNagusiraButton;
+		katalogokoOrriNagusiraButton = new JButton();
+		katalogokoOrriNagusiraButton.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent arg0) {
+				jabea.ikusiKatalogoaPanela();
+			}
+		});
+		katalogokoOrriNagusiraButton.setMargin(new Insets(2, 4, 2, 14));
+		katalogokoOrriNagusiraButton.setIcon(SwingResourceManager.getIcon(ErosiPanel.class, "/gkae/zapataparegabeak/resources/ikonoak/home24.png"));
+		katalogokoOrriNagusiraButton.setText("Katalogoko Orri Nagusira Itzuli");
 		final GroupLayout groupLayout_6 = new GroupLayout((JComponent) kodeBidalketa);
 		groupLayout_6.setHorizontalGroup(
 			groupLayout_6.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -864,7 +892,8 @@ public class ErosiPanel extends JPanel {
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(e012453Label))
 						.addComponent(nahiIzanezGeroLabel)
-						.addComponent(horrelaNonbaitEskuragarriLabel))
+						.addComponent(horrelaNonbaitEskuragarriLabel)
+						.addComponent(katalogokoOrriNagusiraButton, GroupLayout.Alignment.TRAILING))
 					.addContainerGap())
 		);
 		groupLayout_5.setVerticalGroup(
@@ -894,7 +923,9 @@ public class ErosiPanel extends JPanel {
 					.addComponent(horrelaNonbaitEskuragarriLabel)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(kodeBidalketa, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+					.addComponent(katalogokoOrriNagusiraButton)
+					.addContainerGap())
 		);
 		erosketaKodea.setLayout(groupLayout_5);
 		//
@@ -944,15 +975,15 @@ public class ErosiPanel extends JPanel {
 		epostaBerretsiLabel_1 = new JLabel();
 		epostaBerretsiLabel_1.setText("e-Posta Berretsi:");
 
-		textField = new JTextField();
+		stockEpostaTextField = new JTextField();
 
-		textField_1 = new JTextField();
+		stockEpostaBerretsiTextField = new JTextField();
 
 		JButton bidaliButton_1;
 		bidaliButton_1 = new JButton();
 		bidaliButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent arg0) {
-				stockEpostaEmanda = textField.getText();
+				stockEpostaEmanda = stockEpostaTextField.getText();
 				JOptionPane jop = new JOptionPane(
                         "Zure e-posta ondo jaso da.\nLaister jasoko duzu eskatutako mezua.",
                         JOptionPane.INFORMATION_MESSAGE);
@@ -973,8 +1004,8 @@ public class ErosiPanel extends JPanel {
 								.addComponent(epostaBerretsiLabel_1))
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addGroup(groupLayout_8.createParallelGroup(GroupLayout.Alignment.LEADING)
-								.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
-								.addComponent(textField, GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)))
+								.addComponent(stockEpostaBerretsiTextField, GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
+								.addComponent(stockEpostaTextField, GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)))
 						.addComponent(bidaliButton_1, GroupLayout.Alignment.TRAILING))
 					.addContainerGap())
 		);
@@ -984,11 +1015,11 @@ public class ErosiPanel extends JPanel {
 					.addContainerGap()
 					.addGroup(groupLayout_8.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(epostaHelbideaLabel_1)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(stockEpostaTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addGroup(groupLayout_8.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(epostaBerretsiLabel_1)
-						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(stockEpostaBerretsiTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(bidaliButton_1)
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1063,8 +1094,8 @@ public class ErosiPanel extends JPanel {
 	}
 	
 	public void datuakHustu(){
-		textField_1.setText("");
-		textField.setText("");
+		stockEpostaBerretsiTextField.setText("");
+		stockEpostaTextField.setText("");
 		kodePostaBerTextField.setText("");
 		kodePostaTextField.setText("");
 		segKodeTextField.setText("");
@@ -1077,6 +1108,29 @@ public class ErosiPanel extends JPanel {
 		abizenakTextField.setText("");
 		izenaTextField.setText("");
 		stockEpostaEmanda = "";
+	}
+	
+	public void setKautotutaDatuak(){
+		for(ErabiltzaileInfo ei: Erabiltzaileak.getInstance().getErabZerrenda()){
+			if(ei.isKautotutaDago() && !ei.isAdmin()){
+				stockEpostaTextField.setText(ei.getEPosta());
+				stockEpostaBerretsiTextField.setText(ei.getEPosta());
+				stockEpostaEmanda = ei.getEPosta();
+				iraungDataTextField.setText(ei.getTxartelData());
+				txartelZenbTextField.setText(ei.getTxartelZenb());
+				jabeIzenAbTextField.setText(ei.getTxartelJabe());
+				hiriaTextField.setText("Donosti");
+				pkTextField.setText(ei.getHarPk());
+				helbideTextField.setText(ei.getHarHelbidea());
+				abizenakTextField.setText(ei.getHarAbizenak());
+				izenaTextField.setText(ei.getHarIzena());
+				if(ei.isTxartelBidezOrdaindu()){
+					kredituTxartelBidezRadioButton.setSelected(true);
+					txartelInfo.setVisible(true);
+					panelValidation();
+				}
+			}
+		}
 	}
 	
 	public static void main(String[] args){
