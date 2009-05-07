@@ -7,13 +7,17 @@ import gkae.zapataparegabeak.objektuak.Zapata;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
@@ -59,10 +63,27 @@ public class MaterialaEskatuPanela extends JPanel {
 
 		JButton eskaeraGordeButton;
 		eskaeraGordeButton = new JButton();
+		eskaeraGordeButton.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				JOptionPane jop = new JOptionPane(
+                        "Zure eskaera gorde da.",
+                        JOptionPane.INFORMATION_MESSAGE);
+						jop.createDialog("Eskaera gordeta")
+                        .setVisible(true);
+			}
+		});
 		eskaeraGordeButton.setText("Eskaera Gorde");
 
 		JButton berriaEskatuButton;
 		berriaEskatuButton = new JButton();
+		berriaEskatuButton.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent arg0) {
+				MaterialBerri MBerri = new MaterialBerri();
+				MBerri.setLocationRelativeTo(null);
+				MBerri.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+				MBerri.setVisible(true);
+			}
+		});
 		berriaEskatuButton.setText("Material Berria");
 
 		nahiDituzunProduktuakTextArea = new JTextArea();
@@ -78,12 +99,12 @@ public class MaterialaEskatuPanela extends JPanel {
 			groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
 						.addComponent(katalogoaLabel, GroupLayout.PREFERRED_SIZE, 154, GroupLayout.PREFERRED_SIZE)
 						.addComponent(separator, GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
-						.addComponent(nahiDituzunProduktuakTextArea, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+						.addComponent(nahiDituzunProduktuakTextArea, GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
 						.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
-						.addGroup(GroupLayout.Alignment.TRAILING, groupLayout.createSequentialGroup()
+						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(berriaEskatuButton)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(eskaeraGordeButton)))
