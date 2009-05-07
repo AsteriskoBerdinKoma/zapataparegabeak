@@ -82,6 +82,7 @@ public class LoginPanela extends JPanel {
 							owner.ikusiAdminMenua();
 						} else {
 							// MENU NAGUSIA ALDATU ERAB. EZAGUN ZATIA IKUSTEKO
+							zureDatuakAldatuHyperlink.setVisible(true);
 							owner.ikusiErabiltzaileEzagunMenua();
 						}
 						kartaAldatu("kautotutaPanela");

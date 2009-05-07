@@ -95,6 +95,7 @@ public class ErosketaSaskiaItem extends JPanel {
 		irudiaLabel.setIcon(SwingResourceManager.getIcon(ErosketaSaskiaItem.class, "/gkae/zapataparegabeak/resources/zapatak/noimage120.png"));
 		
 		saskitikEzabatuButton = new JButton();
+		saskitikEzabatuButton.setIcon(SwingResourceManager.getIcon(ErosketaSaskiaItem.class, "/gkae/zapataparegabeak/resources/ikonoak/trash.png"));
 		saskitikEzabatuButton.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent arg0) {
 				//Saskiko zerrendatik kendu
@@ -105,7 +106,6 @@ public class ErosketaSaskiaItem extends JPanel {
 				
 			}
 		});
-		saskitikEzabatuButton.setIcon(SwingResourceManager.getIcon(ErosketaSaskiaItem.class, "/gkae/zapataparegabeak/resources/ikonoak/trash.png"));
 		saskitikEzabatuButton.setMargin(new Insets(2, 2, 2, 4));
 		saskitikEzabatuButton.setIcon(SwingResourceManager.getIcon(ErosketaSaskiaItem.class, "/gkae/zapataparegabeak/resources/trash.png"));
 		saskitikEzabatuButton.setText("Saskitik Ezabatu");
@@ -114,6 +114,8 @@ public class ErosketaSaskiaItem extends JPanel {
 		spinner.addChangeListener(new ChangeListener() {
 			public void stateChanged(final ChangeEvent arg0) {
 				label.setText(String.valueOf(Integer.parseInt(spinner.getValue().toString())*informazioa.getPrezioa())+" €");
+				prezioa = Integer.parseInt(spinner.getValue().toString())*informazioa.getPrezioa();
+				jabea.prezioTotalaEguneratu();
 			}
 		});
 		spinner.setValue(1);
@@ -188,14 +190,14 @@ public class ErosketaSaskiaItem extends JPanel {
 										.addComponent(label))
 									.addGap(37, 37, 37))
 								.addGroup(groupLayout.createSequentialGroup()
-									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
 									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 										.addComponent(stockDagoeneanAbisatuButton)
 										.addComponent(saskitikEzabatuButton, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
 									.addContainerGap())))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(irudiaLabel)
-							.addContainerGap(19, Short.MAX_VALUE))))
+							.addContainerGap(23, Short.MAX_VALUE))))
 		);
 		setLayout(groupLayout);
 	}
@@ -207,9 +209,13 @@ public class ErosketaSaskiaItem extends JPanel {
 	public void setDatuak(Zapata z){
 		artikuluarenIzenaLabel.setText(z.getGeneroa()+" - "+z.getKategoria()+" "+z.getOina()+" "+z.getNeurria());
 		spinner.setValue(SaskiratutakoZapatak.getInstance().getSaskiratutakoKopurua(z));
-		label.setText(twoDForm.format(z.getPrezioa() * SaskiratutakoZapatak.getInstance().getSaskiratutakoKopurua(z)) + " €");
-		prezioa = z.getPrezioa() * SaskiratutakoZapatak.getInstance().getSaskiratutakoKopurua(z);
-		
+		if(z.isStockDago()){
+			label.setText(twoDForm.format(z.getPrezioa() * SaskiratutakoZapatak.getInstance().getSaskiratutakoKopurua(z)) + " €");
+			prezioa = 0.0f;
+		}else{
+			label.setText("0.0€");
+			prezioa = z.getPrezioa() * SaskiratutakoZapatak.getInstance().getSaskiratutakoKopurua(z);
+		}
 		ImageIcon iconOrig = SwingResourceManager.getIcon(ErosketaSaskiaItem.class, "/gkae/zapataparegabeak/resources/zapatak/"+z.getIrudiPath());
 		ImageIcon iconResized = new ImageIcon(iconOrig.getImage().getScaledInstance(120, 60, Image.SCALE_SMOOTH));
 		
