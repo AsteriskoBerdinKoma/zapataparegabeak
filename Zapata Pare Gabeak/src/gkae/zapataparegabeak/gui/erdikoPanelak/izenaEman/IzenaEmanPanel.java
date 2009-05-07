@@ -631,8 +631,9 @@ public class IzenaEmanPanel extends JPanel {
 					erabInfo.setOinLehen("Ezkerrekoa");
 				else
 					erabInfo.setOinLehen("Eskubikoa");
-				erabInfo.setNeurriLehen(Double.valueOf(oinNeurriaTextField.getText()));
-				//Orri nagusira itzuli
+				if(!oinNeurriaTextField.getText().equals(""))
+					erabInfo.setNeurriLehen(Double.valueOf(oinNeurriaTextField.getText()));
+				jabea.ikusiKatalogoaPanela();
 			}
 		});
 		bukatuDenaButton.setText("Gorde");
