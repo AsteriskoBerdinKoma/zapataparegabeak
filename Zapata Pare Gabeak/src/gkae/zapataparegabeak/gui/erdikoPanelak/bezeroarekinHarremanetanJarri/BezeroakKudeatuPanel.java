@@ -57,13 +57,19 @@ public class BezeroakKudeatuPanel extends JPanel {
 				((CardLayout)BezeroakKudeatuPanel.this.getLayout()).show(BezeroakKudeatuPanel.this, "itxarotePanela");
 				sleep(3000);
 				((CardLayout)BezeroakKudeatuPanel.this.getLayout()).show(BezeroakKudeatuPanel.this, "mezuBidaliaPanel");
-				sleep(10000);
+				sleep(8000);
 				emailIdatzi.garbitu();
 				((CardLayout)BezeroakKudeatuPanel.this.getLayout()).show(BezeroakKudeatuPanel.this, "bezeroenListaPanela");
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public void atzeraJoan() {
+		// TODO Auto-generated method stub
+		CardLayout c = (CardLayout) this.getLayout();
+		c.show(this, "bezeroenListaPanela");
 	}
 
 }
