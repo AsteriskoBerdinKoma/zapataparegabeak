@@ -1,5 +1,7 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.bezeroarekinHarremanetanJarri;
 
+import gkae.zapataparegabeak.objektuak.ErabiltzaileInfo;
+
 import javax.swing.GroupLayout;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
@@ -55,8 +57,8 @@ public class BezeroenDatuakPanel extends JPanel {
 		harProbintzia = new JTextField();
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(GroupLayout.Alignment.TRAILING, groupLayout.createSequentialGroup()
+			groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(54, 54, 54)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
@@ -76,7 +78,7 @@ public class BezeroenDatuakPanel extends JPanel {
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 								.addComponent(harIzena, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE)
 								.addComponent(harProbintzia, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE)
-								.addComponent(harAbizenak, GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE))))
+								.addComponent(harAbizenak, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))))
 					.addGap(46, 46, 46))
 		);
 		groupLayout.setVerticalGroup(
@@ -102,10 +104,27 @@ public class BezeroenDatuakPanel extends JPanel {
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(probintziaLabel, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
 						.addComponent(harProbintzia, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(27, Short.MAX_VALUE))
+					.addContainerGap(15, Short.MAX_VALUE))
 		);
 		setLayout(groupLayout);
 		//
+	}
+	public void setDatuak(ErabiltzaileInfo e) {
+		// TODO Auto-generated method stub
+		if(e != null){
+		harProbintzia.setText(e.getHarProbintzia());
+		harAbizenak.setText(e.getHarAbizenak());
+		harIzena.setText(e.getHarIzena());
+		ePosta.setText(e.getEPosta());
+		erabIzena.setText(e.getErabIzena());
+		}
+		else{
+			harProbintzia.setText("");
+			harAbizenak.setText("");
+			harIzena.setText("");
+			ePosta.setText("");
+			erabIzena.setText("");
+		}
 	}
 
 }
