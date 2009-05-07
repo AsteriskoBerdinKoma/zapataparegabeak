@@ -60,7 +60,7 @@ public class BezeroenDatuakPanel extends JPanel {
 			groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(54, 54, 54)
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 								.addComponent(erabiltzailePostaLabel, GroupLayout.PREFERRED_SIZE, 101, GroupLayout.PREFERRED_SIZE)
@@ -75,11 +75,11 @@ public class BezeroenDatuakPanel extends JPanel {
 								.addComponent(abizenakLabel, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
 								.addComponent(izenaLabel, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
 								.addComponent(harIzena, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE)
 								.addComponent(harProbintzia, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE)
-								.addComponent(harAbizenak, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))))
-					.addGap(46, 46, 46))
+								.addComponent(harAbizenak, GroupLayout.PREFERRED_SIZE, 253, GroupLayout.PREFERRED_SIZE))))
+					.addGap(93, 93, 93))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
