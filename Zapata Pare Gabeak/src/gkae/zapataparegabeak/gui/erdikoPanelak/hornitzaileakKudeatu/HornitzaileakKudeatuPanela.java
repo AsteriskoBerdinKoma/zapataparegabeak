@@ -109,6 +109,7 @@ public class HornitzaileakKudeatuPanela extends JPanel {
 				// zerrendaKargatu();
 				DatuakEditatu dE = new DatuakEditatu();
 				dE.setDatuak(h);
+				dE.setLocationRelativeTo(null);
 				dE.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 				dE.setVisible(true);
 				dE.addWindowListener(new WindowAdapter() {
