@@ -56,23 +56,23 @@ public class HEDatuakEditatu extends JDialog {
 		final GroupLayout groupLayout = new GroupLayout((JComponent) getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-				.addComponent(hornitzaileEskaeraDatuakPanela, GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap(296, Short.MAX_VALUE)
 					.addComponent(utziButton)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(aldaketakOnartuButton)
 					.addContainerGap())
+				.addComponent(hornitzaileEskaeraDatuakPanela, GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addComponent(hornitzaileEskaeraDatuakPanela, GroupLayout.PREFERRED_SIZE, 159, GroupLayout.PREFERRED_SIZE)
+				.addGroup(GroupLayout.Alignment.TRAILING, groupLayout.createSequentialGroup()
+					.addComponent(hornitzaileEskaeraDatuakPanela, GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(utziButton)
 						.addComponent(aldaketakOnartuButton))
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addContainerGap())
 		);
 		getContentPane().setLayout(groupLayout);
 		pack();

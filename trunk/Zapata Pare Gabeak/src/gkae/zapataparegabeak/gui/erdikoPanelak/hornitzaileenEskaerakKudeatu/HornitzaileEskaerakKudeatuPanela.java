@@ -12,8 +12,10 @@ import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
 import javax.swing.ListSelectionModel;
@@ -87,6 +89,15 @@ public class HornitzaileEskaerakKudeatuPanela extends JPanel {
 
 		JButton konfirmatuButton;
 		konfirmatuButton = new JButton();
+		konfirmatuButton.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent arg0) {
+				JOptionPane jop = new JOptionPane(
+                        "Eskaera ailegatu dela Konfirmatu da.\nKatalogoa eguneratu da.",
+                        JOptionPane.INFORMATION_MESSAGE);
+						jop.createDialog("Eskaera konfirmatuta")
+                        .setVisible(true);
+			}
+		});
 		konfirmatuButton.setHorizontalAlignment(SwingConstants.LEFT);
 		konfirmatuButton.setIcon(SwingResourceManager.getIcon(
 				HornitzaileEskaerakKudeatuPanela.class,
@@ -156,9 +167,11 @@ public class HornitzaileEskaerakKudeatuPanela extends JPanel {
 							.addComponent(konfirmatuButton)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(ezabatuButton))
-						.addComponent(hornitzaileEskaeraDatuakPanela, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(list, GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE))
-					.addGap(14, 14, 14))
+						.addComponent(list, GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(hornitzaileEskaeraDatuakPanela, GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)))
+					.addContainerGap())
 		);
 		groupLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {editatuButton, ezabatuButton, konfirmatuButton});
 		groupLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {editatuButton, ezabatuButton, konfirmatuButton});
