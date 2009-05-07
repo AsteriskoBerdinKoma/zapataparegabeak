@@ -120,7 +120,15 @@ public class BezeroenDatuakPanel extends JPanel {
 	
 	public void setDatuak(ErabiltzaileInfo e) {
 		// TODO Auto-generated method stub
+	
+		
 		if(e != null){
+			/*System.out.println(e.getErabIzena());
+			System.out.println(e.getEPosta());
+			System.out.println(e.getHarIzena());
+			System.out.println(e.getHarAbizenak());
+			System.out.println(e.getHarProbintzia());
+			*/
 		harProbintzia.setText(e.getHarProbintzia());
 		harAbizenak.setText(e.getHarAbizenak());
 		harIzena.setText(e.getHarIzena());
