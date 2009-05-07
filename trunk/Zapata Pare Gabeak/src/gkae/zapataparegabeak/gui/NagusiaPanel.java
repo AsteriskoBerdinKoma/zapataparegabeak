@@ -37,6 +37,7 @@ import com.swtdesigner.SwingResourceManager;
 import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroarekinHarremanetanJarri.BezeroakKudeatuPanel;
 import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu.BezeroenEskaerakPanel;
 import gkae.zapataparegabeak.gui.erdikoPanelak.produktuakKudeatu.ProduktuakKudeatuPanel;
+import gkae.zapataparegabeak.gui.erdikoPanelak.KudeaketaOngiEtorriPanela;
 
 public class NagusiaPanel extends JPanel {
 	private JTextField bilatuTextField;
@@ -263,6 +264,12 @@ public class NagusiaPanel extends JPanel {
 					produktuakKudeatuPanel.setName("produktuakKudeatuPanel");
 					centralPanel.add(produktuakKudeatuPanel, produktuakKudeatuPanel.getName());
 				}
+
+				{
+					final KudeaketaOngiEtorriPanela kudeaketaOngiEtorriPanela = new KudeaketaOngiEtorriPanela();
+					kudeaketaOngiEtorriPanela.setName("kudeaketaOngiEtorriPanela");
+					centralPanel.add(kudeaketaOngiEtorriPanela, kudeaketaOngiEtorriPanela.getName());
+				}
 			}
 		}
 
@@ -424,7 +431,7 @@ public class NagusiaPanel extends JPanel {
         cl1.show(rightMenuPanel, "abisuakMenuPanela");
         //Erdiko menuaren edukina
         CardLayout c2 = (CardLayout)(centralPanel.getLayout());
-        c2.show(centralPanel, "katalogoaPanela");
+        c2.show(centralPanel, "kudeaketaOngiEtorriPanela");
 	}
 
 	public void ikusiProduktuakKudeatu() {
