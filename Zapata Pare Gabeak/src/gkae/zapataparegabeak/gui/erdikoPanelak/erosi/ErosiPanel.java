@@ -1020,7 +1020,7 @@ public class ErosiPanel extends JPanel {
 	public void saskiaEguneratu() {
 		scrollEdukiPanel.removeAll();
 		for(Zapata z: SaskiratutakoZapatak.getInstance().getSaskikoZapatak()){
-			scrollEdukiPanel.add(new ErosketaSaskiaItem(this,z));
+			scrollEdukiPanel.add(new ErosketaSaskiaItem(this,z,jabea));
 		}
 		prezioTotalaEguneratu();
 	}

@@ -81,7 +81,7 @@ public class KatalogoItemPanela extends JPanel {
 		button = new JButton();
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent arg0) {
-				ArtikuluarenXehetasunakDialog ax = new ArtikuluarenXehetasunakDialog(zapataInfo);
+				ArtikuluarenXehetasunakDialog ax = new ArtikuluarenXehetasunakDialog(zapataInfo,getJabea());
 				ax.setLocationRelativeTo(null);
 				ax.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 				ax.setVisible(true);
@@ -186,6 +186,10 @@ public class KatalogoItemPanela extends JPanel {
 					.addContainerGap())
 		);
 		setLayout(groupLayout);
+	}
+	
+	public NagusiaPanel getJabea(){
+		return jabea;
 	}
 	
 	public void setDatuak(){

@@ -196,7 +196,7 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 			artikuluarenIzenaHyperlink = new JXHyperlink();
 			artikuluarenIzenaHyperlink.addActionListener(new ActionListener() {
 				public void actionPerformed(final ActionEvent arg0) {
-					ArtikuluarenXehetasunakDialog axd = new ArtikuluarenXehetasunakDialog(ErosketaSaskiaItem.this.z);
+					ArtikuluarenXehetasunakDialog axd = new ArtikuluarenXehetasunakDialog(ErosketaSaskiaItem.this.z,getJabea());
 					axd.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 					axd.setLocationRelativeTo(null);
 					axd.setVisible(true);
@@ -308,6 +308,10 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 			ImageIcon iconResized = new ImageIcon(iconOrig.getImage().getScaledInstance(67, (60*67)/120, Image.SCALE_SMOOTH));
 			
 			irudiaLabel.setIcon(iconResized);
+		}
+		
+		public NagusiaPanel getJabea(){
+			return jabea;
 		}
 	}
 }

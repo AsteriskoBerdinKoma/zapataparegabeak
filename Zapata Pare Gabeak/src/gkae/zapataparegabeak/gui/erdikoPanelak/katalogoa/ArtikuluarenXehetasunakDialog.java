@@ -1,5 +1,6 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa;
 
+import gkae.zapataparegabeak.gui.NagusiaPanel;
 import gkae.zapataparegabeak.objektuak.Zapata;
 
 import javax.swing.GroupLayout;
@@ -15,13 +16,14 @@ public class ArtikuluarenXehetasunakDialog extends JDialog {
 
 	/**
 	 * Create the dialog
+	 * @param jabea 
 	 */
-	public ArtikuluarenXehetasunakDialog(Zapata z) {
+	public ArtikuluarenXehetasunakDialog(Zapata z, NagusiaPanel jabea) {
 		super();
 		setTitle("Artikuluaren xehetasunak");
 
 		ArtikuluarenXehetasunak panel;
-		panel = new ArtikuluarenXehetasunak(z);
+		panel = new ArtikuluarenXehetasunak(z, jabea);
 		final GroupLayout groupLayout = new GroupLayout((JComponent) getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
