@@ -32,6 +32,7 @@ import javax.swing.LayoutStyle;
 import javax.swing.SwingConstants;
 
 import com.swtdesigner.SwingResourceManager;
+import gkae.zapataparegabeak.gui.erdikoPanelak.hornitzaileakKudeatu.HornitzaileakKudeatuPanela;
 
 public class NagusiaPanel extends JPanel {
 	private JTextField bilatuTextField;
@@ -214,6 +215,12 @@ public class NagusiaPanel extends JPanel {
 					bilaketaEmaitzak.setName("bilaketaEmaitzak");
 					centralPanel.add(bilaketaEmaitzak, bilaketaEmaitzak.getName());
 				}
+
+				{
+					final HornitzaileakKudeatuPanela hornitzaileakKudeatuPanela = new HornitzaileakKudeatuPanela();
+					hornitzaileakKudeatuPanela.setName("hornitzaileakKudeatuPanela");
+					centralPanel.add(hornitzaileakKudeatuPanela, hornitzaileakKudeatuPanela.getName());
+				}
 			}
 		}
 
@@ -370,8 +377,8 @@ public class NagusiaPanel extends JPanel {
 	}
 
 	public void ikusiHornitzaileakKudeatu() {
-		// TODO Auto-generated method stub
-		
+		CardLayout cl = (CardLayout)(centralPanel.getLayout());
+        cl.show(centralPanel, "hornitzaileakKudeatuPanela");
 	}
 
 	public void ikusiSalmentenEstatistikak() {
