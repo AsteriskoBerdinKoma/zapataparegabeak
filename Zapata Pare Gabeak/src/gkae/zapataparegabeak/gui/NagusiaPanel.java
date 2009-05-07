@@ -54,6 +54,7 @@ public class NagusiaPanel extends JPanel {
 	private JPanel navigationMenuHolder;
 	private final ErosiPanel erosiPanel;
 	private final MenuEmaitzaPanela menuEmaitzaPanela;
+	final EskaerarenJarraipena eskaerarenJarraipena;
 	
 	/**
 	 * Create the panel.
@@ -203,7 +204,7 @@ public class NagusiaPanel extends JPanel {
 				}
 				
 				{
-					final EskaerarenJarraipena eskaerarenJarraipena = new EskaerarenJarraipena(this);
+					eskaerarenJarraipena = new EskaerarenJarraipena(this);
 					eskaerarenJarraipena.setName("eskaerarenJarraipena");
 					centralPanel.add(eskaerarenJarraipena, eskaerarenJarraipena.getName());
 				}
@@ -342,6 +343,7 @@ public class NagusiaPanel extends JPanel {
 		rightMenuPanel.setVisible(false);
 		erosiPanel.saskiaEguneratu();
 		erosiPanel.prezioTotalaEguneratu();
+		erosiPanel.setKautotutaDatuak();
 		CardLayout cl = (CardLayout)(centralPanel.getLayout());
         cl.show(centralPanel, "erosiPanel");
 	}
@@ -354,8 +356,10 @@ public class NagusiaPanel extends JPanel {
 	
 	public void ikusiEskaerarenJarraipenaPanela(){
 		rightMenuPanel.setVisible(true);
+		eskaerarenJarraipena.checkKautotuta();
 		CardLayout cl = (CardLayout)(centralPanel.getLayout());
         cl.show(centralPanel, "eskaerarenJarraipena");
+        
 	}
 	
 	public void saskiaEguneratu(){

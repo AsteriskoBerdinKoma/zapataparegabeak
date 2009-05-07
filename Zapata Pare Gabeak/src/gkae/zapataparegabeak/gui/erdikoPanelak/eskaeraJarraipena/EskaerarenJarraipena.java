@@ -445,13 +445,17 @@ public class EskaerarenJarraipena extends JPanel {
 	
 	public void checkKautotuta(){
 		boolean kautotua = false;
-		for (ErabiltzaileInfo ei:Kudeaketa.getInstance().getErabiltzaileak()){
+		Vector<ErabiltzaileInfo> erabs = Kudeaketa.getInstance().getErabiltzaileak();
+		for (ErabiltzaileInfo ei:erabs){
 			if (ei.isKautotutaDago()){
 				kautotua = true;
+				break;
 			}
 		}
 		if (!kautotua){
 			changeCard("kodeEskaera");
+		} else{
+			changeCard("eskaerenHistorikoa");
 		}
 	}
 	
