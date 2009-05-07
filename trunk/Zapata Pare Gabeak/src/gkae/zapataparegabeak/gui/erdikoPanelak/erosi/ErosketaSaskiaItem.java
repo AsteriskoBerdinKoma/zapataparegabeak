@@ -1,5 +1,6 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.erosi;
 
+import gkae.zapataparegabeak.gui.NagusiaPanel;
 import gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa.ArtikuluarenXehetasunakDialog;
 import gkae.zapataparegabeak.objektuak.Kudeaketa;
 import gkae.zapataparegabeak.objektuak.SaskiratutakoZapatak;
@@ -48,16 +49,19 @@ public class ErosketaSaskiaItem extends JPanel {
 	private JButton stockDagoeneanAbisatuButton;
 	
 	private DecimalFormat twoDForm;
+	private NagusiaPanel superowner;
 	
 	public float prezioa;
 	
 	/**
 	 * Create the panel
+	 * @param superjabea 
 	 */
-	public ErosketaSaskiaItem(ErosiPanel owner, Zapata zap) {
+	public ErosketaSaskiaItem(ErosiPanel owner, Zapata zap, NagusiaPanel superjabea) {
 		super();
 		
 		this.jabea = owner;
+		this.superowner = superjabea;
 		this.informazioa = zap;
 		twoDForm = new DecimalFormat("#.##");
 		
@@ -73,7 +77,7 @@ public class ErosketaSaskiaItem extends JPanel {
 		artikuluarenIzenaLabel = new JXHyperlink();
 		artikuluarenIzenaLabel.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent arg0) {
-				ArtikuluarenXehetasunakDialog ax = new ArtikuluarenXehetasunakDialog(informazioa);
+				ArtikuluarenXehetasunakDialog ax = new ArtikuluarenXehetasunakDialog(informazioa,superowner);
 				ax.setVisible(true);
 				ax.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 				ax.setLocationRelativeTo(null);

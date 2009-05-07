@@ -8,7 +8,6 @@ import gkae.zapataparegabeak.objektuak.Zapata;
 
 import java.awt.CardLayout;
 import java.awt.Font;
-import java.awt.Frame;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -460,10 +459,10 @@ public class EskaerarenJarraipena extends JPanel {
 		eskaeraBatPanel.removeAll();
 		eskaeraBiPanel.removeAll();
 		for(EskaeraElementua zi: eskaeraBat){
-			eskaeraBatPanel.add(new EskaeraItem(this,zi));
+			eskaeraBatPanel.add(new EskaeraItem(this,zi,jabea));
 		}
 		for(EskaeraElementua zj: eskaeraBi){
-			eskaeraBiPanel.add(new EskaeraItem(this,zj));
+			eskaeraBiPanel.add(new EskaeraItem(this,zj,jabea));
 		}
 		this.revalidate();
 		

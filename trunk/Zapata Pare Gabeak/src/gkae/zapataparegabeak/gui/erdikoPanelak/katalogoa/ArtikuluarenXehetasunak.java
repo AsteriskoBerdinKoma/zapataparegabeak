@@ -1,11 +1,15 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa;
 
+import gkae.zapataparegabeak.gui.NagusiaPanel;
+import gkae.zapataparegabeak.objektuak.SaskiratutakoZapatak;
 import gkae.zapataparegabeak.objektuak.Zapata;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 
 import javax.swing.GroupLayout;
@@ -33,7 +37,7 @@ public class ArtikuluarenXehetasunak extends JPanel {
 	private JTextArea ezDagoDeskribapenikTextArea;
 	private JSpinner spinner;
 	private JComboBox comboBox;
-	private Zapata zp;
+	private Zapata zapata;
 	
 	JLabel datumodeloaLabel;
 	JLabel datuoinaLabel;
@@ -45,13 +49,16 @@ public class ArtikuluarenXehetasunak extends JPanel {
 	JLabel irudialabel;
 	JLabel datuprezioaLabel;
 	private DecimalFormat twoDForm;
+	private NagusiaPanel owner;
 	
 	/**
 	 * Create the panel
+	 * @param jabea 
 	 */
-	public ArtikuluarenXehetasunak(Zapata zp) {
+	public ArtikuluarenXehetasunak(Zapata zp, NagusiaPanel jabea) {
 		super();
-		this.zp = zp;
+		this.zapata = zp;
+		this.owner = jabea;
 		
 		twoDForm = new DecimalFormat("#.##");
 		JLabel artikuluarenXehetasunakLabel;
@@ -137,6 +144,14 @@ public class ArtikuluarenXehetasunak extends JPanel {
 
 		JButton saskiraGehituButton;
 		saskiraGehituButton = new JButton();
+		saskiraGehituButton.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent arg0) {
+				//Zapata hau saskira gehitu
+				SaskiratutakoZapatak.getInstance().saskiraGehitu(zapata,Integer.parseInt(spinner.getValue().toString()));
+				//Eskubiko menua eguneratu
+				owner.saskiaEguneratu();
+			}
+		});
 		saskiraGehituButton.setMargin(new Insets(2, 4, 2, 14));
 		saskiraGehituButton.setIcon(SwingResourceManager.getIcon(ArtikuluarenXehetasunak.class, "/gkae/zapataparegabeak/resources/ikonoak/add_cart24.png"));
 		saskiraGehituButton.setText("Saskira Gehitu");
@@ -160,6 +175,9 @@ public class ArtikuluarenXehetasunak extends JPanel {
 		
 		datuprezioaLabel = new JLabel();
 		datuprezioaLabel.setText("datuPrezioa");
+		//
+		
+		setDatuak();
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -202,7 +220,7 @@ public class ArtikuluarenXehetasunak extends JPanel {
 							.addComponent(kopuruaLabel)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(spinner, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
 							.addComponent(saskiraGehituButton))
 						.addComponent(produktuarenDeskribapenaLabel))
 					.addContainerGap())
@@ -263,28 +281,25 @@ public class ArtikuluarenXehetasunak extends JPanel {
 					.addContainerGap())
 		);
 		setLayout(groupLayout);
-		//
-		
-		setDatuak();
 	}
 	
 	public void setDatuak(){
-		datugeneroaLabel.setText(zp.getGeneroa());
-		datukategoriaLabel.setText(zp.getKategoria());
-		datukoloreaLabel.setText(zp.getKolorea());
-		datumarkaLabel.setText(zp.getMarka());
-		datumaterialaLabel.setText(zp.getEstiloa());
+		datugeneroaLabel.setText(zapata.getGeneroa());
+		datukategoriaLabel.setText(zapata.getKategoria());
+		datukoloreaLabel.setText(zapata.getKolorea());
+		datumarkaLabel.setText(zapata.getMarka());
+		datumaterialaLabel.setText(zapata.getEstiloa());
 		datumodeloaLabel.setText("Modelo Generikoa");
-		datuoinaLabel.setText(zp.getOina());
-		if(zp.isEskaintzanDago()){
-			double beherapena = zp.getPrezioa()*(zp.getBeherapenEhuneko()/100.0);
-			double prezioBeheratua = zp.getPrezioa() - beherapena;
-			datuprezioaLabel.setText("%"+zp.getBeherapenEhuneko()+" beherapena: "+twoDForm.format(prezioBeheratua)+"€");
+		datuoinaLabel.setText(zapata.getOina());
+		if(zapata.isEskaintzanDago()){
+			double beherapena = zapata.getPrezioa()*(zapata.getBeherapenEhuneko()/100.0);
+			double prezioBeheratua = zapata.getPrezioa() - beherapena;
+			datuprezioaLabel.setText("%"+zapata.getBeherapenEhuneko()+" beherapena: "+twoDForm.format(prezioBeheratua)+"€");
 		} else {
-			datuprezioaLabel.setText(twoDForm.format(zp.getPrezioa())+"€");
+			datuprezioaLabel.setText(twoDForm.format(zapata.getPrezioa())+"€");
 		}
 		
-		ImageIcon iconOrig = SwingResourceManager.getIcon(ArtikuluarenXehetasunak.class, "/gkae/zapataparegabeak/resources/zapatak/"+zp.getIrudiPath());
+		ImageIcon iconOrig = SwingResourceManager.getIcon(ArtikuluarenXehetasunak.class, "/gkae/zapataparegabeak/resources/zapatak/"+zapata.getIrudiPath());
 		ImageIcon iconResized = new ImageIcon(iconOrig.getImage().getScaledInstance(120, 60, Image.SCALE_SMOOTH));
 		irudialabel.setIcon(iconResized);	
 	}

@@ -1,5 +1,6 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.eskaeraJarraipena;
 
+import gkae.zapataparegabeak.gui.NagusiaPanel;
 import gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa.ArtikuluarenXehetasunakDialog;
 import gkae.zapataparegabeak.objektuak.EskaeraElementua;
 import gkae.zapataparegabeak.objektuak.Zapata;
@@ -57,16 +58,20 @@ public class EskaeraItem extends JPanel {
 	JRadioButton eskaeraBerdinMantenduRadioButton;
 	JRadioButton artikuluHauBesteRadioButton;
 	JRadioButton artikuluHonenEskariaRadioButton;
+	
+	private NagusiaPanel superowner;
 
 	/**
 	 * Create the panel
+	 * @param superjabea 
 	 */
-	public EskaeraItem(EskaerarenJarraipena jabea, EskaeraElementua ei) {
+	public EskaeraItem(EskaerarenJarraipena jabea, EskaeraElementua ei, NagusiaPanel superjabea) {
 		super();
 		setLayout(new CardLayout());
 		setBorder(new EtchedBorder(EtchedBorder.LOWERED));
 		
 		this.owner = jabea;
+		this.superowner = superjabea;
 		this.eskaera = ei;
 
 		final JPanel eskaeraItemPanel = new JPanel();
@@ -83,7 +88,7 @@ public class EskaeraItem extends JPanel {
 		datuartikuluaHyperlink = new JXHyperlink();
 		datuartikuluaHyperlink.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
-				ArtikuluarenXehetasunakDialog ae = new ArtikuluarenXehetasunakDialog(eskaera.getZapata());
+				ArtikuluarenXehetasunakDialog ae = new ArtikuluarenXehetasunakDialog(eskaera.getZapata(),superowner);
 				ae.setLocationRelativeTo(null);
 				ae.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 				ae.setVisible(true);
