@@ -1,6 +1,8 @@
 package gkae.zapataparegabeak.gui.menuPanelak;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.GroupLayout;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
@@ -34,10 +36,20 @@ public class BezeroEskuinMenuPanela extends JPanel {
 
 		JXHyperlink eskaerenJarraipenaHyperlink;
 		eskaerenJarraipenaHyperlink = new JXHyperlink();
+		eskaerenJarraipenaHyperlink.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				BezeroEskuinMenuPanela.this.jabea.ikusiEskaerarenJarraipenaPanela();
+			}
+		});
 		eskaerenJarraipenaHyperlink.setFont(new Font("Dialog", Font.BOLD, 14));
 		eskaerenJarraipenaHyperlink.setText("• Eskaeren jarraipena");
 
 		eskaerenHistorikoaHyperlink = new JXHyperlink();
+		eskaerenHistorikoaHyperlink.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				BezeroEskuinMenuPanela.this.jabea.ikusiEskaerenHistorikoa();
+			}
+		});
 		eskaerenHistorikoaHyperlink.setFont(new Font("Dialog", Font.BOLD, 14));
 		eskaerenHistorikoaHyperlink.setText("• Eskaeren historikoa");
 		eskaerenHistorikoaHyperlink.setVisible(false);
@@ -45,7 +57,7 @@ public class BezeroEskuinMenuPanela extends JPanel {
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addComponent(erosketaSaskiaMenuPanel, GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+				.addComponent(erosketaSaskiaMenuPanel, GroupLayout.PREFERRED_SIZE, 310, Short.MAX_VALUE)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
