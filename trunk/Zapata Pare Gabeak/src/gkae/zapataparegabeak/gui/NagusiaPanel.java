@@ -48,6 +48,7 @@ public class NagusiaPanel extends JPanel {
 	private final JPanel centralPanel;
 	private final BezeroEskuinMenuPanela bezeroEskuinMenuPanela;
 	private JPanel navigationMenuHolder;
+	private final ErosiPanel erosiPanel;
 	
 	/**
 	 * Create the panel.
@@ -191,7 +192,7 @@ public class NagusiaPanel extends JPanel {
 				}
 				
 				{
-					final ErosiPanel erosiPanel = new ErosiPanel(this);
+					erosiPanel = new ErosiPanel(this);
 					erosiPanel.setName("erosiPanel");
 					centralPanel.add(erosiPanel, erosiPanel.getName());
 				}
@@ -321,6 +322,7 @@ public class NagusiaPanel extends JPanel {
 	
 	public void saskiaEguneratu(){
 		bezeroEskuinMenuPanela.saskiaEguneratu();
+		erosiPanel.saskiaEguneratu();
 	}
 	
 	public void ikusiErabiltzaileEzezagunMenua(){
