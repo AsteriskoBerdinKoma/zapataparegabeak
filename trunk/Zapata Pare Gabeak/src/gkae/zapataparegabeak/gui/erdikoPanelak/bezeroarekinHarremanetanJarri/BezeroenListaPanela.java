@@ -31,7 +31,7 @@ public class BezeroenListaPanela extends JPanel {
 	private JList list;
 	private JTextField textField;
 	private DefaultListModel listModel;
-	private BezeroenDatuakPanel bezeroenDatuak;
+	private BezeroenDatuakPanel bezeroenDatuakPanel;
 	/**
 	 * Create the panel
 	 */
@@ -44,6 +44,9 @@ public class BezeroenListaPanela extends JPanel {
 		bilatuButton = new JButton();
 		bilatuButton.setText("Bilatu");
 		
+		bezeroenDatuakPanel = new BezeroenDatuakPanel();
+		bezeroenDatuakPanel.setEditable(false);
+		
 		setAutoscrolls(true);
 		listModel = new DefaultListModel();
 		list = new JList(listModel);
@@ -52,7 +55,7 @@ public class BezeroenListaPanela extends JPanel {
 			public void valueChanged(final ListSelectionEvent arg0) {
 				ErabiltzaileInfo e = (ErabiltzaileInfo) list.getSelectedValue();
 
-				bezeroenDatuak.setDatuak(e);
+				bezeroenDatuakPanel.setDatuak(e);
 				list.repaint();
 			}
 		});		
@@ -63,18 +66,12 @@ public class BezeroenListaPanela extends JPanel {
 		emailButton.setIcon(SwingResourceManager.getIcon(BezeroenListaPanela.class, "/gkae/zapataparegabeak/resources/ikonoak/email24.png"));
 		emailButton.setText("E-mail");
 		
-		bezeroenDatuak = new BezeroenDatuakPanel();
-		bezeroenDatuak.setEditable(false);
-		
 		zerrendaKargatu();
 
 		JButton bajaEmanButton;
 		bajaEmanButton = new JButton();
 		bajaEmanButton.setIcon(SwingResourceManager.getIcon(BezeroenListaPanela.class, "/gkae/zapataparegabeak/resources/ikonoak/delete_item24.png"));
 		bajaEmanButton.setText("Baja eman");
-
-		BezeroenDatuakPanel bezeroenDatuakPanel;
-		bezeroenDatuakPanel = new BezeroenDatuakPanel();
 
 		JSeparator separator;
 		separator = new JSeparator();
@@ -95,9 +92,8 @@ public class BezeroenListaPanela extends JPanel {
 							.addComponent(bilatuButton))
 						.addComponent(bezeroekinHarremanetanJarriLabel)
 						.addComponent(separator, GroupLayout.PREFERRED_SIZE, 531, GroupLayout.PREFERRED_SIZE)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(36, 36, 36)
-							.addComponent(list, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE)
+						.addGroup(GroupLayout.Alignment.TRAILING, groupLayout.createSequentialGroup()
+							.addComponent(list, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
 								.addComponent(bezeroenDatuakPanel, GroupLayout.PREFERRED_SIZE, 374, GroupLayout.PREFERRED_SIZE)
@@ -117,18 +113,14 @@ public class BezeroenListaPanela extends JPanel {
 							.addComponent(bezeroekinHarremanetanJarriLabel)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(separator, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
-							.addGap(8, 8, 8)
+							.addGap(29, 29, 29)
+							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+								.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(bilatuButton, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
+							.addGap(25, 25, 25)
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-								.addGroup(groupLayout.createSequentialGroup()
-									.addGap(69, 69, 69)
-									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-										.addComponent(list, GroupLayout.PREFERRED_SIZE, 210, GroupLayout.PREFERRED_SIZE)
-										.addComponent(bezeroenDatuakPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-								.addGroup(groupLayout.createSequentialGroup()
-									.addGap(21, 21, 21)
-									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-										.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-										.addComponent(bilatuButton, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))))
+								.addComponent(list, GroupLayout.PREFERRED_SIZE, 210, GroupLayout.PREFERRED_SIZE)
+								.addComponent(bezeroenDatuakPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE))
 						.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 							.addComponent(emailButton)

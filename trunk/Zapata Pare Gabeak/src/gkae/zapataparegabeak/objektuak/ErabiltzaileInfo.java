@@ -207,5 +207,9 @@ public class ErabiltzaileInfo {
 	public void setKautotutaDago(boolean kautotutaDago) {
 		this.kautotutaDago = kautotutaDago;
 	}
+	
+	public String toString(){
+		return this.erabIzena;
+	}
 
 }
