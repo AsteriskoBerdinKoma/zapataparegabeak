@@ -6,7 +6,9 @@ import gkae.zapataparegabeak.objektuak.Erabiltzaileak;
 import gkae.zapataparegabeak.objektuak.Kudeaketa;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Component;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
@@ -16,12 +18,16 @@ import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
 import javax.swing.LayoutStyle;
 import javax.swing.border.TitledBorder;
+import javax.swing.text.MutableAttributeSet;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
 
 import org.jdesktop.swingx.JXHyperlink;
 
@@ -38,6 +44,8 @@ public class LoginPanela extends JPanel {
 	private JLabel kaixoEzezagunLabel;
 	private JXHyperlink zureDatuakAldatuHyperlink;
 	private JXHyperlink saioaItxiHyperlink;
+	
+	private	final JTextPane erabiltzaileIzenaEdoTextPane;
 
 	//Nagusiaren erreferentzia pantailaz aldatzeko
 	private NagusiaPanel owner;
@@ -90,13 +98,15 @@ public class LoginPanela extends JPanel {
 					}
 				}
 				if (!kautotuta) {
-					JOptionPane jop = new JOptionPane(
-							"Erabiltzaile edo pasahitz okerra eman duzu.\nSaiatu berriz.",
-							JOptionPane.ERROR_MESSAGE);
-					jop.createDialog("Kautotzean arazoa").setVisible(true);
+//					JOptionPane jop = new JOptionPane(
+//							"Erabiltzaile edo pasahitz okerra eman duzu.\nSaiatu berriz.",
+//							JOptionPane.ERROR_MESSAGE);
+//					jop.createDialog("Kautotzean arazoa").setVisible(true);
+					erabiltzaileIzenaEdoTextPane.setVisible(true);
 					erabTextField.setText("");
 					passPassField.setText("");
-				}
+				} else
+					erabiltzaileIzenaEdoTextPane.setVisible(false);
 
 			}
 		});
@@ -126,74 +136,65 @@ public class LoginPanela extends JPanel {
 		erabTextField = new JTextField();
 
 		passPassField = new JPasswordField();
+
+		JPanel panel;
+		panel = new JPanel();
+		panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
+
+		erabiltzaileIzenaEdoTextPane = new JTextPane();
+		erabiltzaileIzenaEdoTextPane.setEditable(false);
+		erabiltzaileIzenaEdoTextPane.setOpaque(false);
+		erabiltzaileIzenaEdoTextPane.setText("Erabiltzaile izena edo pasahitza ez da zuzena");
+		erabiltzaileIzenaEdoTextPane.setForeground(new Color(255, 0, 0));
+		erabiltzaileIzenaEdoTextPane.setFont(new Font("", Font.BOLD, 12));
+		erabiltzaileIzenaEdoTextPane.setVisible(false);
+		panel.add(erabiltzaileIzenaEdoTextPane);
+		
+		StyledDocument doc = erabiltzaileIzenaEdoTextPane.getStyledDocument();
+		MutableAttributeSet standard = new SimpleAttributeSet();
+		StyleConstants.setAlignment(standard, StyleConstants.ALIGN_CENTER);
+		StyleConstants.setForeground(standard, new Color(255, 0, 0));
+		StyleConstants.setFontSize(standard, 12);
+		StyleConstants.setBold(standard, true);
+		StyleConstants.setFontFamily(standard, "");
+		doc.setParagraphAttributes(0, 0, standard, true);
+
+		
 		final GroupLayout groupLayout = new GroupLayout(
 				(JComponent) kautotzePanela);
-		groupLayout
-				.setHorizontalGroup(groupLayout
-						.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addGroup(
-								groupLayout
-										.createSequentialGroup()
-										.addContainerGap()
-										.addGroup(
-												groupLayout
-														.createParallelGroup(
-																GroupLayout.Alignment.TRAILING)
-														.addComponent(
-																azpiPanela,
-																GroupLayout.Alignment.LEADING,
-																GroupLayout.DEFAULT_SIZE,
-																466,
-																Short.MAX_VALUE)
-														.addGroup(
-																groupLayout
-																		.createSequentialGroup()
-																		.addGroup(
-																				groupLayout
-																						.createParallelGroup(
-																								GroupLayout.Alignment.LEADING)
-																						.addComponent(
-																								pasahitzaLabel,
-																								GroupLayout.Alignment.TRAILING)
-																						.addComponent(
-																								erabiltzaileaLabel,
-																								GroupLayout.Alignment.TRAILING))
-																		.addPreferredGap(
-																				LayoutStyle.ComponentPlacement.RELATED)
-																		.addGroup(
-																				groupLayout
-																						.createParallelGroup(
-																								GroupLayout.Alignment.LEADING)
-																						.addComponent(
-																								passPassField,
-																								GroupLayout.DEFAULT_SIZE,
-																								382,
-																								Short.MAX_VALUE)
-																						.addComponent(
-																								erabTextField,
-																								GroupLayout.DEFAULT_SIZE,
-																								382,
-																								Short.MAX_VALUE))))
-										.addContainerGap()));
-		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(
-				GroupLayout.Alignment.LEADING).addGroup(
-				groupLayout.createSequentialGroup().addGroup(
-						groupLayout.createParallelGroup(
-								GroupLayout.Alignment.BASELINE).addComponent(
-								erabiltzaileaLabel).addComponent(erabTextField,
-								GroupLayout.PREFERRED_SIZE,
-								GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)).addPreferredGap(
-						LayoutStyle.ComponentPlacement.RELATED).addGroup(
-						groupLayout.createParallelGroup(
-								GroupLayout.Alignment.BASELINE).addComponent(
-								pasahitzaLabel).addComponent(passPassField,
-								GroupLayout.PREFERRED_SIZE,
-								GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)).addPreferredGap(
-						LayoutStyle.ComponentPlacement.RELATED).addComponent(
-						azpiPanela, GroupLayout.DEFAULT_SIZE, 297,
-						Short.MAX_VALUE)));
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+						.addComponent(panel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+						.addComponent(azpiPanela, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+						.addGroup(GroupLayout.Alignment.LEADING, groupLayout.createSequentialGroup()
+							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+								.addComponent(pasahitzaLabel, GroupLayout.Alignment.TRAILING)
+								.addComponent(erabiltzaileaLabel, GroupLayout.Alignment.TRAILING))
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+								.addComponent(passPassField, GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+								.addComponent(erabTextField, GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))))
+					.addContainerGap())
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addComponent(panel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(erabiltzaileaLabel)
+						.addComponent(erabTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(pasahitzaLabel)
+						.addComponent(passPassField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(azpiPanela, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(25, Short.MAX_VALUE))
+		);
 		kautotzePanela.setLayout(groupLayout);
 
 		final JPanel kautotutaPanel = new JPanel();
@@ -230,56 +231,30 @@ public class LoginPanela extends JPanel {
 		saioaItxiHyperlink.setText("• Saioa Itxi");
 		final GroupLayout groupLayout_1 = new GroupLayout(
 				(JComponent) kautotutaPanel);
-		groupLayout_1
-				.setHorizontalGroup(groupLayout_1
-						.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addGroup(
-								groupLayout_1
-										.createSequentialGroup()
-										.addContainerGap()
-										.addGroup(
-												groupLayout_1
-														.createParallelGroup(
-																GroupLayout.Alignment.LEADING)
-														.addComponent(
-																kaixoEzezagunLabel)
-														.addGroup(
-																groupLayout_1
-																		.createSequentialGroup()
-																		.addGap(
-																				12,
-																				12,
-																				12)
-																		.addGroup(
-																				groupLayout_1
-																						.createParallelGroup(
-																								GroupLayout.Alignment.LEADING)
-																						.addComponent(
-																								saioaItxiHyperlink,
-																								GroupLayout.PREFERRED_SIZE,
-																								GroupLayout.DEFAULT_SIZE,
-																								GroupLayout.PREFERRED_SIZE)
-																						.addComponent(
-																								zureDatuakAldatuHyperlink,
-																								GroupLayout.PREFERRED_SIZE,
-																								GroupLayout.DEFAULT_SIZE,
-																								GroupLayout.PREFERRED_SIZE))))
-										.addContainerGap(346, Short.MAX_VALUE)));
-		groupLayout_1.setVerticalGroup(groupLayout_1.createParallelGroup(
-				GroupLayout.Alignment.LEADING).addGroup(
-				groupLayout_1.createSequentialGroup().addContainerGap()
-						.addComponent(kaixoEzezagunLabel).addPreferredGap(
-								LayoutStyle.ComponentPlacement.RELATED)
-						.addComponent(zureDatuakAldatuHyperlink,
-								GroupLayout.PREFERRED_SIZE,
-								GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE).addPreferredGap(
-								LayoutStyle.ComponentPlacement.RELATED)
-						.addComponent(saioaItxiHyperlink,
-								GroupLayout.PREFERRED_SIZE,
-								GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE).addContainerGap(
-								277, Short.MAX_VALUE)));
+		groupLayout_1.setHorizontalGroup(
+			groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(groupLayout_1.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(kaixoEzezagunLabel)
+						.addGroup(groupLayout_1.createSequentialGroup()
+							.addGap(12, 12, 12)
+							.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
+								.addComponent(saioaItxiHyperlink, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(zureDatuakAldatuHyperlink, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		groupLayout_1.setVerticalGroup(
+			groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(groupLayout_1.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(kaixoEzezagunLabel)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(zureDatuakAldatuHyperlink, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(saioaItxiHyperlink, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
 		kautotutaPanel.setLayout(groupLayout_1);
 		//
 	}

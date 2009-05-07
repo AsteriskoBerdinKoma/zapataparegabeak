@@ -4,9 +4,13 @@ import gkae.zapataparegabeak.gui.erdikoPanelak.dendariarekinHarremanetanJarri.Ha
 import gkae.zapataparegabeak.gui.erdikoPanelak.erabiltzailearenDatuakAldatu.ErabiltzailearenDatuakAldatuPanela;
 import gkae.zapataparegabeak.gui.erdikoPanelak.erosi.ErosiPanel;
 import gkae.zapataparegabeak.gui.erdikoPanelak.eskaeraJarraipena.EskaerarenJarraipena;
+import gkae.zapataparegabeak.gui.erdikoPanelak.hornitzaileakKudeatu.HornitzaileakKudeatuPanela;
+import gkae.zapataparegabeak.gui.erdikoPanelak.hornitzaileenEskaerakKudeatu.HornitzaileEskaerakKudeatuPanela;
 import gkae.zapataparegabeak.gui.erdikoPanelak.izenaEman.IzenaEmanPanel;
 import gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa.BilaketaEmaitzak;
 import gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa.KatalogoaPanela;
+import gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa.MenuEmaitzaPanela;
+import gkae.zapataparegabeak.gui.erdikoPanelak.materialaEskatu.MaterialaEskatuPanela;
 import gkae.zapataparegabeak.gui.menuPanelak.AbisuakMenuPanela;
 import gkae.zapataparegabeak.gui.menuPanelak.BezeroEskuinMenuPanela;
 import gkae.zapataparegabeak.gui.menuPanelak.KudeaketaMenuPanela;
@@ -20,7 +24,6 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.smartcardio.Card;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -33,10 +36,6 @@ import javax.swing.LayoutStyle;
 import javax.swing.SwingConstants;
 
 import com.swtdesigner.SwingResourceManager;
-import gkae.zapataparegabeak.gui.erdikoPanelak.hornitzaileakKudeatu.HornitzaileakKudeatuPanela;
-import gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa.MenuEmaitzaPanela;
-import gkae.zapataparegabeak.gui.erdikoPanelak.hornitzaileenEskaerakKudeatu.HornitzaileEskaerakKudeatuPanela;
-import gkae.zapataparegabeak.gui.erdikoPanelak.materialaEskatu.MaterialaEskatuPanela;
 
 public class NagusiaPanel extends JPanel {
 	private JTextField bilatuTextField;
@@ -117,9 +116,9 @@ public class NagusiaPanel extends JPanel {
 			groupLayout.setVerticalGroup(
 				groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 					.addGroup(groupLayout.createSequentialGroup()
-						.addComponent(loginPanelHolder, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
-						.addGap(5, 5, 5)
-						.addComponent(navigationMenuHolder, GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE))
+						.addComponent(loginPanelHolder, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+						.addComponent(navigationMenuHolder, GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE))
 			);
 			leftMenuPanel.setLayout(groupLayout);
 		}
@@ -306,9 +305,9 @@ public class NagusiaPanel extends JPanel {
 					.addComponent(searchPanel, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addComponent(centralPanelHolder, GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
-						.addComponent(rightMenuPanel, GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
-						.addComponent(leftMenuPanel, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE))
+						.addComponent(centralPanelHolder, GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
+						.addComponent(rightMenuPanel, GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
+						.addComponent(leftMenuPanel, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(southPanel, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
 					.addGap(10, 10, 10))
