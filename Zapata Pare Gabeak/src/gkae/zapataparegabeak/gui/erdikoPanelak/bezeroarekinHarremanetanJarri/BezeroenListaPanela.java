@@ -1,6 +1,9 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.bezeroarekinHarremanetanJarri;
 
 import java.awt.Font;
+import java.util.Vector;
+
+import javax.swing.DefaultListModel;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -19,12 +22,15 @@ import javax.swing.event.ListSelectionListener;
 import com.swtdesigner.SwingResourceManager;
 import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroarekinHarremanetanJarri.BezeroenDatuakPanel;
 import gkae.zapataparegabeak.objektuak.ErabiltzaileInfo;
+import gkae.zapataparegabeak.objektuak.Erabiltzaileak;
+import gkae.zapataparegabeak.objektuak.HornitzaileZerrenda;
 import gkae.zapataparegabeak.objektuak.Hornitzailea;
 
 public class BezeroenListaPanela extends JPanel {
 
 	private JList list;
 	private JTextField textField;
+	private DefaultListModel listModel;
 	private BezeroenDatuakPanel bezeroenDatuak;
 	/**
 	 * Create the panel
@@ -38,8 +44,10 @@ public class BezeroenListaPanela extends JPanel {
 		bilatuButton = new JButton();
 		bilatuButton.setText("Bilatu");
 		
-		
-		list = new JList();
+		setAutoscrolls(true);
+		listModel = new DefaultListModel();
+		list = new JList(listModel);
+		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		list.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(final ListSelectionEvent arg0) {
 				ErabiltzaileInfo e = (ErabiltzaileInfo) list.getSelectedValue();
@@ -47,14 +55,18 @@ public class BezeroenListaPanela extends JPanel {
 				bezeroenDatuak.setDatuak(e);
 				list.repaint();
 			}
-		});
-		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		});		
 		list.setBorder(new TitledBorder(null, "Bezero Lista:", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
 
 		JButton emailButton;
 		emailButton = new JButton();
 		emailButton.setIcon(SwingResourceManager.getIcon(BezeroenListaPanela.class, "/gkae/zapataparegabeak/resources/ikonoak/email24.png"));
 		emailButton.setText("E-mail");
+		
+		bezeroenDatuak = new BezeroenDatuakPanel();
+		bezeroenDatuak.setEditable(false);
+		
+		zerrendaKargatu();
 
 		JButton bajaEmanButton;
 		bajaEmanButton = new JButton();
@@ -126,5 +138,16 @@ public class BezeroenListaPanela extends JPanel {
 		setLayout(groupLayout);
 		//
 	}
+	
+	private void zerrendaKargatu() {
+		listModel.removeAllElements();
+		Vector<ErabiltzaileInfo> eZerrenda = Erabiltzaileak.getInstance().getErabZerrenda();
+			
+		for (ErabiltzaileInfo e : eZerrenda)
+			listModel.addElement(e);
+		if (list.getModel().getSize() > 0) {
+			list.setSelectedIndex(0);
+		}
+	}	
 
 }
