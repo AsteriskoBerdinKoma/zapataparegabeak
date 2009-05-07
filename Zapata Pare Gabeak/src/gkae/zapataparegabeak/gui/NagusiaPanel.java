@@ -445,7 +445,9 @@ public class NagusiaPanel extends JPanel {
 
 	public void ikusiEskaerenHistorikoa() {
 		rightMenuPanel.setVisible(true);
-		// TODO Auto-generated method stub
+		eskaerarenJarraipena.checkKautotuta();
+		CardLayout cl = (CardLayout)(centralPanel.getLayout());
+        cl.show(centralPanel, "eskaerarenJarraipena");
 		
 	}
 
