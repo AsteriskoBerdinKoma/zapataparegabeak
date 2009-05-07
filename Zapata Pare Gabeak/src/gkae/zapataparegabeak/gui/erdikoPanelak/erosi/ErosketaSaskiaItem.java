@@ -2,6 +2,7 @@ package gkae.zapataparegabeak.gui.erdikoPanelak.erosi;
 
 import gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa.ArtikuluarenXehetasunakDialog;
 import gkae.zapataparegabeak.objektuak.Kudeaketa;
+import gkae.zapataparegabeak.objektuak.SaskiratutakoZapatak;
 import gkae.zapataparegabeak.objektuak.Zapata;
 
 import java.awt.Color;
@@ -9,6 +10,7 @@ import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
@@ -45,6 +47,10 @@ public class ErosketaSaskiaItem extends JPanel {
 	private JLabel ezLabel;
 	private JButton stockDagoeneanAbisatuButton;
 	
+	private DecimalFormat twoDForm;
+	
+	public float prezioa;
+	
 	/**
 	 * Create the panel
 	 */
@@ -53,6 +59,7 @@ public class ErosketaSaskiaItem extends JPanel {
 		
 		this.jabea = owner;
 		this.informazioa = zap;
+		twoDForm = new DecimalFormat("#.##");
 		
 		setBorder(new EtchedBorder(EtchedBorder.LOWERED));
 
@@ -140,6 +147,7 @@ public class ErosketaSaskiaItem extends JPanel {
 							.addComponent(stockaLabel, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
 							.addComponent(ezLabel, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE))
 						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(2, 2, 2)
 							.addComponent(stockDagoeneanAbisatuButton)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(saskitikEzabatuButton, GroupLayout.PREFERRED_SIZE, 165, GroupLayout.PREFERRED_SIZE))
@@ -147,7 +155,7 @@ public class ErosketaSaskiaItem extends JPanel {
 							.addComponent(prezioaLabel)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(label, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)))
-					.addGap(39, 39, 39))
+					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -176,14 +184,14 @@ public class ErosketaSaskiaItem extends JPanel {
 										.addComponent(label))
 									.addGap(37, 37, 37))
 								.addGroup(groupLayout.createSequentialGroup()
-									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
 									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 										.addComponent(stockDagoeneanAbisatuButton)
-										.addComponent(saskitikEzabatuButton, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+										.addComponent(saskitikEzabatuButton, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
 									.addContainerGap())))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(irudiaLabel)
-							.addContainerGap(23, Short.MAX_VALUE))))
+							.addContainerGap(19, Short.MAX_VALUE))))
 		);
 		setLayout(groupLayout);
 	}
@@ -194,7 +202,9 @@ public class ErosketaSaskiaItem extends JPanel {
 	
 	public void setDatuak(Zapata z){
 		artikuluarenIzenaLabel.setText(z.getGeneroa()+" - "+z.getKategoria()+" "+z.getOina()+" "+z.getNeurria());
-		label.setText(z.getPrezioa()+" €");
+		spinner.setValue(SaskiratutakoZapatak.getInstance().getSaskiratutakoKopurua(z));
+		label.setText(twoDForm.format(z.getPrezioa() * SaskiratutakoZapatak.getInstance().getSaskiratutakoKopurua(z)) + " €");
+		prezioa = z.getPrezioa() * SaskiratutakoZapatak.getInstance().getSaskiratutakoKopurua(z);
 		
 		ImageIcon iconOrig = SwingResourceManager.getIcon(ErosketaSaskiaItem.class, "/gkae/zapataparegabeak/resources/zapatak/"+z.getIrudiPath());
 		ImageIcon iconResized = new ImageIcon(iconOrig.getImage().getScaledInstance(120, 60, Image.SCALE_SMOOTH));
