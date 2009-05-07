@@ -2,6 +2,8 @@ package gkae.zapataparegabeak.gui.erdikoPanelak.bezeroarekinHarremanetanJarri;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -20,12 +22,15 @@ public class EmailIdatzi extends JPanel {
 	private JTextArea oharraBatekinTextArea;
 	private JComboBox comboBox_1;
 	private JTextField textField;
+	private BezeroakKudeatuPanel jabea;
+	
+	
 	/**
 	 * Create the panel
 	 */
-	public EmailIdatzi() {
+	public EmailIdatzi(BezeroakKudeatuPanel jabea) {
 		super();
-
+		this.jabea = jabea;
 		JLabel emailLabel;
 		emailLabel = new JLabel();
 		emailLabel.setText("E-mail");
@@ -49,6 +54,11 @@ public class EmailIdatzi extends JPanel {
 
 		JButton bidaliButton;
 		bidaliButton = new JButton();
+		bidaliButton.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent arg0) {
+				EmailIdatzi.this.jabea.mezuaBidali();
+			}
+		});
 		bidaliButton.setIcon(SwingResourceManager.getIcon(EmailIdatzi.class, "/gkae/zapataparegabeak/resources/ikonoak/email24.png"));
 		bidaliButton.setText("Bidali");
 
@@ -67,14 +77,24 @@ public class EmailIdatzi extends JPanel {
 		garbituButton = new JButton();
 		garbituButton.setIcon(SwingResourceManager.getIcon(EmailIdatzi.class, "/gkae/zapataparegabeak/resources/ikonoak/trash.png"));
 		garbituButton.setText("Garbitu");
+
+		JButton atzeraButton;
+		atzeraButton = new JButton();
+		atzeraButton.setIcon(SwingResourceManager.getIcon(EmailIdatzi.class, "/gkae/zapataparegabeak/resources/ikonoak/left_arrow24.png"));
+		atzeraButton.setText("Atzera");
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(12, 12, 12)
+							.addComponent(mezuaLabel))
 						.addComponent(textPane, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
 						.addGroup(GroupLayout.Alignment.TRAILING, groupLayout.createSequentialGroup()
+							.addComponent(atzeraButton)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(garbituButton, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(bidaliButton, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE))
@@ -87,8 +107,7 @@ public class EmailIdatzi extends JPanel {
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 								.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, 167, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textField, GroupLayout.PREFERRED_SIZE, 289, GroupLayout.PREFERRED_SIZE)))
-						.addComponent(mezuaLabel))
+								.addComponent(textField, GroupLayout.PREFERRED_SIZE, 289, GroupLayout.PREFERRED_SIZE))))
 					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
@@ -113,11 +132,19 @@ public class EmailIdatzi extends JPanel {
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 						.addComponent(garbituButton, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-						.addComponent(bidaliButton))
+						.addComponent(bidaliButton)
+						.addComponent(atzeraButton))
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		setLayout(groupLayout);
 		//
+	}
+	public void setEposta(String eposta) {
+		textField.setText(eposta);
+	}
+	public void garbitu() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
