@@ -482,7 +482,7 @@ public class NagusiaPanel extends JPanel {
 
 	public void ikusiMenuEmaitzaPanela(String titulua) {
 		rightMenuPanel.setVisible(true);
-		
+		menuEmaitzaPanela.setTitulua(titulua);
 		CardLayout cl = (CardLayout)(centralPanel.getLayout());
         cl.show(centralPanel, "menuEmaitzaPanela");
 	}
