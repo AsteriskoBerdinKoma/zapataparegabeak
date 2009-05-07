@@ -42,6 +42,10 @@ public class SaskiratutakoZapatak {
 		saskikoZapatak.remove(bilatuSaskiItem(z));
 	}
 	
+	public void saskiaHustu(){
+		saskikoZapatak.removeAllElements();
+	}
+	
 	public int getSaskiratutakoKopurua(Zapata z){
 		return bilatuSaskiItem(z).getKopurua();
 	}

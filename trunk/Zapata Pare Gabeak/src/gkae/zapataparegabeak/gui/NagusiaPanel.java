@@ -313,6 +313,8 @@ public class NagusiaPanel extends JPanel {
 	}
 	
 	public void ikusiErosiPanela(){
+		erosiPanel.saskiaEguneratu();
+		erosiPanel.prezioTotalaEguneratu();
 		CardLayout cl = (CardLayout)(centralPanel.getLayout());
         cl.show(centralPanel, "erosiPanel");
 	}
@@ -329,7 +331,7 @@ public class NagusiaPanel extends JPanel {
 	
 	public void saskiaEguneratu(){
 		bezeroEskuinMenuPanela.saskiaEguneratu();
-		erosiPanel.saskiaEguneratu();
+		//erosiPanel.saskiaEguneratu();
 	}
 	
 	public void ikusiErabiltzaileEzezagunMenua(){
