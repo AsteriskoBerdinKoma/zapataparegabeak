@@ -20,6 +20,7 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.smartcardio.Card;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -376,6 +377,9 @@ public class NagusiaPanel extends JPanel {
         bezeroEskuinMenuPanela.bezeroKautotua(false);
         CardLayout cl1 = (CardLayout)(rightMenuPanel.getLayout());
         cl1.show(rightMenuPanel, "bezeroEskuinMenuPanela");
+        //Erdiko menuaren edukina
+        CardLayout c2 = (CardLayout)(centralPanel.getLayout());
+        c2.show(centralPanel, "katalogoaPanela");
 	}
 	
 	public void ikusiErabiltzaileEzagunMenua(){
@@ -387,6 +391,9 @@ public class NagusiaPanel extends JPanel {
         bezeroEskuinMenuPanela.bezeroKautotua(true);
         CardLayout cl1 = (CardLayout)(rightMenuPanel.getLayout());
         cl1.show(rightMenuPanel, "bezeroEskuinMenuPanela");
+        //Erdiko menuaren edukina
+        CardLayout c2 = (CardLayout)(centralPanel.getLayout());
+        c2.show(centralPanel, "katalogoaPanela");
 	}
 	
 	public void ikusiAdminMenua(){
@@ -397,6 +404,9 @@ public class NagusiaPanel extends JPanel {
         //Eskubiko panelean adminentzat
         CardLayout cl1 = (CardLayout)(rightMenuPanel.getLayout());
         cl1.show(rightMenuPanel, "abisuakMenuPanela");
+        //Erdiko menuaren edukina
+        CardLayout c2 = (CardLayout)(centralPanel.getLayout());
+        c2.show(centralPanel, "katalogoaPanela");
 	}
 
 	public void ikusiProduktuakKudeatu() {
