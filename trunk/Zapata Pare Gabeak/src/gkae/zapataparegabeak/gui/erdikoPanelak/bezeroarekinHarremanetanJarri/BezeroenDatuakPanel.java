@@ -143,5 +143,9 @@ public class BezeroenDatuakPanel extends JPanel {
 			erabIzena.setText("");
 		}
 	}
+	
+	public String getEposta(){
+		return ePosta.getText();
+	}
 
 }

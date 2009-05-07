@@ -86,9 +86,9 @@ public class HarremanetanJarriPanela extends JPanel {
 		public void run() {
 			try {
 				((CardLayout)panel.getLayout()).show(panel, "itxaronPanela");
-				sleep(5000);
+				sleep(3000);
 				((CardLayout)panel.getLayout()).show(panel, "mezuaBidalitaPanel");
-				sleep(15000);
+				sleep(10000);
 				mezuaIdatziPanela.garbitu();
 				((CardLayout)panel.getLayout()).show(panel, "mezuaIdatziPanela");
 			} catch (InterruptedException e) {
