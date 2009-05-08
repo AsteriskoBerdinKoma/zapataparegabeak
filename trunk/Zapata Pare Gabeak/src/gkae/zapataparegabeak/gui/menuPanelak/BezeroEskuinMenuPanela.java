@@ -21,6 +21,7 @@ public class BezeroEskuinMenuPanela extends JPanel {
 	
 	private JXHyperlink eskaerenHistorikoaHyperlink;
 	private ErosketaSaskiaMenuPanel erosketaSaskiaMenuPanel;
+	private JXHyperlink eskaerenJarraipenaHyperlink;
 	
 	private NagusiaPanel jabea;
 	
@@ -34,7 +35,6 @@ public class BezeroEskuinMenuPanela extends JPanel {
 
 		erosketaSaskiaMenuPanel = new ErosketaSaskiaMenuPanel(this.jabea);
 
-		JXHyperlink eskaerenJarraipenaHyperlink;
 		eskaerenJarraipenaHyperlink = new JXHyperlink();
 		eskaerenJarraipenaHyperlink.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
@@ -68,12 +68,12 @@ public class BezeroEskuinMenuPanela extends JPanel {
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addComponent(erosketaSaskiaMenuPanel, GroupLayout.PREFERRED_SIZE, 305, GroupLayout.PREFERRED_SIZE)
+					.addComponent(erosketaSaskiaMenuPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(eskaerenJarraipenaHyperlink, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(eskaerenHistorikoaHyperlink, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(13, Short.MAX_VALUE))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		setLayout(groupLayout);
 		//
@@ -81,6 +81,7 @@ public class BezeroEskuinMenuPanela extends JPanel {
 	
 	public void bezeroKautotua(boolean kautotua){
 		eskaerenHistorikoaHyperlink.setVisible(kautotua);
+		eskaerenJarraipenaHyperlink.setVisible(!kautotua);
 	}
 
 	public void saskiaEguneratu() {
