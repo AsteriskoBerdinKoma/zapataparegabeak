@@ -38,7 +38,6 @@ public class NagusiaApp {
 			public void run() {
 				try {
 					NagusiaApp window = new NagusiaApp();
-					window.frame.setTitle("Zapata Pare Gabeak");
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -60,6 +59,7 @@ public class NagusiaApp {
 	private void createContents() {
 		Kudeaketa.getInstance();
 		frame = new JFrame();
+		frame.setTitle("Zapata Pare Gabeak");
 		frame.setBounds(100, 100, 1180, 718);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
