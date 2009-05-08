@@ -1,0 +1,21 @@
+Programa exekutatzeko honakoak behar dira:
+	- Javako makina birtualaren (JRE - Java Runtime Environment) azken bertsiona insatalatuta eduki behar duzu. Hau ondorengo orrian eskuratu dezakezu:
+			http://www.java.com
+	
+	Gainera programa zuzenean nabigatzailean exekutatzeko honakoak behar dira:
+		- Erabiltzen ari zaren nabigatzailerako Javako plugina. Hau ondorengo orrian eskuratu dezakezu:
+				http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=es&host=www.java.com:80
+
+Bezero bezala kautotzeko
+-------------------------
+	Erabiltzailea: erosle1
+	Pasahitza: erosle1
+
+Kudeatzaile moduan kautotzeko (Peru Bakarka)
+---------------------------------------------
+	Erabiltzailea: peru
+	Pasahitza: peru
+	
+Eskaeren jarraipena frogatzeko erabili honako eskaera kodea
+------------------------------------------------------------
+	Eskaera kodea: E012-453
