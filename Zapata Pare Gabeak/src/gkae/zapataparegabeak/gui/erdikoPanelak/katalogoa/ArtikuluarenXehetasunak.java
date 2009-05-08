@@ -140,6 +140,7 @@ public class ArtikuluarenXehetasunak extends JPanel {
 		kopuruaLabel.setText("Kopurua:");
 
 		spinner = new JSpinner();
+		spinner.setToolTipText("Erosketa saskira sartu nahi duzun kopurua zehaztu");
 		spinner.setValue(1);
 
 		JButton saskiraGehituButton;

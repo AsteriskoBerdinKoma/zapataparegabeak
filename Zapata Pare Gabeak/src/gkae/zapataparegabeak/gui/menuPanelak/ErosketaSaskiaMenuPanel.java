@@ -109,8 +109,8 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addComponent(zureErosketaSaskiaLabel)
-					.addContainerGap(201, Short.MAX_VALUE))
-				.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
+					.addContainerGap(187, Short.MAX_VALUE))
+				.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
@@ -120,7 +120,7 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 						.addComponent(label)
 						.addComponent(label_1))
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 					.addComponent(erosketaGauzatuButton))
 		);
 		groupLayout.setVerticalGroup(
@@ -128,7 +128,7 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addComponent(zureErosketaSaskiaLabel)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
 						.addGroup(groupLayout.createSequentialGroup()
@@ -208,6 +208,7 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 
 			JButton button;
 			button = new JButton();
+			button.setIcon(SwingResourceManager.getIcon(ErosketaSaskiaItem.class, "/gkae/zapataparegabeak/resources/ikonoak/delete_cart24.png"));
 			button.addActionListener(new ActionListener() {
 				public void actionPerformed(final ActionEvent arg0) {
 					SaskiratutakoZapatak.getInstance().saskitikKendu(ErosketaSaskiaItem.this.z);
@@ -215,7 +216,7 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 				}
 			});
 			button.setToolTipText("Artikulua saskitik kendu");
-			button.setIcon(SwingResourceManager.getIcon(ErosketaSaskiaItem.class, "/gkae/zapataparegabeak/resources/ikonoak/delete_item24.png"));
+			button.setIcon(SwingResourceManager.getIcon(ErosketaSaskiaItem.class, "/gkae/zapataparegabeak/resources/ikonoak/delete_cart24.png"));
 
 			JLabel kopuruaLabel;
 			kopuruaLabel = new JLabel();
@@ -249,7 +250,7 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 						.addComponent(irudiaLabel, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
 						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 						.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-							.addComponent(artikuluarenIzenaHyperlink, GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+							.addComponent(artikuluarenIzenaHyperlink, GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
 							.addGroup(groupLayout.createSequentialGroup()
 								.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 									.addGroup(groupLayout.createSequentialGroup()
@@ -261,9 +262,9 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 										.addComponent(label)))
 								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(button, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)))
+								.addComponent(button, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)))
 						.addContainerGap())
-					.addComponent(separator, GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+					.addComponent(separator, GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
 			);
 			groupLayout.setVerticalGroup(
 				groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -282,13 +283,11 @@ public class ErosketaSaskiaMenuPanel extends JPanel {
 										.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 											.addComponent(prezioTotalaLabel)
 											.addComponent(label)))
-									.addGroup(groupLayout.createSequentialGroup()
-										.addComponent(button)
-										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED))))
+									.addComponent(button)))
 							.addComponent(irudiaLabel, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE))
 						.addGap(6, 6, 6)
 						.addComponent(separator, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addContainerGap(281, Short.MAX_VALUE))
 			);
 			setLayout(groupLayout);
 		}

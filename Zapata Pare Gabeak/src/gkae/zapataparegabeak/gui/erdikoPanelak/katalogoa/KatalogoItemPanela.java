@@ -79,6 +79,7 @@ public class KatalogoItemPanela extends JPanel {
 
 		JButton button;
 		button = new JButton();
+		button.setToolTipText("Artikulu honen xehetasunak ikusi");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent arg0) {
 				ArtikuluarenXehetasunakDialog ax = new ArtikuluarenXehetasunakDialog(zapataInfo,getJabea());
@@ -92,6 +93,7 @@ public class KatalogoItemPanela extends JPanel {
 
 		JButton button_1;
 		button_1 = new JButton();
+		button_1.setToolTipText("Artikulu hau erosketa saskira gehitu");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				//Zapata hau saskira gehitu
@@ -115,6 +117,7 @@ public class KatalogoItemPanela extends JPanel {
 		kopuruaLabel.setText("| Kopurua");
 
 		spinner = new JSpinner();
+		spinner.setToolTipText("Saskira gehitu nahi duzun kopurua zehaztu");
 		spinner.setValue(1);
 
 		JLabel neurriaLabel;
@@ -154,7 +157,7 @@ public class KatalogoItemPanela extends JPanel {
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 								.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(datuPrezioa))))
-					.addContainerGap(108, Short.MAX_VALUE))
+					.addContainerGap(80, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)

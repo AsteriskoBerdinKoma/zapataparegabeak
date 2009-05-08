@@ -38,6 +38,7 @@ public class NagusiaApp {
 			public void run() {
 				try {
 					NagusiaApp window = new NagusiaApp();
+					window.frame.setTitle("Zapata Pare Gabeak");
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
