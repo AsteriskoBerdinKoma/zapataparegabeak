@@ -50,7 +50,7 @@ public class MezuBidaliaPanel extends JPanel {
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 						.addComponent(eskerrikAskoGurekinLabel)
 						.addComponent(eskerrikAskoGurekinTextArea, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
-						.addComponent(segunduBatzukBarruTextArea, GroupLayout.PREFERRED_SIZE, 331, GroupLayout.PREFERRED_SIZE))
+						.addComponent(segunduBatzukBarruTextArea, GroupLayout.PREFERRED_SIZE, 374, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
