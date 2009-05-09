@@ -17,10 +17,6 @@ public class ProduktuakKudeatuPanel extends JPanel {
 		final ProduktuakKudeatu produktuakKudeatu = new ProduktuakKudeatu(this);
 		produktuakKudeatu.setName("produktuakKudeatu");
 		add(produktuakKudeatu, produktuakKudeatu.getName());
-
-		final ProduktuDatuak produktuDatuak = new ProduktuDatuak();
-		produktuDatuak.setName("produktuDatuak");
-		add(produktuDatuak, produktuDatuak.getName());
 		//
 	}
 

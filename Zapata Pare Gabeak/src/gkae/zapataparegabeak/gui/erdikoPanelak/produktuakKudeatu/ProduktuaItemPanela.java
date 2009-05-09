@@ -18,6 +18,7 @@ import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.LayoutStyle;
@@ -72,11 +73,11 @@ public class ProduktuaItemPanela extends JPanel {
 		button = new JButton();
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent arg0) {
-				/*ArtikuluarenXehetasunakDialog axd = new ArtikuluarenXehetasunakDialog(ProduktuaItemPanela.this.zapataInfo);
+				ProduktuDatuakDialog axd = new ProduktuDatuakDialog (ProduktuaItemPanela.this.zapataInfo);
 				axd.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 				axd.setLocationRelativeTo(null);
 				axd.setVisible(true);
-				*/
+				
 			}
 		});
 		button.setIcon(SwingResourceManager.getIcon(ProduktuaItemPanela.class, "/gkae/zapataparegabeak/resources/ikonoak/edit_item24.png"));
@@ -100,6 +101,17 @@ public class ProduktuaItemPanela extends JPanel {
 
 		JButton button_1;
 		button_1 = new JButton();
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent e) {
+				
+				JOptionPane jop = new JOptionPane(
+                        "Aukeratutako produktua ezabatu da.",
+                        JOptionPane.INFORMATION_MESSAGE);
+						jop.createDialog("Produktua ezabatuta")
+                        .setVisible(true);
+			}
+			
+		});
 		button_1.setIcon(SwingResourceManager.getIcon(ProduktuaItemPanela.class, "/gkae/zapataparegabeak/resources/ikonoak/delete_item24.png"));
 	
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
