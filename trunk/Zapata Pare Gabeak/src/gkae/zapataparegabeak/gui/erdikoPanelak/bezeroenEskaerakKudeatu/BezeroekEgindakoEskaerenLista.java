@@ -38,17 +38,21 @@ public class BezeroekEgindakoEskaerenLista extends JPanel {
 		list_1 = new JList();
 		scrollPane.setViewportView(list_1);
 
-		JButton itzuliButton;
-		itzuliButton = new JButton();
-		itzuliButton.setText("Itzuli");
-
 		JButton prozesatutakoEskaerenAlbaranakButton;
 		prozesatutakoEskaerenAlbaranakButton = new JButton();
 		prozesatutakoEskaerenAlbaranakButton.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent arg0) {
 			}
 		});
-		prozesatutakoEskaerenAlbaranakButton.setText("Prozesatutako Eskaeren Albaranak");
+		prozesatutakoEskaerenAlbaranakButton.setText("Albaranak ikusi");
+
+		JButton eskuzkoProzesamenduaButton;
+		eskuzkoProzesamenduaButton = new JButton();
+		eskuzkoProzesamenduaButton.setText("Eskuzko prozesamendua");
+
+		JButton txartelBidezkoProzesamenduaButton;
+		txartelBidezkoProzesamenduaButton = new JButton();
+		txartelBidezkoProzesamenduaButton.setText("Txartel bidezko prozesamendua");
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -56,29 +60,33 @@ public class BezeroekEgindakoEskaerenLista extends JPanel {
 					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-								.addComponent(itzuliButton)
-								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 221, GroupLayout.PREFERRED_SIZE))
-							.addGap(11, 11, 11)
-							.addComponent(prozesatutakoEskaerenAlbaranakButton, GroupLayout.PREFERRED_SIZE, 244, Short.MAX_VALUE))
-						.addComponent(bezeroenEskaerenListaLabel))
+							.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE)
+							.addGap(45, 45, 45)
+							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+								.addComponent(txartelBidezkoProzesamenduaButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(eskuzkoProzesamenduaButton, GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(bezeroenEskaerenListaLabel)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
+							.addComponent(prozesatutakoEskaerenAlbaranakButton)))
 					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addContainerGap()
 							.addComponent(bezeroenEskaerenListaLabel)
-							.addGap(15, 15, 15)
-							.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 291, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addComponent(itzuliButton))
+							.addGap(38, 38, 38)
+							.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 267, GroupLayout.PREFERRED_SIZE))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(142, 142, 142)
-							.addComponent(prozesatutakoEskaerenAlbaranakButton, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap())
+							.addComponent(prozesatutakoEskaerenAlbaranakButton, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 228, Short.MAX_VALUE)
+							.addComponent(eskuzkoProzesamenduaButton)
+							.addGap(5, 5, 5)
+							.addComponent(txartelBidezkoProzesamenduaButton)))
+					.addContainerGap(42, Short.MAX_VALUE))
 		);
 		setLayout(groupLayout);
 		//
