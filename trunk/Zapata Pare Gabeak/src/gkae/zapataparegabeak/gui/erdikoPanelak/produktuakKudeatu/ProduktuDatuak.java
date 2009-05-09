@@ -1,7 +1,16 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.produktuakKudeatu;
 
+import gkae.zapataparegabeak.gui.erdikoPanelak.materialaEskatu.ArtikuluarenXehetasunak;
+import gkae.zapataparegabeak.objektuak.Zapata;
+
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
+
 import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
@@ -32,13 +41,18 @@ public class ProduktuDatuak extends JPanel {
 	private JTextField neurria;
 	private JTextField oina;
 	private JTextField id;
+	private DecimalFormat twoDForm;
+	JLabel label_2;
 	
 	private String[] baiedoez = new String[]{"Bai","Ez"};
 	/**
 	 * Create the panel
 	 */
-	public ProduktuDatuak() {
+	private Zapata zp;
+	public ProduktuDatuak(Zapata zp) {
 		super();
+		this.zp = zp;
+		twoDForm = new DecimalFormat("#.##");
 		setBorder(new TitledBorder(null, "Produktuaren Datuak", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, Color.BLUE));
 
 		JLabel idLabel;
@@ -137,19 +151,10 @@ public class ProduktuDatuak extends JPanel {
 
 		irudiIzena = new JTextField();
 
-		JLabel label_2;
+		
 		label_2 = new JLabel();
 		label_2.setIcon(SwingResourceManager.getIcon(ProduktuDatuak.class, "/gkae/zapataparegabeak/resources/zapatak/noimage120.png"));
-
-		JButton atzeraButton;
-		atzeraButton = new JButton();
-		atzeraButton.setIcon(SwingResourceManager.getIcon(ProduktuDatuak.class, "/gkae/zapataparegabeak/resources/ikonoak/left_arrow24.png"));
-		atzeraButton.setText("Atzera");
-
-		JButton onartuButton;
-		onartuButton = new JButton();
-		onartuButton.setIcon(SwingResourceManager.getIcon(ProduktuDatuak.class, "/gkae/zapataparegabeak/resources/ikonoak/accept_item24.png"));
-		onartuButton.setText("Onartu");
+		setDatuak();
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -175,8 +180,8 @@ public class ProduktuDatuak extends JPanel {
 								.addGroup(groupLayout.createSequentialGroup()
 									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
 										.addComponent(marka, GroupLayout.Alignment.LEADING, 53, 53, 53)
-										.addComponent(comboBox, GroupLayout.Alignment.LEADING, 0, 53, Short.MAX_VALUE)
-										.addComponent(comboBox_1, GroupLayout.Alignment.LEADING, 0, 53, Short.MAX_VALUE))
+										.addComponent(comboBox, GroupLayout.Alignment.LEADING, 0, 54, Short.MAX_VALUE)
+										.addComponent(comboBox_1, GroupLayout.Alignment.LEADING, 0, 54, Short.MAX_VALUE))
 									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 										.addComponent(eMotaLabel)
@@ -190,28 +195,25 @@ public class ProduktuDatuak extends JPanel {
 									.addComponent(oina, GroupLayout.Alignment.LEADING)
 									.addComponent(neurria, GroupLayout.Alignment.LEADING)
 									.addComponent(id, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE))
-								.addComponent(generoa, GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+								.addComponent(generoa, GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
 								.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
 									.addComponent(kategoria, GroupLayout.Alignment.LEADING)
 									.addComponent(estiloa, GroupLayout.Alignment.LEADING)
 									.addComponent(kolorea, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)))
-							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-								.addGroup(GroupLayout.Alignment.LEADING, groupLayout.createSequentialGroup()
-									.addComponent(comboBox_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-									.addGap(31, 31, 31))
-								.addComponent(stockZenb, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE)
-								.addComponent(eskaintzaEhunekotan, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-								.addComponent(eskaintzaMota, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-								.addGroup(GroupLayout.Alignment.LEADING, groupLayout.createSequentialGroup()
-									.addGap(12, 12, 12)
-									.addComponent(atzeraButton, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-									.addComponent(onartuButton))
-								.addComponent(irudiIzena, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE)
+							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(label_2)
-									.addGap(38, 38, 38)))))
+									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+										.addGroup(groupLayout.createSequentialGroup()
+											.addComponent(comboBox_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+											.addGap(31, 31, 31))
+										.addComponent(stockZenb, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE)
+										.addComponent(eskaintzaEhunekotan, GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+										.addComponent(eskaintzaMota, GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+										.addComponent(irudiIzena, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE)))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGap(50, 50, 50)
+									.addComponent(label_2)))))
 					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
@@ -259,7 +261,7 @@ public class ProduktuDatuak extends JPanel {
 								.addComponent(prezioaLabel)
 								.addComponent(prezioa, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(19, 19, 19)
+							.addGap(18, 18, 18)
 							.addComponent(label_2)))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
@@ -277,13 +279,38 @@ public class ProduktuDatuak extends JPanel {
 						.addComponent(stockanLabel)
 						.addComponent(zenbatLabel)
 						.addComponent(stockZenb, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(atzeraButton, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-						.addComponent(onartuButton)))
+					.addContainerGap(47, Short.MAX_VALUE))
 		);
 		setLayout(groupLayout);
 		//
+	}
+	
+	public void setDatuak(){
+		generoa.setText(zp.getGeneroa());
+		kategoria.setText(zp.getKategoria());
+		kolorea.setText(zp.getKolorea());
+		marka.setText(zp.getMarka());
+		estiloa.setText(zp.getEstiloa());
+		//modelo.setText("Modelo Generikoa");
+		oina.setText(zp.getOina());
+		id.setText(Integer.toString(zp.getId()));
+		neurria.setText(Float.toString(zp.getNeurria()));
+		irudiIzena.setText(zp.getIrudiPath());
+		eskaintzaMota.setText(zp.getEskaintzaMota());
+		eskaintzaEhunekotan.setText(Float.toString(zp.getBeherapenEhuneko()));
+		stockZenb.setText(Float.toString(zp.getStocka()));
+		if(zp.isEskaintzanDago()){
+			double beherapena = zp.getPrezioa()*(zp.getBeherapenEhuneko()/100.0);
+			double prezioBeheratua = zp.getPrezioa() - beherapena;
+			prezioa.setText(twoDForm.format(prezioBeheratua)+"€");
+		} else {
+			prezioa.setText(twoDForm.format(zp.getPrezioa())+"€");
+			comboBox.setSelectedIndex(1);
+		}
+		
+		ImageIcon iconOrig = SwingResourceManager.getIcon(ArtikuluarenXehetasunak.class, "/gkae/zapataparegabeak/resources/zapatak/"+zp.getIrudiPath());
+		ImageIcon iconResized = new ImageIcon(iconOrig.getImage().getScaledInstance(120, 60, Image.SCALE_SMOOTH));
+		label_2.setIcon(iconResized);	
 	}
 
 }
