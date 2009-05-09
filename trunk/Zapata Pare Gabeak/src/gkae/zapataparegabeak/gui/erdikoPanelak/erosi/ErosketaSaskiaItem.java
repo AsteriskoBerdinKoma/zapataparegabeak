@@ -8,7 +8,6 @@ import gkae.zapataparegabeak.objektuak.Zapata;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
@@ -62,6 +61,8 @@ public class ErosketaSaskiaItem extends JPanel {
 	 */
 	public ErosketaSaskiaItem(ErosiPanel owner, Zapata zap, NagusiaPanel superjabea) {
 		super();
+		setMinimumSize(new Dimension(300, 160));
+		setMaximumSize(new Dimension(1600, 160));
 		
 		this.jabea = owner;
 		this.superowner = superjabea;
@@ -113,7 +114,7 @@ public class ErosketaSaskiaItem extends JPanel {
 				
 			}
 		});
-		saskitikEzabatuButton.setMargin(new Insets(2, 2, 2, 4));
+		saskitikEzabatuButton.setMargin(new Insets(2, 4, 2, 4));
 		saskitikEzabatuButton.setText("Saskitik Ezabatu");
 
 		spinner = new JSpinner();
@@ -144,30 +145,32 @@ public class ErosketaSaskiaItem extends JPanel {
 		setDatuak(informazioa);
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
+			groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+				.addGroup(GroupLayout.Alignment.LEADING, groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(irudiaLabel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addComponent(artikuluarenIzenaLabel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-								.addComponent(kantitateaLabel)
-								.addComponent(prezioaLabel)
-								.addComponent(stockaLabel))
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-								.addComponent(ezLabel)
-								.addComponent(label)
-								.addComponent(spinner, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
-					.addGap(444, 444, 444))
-				.addGroup(GroupLayout.Alignment.TRAILING, groupLayout.createSequentialGroup()
-					.addContainerGap(360, Short.MAX_VALUE)
-					.addComponent(stockDagoeneanAbisatuButton)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(saskitikEzabatuButton)
-					.addContainerGap())
+								.addComponent(artikuluarenIzenaLabel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+										.addComponent(kantitateaLabel)
+										.addComponent(prezioaLabel)
+										.addComponent(stockaLabel))
+									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+										.addComponent(ezLabel)
+										.addComponent(label)
+										.addComponent(spinner, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+							.addContainerGap(324, Short.MAX_VALUE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addComponent(stockDagoeneanAbisatuButton)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addComponent(saskitikEzabatuButton)
+							.addContainerGap())))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -189,7 +192,9 @@ public class ErosketaSaskiaItem extends JPanel {
 								.addComponent(stockaLabel)
 								.addComponent(ezLabel)))
 						.addComponent(irudiaLabel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+					.addContainerGap(35, Short.MAX_VALUE))
+				.addGroup(GroupLayout.Alignment.TRAILING, groupLayout.createSequentialGroup()
+					.addContainerGap(121, Short.MAX_VALUE)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(saskitikEzabatuButton)
 						.addComponent(stockDagoeneanAbisatuButton, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
