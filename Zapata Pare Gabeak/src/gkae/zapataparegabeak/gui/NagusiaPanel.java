@@ -38,6 +38,7 @@ import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroarekinHarremanetanJarri.Bez
 import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu.BezeroenEskaerakPanel;
 import gkae.zapataparegabeak.gui.erdikoPanelak.produktuakKudeatu.ProduktuakKudeatuPanel;
 import gkae.zapataparegabeak.gui.erdikoPanelak.KudeaketaOngiEtorriPanela;
+import gkae.zapataparegabeak.gui.erdikoPanelak.salmentenEstadistikak.SalmentenEstadistikakPanela;
 
 public class NagusiaPanel extends JPanel {
 	private JTextField bilatuTextField;
@@ -120,7 +121,7 @@ public class NagusiaPanel extends JPanel {
 					.addGroup(groupLayout.createSequentialGroup()
 						.addComponent(loginPanelHolder, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-						.addComponent(navigationMenuHolder, GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE))
+						.addComponent(navigationMenuHolder, GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE))
 			);
 			leftMenuPanel.setLayout(groupLayout);
 		}
@@ -270,6 +271,12 @@ public class NagusiaPanel extends JPanel {
 					kudeaketaOngiEtorriPanela.setName("kudeaketaOngiEtorriPanela");
 					centralPanel.add(kudeaketaOngiEtorriPanela, kudeaketaOngiEtorriPanela.getName());
 				}
+
+				{
+					final SalmentenEstadistikakPanela salmentenEstadistikakPanela = new SalmentenEstadistikakPanela();
+					salmentenEstadistikakPanela.setName("salmentenEstadistikakPanela");
+					centralPanel.add(salmentenEstadistikakPanela, salmentenEstadistikakPanela.getName());
+				}
 			}
 		}
 
@@ -309,15 +316,15 @@ public class NagusiaPanel extends JPanel {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(10, 10, 10)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addComponent(bannerPanel, GroupLayout.DEFAULT_SIZE, 1138, Short.MAX_VALUE)
-						.addComponent(southPanel, GroupLayout.DEFAULT_SIZE, 1138, Short.MAX_VALUE)
+						.addComponent(bannerPanel, GroupLayout.DEFAULT_SIZE, 1277, Short.MAX_VALUE)
+						.addComponent(southPanel, GroupLayout.DEFAULT_SIZE, 1277, Short.MAX_VALUE)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(leftMenuPanel, GroupLayout.PREFERRED_SIZE, 258, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-								.addComponent(searchPanel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
-								.addComponent(centralPanelHolder, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 539, Short.MAX_VALUE))
+								.addComponent(searchPanel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)
+								.addComponent(centralPanelHolder, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 678, Short.MAX_VALUE))
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(rightMenuPanel, GroupLayout.PREFERRED_SIZE, 329, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap())
@@ -331,9 +338,9 @@ public class NagusiaPanel extends JPanel {
 					.addComponent(searchPanel, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addComponent(centralPanelHolder, GroupLayout.PREFERRED_SIZE, 296, Short.MAX_VALUE)
-						.addComponent(rightMenuPanel, GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
-						.addComponent(leftMenuPanel, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE))
+						.addComponent(centralPanelHolder, GroupLayout.PREFERRED_SIZE, 580, Short.MAX_VALUE)
+						.addComponent(rightMenuPanel, GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
+						.addComponent(leftMenuPanel, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(southPanel, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
 					.addGap(10, 10, 10))
@@ -462,8 +469,8 @@ public class NagusiaPanel extends JPanel {
 
 	public void ikusiSalmentenEstatistikak() {
 		rightMenuPanel.setVisible(true);
-		// TODO Auto-generated method stub
-		
+		CardLayout cl = (CardLayout)(centralPanel.getLayout());
+        cl.show(centralPanel, "salmentenEstadistikakPanela");
 	}
 
 	public void ikusiBezeroarekinHarremanetanJarri() {
