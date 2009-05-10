@@ -28,6 +28,7 @@ public class EmailbidalizaioKantzelatuta extends JPanel {
 
 		JLabel emailBidalitaLabel;
 		emailBidalitaLabel = new JLabel();
+		emailBidalitaLabel.setFont(new Font("", Font.PLAIN, 18));
 		emailBidalitaLabel.setText("Email bidalita");
 
 		JLabel bezeroariEmailBatLabel;
@@ -56,9 +57,7 @@ public class EmailbidalizaioKantzelatuta extends JPanel {
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addContainerGap()
-							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-								.addComponent(emailBidalitaLabel, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
-								.addComponent(separator, GroupLayout.PREFERRED_SIZE, 446, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(emailBidalitaLabel, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(65, 65, 65)
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -66,7 +65,10 @@ public class EmailbidalizaioKantzelatuta extends JPanel {
 								.addComponent(bezeroariEmailBatLabel)))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(176, 176, 176)
-							.addComponent(onartuButton)))
+							.addComponent(onartuButton))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(separator, GroupLayout.PREFERRED_SIZE, 446, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap(42, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
@@ -74,15 +76,15 @@ public class EmailbidalizaioKantzelatuta extends JPanel {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(emailBidalitaLabel)
-					.addGap(21, 21, 21)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(separator, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(54, 54, 54)
+					.addGap(69, 69, 69)
 					.addComponent(bezeroariEmailBatLabel)
 					.addGap(25, 25, 25)
 					.addComponent(bezeroariEmailBatLabel_1, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
 					.addGap(74, 74, 74)
 					.addComponent(onartuButton)
-					.addContainerGap(73, Short.MAX_VALUE))
+					.addContainerGap(65, Short.MAX_VALUE))
 		);
 		setLayout(groupLayout);
 		//
