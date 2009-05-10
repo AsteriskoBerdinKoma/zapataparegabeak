@@ -8,6 +8,7 @@ import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu.BezeroekE
 import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu.DatuKonprobaketa;
 import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu.Emailbidalizaio;
 import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu.EmailbidalizaioKantzelatuta;
+import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu.AlbaranaSortuDa;
 
 public class BezeroenEskaerakPanel extends JPanel {
 
@@ -42,6 +43,10 @@ public class BezeroenEskaerakPanel extends JPanel {
 		final EmailbidalizaioKantzelatuta emailbidalizaioKantzelatuta = new EmailbidalizaioKantzelatuta(this);
 		emailbidalizaioKantzelatuta.setName("emailbidalizaioKantzelatuta");
 		add(emailbidalizaioKantzelatuta, emailbidalizaioKantzelatuta.getName());
+
+		final AlbaranaSortuDa albaranaSortuDa = new AlbaranaSortuDa(this);
+		albaranaSortuDa.setName("albaranaSortuDa");
+		add(albaranaSortuDa, albaranaSortuDa.getName());
 		//
 	}
 	

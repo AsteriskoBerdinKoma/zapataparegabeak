@@ -45,7 +45,7 @@ public class Emailbidalizaio extends JPanel {
 		onartuButton = new JButton();
 		onartuButton.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
-				owner.changeCard("bezeroekEgindakoEskaerenLista");
+				owner.changeCard("albaranaSortuDa");
 			}
 		});
 		onartuButton.setIcon(SwingResourceManager.getIcon(Emailbidalizaio.class, "/gkae/zapataparegabeak/resources/ikonoak/accept_item24.png"));
