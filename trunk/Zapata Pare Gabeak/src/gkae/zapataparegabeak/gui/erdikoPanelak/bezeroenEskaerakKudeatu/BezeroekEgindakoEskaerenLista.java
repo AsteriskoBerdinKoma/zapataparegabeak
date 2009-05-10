@@ -195,15 +195,15 @@ public class BezeroekEgindakoEskaerenLista extends JPanel {
 										.addGroup(groupLayout.createSequentialGroup()
 											.addGap(40, 40, 40)
 											.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-												.addComponent(txartelBidezkoProzesamenduaButton, GroupLayout.PREFERRED_SIZE, 270, GroupLayout.PREFERRED_SIZE)
-												.addComponent(eskuzkoProzesamenduaButton, GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE))))
+												.addComponent(txartelBidezkoProzesamenduaButton, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+												.addComponent(eskuzkoProzesamenduaButton, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE))))
 									.addGap(38, 38, 38))
 								.addComponent(bezeroenEskaerenListaLabel))
 							.addGap(53, 53, 53))
 						.addComponent(hemenBezeroenEskaerakLabel)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(prozesatutakoEskaerenAlbaranakButton)
-							.addContainerGap(444, Short.MAX_VALUE))))
+							.addContainerGap(366, Short.MAX_VALUE))))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -214,7 +214,7 @@ public class BezeroekEgindakoEskaerenLista extends JPanel {
 					.addComponent(hemenBezeroenEskaerakLabel)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(prozesatutakoEskaerenAlbaranakButton, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 						.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 							.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 267, GroupLayout.PREFERRED_SIZE)
@@ -245,7 +245,7 @@ public class BezeroekEgindakoEskaerenLista extends JPanel {
 							.addComponent(eskuzkoProzesamenduaButton)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(txartelBidezkoProzesamenduaButton)))
-					.addContainerGap())
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		setLayout(groupLayout);
 		//
