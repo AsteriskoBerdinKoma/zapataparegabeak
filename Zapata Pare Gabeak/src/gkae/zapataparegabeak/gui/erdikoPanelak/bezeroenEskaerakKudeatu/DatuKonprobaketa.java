@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
 import javax.swing.LayoutStyle;
 
 
@@ -57,6 +58,14 @@ public class DatuKonprobaketa extends JPanel {
 			}
 		});
 		itzuliButton.setText("Itzuli");
+
+		JLabel eskaerenProzesamenduaLabel;
+		eskaerenProzesamenduaLabel = new JLabel();
+		eskaerenProzesamenduaLabel.setFont(new Font("", Font.PLAIN, 18));
+		eskaerenProzesamenduaLabel.setText("Eskaeren Prozesamendua");
+
+		JSeparator separator;
+		separator = new JSeparator();
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -74,13 +83,23 @@ public class DatuKonprobaketa extends JPanel {
 							.addComponent(datuakLabel))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addContainerGap()
-							.addComponent(onargarriakDiraLabel, GroupLayout.PREFERRED_SIZE, 508, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(262, Short.MAX_VALUE))
+							.addComponent(onargarriakDiraLabel, GroupLayout.PREFERRED_SIZE, 508, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(eskaerenProzesamenduaLabel))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(separator, GroupLayout.PREFERRED_SIZE, 490, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(15, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(87, 87, 87)
+					.addContainerGap()
+					.addComponent(eskaerenProzesamenduaLabel)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(separator, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
+					.addGap(33, 33, 33)
 					.addComponent(datuakLabel, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(onargarriakDiraLabel, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
@@ -89,7 +108,7 @@ public class DatuKonprobaketa extends JPanel {
 						.addComponent(kantzelatuButton)
 						.addComponent(itzuliButton)
 						.addComponent(onartuButton))
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addContainerGap(55, Short.MAX_VALUE))
 		);
 		setLayout(groupLayout);
 		//

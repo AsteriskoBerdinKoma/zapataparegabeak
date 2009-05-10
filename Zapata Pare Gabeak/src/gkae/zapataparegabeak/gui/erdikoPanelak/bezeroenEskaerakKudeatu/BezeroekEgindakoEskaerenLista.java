@@ -5,6 +5,7 @@ import gkae.zapataparegabeak.objektuak.Erabiltzaileak;
 import gkae.zapataparegabeak.objektuak.ProzesatzekoEskaera;
 import gkae.zapataparegabeak.objektuak.ProzesatzekoEskaeraLista;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
@@ -48,6 +49,7 @@ public class BezeroekEgindakoEskaerenLista extends JPanel {
 		
 		JLabel bezeroenEskaerenListaLabel;
 		bezeroenEskaerenListaLabel = new JLabel();
+		bezeroenEskaerenListaLabel.setFont(new Font("", Font.PLAIN, 18));
 		bezeroenEskaerenListaLabel.setText("Bezeroen Eskaerak Kudeatu");
 
 		JScrollPane scrollPane;
@@ -177,7 +179,7 @@ public class BezeroekEgindakoEskaerenLista extends JPanel {
 										.addComponent(eskuz)))))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(bezeroenEskaerenListaLabel)
-							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
 							.addComponent(prozesatutakoEskaerenAlbaranakButton)))
 					.addContainerGap())
 		);
@@ -220,7 +222,7 @@ public class BezeroekEgindakoEskaerenLista extends JPanel {
 							.addComponent(eskuzkoProzesamenduaButton)
 							.addGap(5, 5, 5)
 							.addComponent(txartelBidezkoProzesamenduaButton)))
-					.addContainerGap(42, Short.MAX_VALUE))
+					.addContainerGap(34, Short.MAX_VALUE))
 		);
 		setLayout(groupLayout);
 		//

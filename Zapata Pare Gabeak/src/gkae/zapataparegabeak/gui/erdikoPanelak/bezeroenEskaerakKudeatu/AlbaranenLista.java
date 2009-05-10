@@ -1,5 +1,6 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
@@ -16,6 +17,7 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
 import javax.swing.event.ListSelectionEvent;
@@ -49,6 +51,7 @@ public class AlbaranenLista extends JPanel {
 		
 		JLabel bezeroenEskaerenListaLabel;
 		bezeroenEskaerenListaLabel = new JLabel();
+		bezeroenEskaerenListaLabel.setFont(new Font("", Font.PLAIN, 18));
 		bezeroenEskaerenListaLabel.setText("Prozesatutako Eskaeren Albaranak");
 
 		JButton itzuliButton;
@@ -70,18 +73,23 @@ public class AlbaranenLista extends JPanel {
 
 		AlbaranPanel albaranPanel;
 		albaranPanel = new AlbaranPanel();
+
+		JSeparator separator;
+		separator = new JSeparator();
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(separator, GroupLayout.PREFERRED_SIZE, 456, GroupLayout.PREFERRED_SIZE)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(bezeroenEskaerenListaLabel, GroupLayout.DEFAULT_SIZE, 972, Short.MAX_VALUE)
 							.addGap(100, 100, 100))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-								.addGroup(GroupLayout.Alignment.LEADING, groupLayout.createSequentialGroup()
+							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGap(6, 6, 6)
 									.addComponent(textField, GroupLayout.PREFERRED_SIZE, 202, GroupLayout.PREFERRED_SIZE)
 									.addGap(29, 29, 29)
 									.addComponent(bilatuButton, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE))
@@ -92,17 +100,18 @@ public class AlbaranenLista extends JPanel {
 											.addGap(24, 24, 24)
 											.addComponent(itzuliButton, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)))
 									.addGap(10, 10, 10)
-									.addComponent(albaranPanel, GroupLayout.PREFERRED_SIZE, 468, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)))
-							.addGap(482, 482, 482)))
+									.addComponent(albaranPanel, GroupLayout.PREFERRED_SIZE, 475, GroupLayout.PREFERRED_SIZE)))
+							.addGap(475, 475, 475)))
 					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-				.addGroup(GroupLayout.Alignment.LEADING, groupLayout.createSequentialGroup()
+			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(bezeroenEskaerenListaLabel, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
-					.addGap(20, 20, 20)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(separator, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
+					.addGap(12, 12, 12)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(bilatuButton, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
@@ -113,7 +122,7 @@ public class AlbaranenLista extends JPanel {
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(itzuliButton, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
 						.addComponent(albaranPanel, GroupLayout.PREFERRED_SIZE, 291, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(25, Short.MAX_VALUE))
+					.addContainerGap(17, Short.MAX_VALUE))
 		);
 		setLayout(groupLayout);
 		//
