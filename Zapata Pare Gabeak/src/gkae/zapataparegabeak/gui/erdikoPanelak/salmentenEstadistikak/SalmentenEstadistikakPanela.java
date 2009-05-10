@@ -1,11 +1,11 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.salmentenEstadistikak;
 
-import gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa.KatalogoItemPanela;
-
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Image;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
+import javax.swing.ButtonGroup;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
@@ -16,24 +16,28 @@ import javax.swing.JSeparator;
 import javax.swing.JTextArea;
 import javax.swing.LayoutStyle;
 import javax.swing.border.LineBorder;
-import org.jdesktop.swingx.JXImagePanel;
+
 import com.swtdesigner.SwingResourceManager;
 
 public class SalmentenEstadistikakPanela extends JPanel {
 
-	private JTextArea TextArea_1;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private ButtonGroup buttonGroup = new ButtonGroup();
 	private JTextArea TextArea;
 	private JLabel irudiaLabel_1;
 	private JLabel irudiaLabel;
+	private JRadioButton azkenAstekoEstadistikakRadioButton;
+	
 	public SalmentenEstadistikakPanela() {
 		super();
 
-		JRadioButton azkenAstekoEstadistikakRadioButton;
-		azkenAstekoEstadistikakRadioButton = new JRadioButton();
-		azkenAstekoEstadistikakRadioButton.setText("Azken asteko estadistikak");
-
 		JRadioButton azkenHilabetekoEstadistikakRadioButton;
 		azkenHilabetekoEstadistikakRadioButton = new JRadioButton();
+		buttonGroup.add(azkenHilabetekoEstadistikakRadioButton);
 		azkenHilabetekoEstadistikakRadioButton.setText("Azken hilabeteko estadistikak");
 
 		JLabel eskaerenHistorikoaLabel;
@@ -45,34 +49,40 @@ public class SalmentenEstadistikakPanela extends JPanel {
 		separator = new JSeparator();
 
 		irudiaLabel = new JLabel();
-		ImageIcon iconOrig = SwingResourceManager.getIcon(SalmentenEstadistikakPanela.class, "/gkae/zapataparegabeak/resources/asteko estadistikak.jpg");
-		ImageIcon iconResized = new ImageIcon(iconOrig.getImage().getScaledInstance(300, 300, Image.SCALE_SMOOTH));
-		irudiaLabel.setIcon(iconResized);
+		ImageIcon icon = SwingResourceManager.getIcon(SalmentenEstadistikakPanela.class, "/gkae/zapataparegabeak/resources/asteko estadistikak.jpg");
+//		icon = new ImageIcon(icon.getImage().getScaledInstance(300, 300, Image.SCALE_SMOOTH));
+		irudiaLabel.setIcon(icon);
 		irudiaLabel.setBorder(new LineBorder(Color.black, 1, false));
 		irudiaLabel.setOpaque(true);
 		irudiaLabel.setBackground(Color.WHITE);
 
 		irudiaLabel_1 = new JLabel();
 //		irudiaLabel_1.setIcon(SwingResourceManager.getIcon(SalmentenEstadistikakPanela.class, "/gkae/zapataparegabeak/resources/hilabeteko estadistikak.jpg"));
-		ImageIcon iconOrig1 = SwingResourceManager.getIcon(SalmentenEstadistikakPanela.class, "/gkae/zapataparegabeak/resources/hilabeteko estadistikak.jpg");
-		ImageIcon iconResized1 = new ImageIcon(iconOrig1.getImage().getScaledInstance(300, 300, Image.SCALE_SMOOTH));
-		irudiaLabel_1.setIcon(iconResized1);
+		ImageIcon icon1 = SwingResourceManager.getIcon(SalmentenEstadistikakPanela.class, "/gkae/zapataparegabeak/resources/hilabeteko estadistikak.jpg");
+//		icon1 = new ImageIcon(icon1.getImage().getScaledInstance(300, 300, Image.SCALE_SMOOTH));
+		irudiaLabel_1.setIcon(icon1);
+		irudiaLabel_1.setVisible(false);
 		
 		irudiaLabel_1.setBorder(new LineBorder(Color.black, 1, false));
 		irudiaLabel_1.setOpaque(true);
 		irudiaLabel_1.setBackground(Color.WHITE);
+		
+		azkenAstekoEstadistikakRadioButton = new JRadioButton();
+		azkenAstekoEstadistikakRadioButton.addItemListener(new ItemListener() {
+			public void itemStateChanged(final ItemEvent arg0) {
+				irudiaLabel.setVisible(azkenAstekoEstadistikakRadioButton.isSelected());
+				irudiaLabel_1.setVisible(!azkenAstekoEstadistikakRadioButton.isSelected());
+			}
+		});
+		azkenAstekoEstadistikakRadioButton.setSelected(true);
+		buttonGroup.add(azkenAstekoEstadistikakRadioButton);
+		azkenAstekoEstadistikakRadioButton.setText("Azken asteko estadistikak");
 
 		TextArea = new JTextArea();
 		TextArea.setText("Brooks: Gizonezko korritzeko ezker zapata\nSaucony: Emakumezko korritzeko ezker zapata. \nParis Hilton: Emakumezko fashion ezker zapata.\nEcco: Gizonezko mendiko ezker bota.\nTouch ups: Emakumezko ballet eskuin zapata.\nStride Rite: Gizonezko ezker sandalia.");
 		TextArea.setLineWrap(true);
 		TextArea.setEditable(false);
 		TextArea.setOpaque(false);
-
-		TextArea_1 = new JTextArea();
-		TextArea_1.setText("Brooks: Gizonezko korritzeko ezker zapata\nSaucony: Emakumezko korritzeko ezker zapata. \nParis Hilton: Emakumezko fashion ezker zapata.\nEcco: Gizonezko mendiko ezker bota.\nTouch ups: Emakumezko ballet eskuin zapata.\nStride Rite: Gizonezko ezker sandalia.");
-		TextArea_1.setLineWrap(true);
-		TextArea_1.setEditable(false);
-		TextArea_1.setOpaque(false);
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -80,24 +90,24 @@ public class SalmentenEstadistikakPanela extends JPanel {
 					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(separator, GroupLayout.DEFAULT_SIZE, 691, Short.MAX_VALUE)
+							.addComponent(TextArea, GroupLayout.DEFAULT_SIZE, 767, Short.MAX_VALUE)
+							.addContainerGap())
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(azkenHilabetekoEstadistikakRadioButton)
+							.addContainerGap())
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(azkenAstekoEstadistikakRadioButton)
+							.addContainerGap())
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(separator, GroupLayout.DEFAULT_SIZE, 765, Short.MAX_VALUE)
 							.addGap(14, 14, 14))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(eskaerenHistorikoaLabel, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE)
 							.addContainerGap())
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-								.addComponent(TextArea)
-								.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-									.addComponent(irudiaLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-									.addComponent(azkenAstekoEstadistikakRadioButton)))
-							.addGap(75, 75, 75)
-							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-								.addComponent(TextArea_1)
-								.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-									.addComponent(azkenHilabetekoEstadistikakRadioButton)
-									.addComponent(irudiaLabel_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+							.addComponent(irudiaLabel, GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addComponent(irudiaLabel_1, GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE))))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -106,19 +116,17 @@ public class SalmentenEstadistikakPanela extends JPanel {
 					.addComponent(eskaerenHistorikoaLabel, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(separator, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
-					.addGap(31, 31, 31)
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(azkenAstekoEstadistikakRadioButton)
-						.addComponent(azkenHilabetekoEstadistikakRadioButton))
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(irudiaLabel)
-						.addComponent(irudiaLabel_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addComponent(azkenAstekoEstadistikakRadioButton)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(TextArea, GroupLayout.PREFERRED_SIZE, 106, GroupLayout.PREFERRED_SIZE)
-						.addComponent(TextArea_1, GroupLayout.PREFERRED_SIZE, 106, GroupLayout.PREFERRED_SIZE))
-					.addGap(84, 84, 84))
+					.addComponent(azkenHilabetekoEstadistikakRadioButton)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+						.addComponent(irudiaLabel_1, GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
+						.addComponent(irudiaLabel, GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(TextArea, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
 		);
 		setLayout(groupLayout);
 		//
