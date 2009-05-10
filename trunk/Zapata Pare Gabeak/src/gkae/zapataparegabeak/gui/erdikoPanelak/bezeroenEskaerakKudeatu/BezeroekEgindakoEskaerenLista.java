@@ -22,7 +22,11 @@ import javax.swing.JProgressBar;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextPane;
 import javax.swing.LayoutStyle;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -54,14 +58,21 @@ public class BezeroekEgindakoEskaerenLista extends JPanel {
 
 		JScrollPane scrollPane;
 		scrollPane = new JScrollPane();
+		scrollPane.setBorder(new TitledBorder(null, "Bezeroen Eskaeren Lista", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
 		
 		
 		kodea = new JLabel();
+		kodea.setText("ko");
 		erabiltzailea = new JLabel();
+		erabiltzailea.setText("era");
 		deskribapena = new JLabel();	
+		deskribapena.setText("des");
 		zenbatekoa = new JLabel();		
+		zenbatekoa.setText("zen");
 		eskuz = new JLabel();		
+		eskuz.setText("es");
 		txartelez = new JLabel();
+		txartelez.setText("txar");
 	
 		
 		
@@ -69,6 +80,7 @@ public class BezeroekEgindakoEskaerenLista extends JPanel {
 		
 		listModel = new DefaultListModel();
 		list_1 = new JList(listModel);
+		list_1.setBorder(new TitledBorder(null, "", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
 		list_1.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(final ListSelectionEvent arg0) {
 				ProzesatzekoEskaera e = (ProzesatzekoEskaera) list_1.getSelectedValue();
@@ -138,6 +150,11 @@ public class BezeroekEgindakoEskaerenLista extends JPanel {
 		txartelezkoOrdainketaLabel = new JLabel();
 		txartelezkoOrdainketaLabel.setText("Txartelezko ordainketa?:");
 
+		JLabel hemenBezeroenEskaerakLabel;
+		hemenBezeroenEskaerakLabel = new JLabel();
+		hemenBezeroenEskaerakLabel.setFont(new Font("", Font.ITALIC, 12));
+		hemenBezeroenEskaerakLabel.setText("Bezeroen eskaerak prozesatu edo prozesaturiko eskaeren albaranak ikusi");
+
 	
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
@@ -146,67 +163,73 @@ public class BezeroekEgindakoEskaerenLista extends JPanel {
 					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE)
-							.addGap(45, 45, 45)
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(erabiltzaileaLabel)
-									.addGap(14, 14, 14)
-									.addComponent(erabiltzailea))
-								.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-									.addComponent(txartelBidezkoProzesamenduaButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-									.addComponent(eskuzkoProzesamenduaButton, GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE))
-								.addGroup(groupLayout.createSequentialGroup()
-									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-										.addComponent(deskribapenaLabel)
-										.addComponent(zenbatekoaLabel))
+									.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 153, GroupLayout.PREFERRED_SIZE)
 									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-										.addComponent(zenbatekoa)
-										.addComponent(deskribapena)))
-								.addGroup(groupLayout.createSequentialGroup()
-									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-										.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-											.addGroup(groupLayout.createSequentialGroup()
-												.addComponent(kodeaLabel)
-												.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-												.addComponent(kodea))
-											.addComponent(eskuzkoOrdainketaLabel, GroupLayout.Alignment.LEADING))
-										.addComponent(txartelezkoOrdainketaLabel))
-									.addGap(4, 4, 4)
-									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-										.addComponent(txartelez)
-										.addComponent(eskuz)))))
+										.addGroup(groupLayout.createSequentialGroup()
+											.addComponent(kodeaLabel)
+											.addGap(40, 40, 40)
+											.addComponent(kodea))
+										.addGroup(groupLayout.createSequentialGroup()
+											.addComponent(erabiltzaileaLabel)
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+											.addComponent(erabiltzailea))
+										.addGroup(groupLayout.createSequentialGroup()
+											.addComponent(txartelezkoOrdainketaLabel)
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+											.addComponent(txartelez, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE))
+										.addGroup(groupLayout.createSequentialGroup()
+											.addComponent(eskuzkoOrdainketaLabel)
+											.addGap(21, 21, 21)
+											.addComponent(eskuz, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE))
+										.addGroup(groupLayout.createSequentialGroup()
+											.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+												.addComponent(deskribapenaLabel)
+												.addComponent(zenbatekoaLabel))
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+											.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+												.addComponent(zenbatekoa)
+												.addComponent(deskribapena)))
+										.addGroup(groupLayout.createSequentialGroup()
+											.addGap(40, 40, 40)
+											.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+												.addComponent(txartelBidezkoProzesamenduaButton, GroupLayout.PREFERRED_SIZE, 270, GroupLayout.PREFERRED_SIZE)
+												.addComponent(eskuzkoProzesamenduaButton, GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE))))
+									.addGap(38, 38, 38))
+								.addComponent(bezeroenEskaerenListaLabel))
+							.addGap(53, 53, 53))
+						.addComponent(hemenBezeroenEskaerakLabel)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(bezeroenEskaerenListaLabel)
-							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
-							.addComponent(prozesatutakoEskaerenAlbaranakButton)))
-					.addContainerGap())
+							.addComponent(prozesatutakoEskaerenAlbaranakButton)
+							.addContainerGap(444, Short.MAX_VALUE))))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+					.addComponent(bezeroenEskaerenListaLabel)
+					.addGap(6, 6, 6)
+					.addComponent(hemenBezeroenEskaerakLabel)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(prozesatutakoEskaerenAlbaranakButton, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+							.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 267, GroupLayout.PREFERRED_SIZE)
+							.addComponent(kodeaLabel)
+							.addComponent(kodea))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(bezeroenEskaerenListaLabel)
-							.addGap(38, 38, 38)
-							.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 267, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(prozesatutakoEskaerenAlbaranakButton, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
-							.addGap(39, 39, 39)
-							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-								.addComponent(kodeaLabel)
-								.addComponent(kodea))
-							.addGap(16, 16, 16)
+							.addGap(53, 53, 53)
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 								.addComponent(erabiltzaileaLabel)
 								.addComponent(erabiltzailea))
-							.addGap(18, 18, 18)
+							.addGap(16, 16, 16)
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 								.addComponent(deskribapenaLabel)
 								.addComponent(deskribapena))
-							.addGap(15, 15, 15)
+							.addGap(18, 18, 18)
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 								.addComponent(zenbatekoaLabel)
 								.addComponent(zenbatekoa))
@@ -218,11 +241,11 @@ public class BezeroekEgindakoEskaerenLista extends JPanel {
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 								.addComponent(txartelezkoOrdainketaLabel)
 								.addComponent(txartelez))
-							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(eskuzkoProzesamenduaButton)
-							.addGap(5, 5, 5)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(txartelBidezkoProzesamenduaButton)))
-					.addContainerGap(34, Short.MAX_VALUE))
+					.addContainerGap())
 		);
 		setLayout(groupLayout);
 		//
