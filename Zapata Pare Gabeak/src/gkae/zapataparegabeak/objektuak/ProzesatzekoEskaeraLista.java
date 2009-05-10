@@ -11,8 +11,8 @@ public class ProzesatzekoEskaeraLista {
 	private ProzesatzekoEskaeraLista() {
 		// TODO Auto-generated constructor stub
 		eskaeralista = new Vector<ProzesatzekoEskaera>();
-		eskaeralista.addElement(new ProzesatzekoEskaera("E1234", "erab1", "desk", "200€", "bai", "ez"));
-		eskaeralista.addElement(new ProzesatzekoEskaera("E2585", "erab2", "desk", "83€", "ez", "bai"));
+		eskaeralista.addElement(new ProzesatzekoEskaera("E1234", "erab1", "1-Ezker-Brooks-Korritzeko zapatak", "90€", "bai", "ez"));
+		eskaeralista.addElement(new ProzesatzekoEskaera("E2585", "erab2", "1-Eskuin-Diadora-Futbol botak", "83€", "ez", "bai"));
 		
 	} 
 	
