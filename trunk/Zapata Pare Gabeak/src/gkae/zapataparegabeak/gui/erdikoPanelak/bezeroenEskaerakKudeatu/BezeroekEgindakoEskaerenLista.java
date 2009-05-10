@@ -54,6 +54,14 @@ public class BezeroekEgindakoEskaerenLista extends JPanel {
 		scrollPane = new JScrollPane();
 		
 		
+		kodea = new JLabel();
+		erabiltzailea = new JLabel();
+		deskribapena = new JLabel();	
+		zenbatekoa = new JLabel();		
+		eskuz = new JLabel();		
+		txartelez = new JLabel();
+	
+		
 		
 		
 		
@@ -82,7 +90,7 @@ public class BezeroekEgindakoEskaerenLista extends JPanel {
 		});
 		prozesatutakoEskaerenAlbaranakButton.setText("Albaranak ikusi");
 		
-		//zerrendaKargatu();
+		zerrendaKargatu();
 
 		JButton eskuzkoProzesamenduaButton;
 		eskuzkoProzesamenduaButton = new JButton();
@@ -128,29 +136,7 @@ public class BezeroekEgindakoEskaerenLista extends JPanel {
 		txartelezkoOrdainketaLabel = new JLabel();
 		txartelezkoOrdainketaLabel.setText("Txartelezko ordainketa?:");
 
-		JLabel kodea;
-		kodea = new JLabel();
-		kodea.setText("New JLabel");
-
-		JLabel erabiltzailea;
-		erabiltzailea = new JLabel();
-		erabiltzailea.setText("New JLabel");
-
-		JLabel deskribapena;
-		deskribapena = new JLabel();
-		deskribapena.setText("New JLabel");
-
-		JLabel zenbatekoa;
-		zenbatekoa = new JLabel();
-		zenbatekoa.setText("New Jlabel");
-
-		JLabel eskuz;
-		eskuz = new JLabel();
-		eskuz.setText("New JLabel");
-
-		JLabel txartelez;
-		txartelez = new JLabel();
-		txartelez.setText("New JLabel");
+	
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
