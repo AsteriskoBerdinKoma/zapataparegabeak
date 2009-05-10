@@ -5,6 +5,9 @@ import javax.swing.JPanel;
 import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu.AlbaranenLista;
 import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu.AlbaranDatuak;
 import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu.BezeroekEgindakoEskaerenLista;
+import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu.DatuKonprobaketa;
+import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu.Emailbidalizaio;
+import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu.EmailbidalizaioKantzelatuta;
 
 public class BezeroenEskaerakPanel extends JPanel {
 
@@ -20,13 +23,25 @@ public class BezeroenEskaerakPanel extends JPanel {
 		super();
 		setLayout(new CardLayout());
 
-		final BezeroekEgindakoEskaerenLista bezeroekEgindakoEskaerenLista = new BezeroekEgindakoEskaerenLista();
+		final BezeroekEgindakoEskaerenLista bezeroekEgindakoEskaerenLista = new BezeroekEgindakoEskaerenLista(this);
 		bezeroekEgindakoEskaerenLista.setName("bezeroekEgindakoEskaerenLista");
 		add(bezeroekEgindakoEskaerenLista, bezeroekEgindakoEskaerenLista.getName());
 
-		final AlbaranDatuak albaranDatuak = new AlbaranDatuak();
-		albaranDatuak.setName("albaranDatuak");
-		add(albaranDatuak, albaranDatuak.getName());
+		final AlbaranenLista albaranenLista = new AlbaranenLista(this);
+		albaranenLista.setName("albaranenLista");
+		add(albaranenLista, albaranenLista.getName());
+
+		final DatuKonprobaketa datuKonprobaketa = new DatuKonprobaketa(this);
+		datuKonprobaketa.setName("datuKonprobaketa");
+		add(datuKonprobaketa, datuKonprobaketa.getName());
+
+		final Emailbidalizaio emailbidalizaio = new Emailbidalizaio(this);
+		emailbidalizaio.setName("emailbidalizaio");
+		add(emailbidalizaio, emailbidalizaio.getName());
+
+		final EmailbidalizaioKantzelatuta emailbidalizaioKantzelatuta = new EmailbidalizaioKantzelatuta(this);
+		emailbidalizaioKantzelatuta.setName("emailbidalizaioKantzelatuta");
+		add(emailbidalizaioKantzelatuta, emailbidalizaioKantzelatuta.getName());
 		//
 	}
 	
