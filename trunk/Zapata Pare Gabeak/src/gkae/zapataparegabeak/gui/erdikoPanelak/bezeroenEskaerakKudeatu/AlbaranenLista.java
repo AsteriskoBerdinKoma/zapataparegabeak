@@ -20,6 +20,8 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu.AlbaranDatuak;
@@ -41,6 +43,7 @@ public class AlbaranenLista extends JPanel {
 		
 		listModel = new DefaultListModel();
 		list_1 = new JList(listModel);
+		list_1.setBorder(new TitledBorder(null, "Albaranen Lista", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
 		list_1.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(final ListSelectionEvent arg0) {
 				Albarana a = (Albarana) list_1.getSelectedValue();
@@ -121,8 +124,10 @@ public class AlbaranenLista extends JPanel {
 							.addComponent(list_1, GroupLayout.PREFERRED_SIZE, 261, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(itzuliButton, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
-						.addComponent(albaranPanel, GroupLayout.PREFERRED_SIZE, 291, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(17, Short.MAX_VALUE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(albaranPanel, GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+							.addGap(2, 2, 2)))
+					.addGap(17, 17, 17))
 		);
 		setLayout(groupLayout);
 		//
