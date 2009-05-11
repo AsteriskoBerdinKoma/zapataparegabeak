@@ -1,6 +1,7 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.produktuakKudeatu;
 
 import java.awt.Color;
+
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -10,13 +11,17 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
-import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
+
 import com.swtdesigner.SwingResourceManager;
-import gkae.zapataparegabeak.gui.erdikoPanelak.produktuakKudeatu.ProduktuDatuak;
 
 public class ProduktuLista extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private JTextField estiloa;
 	private JTextField generoa;
 	private JTextField marka;
@@ -102,9 +107,6 @@ public class ProduktuLista extends JPanel {
 					.addGap(12, 12, 12)
 					.addComponent(produktueLabel))
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(72, 72, 72)
-					.addComponent(atzeraButton))
-				.addGroup(groupLayout.createSequentialGroup()
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addContainerGap()
@@ -119,33 +121,38 @@ public class ProduktuLista extends JPanel {
 						.addComponent(estiloaLabel)
 						.addComponent(generoaLabel)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-								.addComponent(idLabel)
-								.addComponent(kategoriaLabel))
-							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
 								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(textField, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED))
-								.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-									.addComponent(marka, GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
-									.addComponent(generoa, GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
-									.addComponent(estiloa, GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
-									.addComponent(kategoria, GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
-									.addGroup(groupLayout.createSequentialGroup()
-										.addComponent(Id, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED))))
+									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+										.addComponent(idLabel)
+										.addComponent(kategoriaLabel))
+									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+										.addComponent(marka, GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+										.addComponent(generoa, GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+										.addComponent(estiloa, GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+										.addComponent(kategoria, GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+										.addGroup(groupLayout.createSequentialGroup()
+											.addComponent(Id, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED))))
+								.addGroup(GroupLayout.Alignment.LEADING, groupLayout.createSequentialGroup()
+									.addGap(69, 69, 69)
+									.addComponent(textField, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE)))
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-								.addGroup(groupLayout.createSequentialGroup()
-									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
-										.addComponent(editatuButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-										.addComponent(ezabatuButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
 								.addGroup(groupLayout.createSequentialGroup()
 									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-									.addComponent(bilatuButton))))
+									.addComponent(bilatuButton))
+								.addGroup(GroupLayout.Alignment.TRAILING, groupLayout.createSequentialGroup()
+									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+										.addComponent(ezabatuButton, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+										.addComponent(editatuButton, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)))))
 						.addComponent(markaLabel))
 					.addContainerGap())
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(atzeraButton)
+					.addContainerGap(397, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -159,13 +166,12 @@ public class ProduktuLista extends JPanel {
 						.addComponent(bilatuButton, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
 						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(19, 19, 19)
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-						.addComponent(list, GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 								.addComponent(idLabel)
-								.addComponent(editatuButton, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
-								.addComponent(Id, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addComponent(Id, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(editatuButton))
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 								.addGroup(groupLayout.createSequentialGroup()
@@ -184,10 +190,11 @@ public class ProduktuLista extends JPanel {
 									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 										.addComponent(estiloaLabel)
 										.addComponent(estiloa, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-								.addComponent(ezabatuButton))))
-					.addGap(23, 23, 23)
+								.addComponent(ezabatuButton)))
+						.addComponent(list, GroupLayout.PREFERRED_SIZE, 223, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(atzeraButton)
-					.addGap(31, 31, 31))
+					.addContainerGap())
 		);
 		setLayout(groupLayout);
 		//

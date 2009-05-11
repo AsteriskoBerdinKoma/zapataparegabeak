@@ -1,27 +1,32 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.hornitzaileenEskaerakKudeatu;
 
 import gkae.zapataparegabeak.objektuak.HornitzaileEskaera;
-import gkae.zapataparegabeak.objektuak.Hornitzailea;
 
-import javax.swing.DefaultListModel;
 import javax.swing.GroupLayout;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
-import javax.swing.SpringLayout;
-import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.AbstractTableModel;
 
 public class HornitzaileEskaeraDatuakPanela extends JPanel {
 	
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	class TableTableModel extends AbstractTableModel {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+		
 		private final String[] COLUMNS = new String[] {
 			"Generoa", "Oina", "Kategoria", "Marka", "Materiala", "Kopurua", "Prezioa"
 		};

@@ -1,6 +1,8 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.bezeroarekinHarremanetanJarri;
 
-import java.awt.CardLayout;
+import gkae.zapataparegabeak.objektuak.ErabiltzaileInfo;
+import gkae.zapataparegabeak.objektuak.Erabiltzaileak;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,7 +11,6 @@ import java.util.Vector;
 import javax.swing.DefaultListModel;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -18,19 +19,19 @@ import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
 import javax.swing.ListSelectionModel;
-import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+
 import com.swtdesigner.SwingResourceManager;
-import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroarekinHarremanetanJarri.BezeroenDatuakPanel;
-import gkae.zapataparegabeak.objektuak.ErabiltzaileInfo;
-import gkae.zapataparegabeak.objektuak.Erabiltzaileak;
-import gkae.zapataparegabeak.objektuak.HornitzaileZerrenda;
-import gkae.zapataparegabeak.objektuak.Hornitzailea;
 
 public class BezeroenListaPanela extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private JList list;
 	private JTextField textField;
 	private DefaultListModel listModel;

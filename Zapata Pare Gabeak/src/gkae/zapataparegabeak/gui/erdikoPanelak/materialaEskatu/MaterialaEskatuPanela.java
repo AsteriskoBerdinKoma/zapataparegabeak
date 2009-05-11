@@ -1,11 +1,8 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.materialaEskatu;
 
-import gkae.zapataparegabeak.objektuak.Katalogoa;
 import gkae.zapataparegabeak.objektuak.Kudeaketa;
-import gkae.zapataparegabeak.objektuak.SaskiratutakoZapatak;
 import gkae.zapataparegabeak.objektuak.Zapata;
 
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,7 +13,6 @@ import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;

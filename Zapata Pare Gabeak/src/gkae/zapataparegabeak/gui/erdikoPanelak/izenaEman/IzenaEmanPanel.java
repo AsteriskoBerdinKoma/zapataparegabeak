@@ -14,7 +14,6 @@ import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -202,247 +201,100 @@ public class IzenaEmanPanel extends JPanel {
 				.setText("Gorde eta Bidalketa Hobespenak Eman");
 		final GroupLayout groupLayout = new GroupLayout(
 				(JComponent) kautotuPanel);
-		groupLayout
-				.setHorizontalGroup(groupLayout
-						.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addGroup(
-								groupLayout
-										.createSequentialGroup()
-										.addGroup(
-												groupLayout
-														.createParallelGroup(
-																GroupLayout.Alignment.LEADING)
-														.addGroup(
-																groupLayout
-																		.createSequentialGroup()
-																		.addContainerGap()
-																		.addGroup(
-																				groupLayout
-																						.createParallelGroup(
-																								GroupLayout.Alignment.TRAILING)
-																						.addComponent(
-																								separator,
-																								GroupLayout.DEFAULT_SIZE,
-																								476,
-																								Short.MAX_VALUE)
-																						.addGroup(
-																								groupLayout
-																										.createSequentialGroup()
-																										.addGroup(
-																												groupLayout
-																														.createParallelGroup(
-																																GroupLayout.Alignment.LEADING)
-																														.addComponent(
-																																pasahitzaLabel)
-																														.addComponent(
-																																epostaBerretsiLabel)
-																														.addComponent(
-																																pasahitzaBerretsiLabel)
-																														.addComponent(
-																																epostaHelbideaLabel)
-																														.addGroup(
-																																groupLayout
-																																		.createSequentialGroup()
-																																		.addPreferredGap(
-																																				LayoutStyle.ComponentPlacement.RELATED)
-																																		.addComponent(
-																																				erabiltzaileIzenaLabel)))
-																										.addPreferredGap(
-																												LayoutStyle.ComponentPlacement.RELATED)
-																										.addGroup(
-																												groupLayout
-																														.createParallelGroup(
-																																GroupLayout.Alignment.LEADING)
-																														.addComponent(
-																																epostaTextField,
-																																344,
-																																352,
-																																Short.MAX_VALUE)
-																														.addComponent(
-																																pasahitzaPassField,
-																																344,
-																																352,
-																																Short.MAX_VALUE)
-																														.addComponent(
-																																eposta2TextField,
-																																GroupLayout.DEFAULT_SIZE,
-																																352,
-																																Short.MAX_VALUE)
-																														.addGroup(
-																																groupLayout
-																																		.createSequentialGroup()
-																																		.addComponent(
-																																				pasahitza2PassField,
-																																				GroupLayout.DEFAULT_SIZE,
-																																				352,
-																																				Short.MAX_VALUE)
-																																		.addPreferredGap(
-																																				LayoutStyle.ComponentPlacement.RELATED))
-																														.addComponent(
-																																erabIzenaTextField,
-																																GroupLayout.DEFAULT_SIZE,
-																																352,
-																																Short.MAX_VALUE)))))
-														.addGroup(
-																groupLayout
-																		.createSequentialGroup()
-																		.addContainerGap()
-																		.addComponent(
-																				mesedezIdatziItzazuLabel))
-														.addGroup(
-																groupLayout
-																		.createSequentialGroup()
-																		.addContainerGap()
-																		.addComponent(
-																				eraAutomatikoanEginLabel))
-														.addGroup(
-																groupLayout
-																		.createSequentialGroup()
-																		.addGap(
-																				143,
-																				143,
-																				143)
-																		.addGroup(
-																				groupLayout
-																						.createParallelGroup(
-																								GroupLayout.Alignment.TRAILING,
-																								false)
-																						.addComponent(
-																								chaptchaTextField,
-																								GroupLayout.Alignment.LEADING)
-																						.addComponent(
-																								label,
-																								GroupLayout.Alignment.LEADING,
-																								GroupLayout.DEFAULT_SIZE,
-																								GroupLayout.DEFAULT_SIZE,
-																								Short.MAX_VALUE)))
-														.addGroup(
-																groupLayout
-																		.createSequentialGroup()
-																		.addContainerGap()
-																		.addComponent(
-																				izenaEmanKautotzeLabel))
-														.addGroup(
-																groupLayout
-																		.createSequentialGroup()
-																		.addContainerGap()
-																		.addComponent(
-																				oharraBatekinLabel)))
-										.addContainerGap())
-						.addGroup(
-								groupLayout
-										.createSequentialGroup()
-										.addContainerGap(79, Short.MAX_VALUE)
-										.addComponent(bukatuButton)
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(
-												erosketaHobespenakEmanButton)
-										.addGap(93, 93, 93)));
-		groupLayout
-				.setVerticalGroup(groupLayout
-						.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addGroup(
-								groupLayout
-										.createSequentialGroup()
-										.addContainerGap()
-										.addComponent(izenaEmanKautotzeLabel)
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(separator,
-												GroupLayout.PREFERRED_SIZE, 2,
-												GroupLayout.PREFERRED_SIZE)
-										.addGap(16, 16, 16)
-										.addComponent(oharraBatekinLabel)
-										.addGap(18, 18, 18)
-										.addGroup(
-												groupLayout
-														.createParallelGroup(
-																GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																erabiltzaileIzenaLabel)
-														.addComponent(
-																erabIzenaTextField,
-																GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE,
-																GroupLayout.PREFERRED_SIZE))
-										.addGap(10, 10, 10)
-										.addGroup(
-												groupLayout
-														.createParallelGroup(
-																GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																epostaTextField,
-																GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE,
-																GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																epostaHelbideaLabel))
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addGroup(
-												groupLayout
-														.createParallelGroup(
-																GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																epostaBerretsiLabel)
-														.addComponent(
-																eposta2TextField,
-																GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE,
-																GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addGroup(
-												groupLayout
-														.createParallelGroup(
-																GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																pasahitzaLabel)
-														.addComponent(
-																pasahitzaPassField,
-																GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE,
-																GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addGroup(
-												groupLayout
-														.createParallelGroup(
-																GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																pasahitzaBerretsiLabel)
-														.addComponent(
-																pasahitza2PassField,
-																GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE,
-																GroupLayout.PREFERRED_SIZE))
-										.addGap(19, 19, 19)
-										.addComponent(mesedezIdatziItzazuLabel)
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(eraAutomatikoanEginLabel)
-										.addGap(26, 26, 26)
-										.addComponent(label,
-												GroupLayout.PREFERRED_SIZE, 56,
-												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(chaptchaTextField,
-												GroupLayout.PREFERRED_SIZE,
-												GroupLayout.DEFAULT_SIZE,
-												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addGroup(
-												groupLayout
-														.createParallelGroup(
-																GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																bukatuButton)
-														.addComponent(
-																erosketaHobespenakEmanButton))
-										.addContainerGap()));
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+								.addComponent(separator, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+										.addComponent(pasahitzaLabel)
+										.addComponent(epostaBerretsiLabel)
+										.addComponent(pasahitzaBerretsiLabel)
+										.addComponent(epostaHelbideaLabel)
+										.addGroup(groupLayout.createSequentialGroup()
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+											.addComponent(erabiltzaileIzenaLabel)))
+									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+									.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+										.addComponent(epostaTextField, 344, 352, Short.MAX_VALUE)
+										.addComponent(pasahitzaPassField, 344, 352, Short.MAX_VALUE)
+										.addComponent(eposta2TextField, GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+										.addGroup(groupLayout.createSequentialGroup()
+											.addComponent(pasahitza2PassField, GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED))
+										.addComponent(erabIzenaTextField, GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)))))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(mesedezIdatziItzazuLabel))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(eraAutomatikoanEginLabel))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(143, 143, 143)
+							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+								.addComponent(chaptchaTextField, GroupLayout.Alignment.LEADING)
+								.addComponent(label, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(izenaEmanKautotzeLabel))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(oharraBatekinLabel)))
+					.addContainerGap())
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap(79, Short.MAX_VALUE)
+					.addComponent(bukatuButton)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(erosketaHobespenakEmanButton)
+					.addGap(93, 93, 93))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(izenaEmanKautotzeLabel)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(separator, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
+					.addGap(16, 16, 16)
+					.addComponent(oharraBatekinLabel)
+					.addGap(18, 18, 18)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(erabiltzaileIzenaLabel)
+						.addComponent(erabIzenaTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(10, 10, 10)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(epostaTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(epostaHelbideaLabel))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(epostaBerretsiLabel)
+						.addComponent(eposta2TextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(pasahitzaLabel)
+						.addComponent(pasahitzaPassField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(pasahitzaBerretsiLabel)
+						.addComponent(pasahitza2PassField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(19, 19, 19)
+					.addComponent(mesedezIdatziItzazuLabel)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(eraAutomatikoanEginLabel)
+					.addGap(26, 26, 26)
+					.addComponent(label, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(chaptchaTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(bukatuButton)
+						.addComponent(erosketaHobespenakEmanButton))
+					.addContainerGap())
+		);
 		kautotuPanel.setLayout(groupLayout);
 
 		final JPanel bidalketaInfopanel = new JPanel();
@@ -611,337 +463,132 @@ public class IzenaEmanPanel extends JPanel {
 				});
 		final GroupLayout groupLayout_1 = new GroupLayout(
 				(JComponent) txartelInfoPanel);
-		groupLayout_1
-				.setHorizontalGroup(groupLayout_1
-						.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addGroup(
-								groupLayout_1
-										.createSequentialGroup()
-										.addGroup(
-												groupLayout_1
-														.createParallelGroup(
-																GroupLayout.Alignment.LEADING)
-														.addComponent(
-																jabearenIzenabizenakLabel)
-														.addComponent(
-																txartelZenbakiaLabel)
-														.addComponent(
-																iraungitzedataLabel))
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addGroup(
-												groupLayout_1
-														.createParallelGroup(
-																GroupLayout.Alignment.LEADING)
-														.addGroup(
-																groupLayout_1
-																		.createSequentialGroup()
-																		.addComponent(
-																				iraungDatTextField,
-																				GroupLayout.PREFERRED_SIZE,
-																				90,
-																				GroupLayout.PREFERRED_SIZE)
-																		.addPreferredGap(
-																				LayoutStyle.ComponentPlacement.RELATED)
-																		.addComponent(
-																				uuuuhheeLabel))
-														.addComponent(
-																txartelZenbTextField,
-																GroupLayout.DEFAULT_SIZE,
-																206,
-																Short.MAX_VALUE)
-														.addComponent(
-																jabeIzenAbTextField,
-																GroupLayout.DEFAULT_SIZE,
-																206,
-																Short.MAX_VALUE))
-										.addContainerGap()));
-		groupLayout_1
-				.setVerticalGroup(groupLayout_1
-						.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addGroup(
-								groupLayout_1
-										.createSequentialGroup()
-										.addContainerGap()
-										.addGroup(
-												groupLayout_1
-														.createParallelGroup(
-																GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																jabearenIzenabizenakLabel)
-														.addComponent(
-																jabeIzenAbTextField,
-																GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE,
-																GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addGroup(
-												groupLayout_1
-														.createParallelGroup(
-																GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																txartelZenbakiaLabel)
-														.addComponent(
-																txartelZenbTextField,
-																GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE,
-																GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addGroup(
-												groupLayout_1
-														.createParallelGroup(
-																GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																iraungitzedataLabel)
-														.addComponent(
-																iraungDatTextField,
-																GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE,
-																GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																uuuuhheeLabel))
-										.addContainerGap(13, Short.MAX_VALUE)));
+		groupLayout_1.setHorizontalGroup(
+			groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(groupLayout_1.createSequentialGroup()
+					.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(jabearenIzenabizenakLabel)
+						.addComponent(txartelZenbakiaLabel)
+						.addComponent(iraungitzedataLabel))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addGroup(groupLayout_1.createSequentialGroup()
+							.addComponent(iraungDatTextField, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addComponent(uuuuhheeLabel))
+						.addComponent(txartelZenbTextField, GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+						.addComponent(jabeIzenAbTextField, GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
+					.addContainerGap())
+		);
+		groupLayout_1.setVerticalGroup(
+			groupLayout_1.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(groupLayout_1.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(jabearenIzenabizenakLabel)
+						.addComponent(jabeIzenAbTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(txartelZenbakiaLabel)
+						.addComponent(txartelZenbTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(groupLayout_1.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(iraungitzedataLabel)
+						.addComponent(iraungDatTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(uuuuhheeLabel))
+					.addContainerGap(13, Short.MAX_VALUE))
+		);
 		txartelInfoPanel.setLayout(groupLayout_1);
 		final GroupLayout groupLayout_2 = new GroupLayout(
 				(JComponent) bidalketaInfopanel);
-		groupLayout_2
-				.setHorizontalGroup(groupLayout_2
-						.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addGroup(
-								groupLayout_2
-										.createSequentialGroup()
-										.addGroup(
-												groupLayout_2
-														.createParallelGroup(
-																GroupLayout.Alignment.LEADING)
-														.addGroup(
-																groupLayout_2
-																		.createSequentialGroup()
-																		.addContainerGap()
-																		.addGroup(
-																				groupLayout_2
-																						.createParallelGroup(
-																								GroupLayout.Alignment.LEADING)
-																						.addComponent(
-																								hartzHelbTextField,
-																								GroupLayout.DEFAULT_SIZE,
-																								476,
-																								Short.MAX_VALUE)
-																						.addComponent(
-																								separator_2,
-																								GroupLayout.DEFAULT_SIZE,
-																								476,
-																								Short.MAX_VALUE)
-																						.addComponent(
-																								helbideaadibSantaLabel)
-																						.addGroup(
-																								groupLayout_2
-																										.createSequentialGroup()
-																										.addGroup(
-																												groupLayout_2
-																														.createParallelGroup(
-																																GroupLayout.Alignment.LEADING)
-																														.addComponent(
-																																hartzailearenAbizenakLabel)
-																														.addComponent(
-																																hartzailearenIzenaLabel))
-																										.addPreferredGap(
-																												LayoutStyle.ComponentPlacement.RELATED)
-																										.addGroup(
-																												groupLayout_2
-																														.createParallelGroup(
-																																GroupLayout.Alignment.LEADING)
-																														.addComponent(
-																																hartzIzenaTextField,
-																																GroupLayout.DEFAULT_SIZE,
-																																330,
-																																Short.MAX_VALUE)
-																														.addComponent(
-																																hartzAbizTextField,
-																																GroupLayout.DEFAULT_SIZE,
-																																330,
-																																Short.MAX_VALUE)))
-																						.addGroup(
-																								groupLayout_2
-																										.createSequentialGroup()
-																										.addGroup(
-																												groupLayout_2
-																														.createParallelGroup(
-																																GroupLayout.Alignment.LEADING)
-																														.addComponent(
-																																postakutxatilaLabel)
-																														.addComponent(
-																																probintziaLabel))
-																										.addPreferredGap(
-																												LayoutStyle.ComponentPlacement.RELATED)
-																										.addGroup(
-																												groupLayout_2
-																														.createParallelGroup(
-																																GroupLayout.Alignment.LEADING,
-																																false)
-																														.addComponent(
-																																hartzPKTextField)
-																														.addComponent(
-																																probintziakComboBox,
-																																0,
-																																135,
-																																Short.MAX_VALUE))
-																										.addPreferredGap(
-																												LayoutStyle.ComponentPlacement.RELATED,
-																												161,
-																												Short.MAX_VALUE))
-																						.addComponent(
-																								ordainketaMotaLabel)))
-														.addGroup(
-																groupLayout_2
-																		.createSequentialGroup()
-																		.addGap(
-																				47,
-																				47,
-																				47)
-																		.addGroup(
-																				groupLayout_2
-																						.createParallelGroup(
-																								GroupLayout.Alignment.LEADING)
-																						.addComponent(
-																								txartelBidezkoOrdainketaRadioButton)
-																						.addComponent(
-																								jasotzeanOrdaintzekoMetodoaRadioButton)
-																						.addGroup(
-																								groupLayout_2
-																										.createSequentialGroup()
-																										.addGap(
-																												21,
-																												21,
-																												21)
-																										.addGroup(
-																												groupLayout_2
-																														.createParallelGroup(
-																																GroupLayout.Alignment.LEADING)
-																														.addGroup(
-																																groupLayout_2
-																																		.createSequentialGroup()
-																																		.addPreferredGap(
-																																				LayoutStyle.ComponentPlacement.RELATED)
-																																		.addComponent(
-																																				bukatuBidalketaButton)
-																																		.addPreferredGap(
-																																				LayoutStyle.ComponentPlacement.RELATED)
-																																		.addComponent(
-																																				artikulueiBuruzkoHobespenakButton))
-																														.addComponent(
-																																txartelInfoPanel,
-																																GroupLayout.DEFAULT_SIZE,
-																																420,
-																																Short.MAX_VALUE)))))
-														.addGroup(
-																groupLayout_2
-																		.createSequentialGroup()
-																		.addContainerGap()
-																		.addComponent(
-																				izenaEmanBidalketaLabel)))
-										.addContainerGap()));
-		groupLayout_2
-				.setVerticalGroup(groupLayout_2
-						.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addGroup(
-								groupLayout_2
-										.createSequentialGroup()
-										.addContainerGap()
-										.addComponent(izenaEmanBidalketaLabel)
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(separator_2,
-												GroupLayout.PREFERRED_SIZE, 2,
-												GroupLayout.PREFERRED_SIZE)
-										.addGap(15, 15, 15)
-										.addGroup(
-												groupLayout_2
-														.createParallelGroup(
-																GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																hartzailearenIzenaLabel)
-														.addComponent(
-																hartzIzenaTextField,
-																GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE,
-																GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addGroup(
-												groupLayout_2
-														.createParallelGroup(
-																GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																hartzailearenAbizenakLabel)
-														.addComponent(
-																hartzAbizTextField,
-																GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE,
-																GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(helbideaadibSantaLabel)
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(hartzHelbTextField,
-												GroupLayout.PREFERRED_SIZE,
-												GroupLayout.DEFAULT_SIZE,
-												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addGroup(
-												groupLayout_2
-														.createParallelGroup(
-																GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																postakutxatilaLabel)
-														.addComponent(
-																hartzPKTextField,
-																GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE,
-																GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addGroup(
-												groupLayout_2
-														.createParallelGroup(
-																GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																probintziaLabel)
-														.addComponent(
-																probintziakComboBox,
-																GroupLayout.PREFERRED_SIZE,
-																20,
-																GroupLayout.PREFERRED_SIZE))
-										.addGap(25, 25, 25)
-										.addComponent(ordainketaMotaLabel)
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(
-												jasotzeanOrdaintzekoMetodoaRadioButton)
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(
-												txartelBidezkoOrdainketaRadioButton)
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(txartelInfoPanel,
-												GroupLayout.PREFERRED_SIZE,
-												107, GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addGroup(
-												groupLayout_2
-														.createParallelGroup(
-																GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																bukatuBidalketaButton)
-														.addComponent(
-																artikulueiBuruzkoHobespenakButton))
-										.addContainerGap()));
+		groupLayout_2.setHorizontalGroup(
+			groupLayout_2.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(groupLayout_2.createSequentialGroup()
+					.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addGroup(groupLayout_2.createSequentialGroup()
+							.addContainerGap()
+							.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.LEADING)
+								.addComponent(hartzHelbTextField, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+								.addComponent(separator_2, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+								.addComponent(helbideaadibSantaLabel)
+								.addGroup(groupLayout_2.createSequentialGroup()
+									.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.LEADING)
+										.addComponent(hartzailearenAbizenakLabel)
+										.addComponent(hartzailearenIzenaLabel))
+									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+									.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.LEADING)
+										.addComponent(hartzIzenaTextField, GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
+										.addComponent(hartzAbizTextField, GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)))
+								.addGroup(groupLayout_2.createSequentialGroup()
+									.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.LEADING)
+										.addComponent(postakutxatilaLabel)
+										.addComponent(probintziaLabel))
+									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+									.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+										.addComponent(hartzPKTextField)
+										.addComponent(probintziakComboBox, 0, 135, Short.MAX_VALUE))
+									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE))
+								.addComponent(ordainketaMotaLabel)))
+						.addGroup(groupLayout_2.createSequentialGroup()
+							.addGap(47, 47, 47)
+							.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.LEADING)
+								.addComponent(txartelBidezkoOrdainketaRadioButton)
+								.addComponent(jasotzeanOrdaintzekoMetodoaRadioButton)
+								.addGroup(groupLayout_2.createSequentialGroup()
+									.addGap(21, 21, 21)
+									.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.LEADING)
+										.addGroup(groupLayout_2.createSequentialGroup()
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+											.addComponent(bukatuBidalketaButton)
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+											.addComponent(artikulueiBuruzkoHobespenakButton))
+										.addComponent(txartelInfoPanel, GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)))))
+						.addGroup(groupLayout_2.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(izenaEmanBidalketaLabel)))
+					.addContainerGap())
+		);
+		groupLayout_2.setVerticalGroup(
+			groupLayout_2.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(groupLayout_2.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(izenaEmanBidalketaLabel)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(separator_2, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
+					.addGap(15, 15, 15)
+					.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(hartzailearenIzenaLabel)
+						.addComponent(hartzIzenaTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(hartzailearenAbizenakLabel)
+						.addComponent(hartzAbizTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(helbideaadibSantaLabel)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(hartzHelbTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(postakutxatilaLabel)
+						.addComponent(hartzPKTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(probintziaLabel)
+						.addComponent(probintziakComboBox, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
+					.addGap(25, 25, 25)
+					.addComponent(ordainketaMotaLabel)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(jasotzeanOrdaintzekoMetodoaRadioButton)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(txartelBidezkoOrdainketaRadioButton)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(txartelInfoPanel, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(groupLayout_2.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(bukatuBidalketaButton)
+						.addComponent(artikulueiBuruzkoHobespenakButton))
+					.addContainerGap())
+		);
 		bidalketaInfopanel.setLayout(groupLayout_2);
 
 		final JPanel artikuluHobesPanel = new JPanel();
@@ -1034,150 +681,69 @@ public class IzenaEmanPanel extends JPanel {
 		bukatuDenaButton.setText("Gorde");
 		final GroupLayout groupLayout_3 = new GroupLayout(
 				(JComponent) artikuluHobesPanel);
-		groupLayout_3
-				.setHorizontalGroup(groupLayout_3
-						.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addGroup(
-								groupLayout_3
-										.createSequentialGroup()
-										.addGroup(
-												groupLayout_3
-														.createParallelGroup(
-																GroupLayout.Alignment.LEADING)
-														.addGroup(
-																groupLayout_3
-																		.createSequentialGroup()
-																		.addContainerGap()
-																		.addGroup(
-																				groupLayout_3
-																						.createParallelGroup(
-																								GroupLayout.Alignment.LEADING)
-																						.addComponent(
-																								separator_3,
-																								GroupLayout.DEFAULT_SIZE,
-																								476,
-																								Short.MAX_VALUE)
-																						.addComponent(
-																								izenaEmanArtikulueiLabel)
-																						.addComponent(
-																								zureGustuakEzagututaLabel)
-																						.addComponent(
-																								bidaliDiezazukeguEtaLabel)
-																						.addComponent(
-																								agertukoDiraEdonolakoLabel)
-																						.addComponent(
-																								lehenetsitakoGeneroaLabel)
-																						.addGroup(
-																								groupLayout_3
-																										.createSequentialGroup()
-																										.addGap(
-																												12,
-																												12,
-																												12)
-																										.addGroup(
-																												groupLayout_3
-																														.createParallelGroup(
-																																GroupLayout.Alignment.LEADING)
-																														.addComponent(
-																																gizonezkoaRadioButton)
-																														.addComponent(
-																																emakumeaRadioButton)))
-																						.addComponent(
-																								lehenetsitakoOinaLabel)
-																						.addGroup(
-																								groupLayout_3
-																										.createSequentialGroup()
-																										.addGap(
-																												12,
-																												12,
-																												12)
-																										.addGroup(
-																												groupLayout_3
-																														.createParallelGroup(
-																																GroupLayout.Alignment.LEADING)
-																														.addComponent(
-																																ezkerOinaRadioButton)
-																														.addComponent(
-																																eskuinOinaRadioButton)))
-																						.addGroup(
-																								groupLayout_3
-																										.createSequentialGroup()
-																										.addComponent(
-																												lehenetsitakoNeurriaLabel)
-																										.addPreferredGap(
-																												LayoutStyle.ComponentPlacement.RELATED)
-																										.addComponent(
-																												oinNeurriaTextField,
-																												GroupLayout.PREFERRED_SIZE,
-																												90,
-																												GroupLayout.PREFERRED_SIZE))))
-														.addGroup(
-																groupLayout_3
-																		.createSequentialGroup()
-																		.addGap(
-																				192,
-																				192,
-																				192)
-																		.addComponent(
-																				bukatuDenaButton)))
-										.addContainerGap()));
-		groupLayout_3
-				.setVerticalGroup(groupLayout_3
-						.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addGroup(
-								groupLayout_3
-										.createSequentialGroup()
-										.addContainerGap()
-										.addComponent(izenaEmanArtikulueiLabel)
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(separator_3,
-												GroupLayout.PREFERRED_SIZE, 2,
-												GroupLayout.PREFERRED_SIZE)
-										.addGap(20, 20, 20)
-										.addComponent(zureGustuakEzagututaLabel)
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(bidaliDiezazukeguEtaLabel)
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(
-												agertukoDiraEdonolakoLabel)
-										.addGap(15, 15, 15)
-										.addComponent(lehenetsitakoGeneroaLabel)
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(emakumeaRadioButton)
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(gizonezkoaRadioButton)
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(lehenetsitakoOinaLabel)
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(eskuinOinaRadioButton)
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(ezkerOinaRadioButton)
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addGroup(
-												groupLayout_3
-														.createParallelGroup(
-																GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																lehenetsitakoNeurriaLabel)
-														.addComponent(
-																oinNeurriaTextField,
-																GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE,
-																GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED,
-												42, Short.MAX_VALUE)
-										.addComponent(bukatuDenaButton)
-										.addContainerGap()));
+		groupLayout_3.setHorizontalGroup(
+			groupLayout_3.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(groupLayout_3.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(groupLayout_3.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(separator_3, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+						.addComponent(izenaEmanArtikulueiLabel)
+						.addComponent(zureGustuakEzagututaLabel)
+						.addComponent(bidaliDiezazukeguEtaLabel)
+						.addComponent(agertukoDiraEdonolakoLabel)
+						.addComponent(lehenetsitakoGeneroaLabel)
+						.addGroup(groupLayout_3.createSequentialGroup()
+							.addGap(12, 12, 12)
+							.addGroup(groupLayout_3.createParallelGroup(GroupLayout.Alignment.LEADING)
+								.addComponent(gizonezkoaRadioButton)
+								.addComponent(emakumeaRadioButton)))
+						.addComponent(lehenetsitakoOinaLabel)
+						.addGroup(groupLayout_3.createSequentialGroup()
+							.addGap(12, 12, 12)
+							.addGroup(groupLayout_3.createParallelGroup(GroupLayout.Alignment.LEADING)
+								.addComponent(ezkerOinaRadioButton)
+								.addComponent(eskuinOinaRadioButton)))
+						.addGroup(groupLayout_3.createParallelGroup(GroupLayout.Alignment.TRAILING)
+							.addComponent(bukatuDenaButton)
+							.addGroup(groupLayout_3.createSequentialGroup()
+								.addComponent(lehenetsitakoNeurriaLabel)
+								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+								.addComponent(oinNeurriaTextField, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE))))
+					.addContainerGap())
+		);
+		groupLayout_3.setVerticalGroup(
+			groupLayout_3.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(groupLayout_3.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(izenaEmanArtikulueiLabel)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(separator_3, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
+					.addGap(20, 20, 20)
+					.addComponent(zureGustuakEzagututaLabel)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(bidaliDiezazukeguEtaLabel)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(agertukoDiraEdonolakoLabel)
+					.addGap(15, 15, 15)
+					.addComponent(lehenetsitakoGeneroaLabel)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(emakumeaRadioButton)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(gizonezkoaRadioButton)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(lehenetsitakoOinaLabel)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(eskuinOinaRadioButton)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(ezkerOinaRadioButton)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(groupLayout_3.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(lehenetsitakoNeurriaLabel)
+						.addComponent(oinNeurriaTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(bukatuDenaButton)
+					.addContainerGap(48, Short.MAX_VALUE))
+		);
 		artikuluHobesPanel.setLayout(groupLayout_3);
 		//
 		CardLayout cl = (CardLayout) (this.getLayout());
@@ -1214,13 +780,13 @@ public class IzenaEmanPanel extends JPanel {
 		changeCard("KautotzeDatuak");
 	}
 
-	public static void main(String[] args) {
-		JFrame j = new JFrame("Frogak");
-		IzenaEmanPanel o = new IzenaEmanPanel(new NagusiaPanel());
-		j.add(o);
-		j.setSize(o.getSize());
-		j.setVisible(true);
-		j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
+//	public static void main(String[] args) {
+//		JFrame j = new JFrame("Frogak");
+//		IzenaEmanPanel o = new IzenaEmanPanel(new NagusiaPanel());
+//		j.add(o);
+//		j.setSize(o.getSize());
+//		j.setVisible(true);
+//		j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//	}
 
 }

@@ -1,50 +1,30 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.materialaEskatu;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
-import javax.swing.JOptionPane;
-
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.LayoutStyle;
+
 import com.swtdesigner.SwingResourceManager;
-import gkae.zapataparegabeak.gui.erdikoPanelak.materialaEskatu.MaterialBerriaPanela;
 
 public class MaterialBerri extends JDialog {
 
 	/**
-	 * Launch the application
-	 * @param args
+	 * 
 	 */
-	public static void main(String args[]) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MaterialBerri dialog = new MaterialBerri();
-					dialog.addWindowListener(new WindowAdapter() {
-						public void windowClosing(WindowEvent e) {
-							System.exit(0);
-						}
-					});
-					dialog.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Create the dialog
 	 */
 	public MaterialBerri() {
 		super();
+		setTitle("Material berria sortu");
 
 		MaterialBerriaPanela materialBerriaPanela;
 		materialBerriaPanela = new MaterialBerriaPanela();

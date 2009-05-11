@@ -10,10 +10,17 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.LayoutStyle;
+import javax.swing.SwingConstants;
+import com.swtdesigner.SwingResourceManager;
 
 
 
 public class DatuKonprobaketa extends JPanel {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	private BezeroenEskaerakPanel owner;
 
@@ -29,11 +36,13 @@ public class DatuKonprobaketa extends JPanel {
 
 		JLabel onargarriakDiraLabel;
 		onargarriakDiraLabel = new JLabel();
+		onargarriakDiraLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		onargarriakDiraLabel.setFont(new Font("", Font.BOLD, 26));
 		onargarriakDiraLabel.setText("Onargarriak dira   /    Ez dira Onargarriak");
 
 		JButton onartuButton;
 		onartuButton = new JButton();
+		onartuButton.setIcon(SwingResourceManager.getIcon(DatuKonprobaketa.class, "/gkae/zapataparegabeak/resources/ikonoak/accept_item24.png"));
 		onartuButton.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				owner.changeCard("emailbidalizaio");
@@ -43,6 +52,7 @@ public class DatuKonprobaketa extends JPanel {
 
 		JButton kantzelatuButton;
 		kantzelatuButton = new JButton();
+		kantzelatuButton.setIcon(SwingResourceManager.getIcon(DatuKonprobaketa.class, "/gkae/zapataparegabeak/resources/ikonoak/delete_item24.png"));
 		kantzelatuButton.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				owner.changeCard("emailbidalizaioKantzelatuta");
@@ -52,6 +62,7 @@ public class DatuKonprobaketa extends JPanel {
 
 		JButton itzuliButton;
 		itzuliButton = new JButton();
+		itzuliButton.setIcon(SwingResourceManager.getIcon(DatuKonprobaketa.class, "/gkae/zapataparegabeak/resources/ikonoak/left_arrow24.png"));
 		itzuliButton.addActionListener(new ActionListener() {
 			public void actionPerformed(final ActionEvent e) {
 				owner.changeCard("bezeroekEgindakoEskaerenLista");
@@ -75,30 +86,20 @@ public class DatuKonprobaketa extends JPanel {
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(79, 79, 79)
-							.addComponent(onartuButton)
-							.addGap(57, 57, 57)
+						.addComponent(eskaerenProzesamenduaLabel)
+						.addComponent(bezeroarenKontuZbLabel)
+						.addComponent(datuakLabel)
+						.addComponent(separator, GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
+						.addComponent(onargarriakDiraLabel, GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
+						.addGroup(GroupLayout.Alignment.TRAILING, groupLayout.createSequentialGroup()
+							.addComponent(itzuliButton)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(kantzelatuButton)
-							.addGap(58, 58, 58)
-							.addComponent(itzuliButton))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(datuakLabel))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(onargarriakDiraLabel, GroupLayout.PREFERRED_SIZE, 508, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(eskaerenProzesamenduaLabel))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(separator, GroupLayout.PREFERRED_SIZE, 490, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(bezeroarenKontuZbLabel)))
-					.addContainerGap(15, Short.MAX_VALUE))
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addComponent(onartuButton)))
+					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -109,16 +110,16 @@ public class DatuKonprobaketa extends JPanel {
 					.addComponent(separator, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
 					.addGap(11, 11, 11)
 					.addComponent(bezeroarenKontuZbLabel)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(datuakLabel, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(onargarriakDiraLabel, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
-					.addGap(73, 73, 73)
+					.addGap(24, 24, 24)
+					.addComponent(datuakLabel)
+					.addGap(26, 26, 26)
+					.addComponent(onargarriakDiraLabel, GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+					.addGap(136, 136, 136)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(onartuButton)
 						.addComponent(kantzelatuButton)
-						.addComponent(itzuliButton)
-						.addComponent(onartuButton))
-					.addContainerGap(55, Short.MAX_VALUE))
+						.addComponent(itzuliButton))
+					.addContainerGap())
 		);
 		setLayout(groupLayout);
 		//

@@ -1,11 +1,15 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.produktuakKudeatu;
 
 import java.awt.CardLayout;
+
 import javax.swing.JPanel;
-import gkae.zapataparegabeak.gui.erdikoPanelak.produktuakKudeatu.ProduktuakKudeatu;
-import gkae.zapataparegabeak.gui.erdikoPanelak.produktuakKudeatu.ProduktuDatuak;
 
 public class ProduktuakKudeatuPanel extends JPanel {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Create the panel

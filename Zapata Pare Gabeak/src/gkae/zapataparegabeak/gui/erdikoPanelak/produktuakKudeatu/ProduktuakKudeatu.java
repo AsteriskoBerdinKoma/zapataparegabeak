@@ -1,25 +1,15 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.produktuakKudeatu;
 
-import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroarekinHarremanetanJarri.BezeroakKudeatuPanel;
-import gkae.zapataparegabeak.objektuak.Katalogoa;
 import gkae.zapataparegabeak.objektuak.Kudeaketa;
-import gkae.zapataparegabeak.objektuak.SaskiratutakoZapatak;
 import gkae.zapataparegabeak.objektuak.Zapata;
 
-import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Vector;
 
 import javax.swing.BoxLayout;
 import javax.swing.GroupLayout;
-import javax.swing.JButton;
 import javax.swing.JComponent;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
@@ -37,14 +27,14 @@ public class ProduktuakKudeatu extends JPanel {
 	
 	private final JPanel artikuluZerrenda;
 	private final Vector<ProduktuaItemPanela> CBPanela;
-	private ProduktuakKudeatuPanel jabea;
+	//private ProduktuakKudeatuPanel jabea;
 
 	/**
 	 * Create the panel
 	 */
 	public ProduktuakKudeatu(ProduktuakKudeatuPanel jabea) {
 		super();
-		this.jabea = jabea;
+		//this.jabea = jabea;
 		CBPanela = new Vector<ProduktuaItemPanela>();
 		JSeparator separator;
 		separator = new JSeparator();

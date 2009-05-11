@@ -2,6 +2,8 @@ Programa exekutatzeko honakoak behar dira:
 	- Javako makina birtualaren (JRE - Java Runtime Environment) azken bertsiona insatalatuta eduki behar duzu. Hau ondorengo orrian eskuratu dezakezu:
 			http://www.java.com
 	
+	- Programa hau Java instalatuta daukan edozein sistema eragiletan dabil, baina Windowsen funtzionamendu egokiagoa duela frogatu da.
+	
 	Gainera programa zuzenean nabigatzailean exekutatzeko honakoak behar dira:
 		- Erabiltzen ari zaren nabigatzailerako Javako plugina. Hau ondorengo orrian eskuratu dezakezu:
 				http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=es&host=www.java.com:80

@@ -1,16 +1,15 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.bezeroarekinHarremanetanJarri;
 
 import java.awt.CardLayout;
-import javax.swing.JLabel;
-import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroarekinHarremanetanJarri.BezeroenListaPanela;
-import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroarekinHarremanetanJarri.EmailIdatzi;
-import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroarekinHarremanetanJarri.ItxarotePanela;
-import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroarekinHarremanetanJarri.MezuBidaliaPanel;
-
 
 import javax.swing.JPanel;
 
 public class BezeroakKudeatuPanel extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	final EmailIdatzi emailIdatzi;
 	/**
 	 * Create the panel

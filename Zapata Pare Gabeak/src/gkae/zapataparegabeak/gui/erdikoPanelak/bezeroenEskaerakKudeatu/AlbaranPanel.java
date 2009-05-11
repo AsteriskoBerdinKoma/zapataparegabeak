@@ -15,7 +15,6 @@ import java.util.Vector;
 import javax.swing.GroupLayout;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
-import javax.swing.LayoutStyle;
 import javax.swing.border.TitledBorder;
 
 import net.sf.jasperreports.engine.JRException;
@@ -52,7 +51,7 @@ public class AlbaranPanel extends JPanel {
 			
 			Map pars = new HashMap();
 			pars.put("LOGO_URL", AlbaranPanel.class
-					.getResource("/gkae/zapataparegabeak/resources/banner.jpg"));
+					.getResource("/gkae/zapataparegabeak/resources/bannerv2.png"));
 			pars.put("DENDA_DATUAK", "Zapata Pare Gabeak S.A.");
 			pars.put("EROSLE_DATUAK", "Eroslearen datuak");
 			pars.put("FAKTURA_ZENB", "0001");

@@ -29,7 +29,7 @@ public class ErabiltzailearenDatuakAldatuPanela extends JPanel {
 	private AldaketakGorde ag;
 	
 	//Gurasoaren erreferentzia pantailaz aldatzeko
-	private NagusiaPanel jabea;
+	//private NagusiaPanel jabea;
 	
 	/**
 	 * Create the panel
@@ -37,7 +37,7 @@ public class ErabiltzailearenDatuakAldatuPanela extends JPanel {
 	 */
 	public ErabiltzailearenDatuakAldatuPanela(NagusiaPanel nagusiaPanel) {
 		super();
-		this.jabea = nagusiaPanel;
+		//this.jabea = nagusiaPanel;
 
 		ag = new AldaketakGorde();
 		

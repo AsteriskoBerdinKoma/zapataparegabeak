@@ -1,25 +1,27 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.produktuakKudeatu;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import gkae.zapataparegabeak.objektuak.Zapata;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
-import javax.swing.JOptionPane;
-
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.LayoutStyle;
+
 import com.swtdesigner.SwingResourceManager;
-import gkae.zapataparegabeak.gui.erdikoPanelak.produktuakKudeatu.ProduktuDatuak;
-import gkae.zapataparegabeak.objektuak.Zapata;
 
 public class ProduktuDatuakDialog extends JDialog {
 
 	
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Create the dialog
@@ -62,22 +64,21 @@ public class ProduktuDatuakDialog extends JDialog {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(produktuDatuak, GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
-							.addContainerGap())
+						.addComponent(produktuDatuak, GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
 						.addGroup(GroupLayout.Alignment.TRAILING, groupLayout.createSequentialGroup()
 							.addComponent(atzeraButton)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-							.addComponent(onartuButton)
-							.addGap(32, 32, 32))))
+							.addComponent(onartuButton, GroupLayout.PREFERRED_SIZE, 101, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addComponent(produktuDatuak, GroupLayout.PREFERRED_SIZE, 350, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap()
+					.addComponent(produktuDatuak, GroupLayout.PREFERRED_SIZE, 338, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-						.addComponent(atzeraButton)
+						.addComponent(atzeraButton, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 						.addComponent(onartuButton))
 					.addContainerGap())
 		);

@@ -1,10 +1,9 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.bezeroarekinHarremanetanJarri;
 
-import java.awt.CardLayout;
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -12,14 +11,22 @@ import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.LayoutStyle;
+import javax.swing.UIManager;
+
 import com.swtdesigner.SwingResourceManager;
 
 public class EmailIdatzi extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private JTextArea oharraBatekinTextArea;
 	private JComboBox comboBox_1;
 	private JTextField textField;
@@ -33,9 +40,6 @@ public class EmailIdatzi extends JPanel {
 	public EmailIdatzi(BezeroakKudeatuPanel jabea) {
 		super();
 		this.jabea = jabea;
-		JLabel emailLabel;
-		emailLabel = new JLabel();
-		emailLabel.setText("E-mail");
 
 		JLabel norentzatLabel;
 		norentzatLabel = new JLabel();
@@ -73,7 +77,7 @@ public class EmailIdatzi extends JPanel {
 		oharraBatekinTextArea.setLineWrap(true);
 		oharraBatekinTextArea.setFont(new Font("Dialog", Font.ITALIC, 12));
 		oharraBatekinTextArea.setEditable(false);
-		oharraBatekinTextArea.setBackground(new Color(238, 238, 238));
+		oharraBatekinTextArea.setBackground(UIManager.getColor("Button.background"));
 
 		JButton garbituButton;
 		garbituButton = new JButton();
@@ -95,45 +99,63 @@ public class EmailIdatzi extends JPanel {
 		});
 		atzeraButton.setIcon(SwingResourceManager.getIcon(EmailIdatzi.class, "/gkae/zapataparegabeak/resources/ikonoak/left_arrow24.png"));
 		atzeraButton.setText("Atzera");
+
+		JSeparator separator;
+		separator = new JSeparator();
+
+		JLabel bezeroekinHarremanetanJarriLabel;
+		bezeroekinHarremanetanJarriLabel = new JLabel();
+		bezeroekinHarremanetanJarriLabel.setFont(new Font("Dialog", Font.PLAIN, 18));
+		bezeroekinHarremanetanJarriLabel.setText("Bezeroarekin Harremanetan Jarri");
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap(230, Short.MAX_VALUE)
+					.addComponent(atzeraButton)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(garbituButton, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(bidaliButton, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE)
+					.addGap(12, 12, 12))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(12, 12, 12)
+					.addComponent(oharraBatekinTextArea, GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(12, 12, 12)
+					.addComponent(separator, GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
+					.addContainerGap(13, Short.MAX_VALUE))
+				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addComponent(testua, GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(atzeraButton)
-							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-							.addComponent(garbituButton, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-							.addComponent(bidaliButton, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE))
-						.addGroup(GroupLayout.Alignment.LEADING, groupLayout.createSequentialGroup()
-							.addGap(38, 38, 38)
-							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-								.addComponent(gaiaLabel, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
-								.addComponent(norentzatLabel))
-							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-								.addComponent(textField, GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
-								.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, 167, GroupLayout.PREFERRED_SIZE))
-							.addGap(87, 87, 87))
-						.addGroup(GroupLayout.Alignment.LEADING, groupLayout.createSequentialGroup()
-							.addGap(11, 11, 11)
-							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-								.addComponent(emailLabel)
-								.addComponent(oharraBatekinTextArea, GroupLayout.PREFERRED_SIZE, 476, GroupLayout.PREFERRED_SIZE)
-								.addComponent(mezuaLabel))))
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+						.addComponent(mezuaLabel, GroupLayout.Alignment.LEADING)
+						.addComponent(norentzatLabel, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE)
+						.addComponent(gaiaLabel, GroupLayout.Alignment.LEADING))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(textField, GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
+						.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap())
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(testua, GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
+					.addContainerGap())
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(bezeroekinHarremanetanJarriLabel)
+					.addContainerGap(285, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(emailLabel)
+					.addComponent(bezeroekinHarremanetanJarriLabel, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(separator, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(oharraBatekinTextArea, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
-					.addGap(18, 18, 18)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(norentzatLabel)
 						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
@@ -141,16 +163,16 @@ public class EmailIdatzi extends JPanel {
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(gaiaLabel))
-					.addGap(10, 10, 10)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(mezuaLabel)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(testua, GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+					.addComponent(testua, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
 						.addComponent(garbituButton, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
 						.addComponent(bidaliButton)
 						.addComponent(atzeraButton))
-					.addGap(4, 4, 4))
+					.addContainerGap())
 		);
 		setLayout(groupLayout);
 		//

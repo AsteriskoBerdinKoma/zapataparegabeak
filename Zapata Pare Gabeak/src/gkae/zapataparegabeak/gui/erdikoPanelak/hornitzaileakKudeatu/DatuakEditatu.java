@@ -1,24 +1,25 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.hornitzaileakKudeatu;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import gkae.zapataparegabeak.objektuak.Hornitzailea;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
-
 import javax.swing.JDialog;
 import javax.swing.LayoutStyle;
 import javax.swing.SwingConstants;
+
 import com.swtdesigner.SwingResourceManager;
-import gkae.zapataparegabeak.gui.erdikoPanelak.hornitzaileakKudeatu.HornitzaileDatuakPanela;
-import gkae.zapataparegabeak.objektuak.HornitzaileZerrenda;
-import gkae.zapataparegabeak.objektuak.Hornitzailea;
 
 public class DatuakEditatu extends JDialog {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private HornitzaileDatuakPanela hornitzaileDatuakPanela;
 	private Hornitzailea h;
 
@@ -27,6 +28,7 @@ public class DatuakEditatu extends JDialog {
 	 */
 	public DatuakEditatu() {
 		super();
+		setTitle("Hornitzailearen datuak editatu");
 
 		hornitzaileDatuakPanela = new HornitzaileDatuakPanela();
 
