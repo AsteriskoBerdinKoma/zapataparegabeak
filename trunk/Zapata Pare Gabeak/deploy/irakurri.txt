@@ -134,7 +134,7 @@ PROGRAMA JAURTITZEKO ETA ERABILTZEKO ARGIBIDEAK
 		1. Fitxategia zure mahaigainan jaitsi duzula suposatuz, ireki ezazu Inicio -> Ejecutar...
 		2. Berton, idatzi cmd eta sakatu enter.
 		3. Joan C:/Documents & Settings/ZureErab/Escritorio karpetaraino
-		4. Fitxategia ireki java -jar Zapataparegabeak.jar idatzi eta enter sakatuaz.
+		4. Fitxategia ireki java -Xmx128m -jar ZapataPareGabeak.jar idatzi eta enter sakatuaz.
 
 
 	Erabiltzeko argibideak
