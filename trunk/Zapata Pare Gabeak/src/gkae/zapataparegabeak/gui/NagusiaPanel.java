@@ -1,5 +1,8 @@
 package gkae.zapataparegabeak.gui;
 
+import gkae.zapataparegabeak.gui.erdikoPanelak.KudeaketaOngiEtorriPanela;
+import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroarekinHarremanetanJarri.BezeroakKudeatuPanel;
+import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu.BezeroenEskaerakPanel;
 import gkae.zapataparegabeak.gui.erdikoPanelak.dendariarekinHarremanetanJarri.HarremanetanJarriPanela;
 import gkae.zapataparegabeak.gui.erdikoPanelak.erabiltzailearenDatuakAldatu.ErabiltzailearenDatuakAldatuPanela;
 import gkae.zapataparegabeak.gui.erdikoPanelak.erosi.ErosiPanel;
@@ -11,11 +14,15 @@ import gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa.BilaketaEmaitzak;
 import gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa.KatalogoaPanela;
 import gkae.zapataparegabeak.gui.erdikoPanelak.katalogoa.MenuEmaitzaPanela;
 import gkae.zapataparegabeak.gui.erdikoPanelak.materialaEskatu.MaterialaEskatuPanela;
+import gkae.zapataparegabeak.gui.erdikoPanelak.produktuakKudeatu.ProduktuakKudeatuPanel;
+import gkae.zapataparegabeak.gui.erdikoPanelak.salmentenEstadistikak.SalmentenEstadistikakPanela;
 import gkae.zapataparegabeak.gui.menuPanelak.AbisuakMenuPanela;
 import gkae.zapataparegabeak.gui.menuPanelak.BezeroEskuinMenuPanela;
 import gkae.zapataparegabeak.gui.menuPanelak.KudeaketaMenuPanela;
 import gkae.zapataparegabeak.gui.menuPanelak.LoginPanela;
 import gkae.zapataparegabeak.gui.menuPanelak.MenuPanel;
+import gkae.zapataparegabeak.objektuak.ErabiltzaileInfo;
+import gkae.zapataparegabeak.objektuak.Kudeaketa;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -34,11 +41,6 @@ import javax.swing.LayoutStyle;
 import javax.swing.SwingConstants;
 
 import com.swtdesigner.SwingResourceManager;
-import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroarekinHarremanetanJarri.BezeroakKudeatuPanel;
-import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu.BezeroenEskaerakPanel;
-import gkae.zapataparegabeak.gui.erdikoPanelak.produktuakKudeatu.ProduktuakKudeatuPanel;
-import gkae.zapataparegabeak.gui.erdikoPanelak.KudeaketaOngiEtorriPanela;
-import gkae.zapataparegabeak.gui.erdikoPanelak.salmentenEstadistikak.SalmentenEstadistikakPanela;
 
 public class NagusiaPanel extends JPanel {
 	private JTextField bilatuTextField;
@@ -367,6 +369,9 @@ public class NagusiaPanel extends JPanel {
 	}
 	
 	public void ikusiBilaketaEmaitzakPanela(){
+		for(ErabiltzaileInfo e: Kudeaketa.getInstance().getErabiltzaileak())
+			if(e.isKautotutaDago() && e.isAdmin())
+				return;
 		rightMenuPanel.setVisible(true);
 		CardLayout cl = (CardLayout)(centralPanel.getLayout());
         cl.show(centralPanel, "bilaketaEmaitzak");
