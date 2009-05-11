@@ -4,9 +4,103 @@ Programa exekutatzeko honakoak behar dira:
 	
 	- Programa hau Java instalatuta daukan edozein sistema eragiletan dabil, baina Windowsen funtzionamendu egokiagoa duela frogatu da.
 	
-	Gainera programa zuzenean nabigatzailean exekutatzeko honakoak behar dira:
-		- Erabiltzen ari zaren nabigatzailerako Javako plugina. Hau ondorengo orrian eskuratu dezakezu:
-				http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=es&host=www.java.com:80
+Gainera programa zuzenean nabigatzailean exekutatzeko honakoak behar dira:
+	- Erabiltzen ari zaren nabigatzailerako Javako plugina. Hau ondorengo orrian eskuratu dezakezu:
+			http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=es&host=www.java.com:80
+			
+JRE Makina Birtuala erabiltzeko gutxieneko konfigurazioa
+---------------------------------------------------------
+
+	- Solaris sistemarako gutxienekoak
+
+		|Plataforma						|Bertsioa 		|Memoria 	|Arakatzailea 		|Disko espazioa				|
+		-------------------------------------------------------------------------------------------------------------
+		|Solaris SPARC 32-bit and 64-bit|
+		-------------------------------------------------------------------------------------------------------------
+		|SPARC 32-bit 					|Solaris 10 	|64mb 		|Mozilla 1.4+, 1.7+ |32-bit Install 65 MB 
+																						 64-bit Install 29 MB
+										|Solaris 9 		|64mb		|
+										|Solaris 8 		|64mb		|
+		|SPARC 64-bit 					|Solaris 10 	|64mb 		|Mozilla 1.4+, 1.7+ |64-bit Install (no Java 
+																						 Plug-in, Java WebStart 
+																						 support) 53 MB
+										|Solaris 9 		|64mb
+										|Solaris 8 		|64mb														
+		-------------------------------------------------------------------------------------------------------------
+		|Solaris x86 32 bit and 64 bit
+		-------------------------------------------------------------------------------------------------------------
+		|Solaris x86 32-bit 			|Solaris 10 	|64mb 		|Mozilla 1.4+, 1.7+ |32-bit Instal 53 MB
+										|Solaris 9 		|64mb
+										|Solaris 8 		|64mb
+		|Solaris x86 64-bit 			|Solaris 10		|64mb		|Mozilla 1.4+, 1.7+ |64-bit Install (no Java 
+																						 Plug-in, Java WebStart
+																						 support) 53 MB
+
+
+	- Windows sistemarako gutxienekoak
+
+		|Plataforma						|Bertsioa 		|Memoria 	|Arakatzailea 		|Disko espazioa				|
+		-------------------------------------------------------------------------------------------------------------
+		|WINDOWS IA32-bit
+		-------------------------------------------------------------------------------------------------------------
+		|Intel 32-bit 					|Windows XP 	|64mb		|Mozilla 1.4+, 1.7+ |98MB
+										 Pro (SP1) 		 			 IE 6.0 SP1+ or 7.0
+										 							 Firefox 1.06+ 	
+										|Windows XP 	|64mb
+										 Home 			
+										|Windows 2000 	|64mb
+										 Pro(SP3+) 	
+										|Windows Server |128mb
+										 2003, Web 
+										 Edition 	
+										|Windows Server |128mb
+										 2003, Standard 
+										 Edition
+										|Windows Vista 	|128mb
+		-------------------------------------------------------------------------------------------------------------
+		WINDOWS 64-bit
+		-------------------------------------------------------------------------------------------------------------
+		|Windows 64-bit 				|Windows XP 	|128mb 		|64bit OS, 32bit 	|110MB
+																	 JRE: IE 6.0 SP1+ 
+																	 or 7.0,
+																	 Mozilla 1.4.X or 
+																	 1.7+, Netscape 7.X, 
+																	 Firefox 1.06+
+																	 64bit OS, 64bit 
+																	 JRE: N/A 	
+										|Windows Server |128mb							|110mb
+										 2003 	 
+										|Windows Vista 	|128mb 							|110mb
+
+
+	- Linux sistemarako gutxienekoak
+
+		|Plataforma				|Bertsioa 							|Memoria 	|Arakatzailea 		|Disko espazioa	|
+		-------------------------------------------------------------------------------------------------------------
+		|LINUX 32-bit
+		-------------------------------------------------------------------------------------------------------------
+		|Intel IA32 			|Red Hat 9.0 						|64mb 		|Mozilla 1.4+ 		|58 MB
+								|Red Hat 2.1, Red Hat Enterprise	|64mb
+								 Linux 3.0, 4.0 	
+								|Suse Enterprise Linux Server 8, 	|64mb
+								 Suse Enterprise Linux Server 9, 
+								 Suse Enterprise Linux Server 10, 
+								 Suse Enterprise Linux Desktop 	
+								|Turbo Linux 10 (ONLY Chinese and 	|64mb
+								 Japanese Locale. No english.) 	
+		-------------------------------------------------------------------------------------------------------------
+		LINUX 64-bit
+		-------------------------------------------------------------------------------------------------------------
+		|Linux 64-bit 			|Suse Enterprise Linux Server 8, 	|64mb		|64bit OS, 32bit 	|56 MB														
+		 						 Suse Enterprise Linux Server 9, 				 JRE:
+		 						 Suse Enterprise Linux Server 10, 				 Mozilla 1.4.x or
+		 						 Suse Enterprise Linux Desktop 	 	  			 1.7+, Firefox 1.06+
+								|Red Hat Enterprise Linux 3.0, 4.0				 64bit OS, 64bit 
+																				 JRE: N/A
+
+
+	OHARRA: Goian zerrendatutako arakatzaileak Java Web Start eta Java Plug-inekin bateragarriak dira.			
+
 
 Bezero bezala kautotzeko
 -------------------------
