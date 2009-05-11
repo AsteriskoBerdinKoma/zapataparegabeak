@@ -2,21 +2,19 @@ package gkae.zapataparegabeak.gui.erdikoPanelak.hornitzaileakKudeatu;
 
 import gkae.zapataparegabeak.objektuak.Hornitzailea;
 
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
-import javax.swing.GroupLayout;
-import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.LayoutStyle;
 import javax.swing.SpringLayout;
-import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
 public class HornitzaileDatuakPanela extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private SpringLayout springLayout;
 	private JTextField HePosta;
 	private JTextField HTelefonoa;

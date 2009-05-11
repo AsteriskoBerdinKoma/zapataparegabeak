@@ -15,6 +15,11 @@ import com.swtdesigner.SwingResourceManager;
 
 public class AlbaranaSortuDa extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private BezeroenEskaerakPanel owner;
 	/**
 	 * Create the panel
@@ -48,18 +53,19 @@ public class AlbaranaSortuDa extends JPanel {
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
+						.addGroup(GroupLayout.Alignment.TRAILING, groupLayout.createSequentialGroup()
 							.addContainerGap()
-							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(albaranPanel, GroupLayout.PREFERRED_SIZE, 467, GroupLayout.PREFERRED_SIZE)
-									.addGap(39, 39, 39)
-									.addComponent(separator, GroupLayout.PREFERRED_SIZE, 462, GroupLayout.PREFERRED_SIZE))
-								.addComponent(eskaerarenAlbaranaSortuLabel)))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(186, 186, 186)
-							.addComponent(onartuButton)))
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+							.addComponent(onartuButton))
+						.addGroup(GroupLayout.Alignment.TRAILING, groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+							.addGroup(groupLayout.createSequentialGroup()
+								.addContainerGap()
+								.addComponent(separator, GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE))
+							.addGroup(groupLayout.createSequentialGroup()
+								.addContainerGap()
+								.addComponent(eskaerarenAlbaranaSortuLabel)
+								.addGap(348, 348, 348)))
+						.addComponent(albaranPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -67,10 +73,10 @@ public class AlbaranaSortuDa extends JPanel {
 					.addContainerGap()
 					.addComponent(eskaerarenAlbaranaSortuLabel)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addComponent(separator, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
-						.addComponent(albaranPanel, GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE))
-					.addGap(14, 14, 14)
+					.addComponent(separator, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(albaranPanel, GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 					.addComponent(onartuButton)
 					.addContainerGap())
 		);

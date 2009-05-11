@@ -3,18 +3,24 @@ package gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
+import javax.swing.SwingConstants;
+
 import com.swtdesigner.SwingResourceManager;
 
 public class EmailbidalizaioKantzelatuta extends JPanel {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	private BezeroenEskaerakPanel owner;
 	/**
@@ -33,11 +39,15 @@ public class EmailbidalizaioKantzelatuta extends JPanel {
 
 		JLabel bezeroariEmailBatLabel;
 		bezeroariEmailBatLabel = new JLabel();
+		bezeroariEmailBatLabel.setVerticalAlignment(SwingConstants.BOTTOM);
+		bezeroariEmailBatLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		bezeroariEmailBatLabel.setFont(new Font("", Font.PLAIN, 24));
 		bezeroariEmailBatLabel.setText("Bezeroari email bat bidali zaio");
 
 		JLabel bezeroariEmailBatLabel_1;
 		bezeroariEmailBatLabel_1 = new JLabel();
+		bezeroariEmailBatLabel_1.setVerticalAlignment(SwingConstants.TOP);
+		bezeroariEmailBatLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		bezeroariEmailBatLabel_1.setFont(new Font("Dialog", Font.PLAIN, 24));
 		bezeroariEmailBatLabel_1.setText("egindako eskaera kantzelatuz");
 
@@ -59,17 +69,18 @@ public class EmailbidalizaioKantzelatuta extends JPanel {
 							.addContainerGap()
 							.addComponent(emailBidalitaLabel, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(65, 65, 65)
-							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-								.addComponent(bezeroariEmailBatLabel_1, GroupLayout.PREFERRED_SIZE, 363, GroupLayout.PREFERRED_SIZE)
-								.addComponent(bezeroariEmailBatLabel)))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(176, 176, 176)
-							.addComponent(onartuButton))
+							.addContainerGap()
+							.addComponent(separator, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addContainerGap()
-							.addComponent(separator, GroupLayout.PREFERRED_SIZE, 446, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(42, Short.MAX_VALUE))
+							.addComponent(bezeroariEmailBatLabel, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(bezeroariEmailBatLabel_1, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE))
+						.addGroup(GroupLayout.Alignment.TRAILING, groupLayout.createSequentialGroup()
+							.addContainerGap(387, Short.MAX_VALUE)
+							.addComponent(onartuButton)))
+					.addContainerGap())
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -77,14 +88,14 @@ public class EmailbidalizaioKantzelatuta extends JPanel {
 					.addContainerGap()
 					.addComponent(emailBidalitaLabel)
 					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-					.addComponent(separator, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(69, 69, 69)
-					.addComponent(bezeroariEmailBatLabel)
-					.addGap(25, 25, 25)
-					.addComponent(bezeroariEmailBatLabel_1, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
-					.addGap(74, 74, 74)
+					.addComponent(separator, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
+					.addGap(88, 88, 88)
+					.addComponent(bezeroariEmailBatLabel, GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(bezeroariEmailBatLabel_1, GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+					.addGap(127, 127, 127)
 					.addComponent(onartuButton)
-					.addContainerGap(65, Short.MAX_VALUE))
+					.addContainerGap())
 		);
 		setLayout(groupLayout);
 		//

@@ -5,18 +5,14 @@ import gkae.zapataparegabeak.objektuak.Zapata;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
-import java.awt.Insets;
 import java.text.DecimalFormat;
 
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
-import javax.swing.JSpinner;
 import javax.swing.JTextArea;
 import javax.swing.LayoutStyle;
 import javax.swing.UIManager;

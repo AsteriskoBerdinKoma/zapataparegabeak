@@ -5,26 +5,27 @@ import gkae.zapataparegabeak.objektuak.Zapata;
 
 import java.awt.Color;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
-import javax.swing.SpringLayout;
-import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
+
 import com.swtdesigner.SwingResourceManager;
 
 public class ProduktuDatuak extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private JTextField irudiIzena;
 	private JComboBox comboBox_2;
 	private JTextField eskaintzaEhunekotan;

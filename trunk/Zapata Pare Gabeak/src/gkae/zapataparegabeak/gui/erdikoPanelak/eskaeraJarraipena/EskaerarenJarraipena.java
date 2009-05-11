@@ -17,7 +17,6 @@ import javax.swing.BoxLayout;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -480,14 +479,14 @@ public class EskaerarenJarraipena extends JPanel {
 		eskaeraBi.remove(e);
 	}
 
-	public static void main(String[] args) {
-		JFrame j = new JFrame("Frogak");
-		EskaerarenJarraipena e = new EskaerarenJarraipena(new NagusiaPanel());
-		j.add(e);
-		j.setSize(e.getPreferredSize());
-		j.setVisible(true);
-		j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
+//	public static void main(String[] args) {
+//		JFrame j = new JFrame("Frogak");
+//		EskaerarenJarraipena e = new EskaerarenJarraipena(new NagusiaPanel());
+//		j.add(e);
+//		j.setSize(e.getPreferredSize());
+//		j.setVisible(true);
+//		j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//	}
 
 	
 

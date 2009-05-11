@@ -10,6 +10,11 @@ import javax.swing.LayoutStyle;
 
 public class MaterialBerriaPanela extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private JSpinner spinner;
 	private JTextField textField_8;
 	private JTextField textField_7;

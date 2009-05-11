@@ -1,14 +1,8 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu;
 
 import java.awt.CardLayout;
+
 import javax.swing.JPanel;
-import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu.AlbaranenLista;
-import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu.AlbaranDatuak;
-import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu.BezeroekEgindakoEskaerenLista;
-import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu.DatuKonprobaketa;
-import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu.Emailbidalizaio;
-import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu.EmailbidalizaioKantzelatuta;
-import gkae.zapataparegabeak.gui.erdikoPanelak.bezeroenEskaerakKudeatu.AlbaranaSortuDa;
 
 public class BezeroenEskaerakPanel extends JPanel {
 

@@ -8,9 +8,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
+import com.swtdesigner.SwingResourceManager;
 
 public class ProduktuEditatu extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTextField textField_1;
 	private JComboBox comboBox_1;
 	/**
@@ -33,54 +38,53 @@ public class ProduktuEditatu extends JPanel {
 
 		JButton bilatuButton;
 		bilatuButton = new JButton();
+		bilatuButton.setIcon(SwingResourceManager.getIcon(ProduktuEditatu.class, "/gkae/zapataparegabeak/resources/ikonoak/search_magnifier24.png"));
 		bilatuButton.setText("Bilatu");
 
 		JButton adosButton;
 		adosButton = new JButton();
+		adosButton.setIcon(SwingResourceManager.getIcon(ProduktuEditatu.class, "/gkae/zapataparegabeak/resources/ikonoak/accept_item24.png"));
 		adosButton.setText("Ados");
 
 		JButton itzuliButton;
 		itzuliButton = new JButton();
+		itzuliButton.setIcon(SwingResourceManager.getIcon(ProduktuEditatu.class, "/gkae/zapataparegabeak/resources/ikonoak/left_arrow24.png"));
 		itzuliButton.setText("Itzuli");
 		final GroupLayout groupLayout = new GroupLayout((JComponent) this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(GroupLayout.Alignment.TRAILING, groupLayout.createSequentialGroup()
+					.addContainerGap(316, Short.MAX_VALUE)
+					.addComponent(itzuliButton)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(adosButton)
+					.addContainerGap())
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addComponent(produktueLabel)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(motaLabel, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-							.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, 106, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-							.addComponent(adosButton)
-							.addComponent(produktueLabel, GroupLayout.PREFERRED_SIZE, 213, GroupLayout.PREFERRED_SIZE)))
-					.addGap(28, 28, 28)
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, 106, GroupLayout.PREFERRED_SIZE)
+							.addGap(100, 100, 100)
 							.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE)
 							.addGap(6, 6, 6)
-							.addComponent(bilatuButton, GroupLayout.PREFERRED_SIZE, 68, GroupLayout.PREFERRED_SIZE))
-						.addComponent(itzuliButton))
-					.addContainerGap(57, Short.MAX_VALUE))
+							.addComponent(bilatuButton)))
+					.addGap(40, 40, 40))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(produktueLabel, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
-					.addGap(25, 25, 25)
-					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(6, 6, 6)
-							.addComponent(motaLabel, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-							.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
-							.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(2, 2, 2)
-							.addComponent(bilatuButton, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)))
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 256, Short.MAX_VALUE)
+					.addGap(27, 27, 27)
+					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(motaLabel, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
+						.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(bilatuButton, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 253, Short.MAX_VALUE)
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 						.addComponent(adosButton)
 						.addComponent(itzuliButton))

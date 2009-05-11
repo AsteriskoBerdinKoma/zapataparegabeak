@@ -8,11 +8,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
-import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
 public class BezeroenDatuakPanel extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private JTextField harProbintzia;
 	private JTextField harAbizenak;
 	private JTextField harIzena;

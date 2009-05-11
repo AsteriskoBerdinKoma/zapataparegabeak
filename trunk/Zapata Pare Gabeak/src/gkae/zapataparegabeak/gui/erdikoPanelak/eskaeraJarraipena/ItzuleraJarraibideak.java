@@ -1,16 +1,13 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.eskaeraJarraipena;
 
-import java.awt.EventQueue;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import javax.swing.GroupLayout;
 import javax.swing.JComponent;
-
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 import javax.swing.LayoutStyle;
+
 import com.swtdesigner.SwingResourceManager;
 
 public class ItzuleraJarraibideak extends JDialog {
@@ -132,25 +129,25 @@ public class ItzuleraJarraibideak extends JDialog {
 		//
 	}
 	
-	/**
-	 * Launch the application
-	 * @param args
-	 */
-	public static void main(String args[]) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ItzuleraJarraibideak dialog = new ItzuleraJarraibideak();
-					dialog.addWindowListener(new WindowAdapter() {
-						public void windowClosing(WindowEvent e) {
-							System.exit(0);
-						}
-					});
-					dialog.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	/**
+//	 * Launch the application
+//	 * @param args
+//	 */
+//	public static void main(String args[]) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					ItzuleraJarraibideak dialog = new ItzuleraJarraibideak();
+//					dialog.addWindowListener(new WindowAdapter() {
+//						public void windowClosing(WindowEvent e) {
+//							System.exit(0);
+//						}
+//					});
+//					dialog.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 }

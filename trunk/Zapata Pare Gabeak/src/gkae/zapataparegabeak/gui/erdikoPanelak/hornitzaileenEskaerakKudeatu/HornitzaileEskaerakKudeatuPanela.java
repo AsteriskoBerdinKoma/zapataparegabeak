@@ -1,5 +1,8 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.hornitzaileenEskaerakKudeatu;
 
+import gkae.zapataparegabeak.objektuak.HornitzaileEskaera;
+import gkae.zapataparegabeak.objektuak.HornitzaileEskaeraZerrenda;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,26 +18,23 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
-import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
 import javax.swing.ListSelectionModel;
-import javax.swing.SpringLayout;
 import javax.swing.SwingConstants;
-import javax.swing.border.EtchedBorder;
-import gkae.zapataparegabeak.gui.erdikoPanelak.hornitzaileenEskaerakKudeatu.HornitzaileEskaeraDatuakPanela;
-import gkae.zapataparegabeak.objektuak.HornitzaileEskaera;
-import gkae.zapataparegabeak.objektuak.HornitzaileEskaeraZerrenda;
-import gkae.zapataparegabeak.objektuak.HornitzaileZerrenda;
-import gkae.zapataparegabeak.objektuak.Hornitzailea;
-
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+
 import com.swtdesigner.SwingResourceManager;
 
 public class HornitzaileEskaerakKudeatuPanela extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private JTextField textField;
 	private HornitzaileEskaeraDatuakPanela hornitzaileEskaeraDatuakPanela;
 	private DefaultListModel listModel;
@@ -120,6 +120,15 @@ public class HornitzaileEskaerakKudeatuPanela extends JPanel {
 
 		JButton ezabatuButton;
 		ezabatuButton = new JButton();
+		ezabatuButton.addActionListener(new ActionListener() {
+			public void actionPerformed(final ActionEvent arg0) {
+				JOptionPane jop = new JOptionPane(
+                        "Eskaera ongi ezabatu da.",
+                        JOptionPane.INFORMATION_MESSAGE);
+						jop.createDialog("Eskaera ezabatu")
+                        .setVisible(true);
+			}
+		});
 		ezabatuButton.setHorizontalAlignment(SwingConstants.LEFT);
 		ezabatuButton.setIcon(SwingResourceManager.getIcon(HornitzaileEskaerakKudeatuPanela.class, "/gkae/zapataparegabeak/resources/ikonoak/delete_item24.png"));
 		ezabatuButton.setText("Ezabatu");
@@ -130,7 +139,7 @@ public class HornitzaileEskaerakKudeatuPanela extends JPanel {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addComponent(separator, GroupLayout.DEFAULT_SIZE, 649, Short.MAX_VALUE)
+						.addComponent(separator, GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
 						.addComponent(eskaerenHistorikoaLabel, GroupLayout.PREFERRED_SIZE, 266, GroupLayout.PREFERRED_SIZE)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -138,8 +147,8 @@ public class HornitzaileEskaerakKudeatuPanela extends JPanel {
 								.addComponent(list, GroupLayout.PREFERRED_SIZE, 165, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-								.addComponent(hornitzaileEskaeraDatuakPanela, GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
-								.addComponent(textField, GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE))
+								.addComponent(hornitzaileEskaeraDatuakPanela, GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+								.addComponent(textField, GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE))
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
 								.addComponent(ezabatuButton)
@@ -167,9 +176,9 @@ public class HornitzaileEskaerakKudeatuPanela extends JPanel {
 							.addComponent(konfirmatuButton)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(ezabatuButton))
-						.addComponent(list, GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+						.addComponent(list, GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(hornitzaileEskaeraDatuakPanela, GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
+							.addComponent(hornitzaileEskaeraDatuakPanela, GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)))
 					.addContainerGap())
 		);

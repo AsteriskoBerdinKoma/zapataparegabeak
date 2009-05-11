@@ -1,5 +1,8 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.hornitzaileakKudeatu;
 
+import gkae.zapataparegabeak.objektuak.HornitzaileZerrenda;
+import gkae.zapataparegabeak.objektuak.Hornitzailea;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,23 +21,21 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
-import javax.swing.JTextArea;
 import javax.swing.LayoutStyle;
-import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
-import javax.swing.SpringLayout;
 import javax.swing.SwingConstants;
-import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+
 import com.swtdesigner.SwingResourceManager;
 
-import gkae.zapataparegabeak.gui.erdikoPanelak.hornitzaileakKudeatu.HornitzaileDatuakPanela;
-import gkae.zapataparegabeak.objektuak.HornitzaileZerrenda;
-import gkae.zapataparegabeak.objektuak.Hornitzailea;
-
 public class HornitzaileakKudeatuPanela extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	// private boolean eguneratu;
 	private DefaultListModel listModel;
 	private HornitzaileDatuakPanela hornitzaileDatuak;
@@ -108,6 +109,7 @@ public class HornitzaileakKudeatuPanela extends JPanel {
 				HornitzaileZerrenda.getInstance().hornitzaileaGehitu(h);
 				// zerrendaKargatu();
 				DatuakEditatu dE = new DatuakEditatu();
+				dE.setTitle("Hornitzaile berria sortu");
 				dE.setDatuak(h);
 				dE.setLocationRelativeTo(null);
 				dE.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);

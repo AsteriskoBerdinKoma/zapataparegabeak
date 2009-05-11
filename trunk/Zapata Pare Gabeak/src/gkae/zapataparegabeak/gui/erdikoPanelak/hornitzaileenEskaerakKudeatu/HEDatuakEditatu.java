@@ -1,24 +1,25 @@
 package gkae.zapataparegabeak.gui.erdikoPanelak.hornitzaileenEskaerakKudeatu;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import gkae.zapataparegabeak.objektuak.HornitzaileEskaera;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
-
 import javax.swing.JDialog;
 import javax.swing.LayoutStyle;
 import javax.swing.SwingConstants;
+
 import com.swtdesigner.SwingResourceManager;
-import gkae.zapataparegabeak.gui.erdikoPanelak.hornitzaileenEskaerakKudeatu.HornitzaileEskaeraDatuakPanela;
-import gkae.zapataparegabeak.objektuak.HornitzaileEskaera;
-import gkae.zapataparegabeak.objektuak.Hornitzailea;
 
 public class HEDatuakEditatu extends JDialog {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	private HornitzaileEskaeraDatuakPanela hornitzaileEskaeraDatuakPanela;
 	private HornitzaileEskaera h;
@@ -28,6 +29,7 @@ public class HEDatuakEditatu extends JDialog {
 	 */
 	public HEDatuakEditatu() {
 		super();
+		setTitle("Eskaeraren datuak editatu");
 
 		
 		hornitzaileEskaeraDatuakPanela = new HornitzaileEskaeraDatuakPanela();
@@ -81,7 +83,7 @@ public class HEDatuakEditatu extends JDialog {
 	public void setDatuak(HornitzaileEskaera h) {
 
 		this.h = h;
-		hornitzaileEskaeraDatuakPanela.setDatuak(h);
+		hornitzaileEskaeraDatuakPanela.setDatuak(this.h);
 	}
 
 }

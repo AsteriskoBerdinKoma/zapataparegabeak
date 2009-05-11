@@ -3,7 +3,6 @@ package gkae.zapataparegabeak.gui.erdikoPanelak.erosi;
 import gkae.zapataparegabeak.gui.NagusiaPanel;
 import gkae.zapataparegabeak.objektuak.ErabiltzaileInfo;
 import gkae.zapataparegabeak.objektuak.Erabiltzaileak;
-import gkae.zapataparegabeak.objektuak.Kudeaketa;
 import gkae.zapataparegabeak.objektuak.SaskiratutakoZapatak;
 import gkae.zapataparegabeak.objektuak.Zapata;
 
@@ -24,7 +23,6 @@ import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -1133,15 +1131,15 @@ public class ErosiPanel extends JPanel {
 		}
 	}
 	
-	public static void main(String[] args){
-		JFrame j = new JFrame("Frogak");
-		ErosiPanel o = new ErosiPanel(new NagusiaPanel());
-		Kudeaketa.getInstance();
-		j.add(o);
-		j.setSize(o.getPreferredSize());
-		j.setVisible(true);
-		j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
+//	public static void main(String[] args){
+//		JFrame j = new JFrame("Frogak");
+//		ErosiPanel o = new ErosiPanel(new NagusiaPanel());
+//		Kudeaketa.getInstance();
+//		j.add(o);
+//		j.setSize(o.getPreferredSize());
+//		j.setVisible(true);
+//		j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//	}
 
 
 }
