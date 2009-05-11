@@ -1,15 +1,25 @@
-Programa exekutatzeko honakoak behar dira:
+============================================================
+ZAPATA PARE GABEAK APLIKAZIOA EXEKUTATZEKO JAKIN BEHARREKOAK
+============================================================
+
+
+PROGRAMA EXEKUTATZEKO GUTXIENEKO KONFIGURAZIOA
+----------------------------------------------
+
+	Instalatu beharreko softwarea
+	-----------------------------
+
 	- Javako makina birtualaren (JRE - Java Runtime Environment) azken bertsiona insatalatuta eduki behar duzu. Hau ondorengo orrian eskuratu dezakezu:
 			http://www.java.com
 	
 	- Programa hau Java instalatuta daukan edozein sistema eragiletan dabil, baina Windowsen funtzionamendu egokiagoa duela frogatu da.
 	
-Gainera programa zuzenean nabigatzailean exekutatzeko honakoak behar dira:
+	Programa zuzenean nabigatzailean exekutatzeko honakoak behar dira:
 	- Erabiltzen ari zaren nabigatzailerako Javako plugina. Hau ondorengo orrian eskuratu dezakezu:
 			http://jdl.sun.com/webapps/getjava/BrowserRedirect?locale=es&host=www.java.com:80
 			
-JRE Makina Birtuala erabiltzeko gutxieneko konfigurazioa
----------------------------------------------------------
+	JRE Makina Birtuala erabiltzeko gutxieneko konfigurazioa
+	---------------------------------------------------------
 
 	- Solaris sistemarako gutxienekoak
 
@@ -99,19 +109,45 @@ JRE Makina Birtuala erabiltzeko gutxieneko konfigurazioa
 																				 JRE: N/A
 
 
-	OHARRA: Goian zerrendatutako arakatzaileak Java Web Start eta Java Plug-inekin bateragarriak dira.			
+	Oharra: Goian zerrendatutako arakatzaileak Java Web Start eta Java Plug-inekin bateragarriak dira.
 
-
-Bezero bezala kautotzeko
--------------------------
-	Erabiltzailea: erosle1
-	Pasahitza: erosle1
-
-Kudeatzaile moduan kautotzeko (Peru Bakarka)
----------------------------------------------
-	Erabiltzailea: peru
-	Pasahitza: peru
 	
-Eskaeren jarraipena frogatzeko erabili honako eskaera kodea
-------------------------------------------------------------
-	Eskaera kodea: E012-453
+	Exekuziorako Bereizmena
+	-----------------------
+
+	Aplikazioa era egokian ikusteko 1280x800 bereizmena edo gehiago behar duzu.	
+
+
+
+PROGRAMA JAURTITZEKO ETA ERABILTZEKO ARGIBIDEAK
+-----------------------------------------------	
+
+	Programa Jaurtitzeko
+	--------------------	
+
+	- Web bertsioa
+		dagokion estekan klik egin eta aplikazioa kargatzea itsaron besterik ez da egin behar
+
+	- JAR bertsioa
+		fitxategia gure web-gunetik jaitsi eta ondoren ondoko pausuak eman aplikazioa jaurtitzeko
+		
+		1. Fitxategia zure mahaigainan jaitsi duzula suposatuz, ireki ezazu Inicio -> Ejecutar...
+		2. Berton, idatzi cmd eta sakatu enter.
+		3. Joan C:/Documents & Settings/ZureErab/Escritorio karpetaraino
+		4. Fitxategia ireki java -jar Zapataparegabeak.jar idatzi eta enter sakatuaz.
+
+
+	Erabiltzeko argibideak
+	----------------------
+	Aplikazioan demo datu batzuk erabili ditugu. Hauek dira jakin beharreko datu batzuk:
+
+	- Bezero bezala kautotzeko
+		Erabiltzailea: erosle1
+		Pasahitza: erosle1
+
+	- Kudeatzaile moduan kautotzeko (Peru Bakarka)
+		Erabiltzailea: peru
+		Pasahitza: peru
+	
+	- Eskaeren jarraipena frogatzeko erabili honako eskaera kodea (edo kautotu bezero gisa)
+		Eskaera kodea: E012-453
